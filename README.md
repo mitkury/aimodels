@@ -1,17 +1,17 @@
-# allmodels
+# AIModels
 
 A collection of AI model specifications across different providers. This package provides normalized data about AI models, including their capabilities, context windows, and pricing information.
 
 ## Installation
 
 ```bash
-npm install allmodels
+npm install aimodels
 ```
 
 ## Usage
 
 ```typescript
-import { models } from 'allmodels';
+import { models } from 'aimodels';
 
 // Get all available models
 console.log(models.all);
