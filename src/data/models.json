@@ -1,0 +1,53 @@
+[
+  {
+    "id": "gpt-4",
+    "name": "GPT-4",
+    "provider": "openai",
+    "contextWindow": 8192,
+    "capabilities": ["chat", "completion"],
+    "pricing": {
+      "input": 0.03,
+      "output": 0.06
+    },
+    "released": "2023-03-14",
+    "parameters": 1100000000000
+  },
+  {
+    "id": "gpt-3.5-turbo",
+    "name": "GPT-3.5 Turbo",
+    "provider": "openai",
+    "contextWindow": 4096,
+    "capabilities": ["chat", "completion"],
+    "pricing": {
+      "input": 0.0015,
+      "output": 0.002
+    },
+    "released": "2022-11-30"
+  },
+  {
+    "id": "claude-2.1",
+    "name": "Claude 2.1",
+    "provider": "anthropic",
+    "contextWindow": 200000,
+    "capabilities": ["chat", "completion"],
+    "pricing": {
+      "input": 0.008,
+      "output": 0.024
+    },
+    "released": "2023-11-21"
+  },
+  {
+    "id": "llama-2-70b",
+    "name": "Llama 2 70B",
+    "provider": "meta",
+    "contextWindow": 4096,
+    "capabilities": ["chat", "completion"],
+    "pricing": {
+      "input": 0,
+      "output": 0
+    },
+    "released": "2023-07-18",
+    "license": "Llama 2 Community License",
+    "parameters": 70000000000
+  }
+]
