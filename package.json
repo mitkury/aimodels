@@ -13,7 +13,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
@@ -34,6 +35,14 @@
   ],
   "author": "Dmitry Kury (d@dkury.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitkury/aimodels.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mitkury/aimodels/issues"
+  },
+  "homepage": "https://github.com/mitkury/aimodels#readme",
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
