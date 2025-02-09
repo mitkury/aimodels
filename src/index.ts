@@ -1,4 +1,5 @@
-import type { Model, ModelCollection, ModelPrice, CreatorsData, Provider } from './types/index.ts';
+import type { Model, ModelsAPI, ModelCollection, ModelPrice, CreatorsData, Provider } from './types/index.ts';
+import { ModelCollectionImpl } from './builders/collection.ts';
 
 // Import builders and metadata
 import { buildAllModels } from './builders/models.ts';
@@ -9,8 +10,8 @@ import creators from './data/creators.json' with { type: 'json' };
 const allModels = buildAllModels();
 const providersData = buildProvidersData();
 
-export const models: ModelCollection = {
-  all: allModels,
+export const models: ModelsAPI = {
+  all: new ModelCollectionImpl(allModels),
 
   get creators(): string[] {
     return Object.keys((creators as CreatorsData).creators);
@@ -20,29 +21,37 @@ export const models: ModelCollection = {
     return providersData.providers.map((p: Provider) => p.id);
   },
 
-  fromCreator(creator: string): Model[] {
-    return allModels.filter(model => 
-      model.license.startsWith(creator) || // For open source models
-      providersData.providers.find((p: Provider) => p.id === creator)?.models[model.id] // For proprietary models
+  fromCreator(creator: string): ModelCollection {
+    return new ModelCollectionImpl(
+      allModels.filter(model => 
+        model.license.startsWith(creator) || // For open source models
+        providersData.providers.find((p: Provider) => p.id === creator)?.models[model.id] // For proprietary models
+      )
     );
   },
 
-  fromProvider(provider: string): Model[] {
-    return allModels.filter(model => model.providers.includes(provider));
+  fromProvider(provider: string): ModelCollection {
+    return new ModelCollectionImpl(
+      allModels.filter(model => model.providers.includes(provider))
+    );
   },
 
   find(id: string): Model | undefined {
     return allModels.find(model => model.id === id);
   },
 
-  can(...capabilities: string[]): Model[] {
-    return allModels.filter(model => 
-      capabilities.every(capability => model.can.includes(capability))
+  can(...capabilities: string[]): ModelCollection {
+    return new ModelCollectionImpl(
+      allModels.filter(model => 
+        capabilities.every(capability => model.can.includes(capability))
+      )
     );
   },
 
-  withMinContext(tokens: number): Model[] {
-    return allModels.filter(model => model.context.total >= tokens);
+  withMinContext(tokens: number): ModelCollection {
+    return new ModelCollectionImpl(
+      allModels.filter(model => model.context.total >= tokens)
+    );
   },
 
   getPrice(modelId: string, provider: string): ModelPrice | undefined {

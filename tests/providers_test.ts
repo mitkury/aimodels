@@ -1,5 +1,6 @@
 import { assertEquals, assertNotEquals } from "https://deno.land/std@0.220.1/assert/mod.ts";
 import { models } from "../src/index.ts";
+import type { Model } from "../src/types/index.ts";
 
 Deno.test("providers list contains major providers", () => {
   const providersList = models.providers;
@@ -14,7 +15,7 @@ Deno.test("fromProvider returns correct models", () => {
   // Test OpenAI models
   const openaiModels = models.fromProvider("openai");
   assertNotEquals(openaiModels.length, 0, "Should have OpenAI models");
-  openaiModels.forEach(model => {
+  openaiModels.forEach((model: Model) => {
     assertEquals(
       model.providers.includes("openai"), 
       true, 
@@ -25,7 +26,7 @@ Deno.test("fromProvider returns correct models", () => {
   // Test Anthropic models
   const anthropicModels = models.fromProvider("anthropic");
   assertNotEquals(anthropicModels.length, 0, "Should have Anthropic models");
-  anthropicModels.forEach(model => {
+  anthropicModels.forEach((model: Model) => {
     assertEquals(
       model.providers.includes("anthropic"), 
       true, 
@@ -65,7 +66,7 @@ Deno.test("provider websites are valid URLs", () => {
     const providerModels = models.fromProvider(providerId);
     if (providerModels.length > 0) {
       const model = providerModels[0];
-      const provider = model.providers.find(p => p === providerId);
+      const provider = model.providers.find((p: string) => p === providerId);
       assertEquals(
         provider !== undefined,
         true,
