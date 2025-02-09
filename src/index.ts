@@ -1,5 +1,6 @@
-import type { Model, ModelsAPI, ModelCollection, ModelPrice, CreatorsData, Provider } from './types/index.ts';
-import { ModelCollectionImpl } from './builders/collection.ts';
+import type { Model, ModelsAPI, ModelPrice, CreatorsData, Provider, Capability } from './types/index.ts';
+import { ModelCollection } from './types/models.ts';
+
 
 // Import builders and metadata
 import { buildAllModels } from './builders/models.ts';
@@ -11,7 +12,7 @@ const allModels = buildAllModels();
 const providersData = buildProvidersData();
 
 export const models: ModelsAPI = {
-  all: new ModelCollectionImpl(allModels),
+  all: new ModelCollection(allModels),
 
   get creators(): string[] {
     return Object.keys((creators as CreatorsData).creators);
@@ -22,7 +23,7 @@ export const models: ModelsAPI = {
   },
 
   fromCreator(creator: string): ModelCollection {
-    return new ModelCollectionImpl(
+    return new ModelCollection(
       allModels.filter(model => 
         model.license.startsWith(creator) || // For open source models
         providersData.providers.find((p: Provider) => p.id === creator)?.models[model.id] // For proprietary models
@@ -31,7 +32,7 @@ export const models: ModelsAPI = {
   },
 
   fromProvider(provider: string): ModelCollection {
-    return new ModelCollectionImpl(
+    return new ModelCollection(
       allModels.filter(model => model.providers.includes(provider))
     );
   },
@@ -40,8 +41,8 @@ export const models: ModelsAPI = {
     return allModels.find(model => model.id === id);
   },
 
-  can(...capabilities: string[]): ModelCollection {
-    return new ModelCollectionImpl(
+  can(...capabilities: Capability[]): ModelCollection {
+    return new ModelCollection(
       allModels.filter(model => 
         capabilities.every(capability => model.can.includes(capability))
       )
@@ -49,7 +50,7 @@ export const models: ModelsAPI = {
   },
 
   withMinContext(tokens: number): ModelCollection {
-    return new ModelCollectionImpl(
+    return new ModelCollection(
       allModels.filter(model => model.context.total >= tokens)
     );
   },

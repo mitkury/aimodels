@@ -4,8 +4,14 @@
       "id": "whisper-1",
       "name": "Whisper-1",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["sound-in", "text-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "sound-in",
+        "text-out"
+      ],
       "context": {
         "total": null,
         "maxOutput": null
@@ -15,8 +21,14 @@
       "id": "tts-1",
       "name": "TTS-1",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["text-in", "sound-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "text-in",
+        "sound-out"
+      ],
       "context": {
         "total": null,
         "maxOutput": null
@@ -26,8 +38,14 @@
       "id": "tts-1-hd",
       "name": "TTS-1 HD",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["text-in", "sound-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "text-in",
+        "sound-out"
+      ],
       "context": {
         "total": null,
         "maxOutput": null
@@ -37,8 +55,16 @@
       "id": "gpt-4o",
       "name": "GPT-4O",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["chat", "img-in", "json-out", "function-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "chat",
+        "img-in",
+        "json-out",
+        "function-out"
+      ],
       "context": {
         "total": 128000,
         "maxOutput": 16384
@@ -48,8 +74,16 @@
       "id": "gpt-4o-mini",
       "name": "GPT-4O Mini",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["chat", "img-in", "json-out", "function-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "chat",
+        "img-in",
+        "json-out",
+        "function-out"
+      ],
       "context": {
         "total": 128000,
         "maxOutput": 16384
@@ -59,8 +93,17 @@
       "id": "o1",
       "name": "OpenAI O1",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["chat", "img-in", "json-out", "function-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "chat",
+        "img-in",
+        "json-out",
+        "function-out",
+        "reason"
+      ],
       "context": {
         "total": 200000,
         "maxOutput": 100000
@@ -70,8 +113,16 @@
       "id": "o1-mini",
       "name": "OpenAI O1 Mini",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["chat", "json-out", "function-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "chat",
+        "json-out",
+        "function-out",
+        "reason"
+      ],
       "context": {
         "total": 128000,
         "maxOutput": 65536
@@ -81,8 +132,16 @@
       "id": "o3-mini",
       "name": "OpenAI O3 Mini",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["chat", "json-out", "function-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "chat",
+        "json-out",
+        "function-out",
+        "reason"
+      ],
       "context": {
         "total": 200000,
         "maxOutput": 100000
@@ -92,8 +151,16 @@
       "id": "gpt-4o-audio-preview",
       "name": "GPT-4O Audio",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["chat", "sound-in", "json-out", "function-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "chat",
+        "sound-in",
+        "json-out",
+        "function-out"
+      ],
       "context": {
         "total": 128000,
         "maxOutput": 16384
@@ -103,8 +170,16 @@
       "id": "gpt-4o-realtime-preview",
       "name": "GPT-4O Realtime",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["chat", "sound-in", "json-out", "function-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "chat",
+        "sound-in",
+        "json-out",
+        "function-out"
+      ],
       "context": {
         "total": 128000,
         "maxOutput": 4096
@@ -114,8 +189,13 @@
       "id": "dall-e-3",
       "name": "DALL-E 3",
       "license": "proprietary",
-      "providers": ["openai"],
-      "can": ["img-out"],
+      "providers": [
+        "openai",
+        "azure"
+      ],
+      "can": [
+        "img-out"
+      ],
       "context": {
         "maxOutput": 1,
         "sizes": [

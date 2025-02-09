@@ -1,14 +1,32 @@
 import type { ModelPrice } from './pricing.ts';
+import type { Capability } from './capabilities.ts';
 
-export interface ModelCollection extends Array<Model> {
-  // Chainable filters
-  can(...capabilities: string[]): ModelCollection;
-  know(...languages: string[]): ModelCollection;
-  
-  // Original array methods should return ModelCollection
-  filter(predicate: (value: Model, index: number, array: Model[]) => boolean): ModelCollection;
-  map<U>(callbackfn: (value: Model, index: number, array: Model[]) => U): U[];
-  slice(start?: number, end?: number): ModelCollection;
+export class ModelCollection extends Array<Model> {
+  constructor(models: Model[]) {
+    super(...models);
+    Object.setPrototypeOf(this, ModelCollection.prototype);
+  }
+
+  can(...capabilities: Capability[]): ModelCollection {
+    return new ModelCollection(
+      this.filter(model => capabilities.every(cap => model.can.includes(cap)))
+    );
+  }
+
+  know(...languages: string[]): ModelCollection {
+    return new ModelCollection(
+      this.filter(model => languages.every(lang => model.languages?.includes(lang)))
+    );
+  }
+
+  // Override array methods to return ModelCollection
+  override filter(predicate: (value: Model, index: number, array: Model[]) => boolean): ModelCollection {
+    return new ModelCollection(super.filter(predicate));
+  }
+
+  override slice(start?: number, end?: number): ModelCollection {
+    return new ModelCollection(super.slice(start, end));
+  }
 }
 
 export interface ModelContext {
@@ -28,7 +46,7 @@ export interface Model {
   /** List of providers that can serve this model */
   providers: string[];
   /** Model capabilities */
-  can: string[];
+  can: Capability[];
   /** Languages the model knows */
   languages?: string[];
   /** Context window information */

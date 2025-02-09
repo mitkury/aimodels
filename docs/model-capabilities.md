@@ -15,8 +15,10 @@ system.
     "sound-out", // generate audio/speech
     "json-out", // structured JSON output
     "function-out", // function calling
-    "text-to-vec", // text embeddings
-    "img-to-vec" // image embeddings
+    "vectors-out", // output vector embeddings
+    "text-out", // output text
+    "reason", // advanced reasoning capabilities
+    "text-in" // process text input
   ]
 }
 ```
@@ -27,7 +29,7 @@ system.
 
 ```json
 {
-  "can": ["chat", "img-in", "json-out", "function-out", "text-to-vec"]
+  "can": ["chat", "text-in", "img-in", "json-out", "function-out"]
 }
 ```
 
@@ -35,7 +37,7 @@ system.
 
 ```json
 {
-  "can": ["img-out"]
+  "can": ["text-in", "img-out"]
 }
 ```
 
@@ -43,7 +45,7 @@ system.
 
 ```json
 {
-  "can": ["sound-in"]
+  "can": ["sound-in", "text-out"]
 }
 ```
 
@@ -51,7 +53,7 @@ system.
 
 ```json
 {
-  "can": ["sound-out"]
+  "can": ["text-in", "sound-out"]
 }
 ```
 
@@ -59,7 +61,7 @@ system.
 
 ```json
 {
-  "can": ["text-to-vec", "img-to-vec"]
+  "can": ["text-in", "img-in", "vectors-out"]
 }
 ```
 
@@ -76,7 +78,9 @@ type Capability =
   | "json-out"
   | "function-out"
   | "text-to-vec"
-  | "img-to-vec";
+  | "img-to-vec"
+  | "reason"
+  | "text-in";
 
 interface Model {
   can: (...capabilities: Capability[]) => boolean;
