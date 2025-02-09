@@ -1,0 +1,15 @@
+{
+  "models": [
+    {
+      "id": "gemma2-9b-it",
+      "name": "Gemma 2 9B Instruct",
+      "license": "apache-2.0",
+      "providers": ["groq"],
+      "can": ["chat", "text-in", "text-out", "json-out", "function-out"],
+      "context": {
+        "total": 8192,
+        "maxOutput": 4096
+      }
+    }
+  ]
+}

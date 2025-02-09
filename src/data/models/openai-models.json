@@ -1,12 +1,31 @@
 {
   "models": [
     {
-      "id": "whisper-1",
-      "name": "Whisper-1",
-      "license": "proprietary",
+      "id": "whisper-large-v3",
+      "name": "Whisper Large v3",
+      "license": "mit",
       "providers": [
         "openai",
-        "azure"
+        "azure",
+        "groq"
+      ],
+      "can": [
+        "sound-in",
+        "text-out"
+      ],
+      "context": {
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "whisper-large-v3-turbo",
+      "name": "Whisper Large v3 Turbo",
+      "license": "mit",
+      "providers": [
+        "openai",
+        "azure",
+        "groq"
       ],
       "can": [
         "sound-in",

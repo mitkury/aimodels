@@ -1,11 +1,55 @@
 {
   "models": [
     {
-      "id": "llama2-70b-4096",
-      "name": "Llama 2 70B",
-      "license": "llama-2-community",
-      "providers": ["groq", "ollama"],
-      "can": ["chat", "json-out", "function-out"],
+      "id": "llama3-70b-8192",
+      "name": "Llama 3 70B",
+      "license": "llama-3-community",
+      "providers": ["groq"],
+      "can": ["chat", "text-in", "text-out", "json-out", "function-out"],
+      "context": {
+        "total": 8192,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "llama3-8b-8192",
+      "name": "Llama 3 8B",
+      "license": "llama-3-community",
+      "providers": ["groq"],
+      "can": ["chat", "text-in", "text-out", "json-out", "function-out"],
+      "context": {
+        "total": 8192,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "llama-3.2-11b-vision-preview",
+      "name": "Llama 3.2 11B Vision",
+      "license": "llama-3-community",
+      "providers": ["groq"],
+      "can": ["chat", "text-in", "text-out", "img-in"],
+      "context": {
+        "total": 4096,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "llama-3.2-90b-vision-preview",
+      "name": "Llama 3.2 90B Vision",
+      "license": "llama-3-community",
+      "providers": ["groq"],
+      "can": ["chat", "text-in", "text-out", "img-in"],
+      "context": {
+        "total": 4096,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "llama-guard-3-8b",
+      "name": "LlamaGuard 3 8B",
+      "license": "llama-3-community",
+      "providers": ["groq"],
+      "can": ["chat", "text-in", "text-out"],
       "context": {
         "total": 4096,
         "maxOutput": 4096
