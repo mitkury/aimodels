@@ -1,21 +1,22 @@
 # Model Capabilities
 
-This document outlines what AI models can do using a simple, intuitive "can" system.
+This document outlines what AI models can do using a simple, intuitive "can"
+system.
 
 ## Core Structure
 
 ```json
 {
   "can": [
-    "chat",          // basic text chat/completion
-    "img-in",        // understand images
-    "img-out",       // generate images
-    "sound-in",      // process audio input
-    "sound-out",     // generate audio/speech
-    "json-out",      // structured JSON output
-    "function-out",  // function calling
-    "text-to-vec",   // text embeddings
-    "img-to-vec"     // image embeddings
+    "chat", // basic text chat/completion
+    "img-in", // understand images
+    "img-out", // generate images
+    "sound-in", // process audio input
+    "sound-out", // generate audio/speech
+    "json-out", // structured JSON output
+    "function-out", // function calling
+    "text-to-vec", // text embeddings
+    "img-to-vec" // image embeddings
   ]
 }
 ```
@@ -23,6 +24,7 @@ This document outlines what AI models can do using a simple, intuitive "can" sys
 ## Examples by Model Type
 
 ### Multimodal Chat Models (GPT-4V, Claude 3)
+
 ```json
 {
   "can": ["chat", "img-in", "json-out", "function-out", "text-to-vec"]
@@ -30,6 +32,7 @@ This document outlines what AI models can do using a simple, intuitive "can" sys
 ```
 
 ### Image Generation Models (DALL-E 3, Stable Diffusion)
+
 ```json
 {
   "can": ["img-out"]
@@ -37,6 +40,7 @@ This document outlines what AI models can do using a simple, intuitive "can" sys
 ```
 
 ### Speech Models (Whisper)
+
 ```json
 {
   "can": ["sound-in"]
@@ -44,6 +48,7 @@ This document outlines what AI models can do using a simple, intuitive "can" sys
 ```
 
 ### Text-to-Speech Models (ElevenLabs)
+
 ```json
 {
   "can": ["sound-out"]
@@ -51,6 +56,7 @@ This document outlines what AI models can do using a simple, intuitive "can" sys
 ```
 
 ### Embedding Models (CLIP)
+
 ```json
 {
   "can": ["text-to-vec", "img-to-vec"]
@@ -61,8 +67,16 @@ This document outlines what AI models can do using a simple, intuitive "can" sys
 
 ```typescript
 // Type definitions
-type Capability = "chat" | "img-in" | "img-out" | "sound-in" | "sound-out" | 
-                 "json-out" | "function-out" | "text-to-vec" | "img-to-vec";
+type Capability =
+  | "chat"
+  | "img-in"
+  | "img-out"
+  | "sound-in"
+  | "sound-out"
+  | "json-out"
+  | "function-out"
+  | "text-to-vec"
+  | "img-to-vec";
 
 interface Model {
   can: (...capabilities: Capability[]) => boolean;
@@ -80,8 +94,8 @@ if (model.can("img-in", "json-out")) {
 }
 
 // Filter models
-const imageModels = models.filter(m => m.can("img-in"));
-const multimodal = models.filter(m => m.can("chat", "img-in"));
+const imageModels = models.filter((m) => m.can("img-in"));
+const multimodal = models.filter((m) => m.can("chat", "img-in"));
 ```
 
 ## Capability Descriptions

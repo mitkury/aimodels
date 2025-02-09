@@ -17,36 +17,76 @@ import { models } from 'aimodels';
 console.log(models.all);
 
 // Get list of all providers
-console.log(models.providers); // ['openai', 'anthropic', 'meta', ...]
+console.log(models.providers); // ['openai', 'anthropic', 'mistral', ...]
+
+// Get list of model creators
+console.log(models.creators); // ['meta', 'mistral', ...]
 
 // Get models from a specific provider
-const openAiModels = models.from('openai');
+const openAiModels = models.fromProvider('openai');
+
+// Get models from a specific creator
+const metaModels = models.fromCreator('meta');
 
 // Find a specific model
-const model = models.find('deepseek-r1');
-console.log(model.contextWindow);
-console.log(model.providers); 
-console.log(model.pricing.input);
+const model = models.find('gpt-4');
+console.log(model?.context.total); // Context window size
+console.log(model?.providers); // ['openai']
 
-// Filter models by capability
-const chatModels = models.withCapability('chat');
+// Get model pricing for a specific provider
+const price = models.getPrice('gpt-4', 'openai');
+console.log(price); // { type: 'token', input: 0.03, output: 0.06 }
+
+// Filter models by capabilities
+const chatModels = models.can('chat');
+const multimodalModels = models.can('chat', 'img-in');
 
 // Filter by context window
 const largeContextModels = models.withMinContext(32768);
-
-// Filter by maximum price
-const affordableModels = models.withMaxPrice(0.01); // Max $0.01 per 1K tokens
 ```
 
 ## Features
 
-- Comprehensive database of AI models
+- Comprehensive database of AI models from major providers (OpenAI, Anthropic, Mistral, etc.)
 - Normalized data structure for easy comparison
-- Regular updates with new models
-- TypeScript support
+- Model capabilities (chat, img-in, img-out, function-out, etc.)
+- Context window information
+- Pricing information per provider
+- Creator and provider associations
+- TypeScript support with full type safety
 - Zero dependencies
 - Universal JavaScript support (Node.js, browsers, Deno)
+- Regular updates with new models
 
+
+## Types
+
+```typescript
+interface Model {
+  id: string;           // Unique model identifier
+  name: string;         // Display name
+  can: string[];        // Capabilities (chat, img-in, img-out, etc.)
+  providers: string[];  // Available providers
+  context: {
+    total: number;      // Total context window size
+  };
+  license: string;      // License or creator
+}
+
+type ModelPrice = 
+  | { type: 'token'; input: number; output: number }      // Price per 1K tokens
+  | { type: 'image'; price: number; size: string }        // Price per image
+  | { type: 'character'; price: number }                  // Price per character
+  | { type: 'minute'; price: number };                    // Price per minute
+
+interface Provider {
+  id: string;           // Provider identifier
+  name: string;         // Display name
+  websiteUrl: string;   // Provider's website
+  apiUrl: string;       // API documentation URL
+  models: Record<string, ModelPrice>;  // Model pricing
+}
+```
 
 ## License
 
