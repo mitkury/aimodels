@@ -17,20 +17,30 @@
     "LICENSE"
   ],
   "scripts": {
+    "prebuild": "npm run typecheck && npm run lint && npm test",
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "test": "jest",
+    "test": "deno test tests/",
+    "test:watch": "deno test --watch tests/",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
-    "prepublishOnly": "npm run build"
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "preversion": "npm run typecheck && npm run lint && npm test",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags",
+    "prepublishOnly": "npm run clean && npm run typecheck && npm test && npm run lint && npm outdated",
+    "postpublish": "npm run clean"
   },
   "keywords": [
     "ai",
     "models",
+    "ai models",
     "llm",
     "machine-learning",
     "specifications",
     "openai",
     "anthropic",
+    "mistral",
     "open-source"
   ],
   "author": "Dmitry Kury (d@dkury.com)",
@@ -43,13 +53,14 @@
     "url": "https://github.com/mitkury/aimodels/issues"
   },
   "homepage": "https://github.com/mitkury/aimodels#readme",
+  "engines": {
+    "deno": ">=1.40.0"
+  },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
-    "jest": "^29.0.0",
-    "ts-jest": "^29.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0"
   }
