@@ -41,8 +41,6 @@
         "npm:@typescript-eslint/eslint-plugin@6",
         "npm:@typescript-eslint/parser@6",
         "npm:eslint@8",
-        "npm:jest@29",
-        "npm:ts-jest@29",
         "npm:tsup@8",
         "npm:typescript@5"
       ]

@@ -6,45 +6,78 @@ import anthropicProvider from '../data/providers/anthropic.json' with { type: 'j
 import mistralProvider from '../data/providers/mistral.json' with { type: 'json' };
 
 // Type guard to check if a price object is a token price
-function isTokenPrice(price: any): price is { type: 'token'; input: number; output: number } {
-  return price?.type === 'token' && typeof price.input === 'number' && typeof price.output === 'number';
+function isTokenPrice(price: unknown): price is { type: 'token'; input: number; output: number } {
+  return typeof price === 'object' && price !== null && 
+    'type' in price && (price as { type: string }).type === 'token' &&
+    'input' in price && typeof (price as { input: unknown }).input === 'number' &&
+    'output' in price && typeof (price as { output: unknown }).output === 'number';
 }
 
 // Type guard to check if a price object is an image price
-function isImagePrice(price: any): price is { type: 'image'; price: number; size: string; unit: 'per_image' } {
-  return price?.type === 'image' && typeof price.price === 'number' && typeof price.size === 'string' && price.unit === 'per_image';
+function isImagePrice(price: unknown): price is { type: 'image'; price: number; size: string; unit: 'per_image' } {
+  return typeof price === 'object' && price !== null &&
+    'type' in price && (price as { type: string }).type === 'image' &&
+    'price' in price && typeof (price as { price: unknown }).price === 'number' &&
+    'size' in price && typeof (price as { size: unknown }).size === 'string' &&
+    'unit' in price && (price as { unit: string }).unit === 'per_image';
 }
 
 // Type guard to check if a price object is a character price
-function isCharacterPrice(price: any): price is { type: 'character'; price: number } {
-  return price?.type === 'character' && typeof price.price === 'number';
+function isCharacterPrice(price: unknown): price is { type: 'character'; price: number } {
+  return typeof price === 'object' && price !== null &&
+    'type' in price && (price as { type: string }).type === 'character' &&
+    'price' in price && typeof (price as { price: unknown }).price === 'number';
 }
 
 // Type guard to check if a price object is a minute price
-function isMinutePrice(price: any): price is { type: 'minute'; price: number } {
-  return price?.type === 'minute' && typeof price.price === 'number';
+function isMinutePrice(price: unknown): price is { type: 'minute'; price: number } {
+  return typeof price === 'object' && price !== null &&
+    'type' in price && (price as { type: string }).type === 'minute' &&
+    'price' in price && typeof (price as { price: unknown }).price === 'number';
 }
 
 /**
  * Validate and convert a raw provider object to a Provider type
  */
-function validateProvider(raw: any): Provider {
-  if (!raw?.id || typeof raw.id !== 'string' ||
-      !raw?.name || typeof raw.name !== 'string' ||
-      !raw?.websiteUrl || typeof raw.websiteUrl !== 'string' ||
-      !raw?.apiUrl || typeof raw.apiUrl !== 'string' ||
-      !raw?.models || typeof raw.models !== 'object') {
-    throw new Error(`Invalid provider data: ${JSON.stringify(raw)}`);  
+function validateProvider(raw: unknown): Provider {
+  if (typeof raw !== 'object' || raw === null) {
+    throw new Error('Provider data must be an object');
+  }
+
+  const provider = raw as Record<string, unknown>;
+
+  if (typeof provider.id !== 'string') {
+    throw new Error('Provider id must be a string');
+  }
+  if (typeof provider.name !== 'string') {
+    throw new Error('Provider name must be a string');
+  }
+  if (typeof provider.websiteUrl !== 'string') {
+    throw new Error('Provider websiteUrl must be a string');
+  }
+  if (typeof provider.apiUrl !== 'string') {
+    throw new Error('Provider apiUrl must be a string');
+  }
+  if (typeof provider.models !== 'object' || provider.models === null) {
+    throw new Error('Provider models must be an object');
   }
 
   // Validate each model price
-  Object.values(raw.models).forEach(price => {
+  const models = provider.models as Record<string, unknown>;
+  Object.values(models).forEach(price => {
     if (!isTokenPrice(price) && !isImagePrice(price) && !isCharacterPrice(price) && !isMinutePrice(price)) {
-      throw new Error(`Invalid price data: ${JSON.stringify(price)}`);  
+      throw new Error(`Invalid price data: ${JSON.stringify(price)}`);
     }
   });
 
-  return raw as Provider;
+  // At this point we've verified all required fields
+  return {
+    id: provider.id as string,
+    name: provider.name as string,
+    websiteUrl: provider.websiteUrl as string,
+    apiUrl: provider.apiUrl as string,
+    models: provider.models as Provider['models']
+  };
 }
 
 /**

@@ -1,4 +1,4 @@
-import type { Model, ModelCollection, ModelPrice, CreatorsData, ProvidersData, Provider } from './types/index.ts';
+import type { Model, ModelCollection, ModelPrice, CreatorsData, Provider } from './types/index.ts';
 
 // Import builders and metadata
 import { buildAllModels } from './builders/models.ts';
