@@ -5,40 +5,86 @@
       "name": "OpenAI",
       "websiteUrl": "https://openai.com/",
       "apiUrl": "https://api.openai.com/v1",
-      "defaultModel": "gpt-4-turbo-preview",
+      "defaultModel": "gpt-4o",
       "models": {
-        "gpt-4-turbo-preview": {
+        "gpt-4o": {
           "type": "token",
-          "input": 10,
-          "output": 30
+          "input": 20,
+          "output": 80
         },
-        "gpt-4-vision-preview": {
+        "gpt-4o-mini": {
           "type": "token",
-          "input": 10,
-          "output": 30
+          "input": 5,
+          "output": 20
         },
-        "gpt-4": {
+        "o1": {
           "type": "token",
-          "input": 30,
+          "input": 15,
+          "input_cached": 7.5,
           "output": 60
         },
-        "gpt-3.5-turbo": {
+        "o1-mini": {
           "type": "token",
-          "input": 0.5,
-          "output": 1.5
+          "input": 3,
+          "input_cached": 1.5,
+          "output": 15
+        },
+        "o3-mini": {
+          "type": "token",
+          "input": 3,
+          "input_cached": 1.5,
+          "output": 15
+        },
+        "gpt-4o-audio-preview": {
+          "type": "token",
+          "input": 20,
+          "output": 80
+        },
+        "gpt-4o-realtime-preview": {
+          "type": "token",
+          "input": 20,
+          "output": 80
+        },
+        "whisper-1": {
+          "type": "minute",
+          "input": 0.006
+        },
+        "tts-1": {
+          "type": "character",
+          "input": 0.000015
+        },
+        "tts-1-hd": {
+          "type": "character",
+          "input": 0.00003
         },
         "dall-e-3": {
           "type": "image",
-          "tiers": [
+          "standard": [
             {
               "size": "1024x1024",
-              "price": 0.04,
-              "unit": "per_image"
+              "price": 0.04
             },
             {
               "size": "1024x1792",
-              "price": 0.08,
-              "unit": "per_image"
+              "price": 0.08
+            },
+            {
+              "size": "1792x1024",
+              "price": 0.08
+            }
+          ],
+          "hd": [
+            {
+              "size": "1024x1024",
+              "price": 0.08
+            },
+            {
+              "size": "1024x1792",
+              "price": 0.12
+            },
+            {
+              "size": "1792x1024",
+              "price": 0.12
             }
           ]
         }

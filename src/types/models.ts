@@ -35,8 +35,8 @@ export interface ModelCollection {
   fromProvider(provider: string): Model[];
   /** Find a specific model by ID */
   find(id: string): Model | undefined;
-  /** Filter models by capability */
-  withCapability(capability: string): Model[];
+  /** Filter models by one or more capabilities (all must be present) */
+  can(...capabilities: string[]): Model[];
   /** Filter models by minimum context window */
   withMinContext(tokens: number): Model[];
   /** Get pricing for a model from a specific provider */

@@ -1,24 +1,14 @@
-import type { Model, ModelCollection, ModelPrice, ModelsData, CreatorsData, ProvidersData } from './types/index';
+import type { Model, ModelCollection, ModelPrice, CreatorsData, ProvidersData } from './types/index';
 
-// Import model data
-import openaiModels from './data/models/openai.json' assert { type: 'json' };
-import anthropicModels from './data/models/anthropic.json' assert { type: 'json' };
-import metaModels from './data/models/meta.json' assert { type: 'json' };
-import mistralModels from './data/models/mistral.json' assert { type: 'json' };
-
-// Import metadata
+// Import builders and metadata
+import { buildAllModels } from './builders/models';
 import creators from './data/creators.json' assert { type: 'json' };
 import providers from './data/providers.json' assert { type: 'json' };
 
 export * from './types';
 
-// Combine all models
-const allModels: Model[] = [
-  ...(openaiModels as ModelsData).models,
-  ...(anthropicModels as ModelsData).models,
-  ...(metaModels as ModelsData).models,
-  ...(mistralModels as ModelsData).models
-];
+// Get all models from builder
+const allModels = buildAllModels();
 
 export const models: ModelCollection = {
   all: allModels,
@@ -46,8 +36,10 @@ export const models: ModelCollection = {
     return allModels.find(model => model.id === id);
   },
 
-  withCapability(capability: string): Model[] {
-    return allModels.filter(model => model.can.includes(capability));
+  can(...capabilities: string[]): Model[] {
+    return allModels.filter(model => 
+      capabilities.every(capability => model.can.includes(capability))
+    );
   },
 
   withMinContext(tokens: number): Model[] {
