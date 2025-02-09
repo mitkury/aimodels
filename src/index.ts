@@ -1,14 +1,13 @@
-import type { Model, ModelCollection, ModelPrice, CreatorsData, ProvidersData } from './types/index';
+import type { Model, ModelCollection, ModelPrice, CreatorsData, ProvidersData, Provider } from './types/index.ts';
 
 // Import builders and metadata
-import { buildAllModels } from './builders/models';
-import creators from './data/creators.json' assert { type: 'json' };
-import providers from './data/providers.json' assert { type: 'json' };
+import { buildAllModels } from './builders/models.ts';
+import { buildProvidersData } from './builders/providers.ts';
+import creators from './data/creators.json' with { type: 'json' };
 
-export * from './types';
-
-// Get all models from builder
+// Build data once
 const allModels = buildAllModels();
+const providersData = buildProvidersData();
 
 export const models: ModelCollection = {
   all: allModels,
@@ -18,13 +17,13 @@ export const models: ModelCollection = {
   },
 
   get providers(): string[] {
-    return (providers as ProvidersData).providers.map(p => p.id);
+    return providersData.providers.map((p: Provider) => p.id);
   },
 
   fromCreator(creator: string): Model[] {
     return allModels.filter(model => 
       model.license.startsWith(creator) || // For open source models
-      (providers as ProvidersData).providers.find(p => p.id === creator)?.models[model.id] // For proprietary models
+      providersData.providers.find((p: Provider) => p.id === creator)?.models[model.id] // For proprietary models
     );
   },
 
@@ -47,11 +46,11 @@ export const models: ModelCollection = {
   },
 
   getPrice(modelId: string, provider: string): ModelPrice | undefined {
-    const providerData = (providers as ProvidersData).providers.find(p => p.id === provider);
+    const providerData = providersData.providers.find((p: Provider) => p.id === provider);
     const price = providerData?.models[modelId];
     return price?.type === 'token' ? price : undefined;
   }
 };
 
-export { creators, providers };
+export { creators };
 

@@ -1,6 +1,6 @@
-import type { Model } from './models';
-import type { Creator } from './creators';
-import type { Provider } from './providers';
+import type { Model } from './models.ts';
+import type { Creator } from './creators.ts';
+import type { Provider } from './providers.ts';
 
 export interface ModelsData {
   models: Model[];

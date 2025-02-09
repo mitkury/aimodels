@@ -1,4 +1,4 @@
-import type { ModelPrice, ImagePrice } from './pricing';
+import type { ModelPrice, ImagePrice } from './pricing.ts';
 
 export interface Provider {
   /** Provider identifier */

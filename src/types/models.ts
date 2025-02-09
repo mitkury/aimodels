@@ -1,4 +1,4 @@
-import type { ModelPrice } from './pricing';
+import type { ModelPrice } from './pricing.ts';
 
 export interface ModelContext {
   /** Maximum total tokens (input + output) */
