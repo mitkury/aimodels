@@ -1,0 +1,15 @@
+{
+  "models": [
+    {
+      "id": "mixtral-8x7b-32768",
+      "name": "Mixtral 8x7B",
+      "license": "apache-2.0",
+      "providers": ["groq"],
+      "can": ["chat", "json-out", "function-out"],
+      "context": {
+        "total": 32768,
+        "maxOutput": 4096
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "creators": {
+    "openai": {
+      "name": "OpenAI",
+      "website": "https://openai.com"
+    },
+    "anthropic": {
+      "name": "Anthropic",
+      "website": "https://anthropic.com"
+    },
+    "meta": {
+      "name": "Meta",
+      "website": "https://ai.meta.com"
+    },
+    "mistral": {
+      "name": "Mistral AI",
+      "website": "https://mistral.ai"
+    }
+  }
+}

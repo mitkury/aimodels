@@ -1,0 +1,36 @@
+{
+  "models": [
+    {
+      "id": "gpt-4-turbo-preview",
+      "name": "GPT-4 Turbo",
+      "license": "proprietary",
+      "providers": ["openai"],
+      "can": ["chat", "json-out", "function-out"],
+      "context": {
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "gpt-4-vision-preview",
+      "name": "GPT-4 Vision",
+      "license": "proprietary",
+      "providers": ["openai"],
+      "can": ["chat", "img-in", "json-out", "function-out"],
+      "context": {
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "dall-e-3",
+      "name": "DALL-E 3",
+      "license": "proprietary",
+      "providers": ["openai"],
+      "can": ["img-out"],
+      "context": {
+        "maxOutput": 1
+      }
+    }
+  ]
+}

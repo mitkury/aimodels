@@ -1,0 +1,99 @@
+{
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "websiteUrl": "https://openai.com/",
+      "apiUrl": "https://api.openai.com/v1",
+      "defaultModel": "gpt-4-turbo-preview",
+      "models": {
+        "gpt-4-turbo-preview": {
+          "type": "token",
+          "input": 10,
+          "output": 30
+        },
+        "gpt-4-vision-preview": {
+          "type": "token",
+          "input": 10,
+          "output": 30
+        },
+        "gpt-4": {
+          "type": "token",
+          "input": 30,
+          "output": 60
+        },
+        "gpt-3.5-turbo": {
+          "type": "token",
+          "input": 0.5,
+          "output": 1.5
+        },
+        "dall-e-3": {
+          "type": "image",
+          "tiers": [
+            {
+              "size": "1024x1024",
+              "price": 0.04,
+              "unit": "per_image"
+            },
+            {
+              "size": "1024x1792",
+              "price": 0.08,
+              "unit": "per_image"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "websiteUrl": "https://anthropic.com/",
+      "apiUrl": "https://api.anthropic.com/v1",
+      "defaultModel": "claude-3-sonnet",
+      "models": {
+        "claude-3-opus": {
+          "type": "token",
+          "input": 15,
+          "output": 75
+        },
+        "claude-3-sonnet": {
+          "type": "token",
+          "input": 3,
+          "output": 15
+        },
+        "claude-3-haiku": {
+          "type": "token",
+          "input": 2.5,
+          "output": 12.5
+        }
+      }
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "websiteUrl": "https://groq.com/",
+      "apiUrl": "https://api.groq.com/openai/v1",
+      "defaultModel": "mixtral-8x7b-32768",
+      "models": {
+        "mixtral-8x7b-32768": {
+          "type": "token",
+          "input": 0.7,
+          "output": 0.7
+        },
+        "llama2-70b-4096": {
+          "type": "token",
+          "input": 0.7,
+          "output": 0.7
+        }
+      }
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "websiteUrl": "https://ollama.com/",
+      "apiUrl": "http://localhost:11434/api",
+      "isLocal": 1,
+      "models": {}
+    }
+  ]
+}
