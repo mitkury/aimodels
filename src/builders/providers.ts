@@ -1,9 +1,9 @@
 import type { Provider, ProvidersData } from '../types/index.ts';
 
 // Import provider data
-import openaiProvider from '../data/providers/openai.json' with { type: 'json' };
-import anthropicProvider from '../data/providers/anthropic.json' with { type: 'json' };
-import mistralProvider from '../data/providers/mistral.json' with { type: 'json' };
+import openaiProvider from '../data/providers/openai-provider.json' with { type: 'json' };
+import anthropicProvider from '../data/providers/anthropic-provider.json' with { type: 'json' };
+import mistralProvider from '../data/providers/mistral-provider.json' with { type: 'json' };
 
 // Type guard to check if a price object is a token price
 function isTokenPrice(price: unknown): price is { type: 'token'; input: number; output: number } {
