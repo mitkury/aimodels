@@ -19,6 +19,7 @@
   "scripts": {
     "prebuild": "npm run typecheck && npm run lint && npm test",
     "build": "tsup src/index.ts --format cjs,esm --dts",
+    "gen-ai-rules": "node scripts/gen-ai-rules.js",
     "test": "deno test tests/",
     "test:watch": "deno test --watch tests/",
     "typecheck": "tsc --noEmit",
