@@ -1,26 +1,39 @@
 # Model Capabilities
 
-This document outlines what AI models can do using a simple, intuitive "can"
-system.
+This document outlines the capabilities system used in the `aimodels` package to describe what AI models can do.
 
-## Core Structure
+## TypeScript Definition
 
-```json
-{
-  "can": [
-    "chat", // basic text chat/completion
-    "img-in", // understand images
-    "img-out", // generate images
-    "sound-in", // process audio input
-    "sound-out", // generate audio/speech
-    "json-out", // structured JSON output
-    "function-out", // function calling
-    "vectors-out", // output vector embeddings
-    "text-out", // output text
-    "reason", // advanced reasoning capabilities
-    "text-in" // process text input
-  ]
-}
+```typescript
+type Capability =
+  | "chat"         // shortcut for "text-in" and "text-out"
+  | "reason"       // when the model spends some tokens on reasoning
+  | "text-in"      // process text input
+  | "text-out"     // output text
+  | "img-in"       // understand images
+  | "img-out"      // generate images
+  | "sound-in"     // process audio input
+  | "sound-out"    // generate audio/speech
+  | "json-out"     // structured JSON output
+  | "function-out" // function calling
+  | "vectors-out"; // output vector embeddings
+```
+
+## Example Usage
+
+```typescript
+// Find models that can chat
+const chatModels = models.can("chat");
+
+// Find models that can process images and chat
+const visionModels = models.can("chat", "img-in");
+
+// Find models that can generate images
+const imageGenerators = models.can("img-out");
+
+// Find models that can do function calling
+const functionModels = models.can("function-out");
+```
 ```
 
 ## Examples by Model Type

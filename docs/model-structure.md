@@ -1,17 +1,39 @@
 # Model Data Structure
 
-This document outlines the standardized structure for representing AI models. For pricing information, see [provider-pricing.md](./provider-pricing.md).
+This document outlines the standardized structure for representing AI models in the `aimodels` package.
 
 ## Core Structure
+
+```typescript
+interface Model {
+  /** Unique identifier for the model */
+  id: string;
+
+  /** Display name for the model */
+  name: string;
+
+  /** Model capabilities */
+  can: Capability[];
+
+  /** Available providers */
+  providers: string[];
+
+  /** License or creator information */
+  license: string;
+
+  /** Context window information */
+  context: ModelContext;
+}
+```
+
+## Example
 
 ```json
 {
   "id": "gpt-4-vision-preview",
   "name": "GPT-4V",
-  "creator": "OpenAI",
-  "license": "proprietary",
+  "license": "openai",
   "providers": ["openai", "azure"],
-  
   "can": [
     "chat",
     "img-in",

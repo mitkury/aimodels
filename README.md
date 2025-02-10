@@ -13,36 +13,23 @@ npm install aimodels
 ```typescript
 import { models } from 'aimodels';
 
-// Get all available models
-console.log(models.all);
-
-// Get list of all providers
-console.log(models.providers); // ['openai', 'anthropic', 'mistral', ...]
-
-// Get list of model creators
-console.log(models.creators); // ['meta', 'mistral', ...]
-
-// Get models from a specific provider
-const openAiModels = models.fromProvider('openai');
-
-// Get models from a specific creator
-const metaModels = models.fromCreator('meta');
-
-// Find a specific model
-const model = models.find('gpt-4');
-console.log(model?.context.total); // Context window size
-console.log(model?.providers); // ['openai']
-
-// Get model pricing for a specific provider
-const price = models.getPrice('gpt-4', 'openai');
-console.log(price); // { type: 'token', input: 0.03, output: 0.06 }
-
-// Filter models by capabilities
+// Find models by capability
 const chatModels = models.can('chat');
 const multimodalModels = models.can('chat', 'img-in');
 
-// Filter by context window
+// Find models by provider
+const openaiModels = models.fromProvider('openai');
+
+// Find models by creator
+const metaModels = models.fromCreator('meta');
+
+// Find models by context window
 const largeContextModels = models.withMinContext(32768);
+
+// Find specific model
+const model = models.id('gpt-4');
+console.log(model?.context.total); // Context window size
+console.log(model?.providers); // ['openai']
 ```
 
 ## Features
@@ -51,42 +38,52 @@ const largeContextModels = models.withMinContext(32768);
 - Normalized data structure for easy comparison
 - Model capabilities (chat, img-in, img-out, function-out, etc.)
 - Context window information
-- Pricing information per provider
 - Creator and provider associations
 - TypeScript support with full type safety
 - Zero dependencies
 - Universal JavaScript support (Node.js, browsers, Deno)
 - Regular updates with new models
 
-
 ## Types
 
+### Model
 ```typescript
 interface Model {
-  id: string;           // Unique model identifier
-  name: string;         // Display name
-  can: string[];        // Capabilities (chat, img-in, img-out, etc.)
-  providers: string[];  // Available providers
-  context: {
-    total: number;      // Total context window size
-  };
-  license: string;      // License or creator
-}
-
-type ModelPrice = 
-  | { type: 'token'; input: number; output: number }      // Price per 1K tokens
-  | { type: 'image'; price: number; size: string }        // Price per image
-  | { type: 'character'; price: number }                  // Price per character
-  | { type: 'minute'; price: number };                    // Price per minute
-
-interface Provider {
-  id: string;           // Provider identifier
-  name: string;         // Display name
-  websiteUrl: string;   // Provider's website
-  apiUrl: string;       // API documentation URL
-  models: Record<string, ModelPrice>;  // Model pricing
+  /** Unique identifier */
+  id: string;
+  /** Display name */
+  name: string;
+  /** Model capabilities */
+  can: Capability[];
+  /** Available providers */
+  providers: string[];
+  /** Context window information */
+  context: ModelContext;
+  /** License or creator */
+  license: string;
 }
 ```
+
+### Capabilities
+```typescript
+type Capability =
+  | "chat"         // shortcut for "text-in" and "text-out"
+  | "reason"       // when the model spends some tokens on reasoning
+  | "text-in"      // process text input
+  | "text-out"     // output text
+  | "img-in"       // understand images
+  | "img-out"      // generate images
+  | "sound-in"     // process audio input
+  | "sound-out"    // generate audio/speech
+  | "json-out"     // structured JSON output
+  | "function-out" // function calling
+  | "vectors-out"; // output vector embeddings
+```
+
+For more detailed information, see:
+- [Model Capabilities](/docs/model-capabilities.md)
+- [Model Structure](/docs/model-structure.md)
+- [Providers](/docs/providers.md)
 
 ## License
 
