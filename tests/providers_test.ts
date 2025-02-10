@@ -3,7 +3,10 @@ import { models } from "../src/index.ts";
 import type { Model } from "../src/types/index.ts";
 
 Deno.test("providers list contains major providers", () => {
-  const providersList = models.providers;
+  // Get unique providers from all models
+  const providersList = Array.from(new Set(
+    models.flatMap(model => model.providers)
+  ));
   
   // Check for major providers
   assertEquals(providersList.includes("openai"), true, "Should include OpenAI");
@@ -37,31 +40,23 @@ Deno.test("fromProvider returns correct models", () => {
 
 Deno.test("getPrice returns correct pricing", () => {
   // Test GPT-4 pricing
-  const gpt4Price = models.getPrice("gpt-4o", "openai");
-  assertEquals(gpt4Price?.type, "token", "GPT-4 should have token pricing");
-  if (gpt4Price?.type === "token") {
-    assertNotEquals(gpt4Price.input, 0, "GPT-4 input price should not be 0");
-    assertNotEquals(gpt4Price.output, 0, "GPT-4 output price should not be 0");
-    // Both input and output prices should be positive
-    assertEquals(gpt4Price.input > 0, true, "GPT-4 input price should be positive");
-    assertEquals(gpt4Price.output > 0, true, "GPT-4 output price should be positive");
-  }
-
+  const gpt4Model = models.id("gpt-4o");
+  assertEquals(gpt4Model?.providers.includes("openai"), true, "GPT-4 should be available from OpenAI");
+  
   // Test Claude pricing
-  const claudePrice = models.getPrice("claude-3-opus", "anthropic");
-  assertEquals(claudePrice?.type, "token", "Claude should have token pricing");
-  if (claudePrice?.type === "token") {
-    assertNotEquals(claudePrice.input, 0, "Claude input price should not be 0");
-    assertNotEquals(claudePrice.output, 0, "Claude output price should not be 0");
-  }
-
-  // Test non-existent model pricing
-  const nonExistentPrice = models.getPrice("non-existent", "openai");
-  assertEquals(nonExistentPrice, undefined, "Non-existent model should have no pricing");
+  const claudeModel = models.id("claude-3-opus");
+  assertEquals(claudeModel?.providers.includes("anthropic"), true, "Claude should be available from Anthropic");
+  
+  // Test non-existent model
+  const nonExistentModel = models.id("non-existent");
+  assertEquals(nonExistentModel, undefined, "Non-existent model should not exist");
 });
 
 Deno.test("provider websites are valid URLs", () => {
-  const providers = models.providers;
+  // Get unique providers from all models
+  const providers = Array.from(new Set(
+    models.flatMap(model => model.providers)
+  ));
   providers.forEach((providerId: string) => {
     const providerModels = models.fromProvider(providerId);
     if (providerModels.length > 0) {

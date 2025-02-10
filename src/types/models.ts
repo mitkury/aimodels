@@ -2,30 +2,50 @@ import type { ModelPrice } from './pricing.ts';
 import type { Capability } from './capabilities.ts';
 
 export class ModelCollection extends Array<Model> {
-  constructor(models: Model[]) {
-    super(...models);
+  /** Create a new ModelCollection from an array of models */
+  constructor(models: Model[] = []) {
+    super();
+    if (models.length > 0) {
+      this.push(...models);
+    }
     Object.setPrototypeOf(this, ModelCollection.prototype);
   }
 
+  /** Filter models by one or more capabilities (all must be present) */
   can(...capabilities: Capability[]): ModelCollection {
-    return new ModelCollection(
-      this.filter(model => capabilities.every(cap => model.can.includes(cap)))
-    );
+    return this.filter(model => capabilities.every(cap => model.can.includes(cap)));
   }
 
+  /** Filter models by one or more languages (all must be supported) */
   know(...languages: string[]): ModelCollection {
-    return new ModelCollection(
-      this.filter(model => languages.every(lang => model.languages?.includes(lang)))
-    );
+    return this.filter(model => languages.every(lang => model.languages?.includes(lang)));
   }
 
-  // Override array methods to return ModelCollection
+  /** Override array filter to return ModelCollection */
   override filter(predicate: (value: Model, index: number, array: Model[]) => boolean): ModelCollection {
-    return new ModelCollection(super.filter(predicate));
+    const filtered = Array.from(this).filter(predicate);
+    return new ModelCollection(filtered);
   }
 
+  /** Override array slice to return ModelCollection */
   override slice(start?: number, end?: number): ModelCollection {
-    return new ModelCollection(super.slice(start, end));
+    const sliced = Array.from(this).slice(start, end);
+    return new ModelCollection(sliced);
+  }
+
+  /** Find a model by its ID */
+  id(modelId: string): Model | undefined {
+    return this.find(model => model.id === modelId);
+  }
+
+  /** Get models available from a specific provider */
+  fromProvider(provider: string): ModelCollection {
+    return this.filter(model => model.providers.includes(provider));
+  }
+
+  /** Filter models by minimum context window size */
+  withMinContext(tokens: number): ModelCollection {
+    return this.filter(model => model.context.total >= tokens);
   }
 }
 
