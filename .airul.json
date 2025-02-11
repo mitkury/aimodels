@@ -1,0 +1,10 @@
+{
+  "files": [
+    "README.md",
+    "docs/rules-for-ai.md"
+  ],
+  "output": {
+    ".windsurfrules": true,
+    ".cursorrules": true
+  }
+}

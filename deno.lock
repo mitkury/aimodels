@@ -40,6 +40,7 @@
         "npm:@types/node@20",
         "npm:@typescript-eslint/eslint-plugin@6",
         "npm:@typescript-eslint/parser@6",
+        "npm:airul@~0.1.10",
         "npm:eslint@8",
         "npm:tsup@8",
         "npm:typescript@5"
