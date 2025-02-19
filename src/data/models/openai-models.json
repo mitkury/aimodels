@@ -1,4 +1,5 @@
 {
+  "creator": "openai",
   "models": [
     {
       "id": "whisper-large-v3",
@@ -72,7 +73,7 @@
     },
     {
       "id": "gpt-4o",
-      "name": "GPT-4O",
+      "name": "GPT-4o",
       "license": "proprietary",
       "providers": [
         "openai",

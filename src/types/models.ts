@@ -45,22 +45,38 @@ export class ModelCollection extends Array<Model> {
 
   /** Filter models by minimum context window size */
   withMinContext(tokens: number): ModelCollection {
-    return this.filter(model => model.context.total >= tokens);
+    return this.filter(model => {
+      const context = model.context as TokenModelContext;
+      return 'total' in context && context.total !== null && context.total >= tokens;
+    });
   }
 }
 
-export interface ModelContext {
+export interface TokenModelContext {
   /** Maximum total tokens (input + output) */
-  total: number;
+  total: number | null;
   /** Maximum output tokens */
-  maxOutput: number;
+  maxOutput: number | null;
 }
+
+export interface ImageModelContext {
+  /** Maximum outputs per request */
+  maxOutput: number;
+  /** Available image sizes */
+  sizes: string[];
+  /** Available quality settings */
+  qualities: string[];
+}
+
+export type ModelContext = TokenModelContext | ImageModelContext;
 
 export interface Model {
   /** Unique identifier */
   id: string;
   /** Display name */
   name: string;
+  /** Creator of the model */
+  creator: string;
   /** License type (e.g., "proprietary", "apache-2.0", "llama-2-community") */
   license: string;
   /** List of providers that can serve this model */

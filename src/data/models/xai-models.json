@@ -1,0 +1,55 @@
+{
+  "creator": "xai",
+  "models": [
+    {
+      "id": "grok-2-vision-1212",
+      "name": "Grok 2 Vision",
+      "creator": "xai",
+      "license": "proprietary",
+      "providers": ["xai"],
+      "can": ["chat", "text-in", "text-out", "img-in"],
+      "context": {
+        "total": 32768,
+        "maxOutput": 4096
+      },
+      "aliases": ["grok-2-vision", "grok-2-vision-latest"]
+    },
+    {
+      "id": "grok-2-1212",
+      "name": "Grok 2",
+      "creator": "xai",
+      "license": "proprietary",
+      "providers": ["xai"],
+      "can": ["chat", "text-in", "text-out"],
+      "context": {
+        "total": 131072,
+        "maxOutput": 4096
+      },
+      "aliases": ["grok-2", "grok-2-latest"]
+    },
+    {
+      "id": "grok-vision-beta",
+      "name": "Grok Vision Beta",
+      "creator": "xai",
+      "license": "proprietary",
+      "providers": ["xai"],
+      "can": ["chat", "text-in", "text-out", "img-in"],
+      "context": {
+        "total": 8192,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "grok-beta",
+      "name": "Grok Beta",
+      "creator": "xai",
+      "license": "proprietary",
+      "providers": ["xai"],
+      "can": ["chat", "text-in", "text-out"],
+      "context": {
+        "total": 131072,
+        "maxOutput": 4096
+      }
+    }
+  ]
+} 

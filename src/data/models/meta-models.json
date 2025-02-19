@@ -1,4 +1,5 @@
 {
+  "creator": "meta",
   "models": [
     {
       "id": "llama3-70b-8192",

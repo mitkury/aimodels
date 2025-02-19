@@ -1,7 +1,6 @@
-import { assertEquals, assertGreater } from "https://deno.land/std@0.220.1/assert/mod.ts";
+import { assertEquals } from "https://deno.land/std@0.220.1/assert/mod.ts";
 import { buildAllModels } from "../src/builders/models.ts";
 import { buildAllProviders } from "../src/builders/providers.ts";
-import { models } from "../src/index.ts";
 
 Deno.test("buildAllModels returns all models", () => {
   const models = buildAllModels();
@@ -12,7 +11,7 @@ Deno.test("buildAllModels returns all models", () => {
   
   // Test a known model (GPT-4)
   const gpt4 = models.find(m => m.id === "gpt-4o");
-  assertEquals(gpt4?.name, "GPT-4O", "Should find GPT-4O model");
+  assertEquals(gpt4?.name, "GPT-4o", "Should find GPT-4o model");
   assertEquals(gpt4?.license, "proprietary", "GPT-4 should be proprietary");
   assertEquals(gpt4?.providers.includes("openai"), true, "GPT-4 should be provided by OpenAI");
   assertEquals(Array.isArray(gpt4?.can), true, "Model should have capabilities");

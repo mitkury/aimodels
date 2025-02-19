@@ -1,0 +1,151 @@
+{
+  "creator": "cohere",
+  "models": [
+    {
+      "id": "command-r7b-12-2024",
+      "name": "Command R7B",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere"],
+      "can": ["chat", "text-in", "text-out", "reason", "function-out"],
+      "context": {
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "command-r-plus-08-2024",
+      "name": "Command R+",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "bedrock", "azure", "oracle"],
+      "can": ["chat", "text-in", "text-out", "reason", "function-out"],
+      "context": {
+        "total": 128000,
+        "maxOutput": 4096
+      },
+      "aliases": ["command-r-plus"]
+    },
+    {
+      "id": "command-r-03-2024",
+      "name": "Command R",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "bedrock", "azure", "oracle"],
+      "can": ["chat", "text-in", "text-out", "reason", "function-out"],
+      "context": {
+        "total": 128000,
+        "maxOutput": 4096
+      },
+      "aliases": ["command-r"]
+    },
+    {
+      "id": "command",
+      "name": "Command",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "bedrock", "oracle"],
+      "can": ["chat", "text-in", "text-out"],
+      "context": {
+        "total": 4096,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "command-light",
+      "name": "Command Light",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "bedrock", "oracle"],
+      "can": ["chat", "text-in", "text-out"],
+      "context": {
+        "total": 4096,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "embed-english-v3.0",
+      "name": "Embed English v3.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "bedrock", "azure", "oracle"],
+      "can": ["text-in", "img-in", "vectors-out"],
+      "context": {
+        "total": 512,
+        "maxOutput": 1024
+      }
+    },
+    {
+      "id": "embed-english-light-v3.0",
+      "name": "Embed English Light v3.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "oracle"],
+      "can": ["text-in", "img-in", "vectors-out"],
+      "context": {
+        "total": 512,
+        "maxOutput": 384
+      }
+    },
+    {
+      "id": "embed-multilingual-v3.0",
+      "name": "Embed Multilingual v3.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "bedrock", "azure", "oracle"],
+      "can": ["text-in", "img-in", "vectors-out"],
+      "context": {
+        "total": 512,
+        "maxOutput": 1024
+      }
+    },
+    {
+      "id": "embed-multilingual-light-v3.0",
+      "name": "Embed Multilingual Light v3.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "oracle"],
+      "can": ["text-in", "img-in", "vectors-out"],
+      "context": {
+        "total": 512,
+        "maxOutput": 384
+      }
+    },
+    {
+      "id": "rerank-v3.5",
+      "name": "Rerank v3.5",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "bedrock", "azure"],
+      "can": ["text-in", "text-out"],
+      "context": {
+        "total": 4096,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "rerank-english-v3.0",
+      "name": "Rerank English v3.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "azure"],
+      "can": ["text-in", "text-out"],
+      "context": {
+        "total": 4096,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "rerank-multilingual-v3.0",
+      "name": "Rerank Multilingual v3.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providers": ["cohere", "azure"],
+      "can": ["text-in", "text-out"],
+      "context": {
+        "total": 4096,
+        "maxOutput": null
+      }
+    }
+  ]
+} 

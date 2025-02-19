@@ -1,0 +1,67 @@
+{
+  "id": "cohere",
+  "name": "Cohere",
+  "websiteUrl": "https://cohere.com",
+  "apiUrl": "https://docs.cohere.com/reference",
+  "models": {
+    "command-r7b-12-2024": {
+      "type": "token",
+      "input": 0.0375,
+      "output": 0.15
+    },
+    "command-r-plus-08-2024": {
+      "type": "token",
+      "input": 2.50,
+      "output": 10.00
+    },
+    "command-r-03-2024": {
+      "type": "token",
+      "input": 0.15,
+      "output": 0.60
+    },
+    "command": {
+      "type": "token",
+      "input": 1500,
+      "output": 2000
+    },
+    "command-light": {
+      "type": "token",
+      "input": 300,
+      "output": 600
+    },
+    "embed-english-v3.0": {
+      "type": "token",
+      "input": 0.10,
+      "output": 0
+    },
+    "embed-english-light-v3.0": {
+      "type": "token",
+      "input": 30,
+      "output": 0
+    },
+    "embed-multilingual-v3.0": {
+      "type": "token",
+      "input": 100,
+      "output": 0
+    },
+    "embed-multilingual-light-v3.0": {
+      "type": "token",
+      "input": 30,
+      "output": 0
+    },
+    "rerank-v3.5": {
+      "type": "search",
+      "price": 2.00
+    },
+    "rerank-english-v3.0": {
+      "type": "token",
+      "input": 100,
+      "output": 0
+    },
+    "rerank-multilingual-v3.0": {
+      "type": "token",
+      "input": 100,
+      "output": 0
+    }
+  }
+} 

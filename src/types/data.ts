@@ -3,6 +3,7 @@ import type { Creator } from './creators.ts';
 import type { Provider } from './providers.ts';
 
 export interface ModelsData {
+  creator: string;
   models: Model[];
 }
 

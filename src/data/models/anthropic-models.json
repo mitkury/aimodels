@@ -1,11 +1,23 @@
 {
+  "creator": "anthropic",
   "models": [
     {
       "id": "claude-3-opus",
       "name": "Claude 3 Opus",
       "license": "proprietary",
-      "providers": ["anthropic", "aws", "google"],
-      "can": ["chat", "img-in", "json-out", "function-out"],
+      "providers": [
+        "anthropic",
+        "aws",
+        "google"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out",
+        "img-in",
+        "json-out",
+        "function-out"
+      ],
       "context": {
         "total": 200000,
         "maxOutput": 4096
@@ -15,8 +27,19 @@
       "id": "claude-3-sonnet",
       "name": "Claude 3 Sonnet",
       "license": "proprietary",
-      "providers": ["anthropic", "aws", "google"],
-      "can": ["chat", "img-in", "json-out", "function-out"],
+      "providers": [
+        "anthropic",
+        "aws",
+        "google"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out",
+        "img-in",
+        "json-out",
+        "function-out"
+      ],
       "context": {
         "total": 200000,
         "maxOutput": 4096
@@ -26,8 +49,19 @@
       "id": "claude-3-haiku",
       "name": "Claude 3 Haiku",
       "license": "proprietary",
-      "providers": ["anthropic", "aws", "google"],
-      "can": ["chat", "img-in", "json-out", "function-out"],
+      "providers": [
+        "anthropic",
+        "aws",
+        "google"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out",
+        "img-in",
+        "json-out",
+        "function-out"
+      ],
       "context": {
         "total": 200000,
         "maxOutput": 4096
