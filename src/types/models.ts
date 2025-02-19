@@ -33,9 +33,12 @@ export class ModelCollection extends Array<Model> {
     return new ModelCollection(sliced);
   }
 
-  /** Find a model by its ID */
+  /** Find a model by its ID or alias */
   id(modelId: string): Model | undefined {
-    return this.find(model => model.id === modelId);
+    return this.find(model => 
+      model.id === modelId || 
+      model.aliases?.includes(modelId)
+    );
   }
 
   /** Get models available from a specific provider */
@@ -85,6 +88,8 @@ export interface Model {
   can: Capability[];
   /** Languages the model knows */
   languages?: string[];
+  /** Alternative identifiers for this model */
+  aliases?: string[];
   /** Context window information */
   context: ModelContext;
 }

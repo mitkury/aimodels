@@ -249,3 +249,28 @@ Deno.test("model validation handles optional fields", () => {
   const fullResult = validateModel(fullModel);
   assertEquals(fullResult.languages?.length, 1, "Should preserve optional languages");
 });
+
+Deno.test("model validation handles aliases", () => {
+  // Test with minimal valid model (no aliases)
+  const minimalModel = {
+    id: "test-model",
+    name: "Test Model",
+    creator: "Test",
+    license: "mit",
+    providers: ["test"],
+    can: ["chat"],
+    context: { total: 1000, maxOutput: 100 }
+  };
+
+  const result = validateModel(minimalModel);
+  assertEquals(result.aliases, undefined, "Should not add undefined aliases");
+
+  // Test with aliases
+  const modelWithAliases = {
+    ...minimalModel,
+    aliases: ["test", "test-v1"]
+  };
+
+  const resultWithAliases = validateModel(modelWithAliases);
+  assertEquals(resultWithAliases.aliases, modelWithAliases.aliases, "Should preserve aliases");
+});

@@ -45,6 +45,16 @@ export function validateModel(raw: unknown): Model {
     throw new Error(`Model has invalid capabilities: ${model.can.join(', ')}`);
   }
 
+  // Validate aliases if present
+  if (model.aliases !== undefined) {
+    if (!Array.isArray(model.aliases)) {
+      throw new Error('Model aliases must be an array');
+    }
+    if (!model.aliases.every(a => typeof a === 'string')) {
+      throw new Error('Model aliases must be strings');
+    }
+  }
+
   // Validate context object
   if (typeof model.context !== 'object' || model.context === null) {
     throw new Error('Model context must be an object');
@@ -75,7 +85,8 @@ export function validateModel(raw: unknown): Model {
     providers: model.providers as string[],
     can: model.can as Capability[],
     context: model.context as Model['context'],
-    ...(model.languages ? { languages: model.languages as string[] } : {})
+    ...(model.languages ? { languages: model.languages as string[] } : {}),
+    ...(model.aliases ? { aliases: model.aliases as string[] } : {})
   };
 }
 
