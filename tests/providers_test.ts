@@ -44,7 +44,7 @@ Deno.test("getPrice returns correct pricing", () => {
   assertEquals(gpt4Model?.providers.includes("openai"), true, "GPT-4 should be available from OpenAI");
   
   // Test Claude pricing
-  const claudeModel = models.id("claude-3-opus");
+  const claudeModel = models.id("claude-3-opus-20240229");
   assertEquals(claudeModel?.providers.includes("anthropic"), true, "Claude should be available from Anthropic");
   
   // Test non-existent model
