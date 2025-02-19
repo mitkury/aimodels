@@ -50,16 +50,27 @@ export class ModelCollection extends Array<Model> {
   withMinContext(tokens: number): ModelCollection {
     return this.filter(model => {
       const context = model.context as TokenModelContext;
-      return 'total' in context && context.total !== null && context.total >= tokens;
+      if (!('total' in context) || context.total === null) {
+        return false;
+      }
+      
+      // total already represents the input limit, no need to subtract maxOutput
+      return context.total >= tokens;
     });
   }
 }
 
 export interface TokenModelContext {
-  /** Maximum total tokens (input + output) */
+  /** Maximum input tokens the model can accept */
   total: number | null;
-  /** Maximum output tokens */
+  /** Maximum tokens the model can generate in response */
   maxOutput: number | null;
+  /** 
+   * When set to 1, indicates the model can generate up to maxOutput tokens
+   * regardless of input size (as long as input is within total limit).
+   * When not set, available output tokens may be reduced based on input size.
+   */
+  outputIsFixed?: 1;
 }
 
 export interface ImageModelContext {

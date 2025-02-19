@@ -2,7 +2,7 @@
   "creator": "anthropic",
   "models": [
     {
-      "id": "claude-3-opus",
+      "id": "claude-3-opus-20240229",
       "name": "Claude 3 Opus",
       "license": "proprietary",
       "providers": [
@@ -20,11 +20,12 @@
       ],
       "context": {
         "total": 200000,
-        "maxOutput": 4096
+        "maxOutput": 4096,
+        "outputIsFixed": 1
       }
     },
     {
-      "id": "claude-3-sonnet",
+      "id": "claude-3-5-sonnet-20241022",
       "name": "Claude 3 Sonnet",
       "license": "proprietary",
       "providers": [
@@ -42,11 +43,12 @@
       ],
       "context": {
         "total": 200000,
-        "maxOutput": 4096
+        "maxOutput": 8192,
+        "outputIsFixed": 1
       }
     },
     {
-      "id": "claude-3-haiku",
+      "id": "claude-3-5-haiku-20241022",
       "name": "Claude 3 Haiku",
       "license": "proprietary",
       "providers": [
@@ -64,7 +66,8 @@
       ],
       "context": {
         "total": 200000,
-        "maxOutput": 4096
+        "maxOutput": 8192,
+        "outputIsFixed": 1
       }
     }
   ]

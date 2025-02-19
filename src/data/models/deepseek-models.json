@@ -15,7 +15,7 @@
       ],
       "context": {
         "total": 131072,
-        "maxOutput": 131072
+        "maxOutput": 8192
       }
     },
     {
@@ -33,7 +33,7 @@
       ],
       "context": {
         "total": 131072,
-        "maxOutput": 131072
+        "maxOutput": 8192
       }
     }
   ]
