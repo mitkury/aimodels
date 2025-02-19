@@ -9,6 +9,7 @@ import mistralModels from '../data/models/mistral-models.json' with { type: 'jso
 import googleModels from '../data/models/google-models.json' with { type: 'json' };
 import deepseekModels from '../data/models/deepseek-models.json' with { type: 'json' };
 import xaiModels from '../data/models/xai-models.json' with { type: 'json' };
+import cohereModels from '../data/models/cohere-models.json' with { type: 'json' };
 
 export function validateModel(raw: unknown): Model {
   if (typeof raw !== 'object' || raw === null) {
@@ -102,7 +103,8 @@ export function buildAllModels(): Model[] {
     mistralModels,
     googleModels,
     deepseekModels,
-    xaiModels
+    xaiModels,
+    cohereModels
   ] as ModelsData[];
 
   const allModels = allModelData.flatMap(data => 
