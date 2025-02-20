@@ -1,6 +1,6 @@
-import { assertEquals, assertNotEquals } from "https://deno.land/std@0.220.1/assert/mod.ts";
+import { assertEquals, assertNotEquals, assertExists } from "https://deno.land/std@0.220.1/assert/mod.ts";
 import { models } from "../src/index.ts";
-import type { Model } from "../src/types/index.ts";
+import type { Model, Provider } from "../src/types/index.ts";
 
 Deno.test("providers list contains major providers", () => {
   // Get unique providers from all models
@@ -69,4 +69,52 @@ Deno.test("provider websites are valid URLs", () => {
       );
     }
   });
+});
+
+Deno.test("getProvider returns correct provider data", () => {
+  // Test existing provider
+  const openai = models.getProvider("openai");
+  assertExists(openai, "OpenAI provider should exist");
+  assertEquals(openai.id, "openai", "Provider ID should match");
+  assertEquals(openai.name, "OpenAI", "Provider name should match");
+  assertExists(openai.websiteUrl, "Provider should have website URL");
+  assertExists(openai.apiUrl, "Provider should have API URL");
+  assertExists(openai.models, "Provider should have models pricing");
+
+  // Test non-existent provider
+  const nonexistent = models.getProvider("nonexistent");
+  assertEquals(nonexistent, undefined, "Non-existent provider should return undefined");
+});
+
+Deno.test("getProvidersForModel returns correct providers", () => {
+  // Test model with multiple providers
+  const gpt4Providers = models.getProvidersForModel("gpt-4o");
+  assertExists(gpt4Providers, "Should return providers array");
+  assertEquals(Array.isArray(gpt4Providers), true, "Should return an array");
+  assertEquals(
+    gpt4Providers.some((p: Provider) => p.id === "openai"), 
+    true, 
+    "GPT-4 should be available on OpenAI"
+  );
+
+  // Test non-existent model
+  const nonexistentProviders = models.getProvidersForModel("nonexistent-model");
+  assertEquals(nonexistentProviders.length, 0, "Non-existent model should return empty array");
+
+  // Test models with latest aliases
+  const claudeOpusProviders = models.getProvidersForModel("claude-3-opus-latest");
+  assertEquals(claudeOpusProviders.length > 0, true, "Should find providers for Claude Opus");
+  assertEquals(
+    claudeOpusProviders.some((p: Provider) => p.id === "anthropic"),
+    true,
+    "Claude Opus should be available on Anthropic"
+  );
+
+  const claudeSonnetProviders = models.getProvidersForModel("claude-3-sonnet-latest");
+  assertEquals(claudeSonnetProviders.length > 0, true, "Should find providers for Claude Sonnet");
+  assertEquals(
+    claudeSonnetProviders.some((p: Provider) => p.id === "anthropic"),
+    true,
+    "Claude Sonnet should be available on Anthropic"
+  );
 });

@@ -1,4 +1,4 @@
-export interface ModelPrice {
+export interface TokenBasedPricePerMillionTokens {
   /** Price per million input tokens */
   input: number;
   /** Price per million output tokens */

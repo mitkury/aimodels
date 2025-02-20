@@ -22,7 +22,8 @@
         "total": 200000,
         "maxOutput": 4096,
         "outputIsFixed": 1
-      }
+      },
+      "aliases": ["claude-3-opus-latest"]
     },
     {
       "id": "claude-3-5-sonnet-20241022",
@@ -45,7 +46,8 @@
         "total": 200000,
         "maxOutput": 8192,
         "outputIsFixed": 1
-      }
+      },
+      "aliases": ["claude-3-sonnet-latest"]
     },
     {
       "id": "claude-3-5-haiku-20241022",

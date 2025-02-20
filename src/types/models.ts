@@ -1,4 +1,4 @@
-import type { ModelPrice } from './pricing.ts';
+import type { TokenBasedPricePerMillionTokens } from './pricing.ts';
 import type { Capability } from './capabilities.ts';
 
 export class ModelCollection extends Array<Model> {
@@ -44,6 +44,13 @@ export class ModelCollection extends Array<Model> {
   /** Get models available from a specific provider */
   fromProvider(provider: string): ModelCollection {
     return this.filter(model => model.providers.includes(provider));
+  }
+
+  /** Get models available from a specific creator */
+  fromCreator(creator: string): ModelCollection {
+    return new ModelCollection(
+      this.filter(model => model.creator === creator)
+    );
   }
 
   /** Filter models by minimum context window size */
@@ -123,5 +130,5 @@ export interface ModelsAPI {
   /** Filter models by minimum context window */
   withMinContext(tokens: number): ModelCollection;
   /** Get pricing for a model from a specific provider */
-  getPrice(modelId: string, provider: string): ModelPrice | undefined;
+  getPrice(modelId: string, provider: string): TokenBasedPricePerMillionTokens | undefined;
 }

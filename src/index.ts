@@ -1,10 +1,12 @@
-import type { ModelPrice, CreatorsData, Provider } from './types/index.ts';
+import type { TokenBasedPricePerMillionTokens, CreatorsData, Provider } from './types/index.ts';
+import type { Model } from './types/models.ts';
 import { ModelCollection } from './types/models.ts';
 
 // Re-export types that users will need
 export type { Model, ModelContext } from './types/models.ts';
 export type { Capability } from './types/capabilities.ts';
-export type { ModelPrice } from './types/pricing.ts';
+export type { TokenBasedPricePerMillionTokens } from './types/pricing.ts';
+export type { Provider } from './types/providers.ts';
 export { ModelCollection } from './types/models.ts';
 
 
@@ -17,7 +19,12 @@ import creators from './data/creators.json' with { type: 'json' };
 const allModels = buildAllModels();
 const providersData = buildProvidersData();
 
-class ModelsCollection extends ModelCollection {
+export class AIModels extends ModelCollection {
+  constructor(models: Model[] = []) {
+    super(models);
+    Object.setPrototypeOf(this, AIModels.prototype);
+  }
+
   get creators(): string[] {
     return Object.keys((creators as CreatorsData).creators);
   }
@@ -26,20 +33,29 @@ class ModelsCollection extends ModelCollection {
     return providersData.providers.map((p: Provider) => p.id);
   }
 
-  fromCreator(creator: string): ModelCollection {
-    return new ModelCollection(
-      this.filter(model => model.creator === creator)
-    );
-  }
-
-  getPrice(modelId: string, provider: string): ModelPrice | undefined {
+  getPrice(modelId: string, provider: string): TokenBasedPricePerMillionTokens | undefined {
     const providerData = providersData.providers.find((p: Provider) => p.id === provider);
     const price = providerData?.models[modelId];
     return price?.type === 'token' ? price : undefined;
   }
+
+  /** Get provider information by ID */
+  getProvider(providerId: string): Provider | undefined {
+    return providersData.providers.find((p: Provider) => p.id === providerId);
+  }
+
+  /** Get all providers that can serve a specific model */
+  getProvidersForModel(modelId: string): Provider[] {
+    const model = this.id(modelId);
+    if (!model) return [];
+    
+    return providersData.providers.filter((p: Provider) => 
+      model.providers.includes(p.id)
+    );
+  }
 }
 
-export const models = new ModelsCollection(allModels);
+export const models = new AIModels(allModels);
 
 export { creators };
 
