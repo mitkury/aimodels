@@ -28,10 +28,7 @@ class ModelsCollection extends ModelCollection {
 
   fromCreator(creator: string): ModelCollection {
     return new ModelCollection(
-      this.filter(model => 
-        model.license.startsWith(creator) || // For open source models
-        !!providersData.providers.find((p: Provider) => p.id === creator)?.models[model.id] // For proprietary models
-      )
+      this.filter(model => model.creator === creator)
     );
   }
 
