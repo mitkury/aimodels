@@ -32,6 +32,72 @@ interface ModelPrice {
 }
 ```
 
+## TODO: Provider-Specific Model IDs
+
+Some providers use different identifiers for the same model in their API (e.g., OpenAI uses "whisper-1" for their latest Whisper model). A future implementation should:
+
+1. Add `modelMappings` field to Provider interface:
+   ```typescript
+   modelMappings?: Record<string, string>; // normalized ID -> provider ID
+   ```
+
+2. Store mappings in provider config:
+   ```json
+   {
+     "id": "openai",
+     "modelMappings": {
+       "whisper-large-v3": "whisper-1"
+     }
+   }
+   ```
+
+3. Implement fallback behavior:
+   - Use mapped ID if exists
+   - Otherwise use normalized ID
+
+This will allow the package to:
+- Keep a consistent normalized interface
+- Handle provider-specific model IDs internally
+- Maintain clean provider configurations
+
+## Model ID Mappings
+
+Some providers may use different identifiers for the same model in their API. For example, OpenAI's API uses "whisper-1" to refer to the latest Whisper model. To handle these cases, providers can specify custom mappings from normalized model IDs to their API-specific IDs:
+
+```typescript
+// Example provider configuration
+{
+  "id": "openai",
+  "name": "OpenAI",
+  "modelMappings": {
+    "whisper-large-v3": "whisper-1",
+    "whisper-large-v3-turbo": "whisper-1"
+  },
+  "models": {
+    "whisper-1": {
+      "type": "minute",
+      "price": 0.006
+    }
+  }
+}
+```
+
+When no mapping exists for a model ID, the normalized ID is used as-is. This allows the package to:
+1. Maintain a consistent normalized interface for consumers
+2. Handle provider-specific model IDs internally
+3. Keep provider configurations clean and maintainable
+
+### Usage Example
+
+```typescript
+// Your code always uses normalized IDs
+const whisperModel = models.id('whisper-large-v3');
+
+// Internally, the package maps to provider-specific IDs
+console.log(whisperModel.getProviderId('openai')); // Returns "whisper-1"
+console.log(whisperModel.getProviderId('azure')); // Returns "whisper-large-v3"
+```
+
 ## Example Usage
 
 ```typescript

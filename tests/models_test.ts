@@ -1,6 +1,6 @@
 import { assertEquals, assertGreater, assertThrows } from "https://deno.land/std@0.220.1/assert/mod.ts";
 import { models } from "../src/index.ts";
-import type { Model, TokenModelContext } from "../src/types/index.ts";
+import type { Model, TokenContext, AudioInputContext } from "../src/types/index.ts";
 import { ModelCollection } from "../src/types/models.ts";
 import { buildAllModels, validateModel } from "../src/builders/models.ts";
 import { resolveModel } from "../src/builders/models.ts";
@@ -87,7 +87,11 @@ Deno.test("model validation catches invalid data", () => {
       license: "mit",
       providers: ["test"],
       can: ["invalid-capability"],
-      context: { total: 1000, maxOutput: 100 }
+      context: {
+        type: "token",
+        total: 1000,
+        maxOutput: 100
+      }
     }),
     Error,
     "Model has invalid capabilities"
@@ -110,7 +114,7 @@ Deno.test("model validation catches invalid data", () => {
 });
 
 Deno.test("model validation accepts valid data", () => {
-  const validModel = {
+  const validModel: Model = {
     id: "test-model",
     name: "Test Model",
     creator: "Test Creator",
@@ -118,6 +122,7 @@ Deno.test("model validation accepts valid data", () => {
     providers: ["test-provider"],
     can: ["chat", "text-in", "text-out"],
     context: {
+      type: "token",
       total: 4096,
       maxOutput: 1024
     }
@@ -140,7 +145,7 @@ Deno.test("model validation accepts valid data", () => {
 });
 
 Deno.test("model validation accepts image model context", () => {
-  const imageModel = {
+  const imageModel: Model = {
     id: "test-image-model",
     name: "Test Image Model",
     creator: "Test Creator",
@@ -148,9 +153,10 @@ Deno.test("model validation accepts image model context", () => {
     providers: ["test-provider"],
     can: ["img-out"],
     context: {
+      type: "image",
       maxOutput: 1,
       sizes: ["1024x1024", "512x512"],
-      qualities: ["standard", "hd"]
+      qualities: ["standard"]
     }
   };
 
@@ -159,7 +165,7 @@ Deno.test("model validation accepts image model context", () => {
 });
 
 Deno.test("models.know filters by language support", () => {
-  const model = {
+  const model: Model = {
     id: "test-multilingual",
     name: "Test Multilingual",
     creator: "Test",
@@ -167,7 +173,11 @@ Deno.test("models.know filters by language support", () => {
     providers: ["test"],
     can: ["chat"],
     languages: ["en", "es", "fr"],
-    context: { total: 1000, maxOutput: 100 }
+    context: {
+      type: "token",
+      total: 1000,
+      maxOutput: 100
+    }
   };
 
   const result = validateModel(model);
@@ -180,13 +190,11 @@ Deno.test("withMinContext handles edge cases", () => {
   const largeContextImageModels = imageModels.withMinContext(1000);
   assertEquals(largeContextImageModels.length, 0, "Image models should be filtered out by context");
 
-  // Test with null context
-  const whisperModels = models.id("whisper-large-v3");
-  const whisperContext = whisperModels?.context as TokenModelContext;
-  assertEquals(whisperContext.total, null, "Whisper should have null context");
+  // Test with token models that have null context
   const nullContextModels = models.filter(m => {
-    if (!('total' in m.context)) return false;
-    return m.context.total === null;
+    const context = m.context;
+    if (context.type !== "token") return false;
+    return (context as TokenContext).total === null;
   });
   const largeContextNullModels = nullContextModels.withMinContext(1000);
   assertEquals(largeContextNullModels.length, 0, "Models with null context should be filtered out");
@@ -196,13 +204,21 @@ Deno.test("withMinContext handles edge cases", () => {
   const largeContextChatModels = chatModels.withMinContext(100000);
   assertGreater(largeContextChatModels.length, 0, "Should find models with large context");
   largeContextChatModels.forEach(model => {
-    const context = model.context as TokenModelContext;
+    const context = model.context as TokenContext;
     assertEquals(
       context.total !== null && context.total >= 100000,
       true,
       `${model.name} should have context >= 100000`
     );
   });
+});
+
+Deno.test("audio models have correct context type", () => {
+  const whisperModel = models.id("whisper-1");
+  assertEquals(whisperModel?.context.type, "audio-in", "Whisper should have audio-in context type");
+  
+  const audioContext = whisperModel?.context as AudioInputContext;
+  assertEquals(audioContext.maxDuration === undefined || audioContext.maxDuration === null, true, "Whisper should have undefined or null maxDuration");
 });
 
 Deno.test("ModelCollection preserves array operations", () => {
@@ -234,7 +250,11 @@ Deno.test("model validation handles optional fields", () => {
     license: "mit",
     providers: ["test"],
     can: ["chat"],
-    context: { total: 1000, maxOutput: 100 }
+    context: {
+      type: "token",
+      total: 1000,
+      maxOutput: 100
+    }
   };
 
   const result = validateModel(minimalModel);
@@ -260,7 +280,11 @@ Deno.test("model validation handles aliases", () => {
     license: "mit",
     providers: ["test"],
     can: ["chat"],
-    context: { total: 1000, maxOutput: 100 }
+    context: {
+      type: "token",
+      total: 1000,
+      maxOutput: 100
+    }
   };
 
   const result = validateModel(minimalModel);
@@ -286,6 +310,7 @@ Deno.test("model validation handles inheritance", () => {
     providers: ["test-provider"],
     can: ["chat", "text-in", "text-out"],
     context: {
+      type: "token",
       total: 4096,
       maxOutput: 1024
     }
@@ -300,6 +325,7 @@ Deno.test("model validation handles inheritance", () => {
     providers: ["test-provider"],
     can: ["chat", "text-in", "text-out"],
     context: {
+      type: "token",
       total: 4096,
       maxOutput: 1024
     },
@@ -308,6 +334,7 @@ Deno.test("model validation handles inheritance", () => {
       name: "Extended Model",
       can: ["chat", "text-in", "text-out", "img-in"],
       context: {
+        type: "token",
         total: 8192,
         maxOutput: 2048
       }
@@ -331,8 +358,8 @@ Deno.test("model validation handles inheritance", () => {
   assertEquals(resolvedModel.providers, baseModel.providers, "Should inherit providers");
   assertEquals(resolvedModel.can, ["chat", "text-in", "text-out", "img-in"], "Should use overridden capabilities");
   
-  // Check context after verifying it's a TokenModelContext
-  const context = resolvedModel.context as TokenModelContext;
+  // Check context after verifying it's a TokenContext
+  const context = resolvedModel.context as TokenContext;
   assertEquals(context.total, 8192, "Should use overridden context");
 });
 
@@ -344,7 +371,11 @@ Deno.test("model validation detects circular dependencies", () => {
     license: "mit",
     providers: ["test"],
     can: ["chat"],
-    context: { total: 1000, maxOutput: 100 },
+    context: {
+      type: "token",
+      total: 1000,
+      maxOutput: 100
+    },
     extends: "model-b"
   });
 
@@ -355,7 +386,11 @@ Deno.test("model validation detects circular dependencies", () => {
     license: "mit",
     providers: ["test"],
     can: ["chat"],
-    context: { total: 1000, maxOutput: 100 },
+    context: {
+      type: "token",
+      total: 1000,
+      maxOutput: 100
+    },
     extends: "model-a"
   });
 

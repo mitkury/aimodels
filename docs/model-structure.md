@@ -40,7 +40,6 @@ interface Model {
     "json-out",
     "function-out"
   ],
-
   "context": {
     "total": 128000,
     "maxOutput": 4000
@@ -56,6 +55,9 @@ interface Model {
 - **creator**: Organization that created the model
 - **license**: License type (e.g., "proprietary", "apache-2.0", "mit", "llama-2-community")
 - **providers**: Array of provider IDs that can serve this model
+
+### TODO: Provider-Specific Model IDs
+Future implementation should add support for provider-specific model IDs. This will allow providers to use their own identifiers while maintaining a normalized interface. See the TODO section in [providers.md](./providers.md) for more details.
 
 ### Capabilities
 See [model-capabilities.md](./model-capabilities.md) for detailed documentation.

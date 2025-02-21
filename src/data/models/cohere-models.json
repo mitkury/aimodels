@@ -9,6 +9,7 @@
       "providers": ["cohere"],
       "can": ["chat", "text-in", "text-out", "reason", "function-out"],
       "context": {
+        "type": "token",
         "total": 128000,
         "maxOutput": 4096
       }
@@ -21,6 +22,7 @@
       "providers": ["cohere", "bedrock", "azure", "oracle"],
       "can": ["chat", "text-in", "text-out", "reason", "function-out"],
       "context": {
+        "type": "token",
         "total": 128000,
         "maxOutput": 4096
       },
@@ -34,6 +36,7 @@
       "providers": ["cohere", "bedrock", "azure", "oracle"],
       "can": ["chat", "text-in", "text-out", "reason", "function-out"],
       "context": {
+        "type": "token",
         "total": 128000,
         "maxOutput": 4096
       },
@@ -47,6 +50,7 @@
       "providers": ["cohere", "bedrock", "oracle"],
       "can": ["chat", "text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": 4096
       }
@@ -59,6 +63,7 @@
       "providers": ["cohere", "bedrock", "oracle"],
       "can": ["chat", "text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": 4096
       }
@@ -71,6 +76,7 @@
       "providers": ["cohere", "bedrock", "azure", "oracle"],
       "can": ["text-in", "img-in", "vectors-out"],
       "context": {
+        "type": "token",
         "total": 512,
         "maxOutput": 1024
       }
@@ -83,6 +89,7 @@
       "providers": ["cohere", "oracle"],
       "can": ["text-in", "img-in", "vectors-out"],
       "context": {
+        "type": "token",
         "total": 512,
         "maxOutput": 384
       }
@@ -95,6 +102,7 @@
       "providers": ["cohere", "bedrock", "azure", "oracle"],
       "can": ["text-in", "img-in", "vectors-out"],
       "context": {
+        "type": "token",
         "total": 512,
         "maxOutput": 1024
       }
@@ -107,6 +115,7 @@
       "providers": ["cohere", "oracle"],
       "can": ["text-in", "img-in", "vectors-out"],
       "context": {
+        "type": "token",
         "total": 512,
         "maxOutput": 384
       }
@@ -119,6 +128,7 @@
       "providers": ["cohere", "bedrock", "azure"],
       "can": ["text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": null
       }
@@ -131,6 +141,7 @@
       "providers": ["cohere", "azure"],
       "can": ["text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": null
       }
@@ -143,6 +154,7 @@
       "providers": ["cohere", "azure"],
       "can": ["text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": null
       }

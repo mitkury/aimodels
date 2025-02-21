@@ -8,6 +8,7 @@
       "providers": ["groq"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out"],
       "context": {
+        "type": "token",
         "total": 8192,
         "maxOutput": 4096
       }
@@ -19,6 +20,7 @@
       "providers": ["groq"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out"],
       "context": {
+        "type": "token",
         "total": 8192,
         "maxOutput": 4096
       }
@@ -30,6 +32,7 @@
       "providers": ["groq"],
       "can": ["chat", "text-in", "text-out", "img-in"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": 4096
       }
@@ -41,6 +44,7 @@
       "providers": ["groq"],
       "can": ["chat", "text-in", "text-out", "img-in"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": 4096
       }
@@ -52,6 +56,7 @@
       "providers": ["groq"],
       "can": ["chat", "text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 4096,
         "maxOutput": 4096
       }

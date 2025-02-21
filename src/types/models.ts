@@ -56,18 +56,25 @@ export class ModelCollection extends Array<Model> {
   /** Filter models by minimum context window size */
   withMinContext(tokens: number): ModelCollection {
     return this.filter(model => {
-      const context = model.context as TokenModelContext;
-      if (!('total' in context) || context.total === null) {
+      const context = model.context;
+      if (context.type !== "token" && context.type !== "character") {
         return false;
       }
-      
-      // total already represents the input limit, no need to subtract maxOutput
+      if (context.total === null) {
+        return false;
+      }
       return context.total >= tokens;
     });
   }
 }
 
-export interface TokenModelContext {
+export interface BaseContext {
+  /** The type discriminator */
+  type: string;
+}
+
+export interface TokenContext extends BaseContext {
+  type: "token";
   /** Maximum input tokens the model can accept */
   total: number | null;
   /** Maximum tokens the model can generate in response */
@@ -80,16 +87,67 @@ export interface TokenModelContext {
   outputIsFixed?: 1;
 }
 
-export interface ImageModelContext {
+export interface CharacterContext extends BaseContext {
+  type: "character";
+  /** Maximum input characters the model can accept */
+  total: number | null;
+  /** Maximum characters the model can generate in response */
+  maxOutput: number | null;
+}
+
+export interface ImageContext extends BaseContext {
+  type: "image";
   /** Maximum outputs per request */
   maxOutput: number;
-  /** Available image sizes */
+  /** Available image sizes (e.g. "1024x1024") */
   sizes: string[];
-  /** Available quality settings */
+  /** Available quality settings (e.g. "standard", "hd") */
   qualities: string[];
 }
 
-export type ModelContext = TokenModelContext | ImageModelContext;
+export interface AudioInputContext extends BaseContext {
+  type: "audio-in";
+  /** Maximum duration in seconds, null if unlimited */
+  maxDuration?: number | null;
+  /** Supported input formats */
+  formats?: string[];
+  /** Maximum file size in bytes */
+  maxSize?: number | null;
+}
+
+export interface AudioOutputContext extends BaseContext {
+  type: "audio-out";
+  /** Maximum text length that can be converted to speech */
+  maxInput?: number | null;
+  /** Supported output formats */
+  formats?: string[];
+  /** Available voices */
+  voices?: string[];
+  /** Available quality settings */
+  qualities?: string[];
+}
+
+export interface EmbeddingContext extends BaseContext {
+  type: "embedding";
+  /** Maximum input size */
+  total: number;
+  /** Unit of measurement for input */
+  unit: "tokens" | "characters";
+  /** Size of output embedding vectors */
+  dimensions: number;
+  /** Type of embeddings produced */
+  embeddingType?: "text" | "image" | "audio" | "multimodal";
+  /** Normalization of output vectors */
+  normalized?: boolean;
+}
+
+export type ModelContext = 
+  | TokenContext 
+  | CharacterContext 
+  | ImageContext 
+  | AudioInputContext 
+  | AudioOutputContext 
+  | EmbeddingContext;
 
 export interface Model {
   /** Unique identifier */

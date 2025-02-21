@@ -8,6 +8,7 @@
       "providers": ["google"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out", "img-in", "sound-in", "reason"],
       "context": {
+        "type": "token",
         "total": 1048576,
         "maxOutput": 8192
       },
@@ -20,6 +21,7 @@
       "providers": ["google"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out", "img-in", "sound-in"],
       "context": {
+        "type": "token",
         "total": 1048576,
         "maxOutput": 8192
       },
@@ -32,6 +34,7 @@
       "providers": ["google"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out", "img-in", "sound-in"],
       "context": {
+        "type": "token",
         "total": 2097152,
         "maxOutput": 8192
       }
@@ -43,6 +46,7 @@
       "providers": ["google"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out", "img-in", "sound-in"],
       "context": {
+        "type": "token",
         "total": 2097152,
         "maxOutput": 8192
       }
@@ -54,6 +58,7 @@
       "providers": ["google"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out", "img-in", "sound-in", "reason"],
       "context": {
+        "type": "token",
         "total": 2097152,
         "maxOutput": 8192
       },
@@ -66,6 +71,7 @@
       "providers": ["google"],
       "can": ["text-in", "vectors-out"],
       "context": {
+        "type": "token",
         "total": 2048,
         "maxOutput": 768
       }
@@ -77,6 +83,7 @@
       "providers": ["google"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out"],
       "context": {
+        "type": "token",
         "total": 8192,
         "maxOutput": 4096
       }
@@ -88,6 +95,7 @@
       "providers": ["google"],
       "can": ["chat", "text-in", "text-out", "json-out", "function-out"],
       "context": {
+        "type": "token",
         "total": 8192,
         "maxOutput": 4096
       }

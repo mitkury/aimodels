@@ -85,6 +85,17 @@ export function validateModel(raw: unknown): Model {
     if (typeof context.maxOutput !== 'number') {
       throw new Error('Image model context.maxOutput must be a number');
     }
+  } else if (context.type === 'embedding') {
+    // Embedding model context
+    if (typeof context.total !== 'number') {
+      throw new Error('Embedding model context.total must be a number');
+    }
+    if (typeof context.unit !== 'string') {
+      throw new Error('Embedding model context.unit must be a string');
+    }
+    if (typeof context.dimensions !== 'number') {
+      throw new Error('Embedding model context.dimensions must be a number');
+    }
   } else {
     // Token model context
     if (typeof context.total !== 'number' && context.total !== null) {

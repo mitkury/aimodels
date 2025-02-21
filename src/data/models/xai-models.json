@@ -9,6 +9,7 @@
       "providers": ["xai"],
       "can": ["chat", "text-in", "text-out", "img-in"],
       "context": {
+        "type": "token",
         "total": 32768,
         "maxOutput": 4096
       },
@@ -22,6 +23,7 @@
       "providers": ["xai"],
       "can": ["chat", "text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 131072,
         "maxOutput": 4096
       },
@@ -35,6 +37,7 @@
       "providers": ["xai"],
       "can": ["chat", "text-in", "text-out", "img-in"],
       "context": {
+        "type": "token",
         "total": 8192,
         "maxOutput": 4096
       }
@@ -47,6 +50,7 @@
       "providers": ["xai"],
       "can": ["chat", "text-in", "text-out"],
       "context": {
+        "type": "token",
         "total": 131072,
         "maxOutput": 4096
       }
