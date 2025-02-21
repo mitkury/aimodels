@@ -110,6 +110,10 @@ export interface Model {
   aliases?: string[];
   /** Context window information */
   context: ModelContext;
+  /** Base model ID this model extends */
+  extends?: string;
+  /** Properties that override the base model */
+  overrides?: Partial<Omit<Model, 'id' | 'extends' | 'overrides'>>;
 }
 
 export interface ModelsAPI {

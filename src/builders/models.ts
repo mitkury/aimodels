@@ -26,6 +26,24 @@ export function validateModel(raw: unknown): Model {
     }
   }
 
+  // Validate extends field if present
+  if (model.extends !== undefined && typeof model.extends !== 'string') {
+    throw new Error('Model extends must be a string');
+  }
+
+  // Validate overrides if present
+  if (model.overrides !== undefined) {
+    if (typeof model.overrides !== 'object' || model.overrides === null) {
+      throw new Error('Model overrides must be an object');
+    }
+    // Ensure overrides don't contain invalid fields
+    const validOverrideFields = ['name', 'creator', 'license', 'providers', 'can', 'languages', 'aliases', 'context'];
+    const invalidFields = Object.keys(model.overrides).filter(field => !validOverrideFields.includes(field));
+    if (invalidFields.length > 0) {
+      throw new Error(`Invalid override fields: ${invalidFields.join(', ')}`);
+    }
+  }
+
   // Validate providers array
   if (!Array.isArray(model.providers)) {
     throw new Error('Model providers must be an array');
@@ -87,8 +105,59 @@ export function validateModel(raw: unknown): Model {
     can: model.can as Capability[],
     context: model.context as Model['context'],
     ...(model.languages ? { languages: model.languages as string[] } : {}),
-    ...(model.aliases ? { aliases: model.aliases as string[] } : {})
+    ...(model.aliases ? { aliases: model.aliases as string[] } : {}),
+    ...(model.extends ? { extends: model.extends } : {}),
+    ...(model.overrides ? { overrides: model.overrides as Model['overrides'] } : {})
   };
+}
+
+/**
+ * Resolves a model's inheritance by merging with its base model
+ */
+export function resolveModel(model: Model, allModels: Record<string, Model>, visited = new Set<string>()): Model {
+  // No inheritance, return as is
+  if (!model.extends) {
+    return model;
+  }
+
+  // Check for circular dependencies
+  if (visited.has(model.id)) {
+    throw new Error(`Circular dependency detected for model ${model.id}`);
+  }
+  visited.add(model.id);
+
+  // Find base model
+  const baseModel = allModels[model.extends];
+  if (!baseModel) {
+    throw new Error(`Base model ${model.extends} not found for ${model.id}`);
+  }
+
+  // Recursively resolve the base model first
+  const resolvedBase = resolveModel(baseModel, allModels, visited);
+
+  // If no overrides, just inherit everything except id and extends
+  if (!model.overrides) {
+    return {
+      ...resolvedBase,
+      id: model.id,
+      extends: model.extends
+    };
+  }
+
+  // Merge with base model, giving priority to overrides
+  const resolved = {
+    ...resolvedBase,
+    ...model.overrides,
+    id: model.id,
+    extends: model.extends
+  };
+
+  // Ensure required fields are present
+  if (!resolved.name || !resolved.creator || !resolved.license || !resolved.providers || !resolved.can || !resolved.context) {
+    throw new Error(`Missing required fields in resolved model ${model.id}`);
+  }
+
+  return resolved;
 }
 
 /**
@@ -107,13 +176,37 @@ export function buildAllModels(): Model[] {
     cohereModels
   ] as ModelsData[];
 
+  // First pass: collect all models and do basic validation
   const allModels = allModelData.flatMap(data => 
-    data.models.map(model => ({
-      ...model,
-      creator: data.creator
-    }))
+    data.models.map(model => {
+      // Do minimal validation first
+      if (typeof model.id !== 'string') {
+        throw new Error(`Model id must be a string`);
+      }
+      if (model.extends !== undefined && typeof model.extends !== 'string') {
+        throw new Error('Model extends must be a string');
+      }
+      if (model.overrides !== undefined && (typeof model.overrides !== 'object' || model.overrides === null)) {
+        throw new Error('Model overrides must be an object');
+      }
+
+      return {
+        ...model,
+        creator: data.creator
+      };
+    })
   );
 
-  // Validate each model
-  return allModels.map(model => validateModel(model));
+  // Create a map for easy lookup
+  const modelMap = Object.fromEntries(
+    allModels.map(model => [model.id, model])
+  );
+
+  // Second pass: resolve inheritance
+  const resolvedModels = allModels.map(model => 
+    resolveModel(model as Model, modelMap)
+  );
+
+  // Third pass: validate resolved models
+  return resolvedModels.map(model => validateModel(model));
 }

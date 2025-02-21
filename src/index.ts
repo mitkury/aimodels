@@ -46,11 +46,18 @@ export class AIModels extends ModelCollection {
 
   /** Get all providers that can serve a specific model */
   getProvidersForModel(modelId: string): Provider[] {
-    const model = this.id(modelId);
+    // First try to find the model by its ID
+    let model = this.id(modelId);
+    
+    // If not found, try to find it by alias
+    if (!model) {
+      model = this.find(m => m.aliases?.includes(modelId));
+    }
+    
     if (!model) return [];
     
     return providersData.providers.filter((p: Provider) => 
-      model.providers.includes(p.id)
+      model!.providers.includes(p.id)
     );
   }
 }

@@ -3,6 +3,7 @@ import { models } from "../src/index.ts";
 import type { Model, TokenModelContext } from "../src/types/index.ts";
 import { ModelCollection } from "../src/types/models.ts";
 import { buildAllModels, validateModel } from "../src/builders/models.ts";
+import { resolveModel } from "../src/builders/models.ts";
 
 Deno.test("models.can filters by single capability", () => {
   // Get all chat models
@@ -273,4 +274,100 @@ Deno.test("model validation handles aliases", () => {
 
   const resultWithAliases = validateModel(modelWithAliases);
   assertEquals(resultWithAliases.aliases, modelWithAliases.aliases, "Should preserve aliases");
+});
+
+Deno.test("model validation handles inheritance", () => {
+  // Base model
+  const baseModel = validateModel({
+    id: "base-model",
+    name: "Base Model",
+    creator: "Test",
+    license: "mit",
+    providers: ["test-provider"],
+    can: ["chat", "text-in", "text-out"],
+    context: {
+      total: 4096,
+      maxOutput: 1024
+    }
+  });
+
+  // Extended model with overrides
+  const extendedModel = {
+    id: "extended-model",
+    name: "Extended Model",
+    creator: "Test",
+    license: "mit",
+    providers: ["test-provider"],
+    can: ["chat", "text-in", "text-out"],
+    context: {
+      total: 4096,
+      maxOutput: 1024
+    },
+    extends: "base-model",
+    overrides: {
+      name: "Extended Model",
+      can: ["chat", "text-in", "text-out", "img-in"],
+      context: {
+        total: 8192,
+        maxOutput: 2048
+      }
+    }
+  };
+
+  // Create model map
+  const modelMap = {
+    "base-model": baseModel,
+    "extended-model": extendedModel as unknown as Model
+  };
+
+  // Test resolution and validation
+  const resolvedModel = validateModel(resolveModel(modelMap["extended-model"], modelMap));
+  
+  // Verify inheritance
+  assertEquals(resolvedModel.id, "extended-model", "Should keep extended model ID");
+  assertEquals(resolvedModel.name, "Extended Model", "Should use overridden name");
+  assertEquals(resolvedModel.creator, baseModel.creator, "Should inherit creator");
+  assertEquals(resolvedModel.license, baseModel.license, "Should inherit license");
+  assertEquals(resolvedModel.providers, baseModel.providers, "Should inherit providers");
+  assertEquals(resolvedModel.can, ["chat", "text-in", "text-out", "img-in"], "Should use overridden capabilities");
+  
+  // Check context after verifying it's a TokenModelContext
+  const context = resolvedModel.context as TokenModelContext;
+  assertEquals(context.total, 8192, "Should use overridden context");
+});
+
+Deno.test("model validation detects circular dependencies", () => {
+  const modelA = validateModel({
+    id: "model-a",
+    name: "Model A",
+    creator: "Test",
+    license: "mit",
+    providers: ["test"],
+    can: ["chat"],
+    context: { total: 1000, maxOutput: 100 },
+    extends: "model-b"
+  });
+
+  const modelB = validateModel({
+    id: "model-b",
+    name: "Model B",
+    creator: "Test",
+    license: "mit",
+    providers: ["test"],
+    can: ["chat"],
+    context: { total: 1000, maxOutput: 100 },
+    extends: "model-a"
+  });
+
+  const modelMap = {
+    "model-a": modelA,
+    "model-b": modelB
+  };
+
+  // Should throw on circular dependency
+  assertThrows(
+    () => resolveModel(modelMap["model-a"], modelMap),
+    Error,
+    "Circular dependency detected"
+  );
 });
