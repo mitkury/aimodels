@@ -6,8 +6,15 @@
       "name": "Command R7B",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere"],
-      "can": ["chat", "text-in", "text-out", "reason", "function-out"],
+      "providers": [
+        "cohere"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out",
+        "function-out"
+      ],
       "context": {
         "type": "token",
         "total": 128000,
@@ -19,36 +26,70 @@
       "name": "Command R+",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "bedrock", "azure", "oracle"],
-      "can": ["chat", "text-in", "text-out", "reason", "function-out"],
+      "providers": [
+        "cohere",
+        "bedrock",
+        "azure",
+        "oracle"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out",
+        "reason",
+        "function-out"
+      ],
       "context": {
         "type": "token",
         "total": 128000,
         "maxOutput": 4096
       },
-      "aliases": ["command-r-plus"]
+      "aliases": [
+        "command-r-plus"
+      ]
     },
     {
       "id": "command-r-03-2024",
       "name": "Command R",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "bedrock", "azure", "oracle"],
-      "can": ["chat", "text-in", "text-out", "reason", "function-out"],
+      "providers": [
+        "cohere",
+        "bedrock",
+        "azure",
+        "oracle"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out",
+        "reason",
+        "function-out"
+      ],
       "context": {
         "type": "token",
         "total": 128000,
         "maxOutput": 4096
       },
-      "aliases": ["command-r"]
+      "aliases": [
+        "command-r"
+      ]
     },
     {
       "id": "command",
       "name": "Command",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "bedrock", "oracle"],
-      "can": ["chat", "text-in", "text-out"],
+      "providers": [
+        "cohere",
+        "bedrock",
+        "oracle"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out"
+      ],
       "context": {
         "type": "token",
         "total": 4096,
@@ -60,8 +101,16 @@
       "name": "Command Light",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "bedrock", "oracle"],
-      "can": ["chat", "text-in", "text-out"],
+      "providers": [
+        "cohere",
+        "bedrock",
+        "oracle"
+      ],
+      "can": [
+        "chat",
+        "text-in",
+        "text-out"
+      ],
       "context": {
         "type": "token",
         "total": 4096,
@@ -73,8 +122,17 @@
       "name": "Embed English v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "bedrock", "azure", "oracle"],
-      "can": ["text-in", "img-in", "vectors-out"],
+      "providers": [
+        "cohere",
+        "bedrock",
+        "azure",
+        "oracle"
+      ],
+      "can": [
+        "text-in",
+        "img-in",
+        "vectors-out"
+      ],
       "context": {
         "type": "token",
         "total": 512,
@@ -86,8 +144,15 @@
       "name": "Embed English Light v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "oracle"],
-      "can": ["text-in", "img-in", "vectors-out"],
+      "providers": [
+        "cohere",
+        "oracle"
+      ],
+      "can": [
+        "text-in",
+        "img-in",
+        "vectors-out"
+      ],
       "context": {
         "type": "token",
         "total": 512,
@@ -99,8 +164,17 @@
       "name": "Embed Multilingual v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "bedrock", "azure", "oracle"],
-      "can": ["text-in", "img-in", "vectors-out"],
+      "providers": [
+        "cohere",
+        "bedrock",
+        "azure",
+        "oracle"
+      ],
+      "can": [
+        "text-in",
+        "img-in",
+        "vectors-out"
+      ],
       "context": {
         "type": "token",
         "total": 512,
@@ -112,8 +186,15 @@
       "name": "Embed Multilingual Light v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "oracle"],
-      "can": ["text-in", "img-in", "vectors-out"],
+      "providers": [
+        "cohere",
+        "oracle"
+      ],
+      "can": [
+        "text-in",
+        "img-in",
+        "vectors-out"
+      ],
       "context": {
         "type": "token",
         "total": 512,
@@ -125,8 +206,15 @@
       "name": "Rerank v3.5",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "bedrock", "azure"],
-      "can": ["text-in", "text-out"],
+      "providers": [
+        "cohere",
+        "bedrock",
+        "azure"
+      ],
+      "can": [
+        "text-in",
+        "text-out"
+      ],
       "context": {
         "type": "token",
         "total": 4096,
@@ -138,8 +226,14 @@
       "name": "Rerank English v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "azure"],
-      "can": ["text-in", "text-out"],
+      "providers": [
+        "cohere",
+        "azure"
+      ],
+      "can": [
+        "text-in",
+        "text-out"
+      ],
       "context": {
         "type": "token",
         "total": 4096,
@@ -151,8 +245,14 @@
       "name": "Rerank Multilingual v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": ["cohere", "azure"],
-      "can": ["text-in", "text-out"],
+      "providers": [
+        "cohere",
+        "azure"
+      ],
+      "can": [
+        "text-in",
+        "text-out"
+      ],
       "context": {
         "type": "token",
         "total": 4096,
@@ -160,4 +260,4 @@
       }
     }
   ]
-} 
+}
