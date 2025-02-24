@@ -4,6 +4,11 @@ import type { Provider, ProvidersData } from '../types/index.ts';
 import openaiProvider from '../data/providers/openai-provider.json' with { type: 'json' };
 import anthropicProvider from '../data/providers/anthropic-provider.json' with { type: 'json' };
 import mistralProvider from '../data/providers/mistral-provider.json' with { type: 'json' };
+import cohereProvider from '../data/providers/cohere-provider.json' with { type: 'json' };
+import xaiProvider from '../data/providers/xai-provider.json' with { type: 'json' };
+import googleProvider from '../data/providers/google-provider.json' with { type: 'json' };
+import deepseekProvider from '../data/providers/deepseek-provider.json' with { type: 'json' };
+import groqProvider from '../data/providers/groq-provider.json' with { type: 'json' };
 
 // Type guard to check if a price object is a token price
 function isTokenPrice(price: unknown): price is { type: 'token'; input: number; output: number } {
@@ -36,6 +41,13 @@ function isMinutePrice(price: unknown): price is { type: 'minute'; price: number
     'price' in price && typeof (price as { price: unknown }).price === 'number';
 }
 
+// Type guard to check if a price object is a search price
+function isSearchPrice(price: unknown): price is { type: 'search'; price: number } {
+  return typeof price === 'object' && price !== null &&
+    'type' in price && (price as { type: string }).type === 'search' &&
+    'price' in price && typeof (price as { price: unknown }).price === 'number';
+}
+
 /**
  * Validate and convert a raw provider object to a Provider type
  */
@@ -65,7 +77,7 @@ function validateProvider(raw: unknown): Provider {
   // Validate each model price
   const models = provider.models as Record<string, unknown>;
   Object.values(models).forEach(price => {
-    if (!isTokenPrice(price) && !isImagePrice(price) && !isCharacterPrice(price) && !isMinutePrice(price)) {
+    if (!isTokenPrice(price) && !isImagePrice(price) && !isCharacterPrice(price) && !isMinutePrice(price) && !isSearchPrice(price)) {
       throw new Error(`Invalid price data: ${JSON.stringify(price)}`);
     }
   });
@@ -88,7 +100,12 @@ export function buildAllProviders(): Provider[] {
   return [
     validateProvider(openaiProvider),
     validateProvider(anthropicProvider),
-    validateProvider(mistralProvider)
+    validateProvider(mistralProvider),
+    validateProvider(cohereProvider),
+    validateProvider(xaiProvider),
+    validateProvider(googleProvider),
+    validateProvider(deepseekProvider),
+    validateProvider(groqProvider)
   ];
 }
 

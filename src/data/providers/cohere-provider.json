@@ -50,8 +50,9 @@
       "output": 0
     },
     "rerank-v3.5": {
-      "type": "search",
-      "price": 2.00
+      "type": "token",
+      "input": 100,
+      "output": 0
     },
     "rerank-english-v3.0": {
       "type": "token",
