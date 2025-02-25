@@ -85,6 +85,12 @@ export interface TokenContext extends BaseContext {
    * When not set, available output tokens may be reduced based on input size.
    */
   outputIsFixed?: 1;
+  /**
+   * Extended capabilities beyond the standard model behavior.
+   * This is a flexible object that can contain any properties or nested objects
+   * related to model-specific extensions (e.g., reasoning, experimental features).
+   */
+  extended?: Record<string, any>;
 }
 
 export interface CharacterContext extends BaseContext {
