@@ -36,7 +36,6 @@
         "chat",
         "text-in",
         "text-out",
-        "reason",
         "function-out"
       ],
       "context": {

@@ -66,6 +66,11 @@ export class ModelCollection extends Array<Model> {
       return context.total >= tokens;
     });
   }
+
+  /** Get all providers from all models in the collection deduplicated */
+  getProviders(): string[] {
+    return [...new Set(this.flatMap(model => model.providers))];
+  }
 }
 
 export interface BaseContext {
