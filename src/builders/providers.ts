@@ -9,6 +9,7 @@ import xaiProvider from '../data/providers/xai-provider.json' with { type: 'json
 import googleProvider from '../data/providers/google-provider.json' with { type: 'json' };
 import deepseekProvider from '../data/providers/deepseek-provider.json' with { type: 'json' };
 import groqProvider from '../data/providers/groq-provider.json' with { type: 'json' };
+import azureProvider from '../data/providers/azure-provider.json' with { type: 'json' };
 
 // Type guard to check if a price object is a token price
 function isTokenPrice(price: unknown): price is { type: 'token'; input: number; output: number } {
@@ -105,7 +106,8 @@ export function buildAllProviders(): Provider[] {
     validateProvider(xaiProvider),
     validateProvider(googleProvider),
     validateProvider(deepseekProvider),
-    validateProvider(groqProvider)
+    validateProvider(groqProvider),
+    validateProvider(azureProvider)
   ];
 }
 
