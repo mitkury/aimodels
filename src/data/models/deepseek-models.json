@@ -8,10 +8,10 @@
       "providers": ["deepseek"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -26,10 +26,10 @@
       "providers": ["deepseek"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "json-out",
-        "function-out",
+        "fn-out",
         "reason"
       ],
       "context": {

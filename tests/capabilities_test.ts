@@ -6,15 +6,15 @@ import type { Capability, Model } from "../src/types/index.ts";
 const validCapabilities: Capability[] = [
   "chat",
   "reason",
-  "text-in",
-  "text-out",
+  "txt-in",
+  "txt-out",
   "img-in",
   "img-out",
-  "sound-in",
-  "sound-out",
+  "audio-in",
+  "audio-out",
   "json-out",
-  "function-out",
-  "vectors-out"
+  "fn-out",
+  "vec-out"
 ];
 
 Deno.test("models have valid capabilities", () => {

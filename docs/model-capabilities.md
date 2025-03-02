@@ -6,17 +6,17 @@ This document outlines the capabilities system used in the `aimodels` package to
 
 ```typescript
 type Capability =
-  | "chat"         // shortcut for "text-in" and "text-out"
+  | "chat"         // shortcut for "txt-in" and "txt-out"
   | "reason"       // when the model spends some tokens on reasoning
-  | "text-in"      // process text input
-  | "text-out"     // output text
+  | "txt-in"       // process text input
+  | "txt-out"      // output text
   | "img-in"       // understand images
   | "img-out"      // generate images
-  | "sound-in"     // process audio input
-  | "sound-out"    // generate audio/speech
+  | "audio-in"     // process audio input
+  | "audio-out"    // generate audio/speech
   | "json-out"     // structured JSON output
-  | "function-out" // function calling
-  | "vectors-out"; // output vector embeddings
+  | "fn-out"       // function calling
+  | "vec-out";     // output vector embeddings
 ```
 
 ## Example Usage
@@ -32,8 +32,7 @@ const visionModels = models.can("chat", "img-in");
 const imageGenerators = models.can("img-out");
 
 // Find models that can do function calling
-const functionModels = models.can("function-out");
-```
+const functionModels = models.can("fn-out");
 ```
 
 ## Examples by Model Type
@@ -42,7 +41,7 @@ const functionModels = models.can("function-out");
 
 ```json
 {
-  "can": ["chat", "text-in", "img-in", "json-out", "function-out"]
+  "can": ["chat", "txt-in", "img-in", "json-out", "fn-out"]
 }
 ```
 
@@ -50,7 +49,7 @@ const functionModels = models.can("function-out");
 
 ```json
 {
-  "can": ["text-in", "img-out"]
+  "can": ["txt-in", "img-out"]
 }
 ```
 
@@ -58,7 +57,7 @@ const functionModels = models.can("function-out");
 
 ```json
 {
-  "can": ["sound-in", "text-out"]
+  "can": ["audio-in", "txt-out"]
 }
 ```
 
@@ -66,7 +65,7 @@ const functionModels = models.can("function-out");
 
 ```json
 {
-  "can": ["text-in", "sound-out"]
+  "can": ["txt-in", "audio-out"]
 }
 ```
 
@@ -74,7 +73,7 @@ const functionModels = models.can("function-out");
 
 ```json
 {
-  "can": ["text-in", "img-in", "vectors-out"]
+  "can": ["txt-in", "img-in", "vec-out"]
 }
 ```
 
@@ -86,14 +85,13 @@ type Capability =
   | "chat"
   | "img-in"
   | "img-out"
-  | "sound-in"
-  | "sound-out"
+  | "audio-in"
+  | "audio-out"
   | "json-out"
-  | "function-out"
-  | "text-to-vec"
-  | "img-to-vec"
+  | "fn-out"
+  | "vec-out"
   | "reason"
-  | "text-in";
+  | "txt-in";
 
 interface Model {
   can: (...capabilities: Capability[]) => boolean;
@@ -120,12 +118,11 @@ const multimodal = models.filter((m) => m.can("chat", "img-in"));
 - **chat**: Text generation and understanding, including code
 - **img-in**: Process and understand images
 - **img-out**: Generate images
-- **sound-in**: Process audio input and speech recognition
-- **sound-out**: Generate audio and speech
+- **audio-in**: Process audio input and speech recognition
+- **audio-out**: Generate audio and speech
 - **json-out**: Generate structured JSON output
-- **function-out**: Handle function calling and API interactions
-- **text-to-vec**: Generate text embeddings
-- **img-to-vec**: Generate image embeddings
+- **fn-out**: Handle function calling and API interactions
+- **vec-out**: Generate vector embeddings
 
 ## Design Rationale
 

@@ -67,17 +67,17 @@ interface Model {
 ### Capabilities
 ```typescript
 type Capability =
-  | "chat"         // shortcut for "text-in" and "text-out"
+  | "chat"         // shortcut for "txt-in" and "txt-out"
   | "reason"       // when the model spends some tokens on reasoning
-  | "text-in"      // process text input
-  | "text-out"     // output text
+  | "txt-in"       // process text input
+  | "txt-out"      // output text
   | "img-in"       // understand images
   | "img-out"      // generate images
-  | "sound-in"     // process audio input
-  | "sound-out"    // generate audio/speech
+  | "audio-in"     // process audio input
+  | "audio-out"    // generate audio/speech
   | "json-out"     // structured JSON output
-  | "function-out" // function calling
-  | "vectors-out"; // output vector embeddings
+  | "fn-out"       // function calling
+  | "vec-out";     // output vector embeddings
 ```
 
 For more detailed information, see:

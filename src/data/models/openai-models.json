@@ -11,10 +11,10 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -44,10 +44,10 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -76,8 +76,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "text-out"
+        "txt-in",
+        "txt-out"
       ],
       "context": {
         "type": "token",
@@ -95,11 +95,11 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -159,11 +159,11 @@
         "name": "GPT-4o Audio",
         "can": [
           "chat",
-          "text-in",
-          "text-out",
-          "sound-in",
+          "txt-in",
+          "txt-out",
+          "audio-in",
           "json-out",
-          "function-out"
+          "fn-out"
         ],
         "context": {
           "type": "token",
@@ -193,12 +193,12 @@
         "name": "GPT-4o Mini Audio",
         "can": [
           "chat",
-          "text-in",
-          "text-out",
-          "sound-in",
-          "sound-out",
+          "txt-in",
+          "txt-out",
+          "audio-in",
+          "audio-out",
           "json-out",
-          "function-out"
+          "fn-out"
         ],
         "context": {
           "type": "token",
@@ -221,11 +221,11 @@
         "name": "GPT-4o Realtime",
         "can": [
           "chat",
-          "text-in",
-          "text-out",
-          "sound-in",
+          "txt-in",
+          "txt-out",
+          "audio-in",
           "json-out",
-          "function-out"
+          "fn-out"
         ],
         "context": {
           "type": "token",
@@ -255,11 +255,11 @@
         "name": "GPT-4o Mini Realtime",
         "can": [
           "chat",
-          "text-in",
-          "text-out",
-          "sound-in",
+          "txt-in",
+          "txt-out",
+          "audio-in",
           "json-out",
-          "function-out"
+          "fn-out"
         ],
         "context": {
           "type": "token",
@@ -285,11 +285,11 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out",
+        "fn-out",
         "reason"
       ],
       "context": {
@@ -312,10 +312,10 @@
         "name": "OpenAI O1 Mini",
         "can": [
           "chat",
-          "text-in",
-          "text-out",
+          "txt-in",
+          "txt-out",
           "json-out",
-          "function-out",
+          "fn-out",
           "reason"
         ],
         "context": {
@@ -361,10 +361,10 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "json-out",
-        "function-out",
+        "fn-out",
         "reason"
       ],
       "context": {
@@ -389,8 +389,8 @@
         "azure"
       ],
       "can": [
-        "sound-in",
-        "text-out"
+        "audio-in",
+        "txt-out"
       ],
       "context": {
         "type": "audio-in",
@@ -407,8 +407,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "sound-out"
+        "txt-in",
+        "audio-out"
       ],
       "context": {
         "type": "audio-out",
@@ -455,7 +455,7 @@
         "azure"
       ],
       "can": [
-        "text-in",
+        "txt-in",
         "img-out"
       ],
       "context": {
@@ -480,8 +480,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "vectors-out"
+        "txt-in",
+        "vec-out"
       ],
       "context": {
         "type": "embedding",
@@ -501,8 +501,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "vectors-out"
+        "txt-in",
+        "vec-out"
       ],
       "context": {
         "type": "embedding",
@@ -522,8 +522,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "vectors-out"
+        "txt-in",
+        "vec-out"
       ],
       "context": {
         "type": "embedding",

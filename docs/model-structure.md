@@ -38,7 +38,7 @@ interface Model {
     "chat",
     "img-in",
     "json-out",
-    "function-out"
+    "fn-out"
   ],
   "context": {
     "total": 128000,
@@ -84,7 +84,7 @@ See [model-capabilities.md](./model-capabilities.md) for detailed documentation.
   "creator": "OpenAI",
   "license": "proprietary",
   "providers": ["openai", "azure"],
-  "can": ["chat", "img-in", "json-out", "function-out"],
+  "can": ["chat", "img-in", "json-out", "fn-out"],
   "context": {
     "total": 128000,
     "maxOutput": 4000
@@ -105,7 +105,7 @@ See [model-capabilities.md](./model-capabilities.md) for detailed documentation.
     "together",
     "anyscale"
   ],
-  "can": ["chat", "function-out"],
+  "can": ["chat", "fn-out"],
   "context": {
     "total": 4096,
     "maxOutput": 4096

@@ -18,15 +18,15 @@ Deno.test("models.can filters by single capability", () => {
 
 Deno.test("models.can filters by multiple capabilities", () => {
   // Get models that can both chat and output functions
-  const chatWithFunctions = models.can("chat", "function-out");
-  assertGreater(chatWithFunctions.length, 0, "Should have models with chat and function-out");
+  const chatWithFunctions = models.can("chat", "fn-out");
+  assertGreater(chatWithFunctions.length, 0, "Should have models with chat and fn-out");
   
   // Verify each model has both capabilities
   chatWithFunctions.forEach((model: Model) => {
     assertEquals(
-      model.can.includes("chat") && model.can.includes("function-out"), 
+      model.can.includes("chat") && model.can.includes("fn-out"), 
       true, 
-      `${model.name} should have both chat and function-out capabilities`
+      `${model.name} should have both chat and fn-out capabilities`
     );
   });
 });
@@ -120,7 +120,7 @@ Deno.test("model validation accepts valid data", () => {
     creator: "Test Creator",
     license: "mit",
     providers: ["test-provider"],
-    can: ["chat", "text-in", "text-out"],
+    can: ["chat", "txt-in", "txt-out"],
     context: {
       type: "token",
       total: 4096,
@@ -241,6 +241,50 @@ Deno.test("ModelCollection preserves array operations", () => {
   assertEquals(result instanceof ModelCollection, true, "Chained operations should return ModelCollection");
 });
 
+Deno.test("getProviders returns deduplicated providers", () => {
+  // Create a test collection with overlapping providers
+  const testModels = new ModelCollection();
+  testModels.push(
+    {
+      id: "model1",
+      name: "Model 1",
+      creator: "Test",
+      license: "mit",
+      providers: ["provider1", "provider2"],
+      can: ["chat"],
+      context: { type: "token", total: 1000, maxOutput: 100 }
+    },
+    {
+      id: "model2",
+      name: "Model 2",
+      creator: "Test",
+      license: "mit",
+      providers: ["provider2", "provider3"],
+      can: ["chat"],
+      context: { type: "token", total: 1000, maxOutput: 100 }
+    }
+  );
+  
+  const providers = testModels.getProviders();
+  
+  // Should return deduplicated providers
+  assertEquals(providers.length, 3, "Should return 3 unique providers");
+  assertEquals(providers.includes("provider1"), true, "Should include provider1");
+  assertEquals(providers.includes("provider2"), true, "Should include provider2");
+  assertEquals(providers.includes("provider3"), true, "Should include provider3");
+  
+  // Test with real models
+  const reasoningModels = models.can("reason");
+  const reasoningProviders = reasoningModels.getProviders();
+  
+  // Verify we get a non-empty array of providers
+  assertGreater(reasoningProviders.length, 0, "Should have providers for reasoning models");
+  
+  // Verify deduplication works with real data
+  const providerSet = new Set(reasoningModels.flatMap(m => m.providers));
+  assertEquals(reasoningProviders.length, providerSet.size, "Should match the number of unique providers");
+});
+
 Deno.test("model validation handles optional fields", () => {
   // Test with minimal valid model (no optional fields)
   const minimalModel = {
@@ -308,7 +352,7 @@ Deno.test("model validation handles inheritance", () => {
     creator: "Test",
     license: "mit",
     providers: ["test-provider"],
-    can: ["chat", "text-in", "text-out"],
+    can: ["chat", "txt-in", "txt-out"],
     context: {
       type: "token",
       total: 4096,
@@ -323,7 +367,7 @@ Deno.test("model validation handles inheritance", () => {
     creator: "Test",
     license: "mit",
     providers: ["test-provider"],
-    can: ["chat", "text-in", "text-out"],
+    can: ["chat", "txt-in", "txt-out"],
     context: {
       type: "token",
       total: 4096,
@@ -332,7 +376,7 @@ Deno.test("model validation handles inheritance", () => {
     extends: "base-model",
     overrides: {
       name: "Extended Model",
-      can: ["chat", "text-in", "text-out", "img-in"],
+      can: ["chat", "txt-in", "txt-out", "img-in"],
       context: {
         type: "token",
         total: 8192,
@@ -356,7 +400,7 @@ Deno.test("model validation handles inheritance", () => {
   assertEquals(resolvedModel.creator, baseModel.creator, "Should inherit creator");
   assertEquals(resolvedModel.license, baseModel.license, "Should inherit license");
   assertEquals(resolvedModel.providers, baseModel.providers, "Should inherit providers");
-  assertEquals(resolvedModel.can, ["chat", "text-in", "text-out", "img-in"], "Should use overridden capabilities");
+  assertEquals(resolvedModel.can, ["chat", "txt-in", "txt-out", "img-in"], "Should use overridden capabilities");
   
   // Check context after verifying it's a TokenContext
   const context = resolvedModel.context as TokenContext;

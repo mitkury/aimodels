@@ -1,4 +1,3 @@
-import type { TokenBasedPricePerMillionTokens } from './pricing.ts';
 import type { Capability } from './capabilities.ts';
 
 export class ModelCollection extends Array<Model> {
@@ -70,6 +69,10 @@ export class ModelCollection extends Array<Model> {
   /** Get all providers from all models in the collection deduplicated */
   getProviders(): string[] {
     return [...new Set(this.flatMap(model => model.providers))];
+  }
+
+  getCreators(): string[] {
+    return [...new Set(this.map(model => model.creator))];
   }
 }
 
@@ -183,25 +186,4 @@ export interface Model {
   extends?: string;
   /** Properties that override the base model */
   overrides?: Partial<Omit<Model, 'id' | 'extends' | 'overrides'>>;
-}
-
-export interface ModelsAPI {
-  /** All available models */
-  all: ModelCollection;
-  /** List of all creators */
-  creators: string[];
-  /** List of all providers */
-  providers: string[];
-  /** Get models from a specific creator */
-  fromCreator(creator: string): ModelCollection;
-  /** Get models from a specific provider */
-  fromProvider(provider: string): ModelCollection;
-  /** Find a specific model by ID */
-  find(id: string): Model | undefined;
-  /** Filter models by one or more capabilities (all must be present) */
-  can(...capabilities: string[]): ModelCollection;
-  /** Filter models by minimum context window */
-  withMinContext(tokens: number): ModelCollection;
-  /** Get pricing for a model from a specific provider */
-  getPrice(modelId: string, provider: string): TokenBasedPricePerMillionTokens | undefined;
 }

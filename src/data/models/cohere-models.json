@@ -11,9 +11,10 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
-        "function-out"
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -34,9 +35,10 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
-        "function-out"
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -60,10 +62,11 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "reason",
-        "function-out"
+        "json-out",
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -86,8 +89,8 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out"
+        "txt-in",
+        "txt-out"
       ],
       "context": {
         "type": "token",
@@ -107,8 +110,8 @@
       ],
       "can": [
         "chat",
-        "text-in",
-        "text-out"
+        "txt-in",
+        "txt-out"
       ],
       "context": {
         "type": "token",
@@ -128,9 +131,9 @@
         "oracle"
       ],
       "can": [
-        "text-in",
+        "txt-in",
         "img-in",
-        "vectors-out"
+        "vec-out"
       ],
       "context": {
         "type": "token",
@@ -148,9 +151,9 @@
         "oracle"
       ],
       "can": [
-        "text-in",
+        "txt-in",
         "img-in",
-        "vectors-out"
+        "vec-out"
       ],
       "context": {
         "type": "token",
@@ -170,9 +173,9 @@
         "oracle"
       ],
       "can": [
-        "text-in",
+        "txt-in",
         "img-in",
-        "vectors-out"
+        "vec-out"
       ],
       "context": {
         "type": "token",
@@ -190,9 +193,9 @@
         "oracle"
       ],
       "can": [
-        "text-in",
+        "txt-in",
         "img-in",
-        "vectors-out"
+        "vec-out"
       ],
       "context": {
         "type": "token",
@@ -211,8 +214,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "text-out"
+        "txt-in",
+        "txt-out"
       ],
       "context": {
         "type": "token",
@@ -230,8 +233,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "text-out"
+        "txt-in",
+        "txt-out"
       ],
       "context": {
         "type": "token",
@@ -249,8 +252,8 @@
         "azure"
       ],
       "can": [
-        "text-in",
-        "text-out"
+        "txt-in",
+        "txt-out"
       ],
       "context": {
         "type": "token",

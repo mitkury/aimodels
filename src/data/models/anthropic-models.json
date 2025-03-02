@@ -8,11 +8,11 @@
       "providers": ["anthropic", "aws", "google"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -29,11 +29,11 @@
       "providers": ["anthropic", "aws", "google"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -50,11 +50,11 @@
       "providers": ["anthropic", "aws", "google"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -71,11 +71,11 @@
       "providers": ["anthropic", "aws", "google"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -92,11 +92,11 @@
       "providers": ["anthropic", "aws", "google"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -112,10 +112,10 @@
       "providers": ["anthropic", "aws", "google"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "json-out",
-        "function-out"
+        "fn-out"
       ],
       "context": {
         "type": "token",
@@ -132,11 +132,11 @@
       "providers": ["anthropic", "aws", "google"],
       "can": [
         "chat",
-        "text-in",
-        "text-out",
+        "txt-in",
+        "txt-out",
         "img-in",
         "json-out",
-        "function-out",
+        "fn-out",
         "reason"
       ],
       "context": {

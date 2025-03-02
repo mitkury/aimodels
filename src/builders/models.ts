@@ -57,8 +57,8 @@ export function validateModel(raw: unknown): Model {
     throw new Error('Model capabilities must be an array');
   }
   const validCapabilities: Capability[] = [
-    'chat', 'reason', 'text-in', 'text-out', 'img-in', 'img-out',
-    'sound-in', 'sound-out', 'json-out', 'function-out', 'vectors-out'
+    'chat', 'reason', 'txt-in', 'txt-out', 'img-in', 'img-out',
+    'audio-in', 'audio-out', 'json-out', 'fn-out', 'vec-out'
   ];
   if (!model.can.every(c => validCapabilities.includes(c as Capability))) {
     throw new Error(`Model has invalid capabilities: ${model.can.join(', ')}`);
