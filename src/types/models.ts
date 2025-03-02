@@ -15,6 +15,60 @@ export class ModelCollection extends Array<Model> {
     return this.filter(model => capabilities.every(cap => model.can.includes(cap)));
   }
 
+  /** 
+   * Fluent capability filters for better readability 
+   * Each method filters models by a specific capability
+   */
+  
+  // Basic capabilities
+  canChat(): ModelCollection {
+    return this.can("chat");
+  }
+
+  canReason(): ModelCollection {
+    return this.can("reason");
+  }
+  
+  // Text capabilities
+  canRead(): ModelCollection {
+    return this.can("txt-in");
+  }
+  
+  canWrite(): ModelCollection {
+    return this.can("txt-out");
+  }
+  
+  // Image capabilities
+  canSee(): ModelCollection {
+    return this.can("img-in");
+  }
+  
+  canGenerateImages(): ModelCollection {
+    return this.can("img-out");
+  }
+  
+  // Audio capabilities
+  canHear(): ModelCollection {
+    return this.can("audio-in");
+  }
+  
+  canSpeak(): ModelCollection {
+    return this.can("audio-out");
+  }
+  
+  // Output capabilities
+  canOutputJSON(): ModelCollection {
+    return this.can("json-out");
+  }
+  
+  canCallFunctions(): ModelCollection {
+    return this.can("fn-out");
+  }
+  
+  canGenerateEmbeddings(): ModelCollection {
+    return this.can("vec-out");
+  }
+  
   /** Filter models by one or more languages (all must be supported) */
   know(...languages: string[]): ModelCollection {
     return this.filter(model => languages.every(lang => model.languages?.includes(lang)));

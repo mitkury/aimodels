@@ -17,6 +17,11 @@ import { models } from 'aimodels';
 const chatModels = models.can('chat');
 const multimodalModels = models.can('chat', 'img-in');
 
+// Find models using fluent API
+const chatModels = models.canChat();
+const smartVisionModels = models.canChat().canReason().canSee();
+const functionModels = models.canCallFunctions().canOutputJSON();
+
 // Find models by provider
 const openaiModels = models.fromProvider('openai');
 
