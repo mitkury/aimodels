@@ -1,0 +1,42 @@
+{
+  "creator": "deepseek",
+  "models": [
+    {
+      "id": "deepseek-chat",
+      "name": "DeepSeek V3",
+      "license": "apache-2.0",
+      "providers": ["deepseek"],
+      "can": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "deepseek-reasoner",
+      "name": "DeepSeek R1",
+      "license": "apache-2.0",
+      "providers": ["deepseek"],
+      "can": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    }
+  ]
+}

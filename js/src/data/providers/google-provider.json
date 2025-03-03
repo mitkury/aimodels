@@ -1,0 +1,38 @@
+{
+  "id": "google",
+  "name": "Google",
+  "websiteUrl": "https://ai.google.dev",
+  "apiUrl": "https://ai.google.dev/docs",
+  "models": {
+    "gemini-2.0-flash": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemini-2.0-flash-lite": {
+      "type": "token",
+      "input": 0.075,
+      "output": 0.3
+    },
+    "gemini-1.5-flash": {
+      "type": "token",
+      "input": 0.075,
+      "output": 0.3
+    },
+    "gemini-1.5-flash-8b": {
+      "type": "token",
+      "input": 0.0375,
+      "output": 0.15
+    },
+    "gemini-1.5-pro": {
+      "type": "token",
+      "input": 1.25,
+      "output": 5.0
+    },
+    "text-embedding-004": {
+      "type": "token",
+      "input": 0,
+      "output": 0
+    }
+  }
+} 

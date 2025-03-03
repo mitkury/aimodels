@@ -1,15 +1,15 @@
 import type { Model, ModelsData } from '../types/index.ts';
 import type { Capability } from '../types/capabilities.ts';
 
-// Import model data
-import openaiModels from '../data/models/openai-models.json' with { type: 'json' };
-import anthropicModels from '../data/models/anthropic-models.json' with { type: 'json' };
-import metaModels from '../data/models/meta-models.json' with { type: 'json' };
-import mistralModels from '../data/models/mistral-models.json' with { type: 'json' };
-import googleModels from '../data/models/google-models.json' with { type: 'json' };
-import deepseekModels from '../data/models/deepseek-models.json' with { type: 'json' };
-import xaiModels from '../data/models/xai-models.json' with { type: 'json' };
-import cohereModels from '../data/models/cohere-models.json' with { type: 'json' };
+// Import model data from root data directory
+import openaiModels from '@data/models/openai-models.json' with { type: 'json' };
+import anthropicModels from '@data/models/anthropic-models.json' with { type: 'json' };
+import metaModels from '@data/models/meta-models.json' with { type: 'json' };
+import mistralModels from '@data/models/mistral-models.json' with { type: 'json' };
+import googleModels from '@data/models/google-models.json' with { type: 'json' };
+import deepseekModels from '@data/models/deepseek-models.json' with { type: 'json' };
+import xaiModels from '@data/models/xai-models.json' with { type: 'json' };
+import cohereModels from '@data/models/cohere-models.json' with { type: 'json' };
 
 export function validateModel(raw: unknown): Model {
   if (typeof raw !== 'object' || raw === null) {

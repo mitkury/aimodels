@@ -3,6 +3,9 @@
     "strict": true,
     "lib": ["deno.window"]
   },
+  "imports": {
+    "@data/": "../data/"
+  },
   "lint": {
     "files": {
       "include": ["src/", "tests/"]

@@ -1,15 +1,15 @@
 import type { Provider, ProvidersData } from '../types/index.ts';
 
-// Import provider data
-import openaiProvider from '../data/providers/openai-provider.json' with { type: 'json' };
-import anthropicProvider from '../data/providers/anthropic-provider.json' with { type: 'json' };
-import mistralProvider from '../data/providers/mistral-provider.json' with { type: 'json' };
-import cohereProvider from '../data/providers/cohere-provider.json' with { type: 'json' };
-import xaiProvider from '../data/providers/xai-provider.json' with { type: 'json' };
-import googleProvider from '../data/providers/google-provider.json' with { type: 'json' };
-import deepseekProvider from '../data/providers/deepseek-provider.json' with { type: 'json' };
-import groqProvider from '../data/providers/groq-provider.json' with { type: 'json' };
-import azureProvider from '../data/providers/azure-provider.json' with { type: 'json' };
+// Import provider data from root data directory
+import openaiProvider from '@data/providers/openai-provider.json' with { type: 'json' };
+import anthropicProvider from '@data/providers/anthropic-provider.json' with { type: 'json' };
+import mistralProvider from '@data/providers/mistral-provider.json' with { type: 'json' };
+import cohereProvider from '@data/providers/cohere-provider.json' with { type: 'json' };
+import xaiProvider from '@data/providers/xai-provider.json' with { type: 'json' };
+import googleProvider from '@data/providers/google-provider.json' with { type: 'json' };
+import deepseekProvider from '@data/providers/deepseek-provider.json' with { type: 'json' };
+import groqProvider from '@data/providers/groq-provider.json' with { type: 'json' };
+import azureProvider from '@data/providers/azure-provider.json' with { type: 'json' };
 
 // Type guard to check if a price object is a token price
 function isTokenPrice(price: unknown): price is { type: 'token'; input: number; output: number } {

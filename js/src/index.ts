@@ -13,7 +13,7 @@ export { ModelCollection } from './types/models.ts';
 // Import builders and metadata
 import { buildAllModels } from './builders/models.ts';
 import { buildProvidersData } from './builders/providers.ts';
-import creators from './data/creators.json' with { type: 'json' };
+import creators from '@data/creators.json' with { type: 'json' };
 
 // Build data once
 const allModels = buildAllModels();

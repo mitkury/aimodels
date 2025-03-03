@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aimodels"
+version = "0.3.12"
+description = "A collection of AI model specifications across different providers"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+    { name = "Dmitry Kury", email = "d@dkury.com" }
+]
+keywords = [
+    "ai",
+    "models",
+    "ai models",
+    "llm",
+    "machine-learning",
+    "specifications",
+    "openai",
+    "anthropic",
+    "mistral",
+    "open-source"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/mitkury/aimodels#readme"
+Repository = "https://github.com/mitkury/aimodels.git"
+Issues = "https://github.com/mitkury/aimodels/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aimodels"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "twine>=4.0.0",
+    "build>=1.0.0",
+] 

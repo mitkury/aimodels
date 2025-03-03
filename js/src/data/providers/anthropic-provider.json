@@ -1,0 +1,39 @@
+{
+  "id": "anthropic",
+  "name": "Anthropic",
+  "websiteUrl": "https://www.anthropic.com/",
+  "apiUrl": "https://api.anthropic.com/v1",
+  "defaultModel": "claude-3-5-sonnet-20241022",
+  "models": {
+    "claude-3-opus-20240229": {
+      "type": "token",
+      "input": 15,
+      "output": 75
+    },
+    "claude-3-sonnet-20240229": {
+      "type": "token",
+      "input": 3,
+      "output": 15
+    },
+    "claude-3-haiku-20240307": {
+      "type": "token",
+      "input": 0.25,
+      "output": 1.25
+    },
+    "claude-3-5-sonnet-20241022": {
+      "type": "token",
+      "input": 3,
+      "output": 15
+    },
+    "claude-3-5-sonnet-20240620": {
+      "type": "token",
+      "input": 3,
+      "output": 15
+    },
+    "claude-3-5-haiku-20241022": {
+      "type": "token",
+      "input": 0.8,
+      "output": 4
+    }
+  }
+}

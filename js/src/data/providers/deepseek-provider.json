@@ -1,0 +1,19 @@
+{
+  "id": "deepseek",
+  "name": "DeepSeek",
+  "websiteUrl": "https://deepseek.com/",
+  "apiUrl": "https://api.deepseek.com/v1",
+  "defaultModel": "deepseek-chat",
+  "models": {
+    "deepseek-chat": {
+      "type": "token",
+      "input": 0.2,
+      "output": 0.2
+    },
+    "deepseek-reasoner": {
+      "type": "token",
+      "input": 0.3,
+      "output": 0.3
+    }
+  }
+}
