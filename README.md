@@ -32,7 +32,7 @@ The Python implementation with type hints:
 
 - Comprehensive database of AI models from major providers (OpenAI, Anthropic, Mistral, etc.)
 - Normalized data structure for easy comparison
-- Model capabilities (chat, img-in, img-out, function-out, etc.)
+- Model capabilities (chat, img-in, img-out, fn-out, etc.)
 - Context window information
 - Creator and provider associations
 - Zero dependencies
