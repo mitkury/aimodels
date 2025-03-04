@@ -5,7 +5,7 @@ A collection of AI model specifications across different providers. This package
 ## Installation
 
 ```bash
-pip install aimodels
+pip install aimodels.dev
 ```
 
 ## Usage

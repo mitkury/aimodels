@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "aimodels"
+name = "aimodels.dev"
 version = "0.3.12"
 description = "A collection of AI model specifications across different providers"
 readme = "README.md"
