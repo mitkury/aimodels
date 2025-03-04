@@ -1,6 +1,6 @@
 # AIModels
 
-A collection of AI model specifications across different providers. This package provides normalized data about AI models, including their capabilities, context windows, and pricing information.
+A collection of AI model specifications across different providers. This universal JavaScript package provides normalized data about AI models, including their capabilities, context windows, and pricing information. Works in any JavaScript runtime (Node.js, browsers, Deno).
 
 ## Installation
 

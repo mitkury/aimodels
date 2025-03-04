@@ -6,7 +6,7 @@ A collection of AI model specifications across different providers, available as
 
 ```
 aimodels/
-├── js/              # Node.js implementation
+├── js/              # JavaScript/TypeScript implementation
 │   └── README.md    # JavaScript package documentation
 ├── python/          # Python implementation
 │   └── README.md    # Python package documentation
@@ -19,7 +19,7 @@ aimodels/
 ## Available Packages
 
 ### JavaScript/TypeScript Package
-The Node.js implementation with TypeScript support:
+Universal JavaScript implementation with TypeScript support:
 - [Documentation](js/README.md)
 - [NPM Package](https://www.npmjs.com/package/aimodels)
 
