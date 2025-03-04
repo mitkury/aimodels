@@ -1,6 +1,6 @@
 # AIModels
 
-A collection of AI model specifications across different providers, available as both a JavaScript/TypeScript package (`npm install aimodels`) and a Python package (`pip install aimodels`). Both implementations provide normalized data about AI models, including their capabilities, context windows, and pricing information.
+A collection of AI model specifications across different providers, available as both a JavaScript/TypeScript package (`npm install aimodels`) and a Python package (`pip install aimodels.dev`). Both implementations provide normalized data about AI models, including their capabilities, context windows, and pricing information.
 
 ## Repository Structure
 
@@ -26,7 +26,7 @@ The Node.js implementation with TypeScript support:
 ### Python Package
 The Python implementation with type hints:
 - [Documentation](python/README.md)
-- [PyPI Package](https://pypi.org/project/aimodels/)
+- [PyPI Package](https://pypi.org/project/aimodels.dev/)
 
 ## Features
 
