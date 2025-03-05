@@ -1,18 +1,38 @@
 import type { TokenBasedPricePerMillionTokens, ImagePrice } from './pricing.ts';
+import type { Creator } from './creators.ts';
 
-export interface Provider {
-  /** Provider identifier */
-  id: string;
-  /** Display name */
-  name: string;
-  /** Website URL */
-  websiteUrl: string;
-  /** API endpoint */
+/** Provider-specific data */
+export interface Provider extends Creator {
+  /** Provider's API endpoint URL */
   apiUrl: string;
+  
+  /** Provider's API documentation URL */
+  apiDocsUrl: string;
+  
   /** Default model */
   defaultModel?: string;
+  
   /** Whether this is a local provider */
   isLocal?: number;
-  /** Model pricing */
-  models: Record<string, TokenBasedPricePerMillionTokens | ImagePrice>;
+  
+  /** Model pricing information */
+  pricing: Record<string, TokenBasedPricePerMillionTokens | ImagePrice>;
+}
+
+/** Source data type (what's in JSON files) */
+export interface SourceProvider {
+  /** Provider identifier */
+  id: string;
+  
+  /** Display name */
+  name: string;
+  
+  /** Provider's API endpoint URL */
+  apiUrl: string;
+  
+  /** Provider's API documentation URL */
+  apiDocsUrl: string;
+  
+  /** Model pricing information */
+  pricing: Record<string, TokenBasedPricePerMillionTokens | ImagePrice>;
 }

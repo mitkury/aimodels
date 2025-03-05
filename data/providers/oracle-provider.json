@@ -1,0 +1,14 @@
+{
+  "id": "oracle",
+  "name": "Oracle Cloud",
+  "websiteUrl": "https://www.oracle.com/cloud/ai-services",
+  "apiUrl": "https://ai.oraclecloud.com",
+  "apiDocsUrl": "https://docs.oracle.com/en-us/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/ai/generative-ai.html",
+  "pricing": {
+    "command-r-plus-08-2024": {
+      "type": "token",
+      "input": 0.015,
+      "output": 0.075
+    }
+  }
+} 

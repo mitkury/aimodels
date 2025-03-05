@@ -1,10 +1,11 @@
 {
   "id": "openai",
   "name": "OpenAI",
-  "websiteUrl": "https://openai.com/",
+  "websiteUrl": "https://openai.com",
   "apiUrl": "https://api.openai.com/v1",
+  "apiDocsUrl": "https://platform.openai.com/docs/api-reference",
   "defaultModel": "gpt-4o",
-  "models": {
+  "pricing": {
     "chatgpt-4o-latest": {
       "type": "token",
       "input": 5.00,

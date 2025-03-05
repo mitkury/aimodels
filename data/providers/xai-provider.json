@@ -3,7 +3,8 @@
   "name": "X.AI",
   "websiteUrl": "https://x.ai",
   "apiUrl": "https://x.ai/api",
-  "models": {
+  "apiDocsUrl": "https://x.ai/docs",
+  "pricing": {
     "grok-2-vision-1212": {
       "type": "token",
       "input": 2.0,

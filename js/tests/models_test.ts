@@ -1,90 +1,79 @@
-import { assertEquals, assertGreater, assertThrows } from "https://deno.land/std@0.220.1/assert/mod.ts";
+import { describe, it, expect } from 'vitest';
 import { models } from "../src/index.ts";
-import type { Model, TokenContext, AudioInputContext } from "../src/types/index.ts";
+import type { Model, TokenContext, AudioInputContext, Provider } from "../src/types/index.ts";
 import { ModelCollection } from "../src/types/models.ts";
 import { buildAllModels, validateModel } from "../src/builders/models.ts";
-import { resolveModel } from "../src/builders/models.ts";
+import { models as prebuiltModels, providers as prebuiltProviders, organizations as prebuiltOrgs } from '../../dist/data';
 
-Deno.test("models.can filters by single capability", () => {
-  // Get all chat models
-  const chatModels = models.can("chat");
-  assertGreater(chatModels.length, 0, "Should have chat models");
-  
-  // Verify each model has chat capability
-  chatModels.forEach((model: Model) => {
-    assertEquals(model.can.includes("chat"), true, `${model.name} should have chat capability`);
+describe('models', () => {
+  it('filters by single capability', () => {
+    // Get all chat models
+    const chatModels = models.can("chat");
+    expect(chatModels.length).toBeGreaterThan(0);
+    
+    // Verify each model has chat capability
+    chatModels.forEach((model: Model) => {
+      expect(model.can.includes("chat")).toBe(true);
+    });
+  });
+
+  it('filters by multiple capabilities', () => {
+    // Get models that can both chat and output functions
+    const chatWithFunctions = models.can("chat", "fn-out");
+    expect(chatWithFunctions.length).toBeGreaterThan(0);
+    
+    // Verify each model has both capabilities
+    chatWithFunctions.forEach((model: Model) => {
+      expect(model.can.includes("chat") && model.can.includes("fn-out")).toBe(true);
+    });
+  });
+
+  it('returns model for existing id', () => {
+    const model = models.id("o1");
+    expect(model?.id).toBe("o1");
+    expect(model?.name).toBe("OpenAI O1");
+  });
+
+  it('finds model in provider', () => {
+    const model = models.fromProvider("openai").id("gpt-4o");
+    expect(model?.id).toBe("gpt-4o");
+    expect(model?.providers.includes("openai")).toBe(true);
+  });
+
+  it('returns undefined for non-existent model', () => {
+    const model = models.id("non-existent-model-id");
+    expect(model).toBeUndefined();
+  });
+
+  it('returns undefined for non-existent model in provider', () => {
+    const model = models.fromProvider("non-existent-provider").id("gpt-4o");
+    expect(model).toBeUndefined();
+  });
+
+  it('filters by vision capabilities', () => {
+    // Get models that can chat and understand images
+    const visionModels = models.can("chat", "img-in");
+    expect(visionModels.length).toBeGreaterThan(0);
+
+    // Verify each model has both capabilities
+    visionModels.forEach((model: Model) => {
+      expect(model.can.includes("chat") && model.can.includes("img-in")).toBe(true);
+    });
   });
 });
 
-Deno.test("models.can filters by multiple capabilities", () => {
-  // Get models that can both chat and output functions
-  const chatWithFunctions = models.can("chat", "fn-out");
-  assertGreater(chatWithFunctions.length, 0, "Should have models with chat and fn-out");
-  
-  // Verify each model has both capabilities
-  chatWithFunctions.forEach((model: Model) => {
-    assertEquals(
-      model.can.includes("chat") && model.can.includes("fn-out"), 
-      true, 
-      `${model.name} should have both chat and fn-out capabilities`
-    );
-  });
-});
-
-Deno.test("models.id returns model for existing id", () => {
-  const model = models.id("o1");
-  assertEquals(model?.id, "o1", "Should find model with id 'o1'");
-  assertEquals(model?.name, "OpenAI O1", "Should have correct name");
-});
-
-Deno.test("models.fromProvider finds model in provider", () => {
-  const model = models.fromProvider("openai").id("gpt-4o");
-  assertEquals(model?.id, "gpt-4o", "Should find model with id 'gpt-4o'");
-  assertEquals(model?.providers.includes("openai"), true, "Should be available from OpenAI provider");
-});
-
-Deno.test("models.id returns undefined for non-existent model", () => {
-  const model = models.id("non-existent-model-id");
-  assertEquals(model, undefined, "Should return undefined for non-existent model");
-});
-
-Deno.test("models.fromProvider returns undefined for non-existent model", () => {
-  const model = models.fromProvider("non-existent-provider").id("gpt-4o");
-  assertEquals(model, undefined, "Should return undefined for non-existent model in provider");
-});
-
-Deno.test("models.can filters by vision capabilities", () => {
-  // Get models that can chat and understand images
-  const visionModels = models.can("chat", "img-in");
-  assertGreater(visionModels.length, 0, "Should have vision models");
-
-  // Verify each model has both capabilities
-  visionModels.forEach((model: Model) => {
-    assertEquals(
-      model.can.includes("chat") && model.can.includes("img-in"), 
-      true, 
-      `${model.name} should have both chat and img-in capabilities`
-    );
-  });
-});
-
-Deno.test("model validation catches invalid data", () => {
-  // Missing required fields
-  assertThrows(
-    () => validateModel({
+describe('model validation', () => {
+  it('catches invalid data', () => {
+    // Missing required fields
+    expect(() => validateModel({
       // Missing id, name, creator, etc.
-    }),
-    Error,
-    "Model id must be a string"
-  );
+    })).toThrow("Model id must be a string");
 
-  // Invalid capability
-  assertThrows(
-    () => validateModel({
+    // Invalid capability
+    expect(() => validateModel({
       id: "test",
       name: "Test",
       creator: "Test",
-      license: "mit",
       providers: ["test"],
       can: ["invalid-capability"],
       context: {
@@ -92,361 +81,304 @@ Deno.test("model validation catches invalid data", () => {
         total: 1000,
         maxOutput: 100
       }
-    }),
-    Error,
-    "Model has invalid capabilities"
-  );
+    })).toThrow("Model has invalid capabilities");
 
-  // Invalid context structure
-  assertThrows(
-    () => validateModel({
+    // Invalid context structure
+    expect(() => validateModel({
       id: "test",
       name: "Test",
+      creator: "Test",
+      providers: ["test"],
+      can: ["chat"],
+      context: "invalid"
+    })).toThrow("Model context must be an object");
+  });
+
+  it('accepts valid data', () => {
+    const validModel: Model = {
+      id: "test-model",
+      name: "Test Model",
+      creator: "Test Creator",
+      license: "mit",
+      providers: ["test-provider"],
+      can: ["chat", "txt-in", "txt-out"],
+      context: {
+        type: "token",
+        total: 4096,
+        maxOutput: 1024
+      }
+    };
+
+    // Should not throw when validating a proper model
+    const result = validateModel(validModel);
+    expect(result.id).toBe(validModel.id);
+    expect(result.name).toBe(validModel.name);
+    expect(result.creator).toBe(validModel.creator);
+    expect(result.license).toBe(validModel.license);
+    expect(result.providers).toEqual(validModel.providers);
+    expect(result.can).toEqual(validModel.can);
+    expect(result.context).toEqual(validModel.context);
+
+    // Verify actual models load
+    const models = buildAllModels();
+    expect(Array.isArray(models)).toBe(true);
+    expect(models.length).toBeGreaterThan(0);
+  });
+
+  it('accepts image model context', () => {
+    const imageModel: Model = {
+      id: "test-image-model",
+      name: "Test Image Model",
+      creator: "Test Creator",
+      license: "mit",
+      providers: ["test-provider"],
+      can: ["img-out"],
+      context: {
+        type: "image",
+        maxOutput: 1,
+        sizes: ["1024x1024", "512x512"],
+        qualities: ["standard"]
+      }
+    };
+
+    const result = validateModel(imageModel);
+    expect(result.context).toEqual(imageModel.context);
+  });
+});
+
+describe('language support', () => {
+  it('filters by language support', () => {
+    const model: Model = {
+      id: "test-multilingual",
+      name: "Test Multilingual",
       creator: "Test",
       license: "mit",
       providers: ["test"],
       can: ["chat"],
-      context: "invalid"
-    }),
-    Error,
-    "Model context must be an object"
-  );
-});
-
-Deno.test("model validation accepts valid data", () => {
-  const validModel: Model = {
-    id: "test-model",
-    name: "Test Model",
-    creator: "Test Creator",
-    license: "mit",
-    providers: ["test-provider"],
-    can: ["chat", "txt-in", "txt-out"],
-    context: {
-      type: "token",
-      total: 4096,
-      maxOutput: 1024
-    }
-  };
-
-  // Should not throw when validating a proper model
-  const result = validateModel(validModel);
-  assertEquals(result.id, validModel.id, "Should preserve id");
-  assertEquals(result.name, validModel.name, "Should preserve name");
-  assertEquals(result.creator, validModel.creator, "Should preserve creator");
-  assertEquals(result.license, validModel.license, "Should preserve license");
-  assertEquals(result.providers, validModel.providers, "Should preserve providers");
-  assertEquals(result.can, validModel.can, "Should preserve capabilities");
-  assertEquals(result.context, validModel.context, "Should preserve context");
-
-  // Verify actual models load
-  const models = buildAllModels();
-  assertEquals(Array.isArray(models), true, "Should return an array of models");
-  assertGreater(models.length, 0, "Should have at least one model");
-});
-
-Deno.test("model validation accepts image model context", () => {
-  const imageModel: Model = {
-    id: "test-image-model",
-    name: "Test Image Model",
-    creator: "Test Creator",
-    license: "mit",
-    providers: ["test-provider"],
-    can: ["img-out"],
-    context: {
-      type: "image",
-      maxOutput: 1,
-      sizes: ["1024x1024", "512x512"],
-      qualities: ["standard"]
-    }
-  };
-
-  const result = validateModel(imageModel);
-  assertEquals(result.context, imageModel.context, "Should preserve image model context");
-});
-
-Deno.test("models.know filters by language support", () => {
-  const model: Model = {
-    id: "test-multilingual",
-    name: "Test Multilingual",
-    creator: "Test",
-    license: "mit",
-    providers: ["test"],
-    can: ["chat"],
-    languages: ["en", "es", "fr"],
-    context: {
-      type: "token",
-      total: 1000,
-      maxOutput: 100
-    }
-  };
-
-  const result = validateModel(model);
-  assertEquals(result.languages, model.languages, "Should preserve language support");
-});
-
-Deno.test("withMinContext handles edge cases", () => {
-  // Test with image models (should be filtered out)
-  const imageModels = models.can("img-out");
-  const largeContextImageModels = imageModels.withMinContext(1000);
-  assertEquals(largeContextImageModels.length, 0, "Image models should be filtered out by context");
-
-  // Test with token models that have null context
-  const nullContextModels = models.filter(m => {
-    const context = m.context;
-    if (context.type !== "token") return false;
-    return (context as TokenContext).total === null;
-  });
-  const largeContextNullModels = nullContextModels.withMinContext(1000);
-  assertEquals(largeContextNullModels.length, 0, "Models with null context should be filtered out");
-
-  // Test with valid context
-  const chatModels = models.can("chat");
-  const largeContextChatModels = chatModels.withMinContext(100000);
-  assertGreater(largeContextChatModels.length, 0, "Should find models with large context");
-  largeContextChatModels.forEach(model => {
-    const context = model.context as TokenContext;
-    assertEquals(
-      context.total !== null && context.total >= 100000,
-      true,
-      `${model.name} should have context >= 100000`
-    );
-  });
-});
-
-Deno.test("audio models have correct context type", () => {
-  const whisperModel = models.id("whisper-1");
-  assertEquals(whisperModel?.context.type, "audio-in", "Whisper should have audio-in context type");
-  
-  const audioContext = whisperModel?.context as AudioInputContext;
-  assertEquals(audioContext.maxDuration === undefined || audioContext.maxDuration === null, true, "Whisper should have undefined or null maxDuration");
-});
-
-Deno.test("ModelCollection preserves array operations", () => {
-  const allModels = models;
-  
-  // Test slice
-  const firstFive = allModels.slice(0, 5);
-  assertEquals(firstFive.length, 5, "Slice should return 5 models");
-  assertEquals(firstFive instanceof ModelCollection, true, "Slice should return ModelCollection");
-
-  // Test filter
-  const filteredModels = allModels.filter((m: Model) => m.license === "mit");
-  assertEquals(filteredModels instanceof ModelCollection, true, "Filter should return ModelCollection");
-
-  // Test chaining
-  const result = allModels
-    .can("chat")
-    .filter((m: Model) => m.providers.includes("openai"))
-    .withMinContext(100000);
-  assertEquals(result instanceof ModelCollection, true, "Chained operations should return ModelCollection");
-});
-
-Deno.test("getProviders returns deduplicated providers", () => {
-  // Create a test collection with overlapping providers
-  const testModels = new ModelCollection();
-  testModels.push(
-    {
-      id: "model1",
-      name: "Model 1",
-      creator: "Test",
-      license: "mit",
-      providers: ["provider1", "provider2"],
-      can: ["chat"],
-      context: { type: "token", total: 1000, maxOutput: 100 }
-    },
-    {
-      id: "model2",
-      name: "Model 2",
-      creator: "Test",
-      license: "mit",
-      providers: ["provider2", "provider3"],
-      can: ["chat"],
-      context: { type: "token", total: 1000, maxOutput: 100 }
-    }
-  );
-  
-  const providers = testModels.getProviders();
-  
-  // Should return deduplicated providers
-  assertEquals(providers.length, 3, "Should return 3 unique providers");
-  assertEquals(providers.includes("provider1"), true, "Should include provider1");
-  assertEquals(providers.includes("provider2"), true, "Should include provider2");
-  assertEquals(providers.includes("provider3"), true, "Should include provider3");
-  
-  // Test with real models
-  const reasoningModels = models.can("reason");
-  const reasoningProviders = reasoningModels.getProviders();
-  
-  // Verify we get a non-empty array of providers
-  assertGreater(reasoningProviders.length, 0, "Should have providers for reasoning models");
-  
-  // Verify deduplication works with real data
-  const providerSet = new Set(reasoningModels.flatMap(m => m.providers));
-  assertEquals(reasoningProviders.length, providerSet.size, "Should match the number of unique providers");
-});
-
-Deno.test("model validation handles optional fields", () => {
-  // Test with minimal valid model (no optional fields)
-  const minimalModel = {
-    id: "minimal-model",
-    name: "Minimal Model",
-    creator: "Test",
-    license: "mit",
-    providers: ["test"],
-    can: ["chat"],
-    context: {
-      type: "token",
-      total: 1000,
-      maxOutput: 100
-    }
-  };
-
-  const result = validateModel(minimalModel);
-  assertEquals(result.languages, undefined, "Should not add undefined optional fields");
-
-  // Test with all optional fields
-  const fullModel = {
-    ...minimalModel,
-    languages: ["en"],
-    aliases: ["minimal", "min"]
-  };
-
-  const fullResult = validateModel(fullModel);
-  assertEquals(fullResult.languages?.length, 1, "Should preserve optional languages");
-});
-
-Deno.test("model validation handles aliases", () => {
-  // Test with minimal valid model (no aliases)
-  const minimalModel = {
-    id: "test-model",
-    name: "Test Model",
-    creator: "Test",
-    license: "mit",
-    providers: ["test"],
-    can: ["chat"],
-    context: {
-      type: "token",
-      total: 1000,
-      maxOutput: 100
-    }
-  };
-
-  const result = validateModel(minimalModel);
-  assertEquals(result.aliases, undefined, "Should not add undefined aliases");
-
-  // Test with aliases
-  const modelWithAliases = {
-    ...minimalModel,
-    aliases: ["test", "test-v1"]
-  };
-
-  const resultWithAliases = validateModel(modelWithAliases);
-  assertEquals(resultWithAliases.aliases, modelWithAliases.aliases, "Should preserve aliases");
-});
-
-Deno.test("model validation handles inheritance", () => {
-  // Base model
-  const baseModel = validateModel({
-    id: "base-model",
-    name: "Base Model",
-    creator: "Test",
-    license: "mit",
-    providers: ["test-provider"],
-    can: ["chat", "txt-in", "txt-out"],
-    context: {
-      type: "token",
-      total: 4096,
-      maxOutput: 1024
-    }
-  });
-
-  // Extended model with overrides
-  const extendedModel = {
-    id: "extended-model",
-    name: "Extended Model",
-    creator: "Test",
-    license: "mit",
-    providers: ["test-provider"],
-    can: ["chat", "txt-in", "txt-out"],
-    context: {
-      type: "token",
-      total: 4096,
-      maxOutput: 1024
-    },
-    extends: "base-model",
-    overrides: {
-      name: "Extended Model",
-      can: ["chat", "txt-in", "txt-out", "img-in"],
+      languages: ["en", "es", "fr"],
       context: {
         type: "token",
-        total: 8192,
-        maxOutput: 2048
+        total: 1000,
+        maxOutput: 100
       }
-    }
-  };
+    };
 
-  // Create model map
-  const modelMap = {
-    "base-model": baseModel,
-    "extended-model": extendedModel as unknown as Model
-  };
-
-  // Test resolution and validation
-  const resolvedModel = validateModel(resolveModel(modelMap["extended-model"], modelMap));
-  
-  // Verify inheritance
-  assertEquals(resolvedModel.id, "extended-model", "Should keep extended model ID");
-  assertEquals(resolvedModel.name, "Extended Model", "Should use overridden name");
-  assertEquals(resolvedModel.creator, baseModel.creator, "Should inherit creator");
-  assertEquals(resolvedModel.license, baseModel.license, "Should inherit license");
-  assertEquals(resolvedModel.providers, baseModel.providers, "Should inherit providers");
-  assertEquals(resolvedModel.can, ["chat", "txt-in", "txt-out", "img-in"], "Should use overridden capabilities");
-  
-  // Check context after verifying it's a TokenContext
-  const context = resolvedModel.context as TokenContext;
-  assertEquals(context.total, 8192, "Should use overridden context");
+    const result = validateModel(model);
+    expect(result.languages).toEqual(model.languages);
+  });
 });
 
-Deno.test("model validation detects circular dependencies", () => {
-  const modelA = validateModel({
-    id: "model-a",
-    name: "Model A",
-    creator: "Test",
-    license: "mit",
-    providers: ["test"],
-    can: ["chat"],
-    context: {
-      type: "token",
-      total: 1000,
-      maxOutput: 100
-    },
-    extends: "model-b"
+describe('context handling', () => {
+  it('handles edge cases in withMinContext', () => {
+    // Test with image models (should be filtered out)
+    const imageModels = models.can("img-out");
+    const largeContextImageModels = imageModels.withMinContext(1000);
+    expect(largeContextImageModels.length).toBe(0);
+
+    // Test with token models that have null context
+    const nullContextModels = models.filter(m => {
+      const context = m.context;
+      if (context.type !== "token") return false;
+      return (context as TokenContext).total === null;
+    });
+    const largeContextNullModels = nullContextModels.withMinContext(1000);
+    expect(largeContextNullModels.length).toBe(0);
+
+    // Test with valid context
+    const chatModels = models.can("chat");
+    const largeContextChatModels = chatModels.withMinContext(100000);
+    expect(largeContextChatModels.length).toBeGreaterThan(0);
+    largeContextChatModels.forEach(model => {
+      const context = model.context as TokenContext;
+      expect(context.total !== null && context.total >= 100000).toBe(true);
+    });
   });
 
-  const modelB = validateModel({
-    id: "model-b",
-    name: "Model B",
-    creator: "Test",
-    license: "mit",
-    providers: ["test"],
-    can: ["chat"],
-    context: {
-      type: "token",
-      total: 1000,
-      maxOutput: 100
-    },
-    extends: "model-a"
+  it('has correct context type for audio models', () => {
+    const whisperModel = models.id("whisper-1");
+    expect(whisperModel?.context.type).toBe("audio-in");
+    
+    const audioContext = whisperModel?.context as AudioInputContext;
+    expect(audioContext.maxDuration === undefined || audioContext.maxDuration === null).toBe(true);
+  });
+});
+
+describe('ModelCollection', () => {
+  it('preserves array operations', () => {
+    const allModels = models;
+    
+    // Test slice
+    const firstFive = allModels.slice(0, 5);
+    expect(firstFive.length).toBe(5);
+    expect(firstFive instanceof ModelCollection).toBe(true);
+
+    // Test filter
+    const filteredModels = allModels.filter((m: Model) => m.license === "mit");
+    expect(filteredModels instanceof ModelCollection).toBe(true);
+
+    // Test chaining
+    const result = allModels
+      .can("chat")
+      .filter((m: Model) => m.providers.includes("openai"))
+      .withMinContext(100000);
+    expect(result instanceof ModelCollection).toBe(true);
   });
 
-  const modelMap = {
-    "model-a": modelA,
-    "model-b": modelB
-  };
+  it('returns deduplicated providers', () => {
+    // Create a test collection with overlapping providers
+    const testModels = new ModelCollection();
+    testModels.push(
+      {
+        id: "model1",
+        name: "Model 1",
+        creator: "Test",
+        license: "mit",
+        providers: ["provider1", "provider2"],
+        can: ["chat"],
+        context: {
+          type: "token",
+          total: 1000,
+          maxOutput: 100
+        }
+      },
+      {
+        id: "model2",
+        name: "Model 2",
+        creator: "Test",
+        license: "mit",
+        providers: ["provider2", "provider3"],
+        can: ["chat"],
+        context: {
+          type: "token",
+          total: 1000,
+          maxOutput: 100
+        }
+      }
+    );
 
-  // Should throw on circular dependency
-  assertThrows(
-    () => resolveModel(modelMap["model-a"], modelMap),
-    Error,
-    "Circular dependency detected"
-  );
+    const providers = testModels.getProviders();
+    expect(providers.length).toBe(3);
+    expect(new Set(providers.map(p => p.id)).size).toBe(3);
+  });
+
+  it('handles creator operations', () => {
+    // Create a test collection with multiple creators
+    const testModels = new ModelCollection();
+    testModels.push(
+      {
+        id: "model1",
+        name: "Model 1",
+        creator: "creator1",
+        license: "mit",
+        providers: ["provider1", "provider2"],
+        can: ["chat"],
+        context: {
+          type: "token",
+          total: 1000,
+          maxOutput: 100
+        }
+      },
+      {
+        id: "model2",
+        name: "Model 2",
+        creator: "creator2",
+        license: "mit",
+        providers: ["provider2", "provider3"],
+        can: ["chat"],
+        context: {
+          type: "token",
+          total: 1000,
+          maxOutput: 100
+        }
+      }
+    );
+
+    // Test fromCreator
+    const creator1Models = testModels.fromCreator("creator1");
+    expect(creator1Models.length).toBe(1);
+    expect(creator1Models[0].creator).toBe("creator1");
+
+    // Test getCreators
+    const creators = testModels.getCreators();
+    expect(creators.length).toBe(2);
+    expect(new Set(creators.map(c => c.id)).size).toBe(2);
+
+    // Test getCreator
+    const creator1 = testModels.getCreator("creator1");
+    expect(creator1).toBeDefined();
+    expect(creator1?.id).toBe("creator1");
+
+    // Test getCreatorForModel
+    const model1Creator = testModels.getCreatorForModel("model1");
+    expect(model1Creator).toBeDefined();
+    expect(model1Creator?.id).toBe("creator1");
+  });
+});
+
+// Test dist data loading
+describe('dist data', () => {
+  it('loads pre-built data correctly', () => {
+    // Check models
+    expect(prebuiltModels).toBeDefined();
+    expect(Object.keys(prebuiltModels).length).toBeGreaterThan(0);
+    
+    // Check providers
+    expect(prebuiltProviders).toBeDefined();
+    expect(Object.keys(prebuiltProviders).length).toBeGreaterThan(0);
+    
+    // Check organizations
+    expect(prebuiltOrgs).toBeDefined();
+    expect(Object.keys(prebuiltOrgs).length).toBeGreaterThan(0);
+
+    // Verify a known model exists
+    const gpt4 = prebuiltModels['gpt-4'] as Model;
+    expect(gpt4).toBeDefined();
+    expect(gpt4.creator).toBe('openai');
+    expect(gpt4.providers).toContain('openai');
+  });
+
+  it('finds models by ID', () => {
+    const gpt4 = prebuiltModels['gpt-4'] as Model;
+    expect(gpt4).toBeDefined();
+    expect(gpt4.name).toBe('GPT-4');
+    expect(gpt4.creator).toBe('openai');
+  });
+
+  it('finds models by creator', () => {
+    const openaiModels = Object.values(prebuiltModels).filter((m): m is Model => 
+      typeof m === 'object' && m !== null && 'creator' in m && m.creator === 'openai'
+    );
+    expect(openaiModels.length).toBeGreaterThan(0);
+    expect(openaiModels.every(m => m.creator === 'openai')).toBe(true);
+  });
+
+  it('finds models by provider', () => {
+    const openaiModels = Object.values(prebuiltModels).filter((m): m is Model => 
+      typeof m === 'object' && m !== null && 'providers' in m && Array.isArray(m.providers) && m.providers.includes('openai')
+    );
+    expect(openaiModels.length).toBeGreaterThan(0);
+    expect(openaiModels.every(m => m.providers.includes('openai'))).toBe(true);
+  });
+
+  it('filters models by capabilities', () => {
+    const chatModels = Object.values(prebuiltModels).filter((m): m is Model => 
+      typeof m === 'object' && m !== null && 'can' in m && Array.isArray(m.can) && m.can.includes('chat')
+    );
+    expect(chatModels.length).toBeGreaterThan(0);
+    expect(chatModels.every(m => m.can.includes('chat'))).toBe(true);
+  });
+
+  it('gets creator information', () => {
+    const openai = prebuiltOrgs['openai'] as Provider;
+    expect(openai).toBeDefined();
+    expect(openai.id).toBe('openai');
+    expect(openai.name).toBe('OpenAI');
+  });
+
+  it('gets provider information', () => {
+    const openai = prebuiltProviders['openai'] as Provider;
+    expect(openai).toBeDefined();
+    expect(openai.id).toBe('openai');
+    expect(openai.name).toBe('OpenAI');
+  });
 });

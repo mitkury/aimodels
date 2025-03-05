@@ -1,16 +1,16 @@
-import type { Model } from './models.ts';
-import type { Creator } from './creators.ts';
-import type { Provider } from './providers.ts';
+import type { Model } from './models';
+import type { Provider } from './providers';
+import type { Organization } from './organizations';
 
-export interface ModelsData {
-  creator: string;
-  models: Model[];
-}
+// Import pre-built data
+import { models as prebuiltModels } from '../../dist/data';
+import { providers as prebuiltProviders } from '../../dist/data';
+import { organizations as prebuiltOrgs } from '../../dist/data';
 
-export interface CreatorsData {
-  creators: Record<string, Creator>;
-}
+// Re-export types
+export type { Model, Provider, Organization };
 
-export interface ProvidersData {
-  providers: Provider[];
-}
+// Re-export pre-built data
+export const models: Record<string, Model> = prebuiltModels;
+export const providers: Record<string, Provider> = prebuiltProviders;
+export const organizations: Record<string, Organization> = prebuiltOrgs;

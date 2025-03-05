@@ -1,0 +1,14 @@
+{
+  "id": "bedrock",
+  "name": "AWS Bedrock",
+  "websiteUrl": "https://aws.amazon.com/bedrock",
+  "apiUrl": "https://bedrock-runtime.us-east-1.amazonaws.com",
+  "apiDocsUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
+  "pricing": {
+    "command-r-plus-08-2024": {
+      "type": "token",
+      "input": 0.015,
+      "output": 0.075
+    }
+  }
+} 

@@ -2,9 +2,10 @@
   "id": "azure",
   "name": "Azure OpenAI",
   "websiteUrl": "https://azure.microsoft.com/en-us/products/ai-services/openai-service",
-  "apiUrl": "https://learn.microsoft.com/en-us/azure/ai-services/openai/reference",
+  "apiUrl": "https://api.openai.com/v1",
+  "apiDocsUrl": "https://learn.microsoft.com/en-us/azure/ai-services/openai/reference",
   "defaultModel": "gpt-4",
-  "models": {
+  "pricing": {
     "gpt-4": {
       "type": "token",
       "input": 0,

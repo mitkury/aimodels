@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build:data": "ts-node build/index.ts"
+  },
+  "devDependencies": {
+    "zod": "^3.22.4",
+    "@types/node": "^20.11.24"
+  }
+} 

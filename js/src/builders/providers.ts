@@ -59,6 +59,7 @@ function validateProvider(raw: unknown): Provider {
 
   const provider = raw as Record<string, unknown>;
 
+  // Validate Creator fields
   if (typeof provider.id !== 'string') {
     throw new Error('Provider id must be a string');
   }
@@ -68,16 +69,27 @@ function validateProvider(raw: unknown): Provider {
   if (typeof provider.websiteUrl !== 'string') {
     throw new Error('Provider websiteUrl must be a string');
   }
+  if (typeof provider.country !== 'string') {
+    throw new Error('Provider country must be a string');
+  }
+  if (typeof provider.founded !== 'number') {
+    throw new Error('Provider founded must be a number');
+  }
+
+  // Validate Provider fields
   if (typeof provider.apiUrl !== 'string') {
     throw new Error('Provider apiUrl must be a string');
   }
-  if (typeof provider.models !== 'object' || provider.models === null) {
-    throw new Error('Provider models must be an object');
+  if (typeof provider.apiDocsUrl !== 'string') {
+    throw new Error('Provider apiDocsUrl must be a string');
+  }
+  if (typeof provider.pricing !== 'object' || provider.pricing === null) {
+    throw new Error('Provider pricing must be an object');
   }
 
   // Validate each model price
-  const models = provider.models as Record<string, unknown>;
-  Object.values(models).forEach(price => {
+  const pricing = provider.pricing as Record<string, unknown>;
+  Object.values(pricing).forEach(price => {
     if (!isTokenPrice(price) && !isImagePrice(price) && !isCharacterPrice(price) && !isMinutePrice(price) && !isSearchPrice(price)) {
       throw new Error(`Invalid price data: ${JSON.stringify(price)}`);
     }
@@ -88,8 +100,13 @@ function validateProvider(raw: unknown): Provider {
     id: provider.id as string,
     name: provider.name as string,
     websiteUrl: provider.websiteUrl as string,
+    country: provider.country as string,
+    founded: provider.founded as number,
     apiUrl: provider.apiUrl as string,
-    models: provider.models as Provider['models']
+    apiDocsUrl: provider.apiDocsUrl as string,
+    pricing: provider.pricing as Provider['pricing'],
+    ...(provider.defaultModel ? { defaultModel: provider.defaultModel as string } : {}),
+    ...(provider.isLocal ? { isLocal: provider.isLocal as number } : {})
   };
 }
 

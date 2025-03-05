@@ -1,5 +1,6 @@
-import type { TokenBasedPricePerMillionTokens, CreatorsData, Provider } from './types/index.ts';
+import type { TokenBasedPricePerMillionTokens, Provider } from './types/index.ts';
 import type { Model } from './types/models.ts';
+import type { Creator } from './types/creators.ts';
 import { ModelCollection } from './types/models.ts';
 
 // Re-export types that users will need
@@ -7,45 +8,39 @@ export type { Model, ModelContext } from './types/models.ts';
 export type { Capability } from './types/capabilities.ts';
 export type { TokenBasedPricePerMillionTokens } from './types/pricing.ts';
 export type { Provider } from './types/providers.ts';
+export type { Creator } from './types/creators.ts';
 export { ModelCollection } from './types/models.ts';
 
-
-// Import builders and metadata
-import { buildAllModels } from './builders/models.ts';
-import { buildProvidersData } from './builders/providers.ts';
-import creators from '@data/creators.json' with { type: 'json' };
-
-// Build data once
-const allModels = buildAllModels();
-const providersData = buildProvidersData();
+// Import pre-built data
+import { models as prebuiltModels, providers as prebuiltProviders, organizations as prebuiltOrgs } from '../dist/data';
 
 export class AIModels extends ModelCollection {
-  constructor(models: Model[] = []) {
+  constructor(models: Model[] = Object.values(prebuiltModels)) {
     super(models);
     Object.setPrototypeOf(this, AIModels.prototype);
   }
 
   get creators(): string[] {
-    return Object.keys((creators as CreatorsData).creators);
+    return Object.keys(prebuiltOrgs);
   }
 
   get providers(): string[] {
-    return providersData.providers.map((p: Provider) => p.id);
+    return Object.keys(prebuiltProviders);
   }
 
   getPrice(modelId: string, provider: string): TokenBasedPricePerMillionTokens | undefined {
-    const providerData = providersData.providers.find((p: Provider) => p.id === provider);
-    const price = providerData?.models[modelId];
+    const providerData = prebuiltProviders[provider];
+    const price = providerData?.pricing[modelId];
     return price?.type === 'token' ? price : undefined;
   }
 
   /** Get provider information by ID */
-  getProvider(providerId: string): Provider | undefined {
-    return providersData.providers.find((p: Provider) => p.id === providerId);
+  override getProvider(providerId: string): Provider | undefined {
+    return prebuiltProviders[providerId];
   }
 
   /** Get all providers that can serve a specific model */
-  getProvidersForModel(modelId: string): Provider[] {
+  override getProvidersForModel(modelId: string): Provider[] {
     // First try to find the model by its ID
     let model = this.id(modelId);
     
@@ -56,13 +51,13 @@ export class AIModels extends ModelCollection {
     
     if (!model) return [];
     
-    return providersData.providers.filter((p: Provider) => 
-      model!.providers.includes(p.id)
-    );
+    return model.providers
+      .map(id => prebuiltProviders[id])
+      .filter((p): p is Provider => p !== undefined);
   }
 }
 
-export const models = new AIModels(allModels);
+export const models = new AIModels();
 
-export { creators };
+export { prebuiltOrgs as creators };
 

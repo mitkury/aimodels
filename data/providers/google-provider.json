@@ -2,8 +2,9 @@
   "id": "google",
   "name": "Google",
   "websiteUrl": "https://ai.google.dev",
-  "apiUrl": "https://ai.google.dev/docs",
-  "models": {
+  "apiUrl": "https://generativelanguage.googleapis.com/v1",
+  "apiDocsUrl": "https://ai.google.dev/docs",
+  "pricing": {
     "gemini-2.0-flash": {
       "type": "token",
       "input": 0.1,

@@ -1,8 +1,11 @@
-import type { Capability } from './capabilities.ts';
+import type { Capability } from './capabilities';
+import type { Provider } from './providers';
+import type { Organization } from './organizations';
+import { models as prebuiltModels, providers as prebuiltProviders, organizations as prebuiltOrgs } from '../../dist/data';
 
 export class ModelCollection extends Array<Model> {
   /** Create a new ModelCollection from an array of models */
-  constructor(models: Model[] = []) {
+  constructor(models: Model[] = Object.values(prebuiltModels)) {
     super();
     if (models.length > 0) {
       this.push(...models);
@@ -121,12 +124,39 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Get all providers from all models in the collection deduplicated */
-  getProviders(): string[] {
-    return [...new Set(this.flatMap(model => model.providers))];
+  getProviders(): Provider[] {
+    const providerIds = [...new Set(this.flatMap(model => model.providers))];
+    return providerIds.map(id => prebuiltProviders[id]).filter(Boolean);
   }
 
-  getCreators(): string[] {
-    return [...new Set(this.map(model => model.creator))];
+  /** Get all creators from all models in the collection deduplicated */
+  getCreators(): Organization[] {
+    const creatorIds = [...new Set(this.map(model => model.creator))];
+    return creatorIds.map(id => prebuiltOrgs[id]).filter(Boolean);
+  }
+
+  /** Get a specific provider by ID */
+  getProvider(id: string): Provider | undefined {
+    return prebuiltProviders[id];
+  }
+
+  /** Get a specific creator by ID */
+  getCreator(id: string): Organization | undefined {
+    return prebuiltOrgs[id];
+  }
+
+  /** Get providers for a specific model */
+  getProvidersForModel(modelId: string): Provider[] {
+    const model = this.id(modelId);
+    if (!model) return [];
+    return model.providers.map(id => prebuiltProviders[id]).filter(Boolean);
+  }
+
+  /** Get creator for a specific model */
+  getCreatorForModel(modelId: string): Organization | undefined {
+    const model = this.id(modelId);
+    if (!model) return undefined;
+    return prebuiltOrgs[model.creator];
   }
 }
 
@@ -222,20 +252,20 @@ export interface Model {
   id: string;
   /** Display name */
   name: string;
-  /** Creator of the model */
+  /** Model capabilities */
+  can: Capability[];
+  /** Available providers */
+  providers: string[];
+  /** Context window information */
+  context: ModelContext;
+  /** Organization that created this model */
   creator: string;
   /** License type (e.g., "proprietary", "apache-2.0", "llama-2-community") */
   license: string;
-  /** List of providers that can serve this model */
-  providers: string[];
-  /** Model capabilities */
-  can: Capability[];
   /** Languages the model knows */
   languages?: string[];
   /** Alternative identifiers for this model */
   aliases?: string[];
-  /** Context window information */
-  context: ModelContext;
   /** Base model ID this model extends */
   extends?: string;
   /** Properties that override the base model */

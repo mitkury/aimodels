@@ -1,10 +1,11 @@
 {
   "id": "deepseek",
   "name": "DeepSeek",
-  "websiteUrl": "https://deepseek.com/",
+  "websiteUrl": "https://deepseek.com",
   "apiUrl": "https://api.deepseek.com/v1",
+  "apiDocsUrl": "https://platform.deepseek.com/docs",
   "defaultModel": "deepseek-chat",
-  "models": {
+  "pricing": {
     "deepseek-chat": {
       "type": "token",
       "input": 0.2,

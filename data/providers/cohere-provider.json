@@ -2,8 +2,9 @@
   "id": "cohere",
   "name": "Cohere",
   "websiteUrl": "https://cohere.com",
-  "apiUrl": "https://docs.cohere.com/reference",
-  "models": {
+  "apiUrl": "https://api.cohere.ai/v1",
+  "apiDocsUrl": "https://docs.cohere.com/reference",
+  "pricing": {
     "command-r7b-12-2024": {
       "type": "token",
       "input": 0.0375,

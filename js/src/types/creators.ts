@@ -1,6 +1,35 @@
+/** Core organization data */
 export interface Creator {
-  /** Display name */
+  /** Unique identifier (e.g., "openai", "meta", "anthropic") */
+  id: string;
+  
+  /** Display name (e.g., "OpenAI", "Meta", "Anthropic") */
   name: string;
-  /** Website URL */
-  website: string;
+  
+  /** Organization's main website URL */
+  websiteUrl: string;
+  
+  /** Organization's country of origin */
+  country: string;
+  
+  /** Year founded */
+  founded: number;
+}
+
+/** Source data type (what's in JSON files) */
+export interface SourceCreator {
+  /** Unique identifier (e.g., "openai", "meta", "anthropic") */
+  id: string;
+  
+  /** Display name (e.g., "OpenAI", "Meta", "Anthropic") */
+  name: string;
+  
+  /** Organization's main website URL */
+  websiteUrl: string;
+  
+  /** Organization's country of origin */
+  country: string;
+  
+  /** Year founded */
+  founded: number;
 }
