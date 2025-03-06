@@ -9,18 +9,16 @@
   "exports": {
     ".": {
       "types": "./dist/aimodels.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
   "files": [
     "dist",
-    "LICENSE"
+    "../LICENSE",
+    "README.md"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:data && npm run build:package && npm test",
-    "build:data": "node build.mjs",
-    "build:package": "tsup src/aimodels.ts --format cjs,esm --dts",
+    "build": "npm run clean && node build.js && npm test",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",

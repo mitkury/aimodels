@@ -13,10 +13,7 @@ export interface ModelPrice {
 }
 
 /** Source data types (what's in JSON files) */
-export interface SourceOrganization {
-  /** Unique identifier (e.g., "openai", "meta", "anthropic") */
-  id: string;
-  
+export interface SourceOrganization {  
   /** Display name (e.g., "OpenAI", "Meta", "Anthropic") */
   name: string;
   
