@@ -3,14 +3,14 @@
   "version": "0.3.12",
   "description": "A collection of AI model specifications across different providers",
   "type": "module",
-  "main": "dist/npm-entry.js",
-  "module": "dist/npm-entry.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/aimodels.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/npm-entry.js",
-      "require": "./dist/npm-entry.cjs"
+      "types": "./dist/aimodels.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
@@ -20,7 +20,7 @@
   "scripts": {
     "build": "npm run clean && npm run build:data && npm run build:package && npm test",
     "build:data": "node build.mjs",
-    "build:package": "tsup src/index.ts --format cjs,esm --dts",
+    "build:package": "tsup src/aimodels.ts --format cjs,esm --dts",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",

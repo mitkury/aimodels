@@ -1,5 +1,5 @@
-import type { TokenBasedPricePerMillionTokens, ImagePrice } from './pricing.ts';
-import type { Creator } from './creators.ts';
+import type { TokenBasedPricePerMillionTokens, ImagePrice } from './pricing';
+import type { Creator } from './creators';
 
 /** Provider-specific data */
 export interface Provider extends Creator {

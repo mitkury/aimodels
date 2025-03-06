@@ -46,30 +46,31 @@ async function main() {
   console.log('Running data generation...');
   
   // Run the generated script to produce data
-  // eslint-disable-next-line import/no-unresolved
+  // This import is for a file that is generated during the build process
+  // eslint-disable-next-line
   const { generateData } = await import(join(distDir, 'build-data.mjs'));
   await generateData();
   
   // Copy npm-entry.js to dist folder
-  console.log('Copying npm-entry.js to dist folder...');
+  console.log('Processing index.js for distribution...');
   
-  // Process npm-entry.js to CJS format for require support
+  // Process index.js to CJS format for require support
   await build({
-    entryPoints: [join(__dirname, 'src/npm-entry.js')],
+    entryPoints: [join(__dirname, 'src/index.js')],
     bundle: false,
     platform: 'node',
     target: 'node18',
-    outfile: join(distDir, 'npm-entry.cjs'),
+    outfile: join(distDir, 'index.cjs'),
     format: 'cjs',
   });
   
   // Copy the ESM version directly
   await build({
-    entryPoints: [join(__dirname, 'src/npm-entry.js')],
+    entryPoints: [join(__dirname, 'src/index.js')],
     bundle: false,
     platform: 'node',
     target: 'node18',
-    outfile: join(distDir, 'npm-entry.js'),
+    outfile: join(distDir, 'index.js'),
     format: 'esm',
   });
   

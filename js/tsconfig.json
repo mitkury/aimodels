@@ -12,7 +12,6 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
       "@data/*": ["../data/*"]

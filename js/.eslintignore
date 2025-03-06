@@ -1,0 +1,11 @@
+# Build output
+dist/
+build/
+coverage/
+
+# Don't lint the index.js entry point because it references files that only exist after build
+src/index.js
+
+# Node modules and package files
+node_modules/
+package-lock.json 

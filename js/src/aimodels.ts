@@ -1,15 +1,15 @@
-import type { TokenBasedPricePerMillionTokens, Provider } from './types/index.ts';
-import type { Model } from './types/models.ts';
-import type { Creator } from './types/creators.ts';
-import { ModelCollection, prebuiltModels, prebuiltProviders, prebuiltOrgs } from './types/models.ts';
+import type { TokenBasedPricePerMillionTokens, Provider } from './types/index';
+import type { Model } from './types/models';
+import type { Creator } from './types/creators';
+import { ModelCollection, prebuiltModels, prebuiltProviders, prebuiltOrgs } from './types/models';
 
 // Re-export types that users will need
-export type { Model, ModelContext } from './types/models.ts';
-export type { Capability } from './types/capabilities.ts';
-export type { TokenBasedPricePerMillionTokens } from './types/pricing.ts';
-export type { Provider } from './types/providers.ts';
-export type { Creator } from './types/creators.ts';
-export { ModelCollection } from './types/models.ts';
+export type { Model, ModelContext } from './types/models';
+export type { Capability } from './types/capabilities';
+export type { TokenBasedPricePerMillionTokens } from './types/pricing';
+export type { Provider } from './types/providers';
+export type { Creator } from './types/creators';
+export { ModelCollection } from './types/models';
 
 export class AIModels extends ModelCollection {
   constructor(models: Model[] = Object.values(prebuiltModels)) {

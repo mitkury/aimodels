@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-// Import directly from the npm-entry.js file which should have data populated
-import { models } from '../dist/npm-entry.js';
+// Import directly from the built distribution as a user would
+import { models } from '../dist/index.js';
 
 describe('aimodels package', () => {
   it('exports a models object with fluent API methods', () => {
@@ -57,5 +57,12 @@ describe('aimodels package', () => {
     // This tests the fluent API chaining capability
     const chatModelsWithJson = models.canChat().can('json-out');
     expect(Array.isArray(chatModelsWithJson)).toBe(true);
+
+    // Check that we have at least one model that supports JSON output
+    expect(chatModelsWithJson.length).toBeGreaterThan(0);
+    // Log the first model for debugging
+    if (chatModelsWithJson.length > 0) {
+      console.log('First model that supports JSON output:', chatModelsWithJson[0].id);
+    }
   });
 }); 
