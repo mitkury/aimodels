@@ -1,4 +1,15 @@
-import type { Model } from '../types/models';
+import type { Model, ModelContext } from '../types/models';
+import type { Capability } from '../types/capabilities';
+
+// Import model data using ES module imports
+import openaiModels from '@data/models/openai-models.json';
+import anthropicModels from '@data/models/anthropic-models.json';
+import mistralModels from '@data/models/mistral-models.json';
+import metaModels from '@data/models/meta-models.json';
+import googleModels from '@data/models/google-models.json';
+import deepseekModels from '@data/models/deepseek-models.json';
+import xaiModels from '@data/models/xai-models.json';
+import cohereModels from '@data/models/cohere-models.json';
 
 interface ModelsData {
   creator: string;
@@ -29,17 +40,7 @@ function validateModel(model: SourceModel): boolean {
 
 export function buildAllModels(): Model[] {
   try {
-    // Import will be resolved by esbuild plugin
-    const openaiModels = require('@data/models/openai-models.json');
-    const anthropicModels = require('@data/models/anthropic-models.json');
-    const mistralModels = require('@data/models/mistral-models.json');
-    const metaModels = require('@data/models/meta-models.json');
-    const googleModels = require('@data/models/google-models.json');
-    const deepseekModels = require('@data/models/deepseek-models.json');
-    const xaiModels = require('@data/models/xai-models.json');
-    const cohereModels = require('@data/models/cohere-models.json');
-
-    // Combine all models
+    // Combine all models - using the imports from the top of the file
     const allModelData = [
       openaiModels,
       anthropicModels,
@@ -51,21 +52,33 @@ export function buildAllModels(): Model[] {
       cohereModels
     ] as ModelsData[];
 
-    // Process models
+    // Process models, filtering out invalid models first
     return allModelData.flatMap(data => 
-      data.models.map(model => ({
-        id: model.id,
-        name: model.name,
-        can: model.can || [],
-        providers: model.providers || [],
-        creator: data.creator,
-        license: model.license || data.creator || '',
-        context: {
-          total: model.context?.total || 0,
-          maxOutput: model.context?.maxOutput || 0,
-          ...(model.context?.outputIsFixed && { outputIsFixed: model.context.outputIsFixed })
-        }
-      }))
+      data.models
+        .filter(validateModel)
+        .map(model => {
+          // Create a properly typed context object
+          const context: ModelContext = {
+            type: 'token',
+            total: model.context?.total || 0,
+            maxOutput: model.context?.maxOutput || 0
+          };
+          
+          // Add outputIsFixed only if it's exactly 1
+          if (model.context?.outputIsFixed === 1) {
+            (context as any).outputIsFixed = 1;
+          }
+          
+          return {
+            id: model.id,
+            name: model.name,
+            can: model.can as Capability[] || [],
+            providers: model.providers || [],
+            creator: data.creator,
+            license: model.license || data.creator || '',
+            context
+          };
+        })
     );
   } catch (error) {
     console.error('Error building models:', error);

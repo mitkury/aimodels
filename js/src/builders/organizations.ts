@@ -35,8 +35,7 @@ export function validateOrganization(raw: unknown): SourceOrganization {
     name: org.name as string,
     websiteUrl: org.websiteUrl as string,
     country: org.country as string,
-    founded: org.founded as number,
-    type: org.type as string
+    founded: org.founded as number
   };
 
   return validatedOrg;
@@ -48,9 +47,6 @@ export function validateOrganization(raw: unknown): SourceOrganization {
  */
 export function buildAllOrganizations(): Organization[] {
   try {
-    // Import will be resolved by esbuild plugin
-    const orgsData = require('@data/orgs.json');
-
     // Process organizations - orgsData is an object, not an array
     return Object.entries(orgsData).map(([id, orgData]) => {
       const org = orgData as SourceOrganization;
@@ -59,8 +55,7 @@ export function buildAllOrganizations(): Organization[] {
         name: org.name,
         websiteUrl: org.websiteUrl,
         country: org.country,
-        founded: org.founded,
-        type: org.type || 'company'
+        founded: org.founded
       };
     });
   } catch (error) {

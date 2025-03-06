@@ -75,21 +75,7 @@ interface SourceProvider {
  */
 export function buildAllProviders(): Provider[] {
   try {
-    // Import will be resolved by esbuild plugin
-    const openaiProvider = require('@data/providers/openai-provider.json');
-    const anthropicProvider = require('@data/providers/anthropic-provider.json');
-    const mistralProvider = require('@data/providers/mistral-provider.json');
-    const cohereProvider = require('@data/providers/cohere-provider.json');
-    const xaiProvider = require('@data/providers/xai-provider.json');
-    const googleProvider = require('@data/providers/google-provider.json');
-    const deepseekProvider = require('@data/providers/deepseek-provider.json');
-    const groqProvider = require('@data/providers/groq-provider.json');
-    const azureProvider = require('@data/providers/azure-provider.json');
-    const awsProvider = require('@data/providers/aws-provider.json');
-    const bedrockProvider = require('@data/providers/bedrock-provider.json');
-    const oracleProvider = require('@data/providers/oracle-provider.json');
-
-    // Combine all providers
+    // Combine all providers - using the imports from the top of the file
     return [
       openaiProvider,
       anthropicProvider,
