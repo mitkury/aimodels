@@ -1,7 +1,6 @@
 {
   "id": "xai",
   "name": "X.AI",
-  "websiteUrl": "https://x.ai",
   "apiUrl": "https://x.ai/api",
   "apiDocsUrl": "https://x.ai/docs",
   "pricing": {

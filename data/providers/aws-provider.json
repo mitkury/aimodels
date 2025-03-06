@@ -1,7 +1,6 @@
 {
   "id": "aws",
   "name": "Amazon Web Services",
-  "websiteUrl": "https://aws.amazon.com",
   "apiUrl": "https://bedrock-runtime.us-east-1.amazonaws.com",
   "apiDocsUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
   "pricing": {

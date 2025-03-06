@@ -1,10 +1,9 @@
 {
   "id": "groq",
   "name": "Groq",
-  "websiteUrl": "https://groq.com",
   "apiUrl": "https://api.groq.com/openai/v1",
-  "defaultModel": "llama3-70b-8192",
-  "models": {
+  "apiDocsUrl": "https://console.groq.com/docs/api-reference",
+  "pricing": {
     "llama3-70b-8192": {
       "type": "token",
       "input": 0.7,

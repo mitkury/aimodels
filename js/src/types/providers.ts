@@ -9,9 +9,6 @@ export interface Provider extends Creator {
   /** Provider's API documentation URL */
   apiDocsUrl: string;
   
-  /** Default model */
-  defaultModel?: string;
-  
   /** Whether this is a local provider */
   isLocal?: number;
   

@@ -64,7 +64,7 @@
   },
   "azure": {
     "id": "azure",
-    "name": "Azure OpenAI",
+    "name": "Azure",
     "websiteUrl": "https://azure.microsoft.com/en-us/products/ai-services/openai-service",
     "country": "USA",
     "founded": 1975

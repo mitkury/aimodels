@@ -1,7 +1,6 @@
 {
   "id": "google",
   "name": "Google",
-  "websiteUrl": "https://ai.google.dev",
   "apiUrl": "https://generativelanguage.googleapis.com/v1",
   "apiDocsUrl": "https://ai.google.dev/docs",
   "pricing": {
