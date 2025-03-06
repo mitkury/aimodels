@@ -1,5 +1,4 @@
-import type { Model, ModelContext } from '../types/models';
-import type { Capability } from '../types/capabilities';
+import type { Model } from '../types/models';
 
 // Import model data using ES module imports
 import openaiModels from '@data/models/openai-models.json';
@@ -13,29 +12,51 @@ import cohereModels from '@data/models/cohere-models.json';
 
 interface ModelsData {
   creator: string;
-  models: SourceModel[];
+  models: Model[];
 }
 
-interface SourceModel {
-  id: string;
-  name: string;
-  can?: string[];
-  providers?: string[];
-  license?: string;
-  context?: {
-    total?: number;
-    maxOutput?: number;
-    outputIsFixed?: number;
-  };
-}
-
-// Validation function
-function validateModel(model: SourceModel): boolean {
-  if (!model.id || !model.name) {
-    console.error(`Model with id "${model.id}" missing required fields`);
-    return false;
+/**
+ * Resolves a model's inheritance by merging with its base model
+ */
+function resolveModel(model: Model, allModels: Record<string, Model>, visited = new Set<string>()): Model {
+  // No inheritance, return as is
+  if (!model.extends) {
+    return model;
   }
-  return true;
+
+  // Check for circular dependencies
+  if (visited.has(model.id)) {
+    throw new Error(`Circular dependency detected for model ${model.id}`);
+  }
+  visited.add(model.id);
+
+  // Find base model
+  const baseModel = allModels[model.extends];
+  if (!baseModel) {
+    throw new Error(`Base model ${model.extends} not found for ${model.id}`);
+  }
+
+  // Recursively resolve the base model first
+  const resolvedBase = resolveModel(baseModel, allModels, visited);
+
+  // If no overrides, just inherit everything except id and extends
+  if (!model.overrides) {
+    return {
+      ...resolvedBase,
+      id: model.id,
+      extends: model.extends
+    };
+  }
+
+  // Merge with base model, giving priority to overrides
+  const resolved = {
+    ...resolvedBase,
+    ...model.overrides,
+    id: model.id,
+    extends: model.extends
+  };
+
+  return resolved;
 }
 
 export function buildAllModels(): Model[] {
@@ -52,34 +73,29 @@ export function buildAllModels(): Model[] {
       cohereModels
     ] as ModelsData[];
 
-    // Process models, filtering out invalid models first
-    return allModelData.flatMap(data => 
-      data.models
-        .filter(validateModel)
-        .map(model => {
-          // Create a properly typed context object
-          const context: ModelContext = {
-            type: 'token',
-            total: model.context?.total || 0,
-            maxOutput: model.context?.maxOutput || 0
-          };
-          
-          // Add outputIsFixed only if it's exactly 1
-          if (model.context?.outputIsFixed === 1) {
-            (context as any).outputIsFixed = 1;
-          }
-          
-          return {
-            id: model.id,
-            name: model.name,
-            can: model.can as Capability[] || [],
-            providers: model.providers || [],
-            creator: data.creator,
-            license: model.license || data.creator || '',
-            context
-          };
-        })
+    // First pass: collect all models with minimal defaults
+    const allModels = allModelData.flatMap(data => 
+      data.models.map(model => ({
+        ...model,
+        creator: data.creator,
+        can: model.can || [],
+        providers: model.providers || [],
+        license: model.license || '',
+        context: model.context || { type: 'token', total: 0, maxOutput: 0 }
+      }))
     );
+
+    // Create a map for easy lookup
+    const modelMap = Object.fromEntries(
+      allModels.map(model => [model.id, model])
+    );
+
+    // Second pass: resolve inheritance
+    const resolvedModels = allModels.map(model => 
+      resolveModel(model, modelMap)
+    );
+
+    return resolvedModels;
   } catch (error) {
     console.error('Error building models:', error);
     return [];
