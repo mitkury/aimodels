@@ -4,7 +4,8 @@
   "sources": [
     "TODO-AI.md",
     "docs/rules-for-ai.md",
-    "README.md"
+    "README.md",
+    "data/schemas/*"
   ],
   "output": {
     "cursor": true,

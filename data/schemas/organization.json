@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Organizations",
+  "description": "Information about AI model creators and organizations",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/definitions/organization"
+  },
+  "definitions": {
+    "organization": {
+      "type": "object",
+      "required": ["name", "websiteUrl", "country", "founded"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable name of the organization"
+        },
+        "websiteUrl": {
+          "type": "string",
+          "description": "URL to the organization's website",
+          "format": "uri"
+        },
+        "country": {
+          "type": "string",
+          "description": "ISO country code where the organization is based",
+          "minLength": 2,
+          "maxLength": 3
+        },
+        "founded": {
+          "type": "integer",
+          "description": "Year the organization was founded",
+          "minimum": 1000,
+          "maximum": 3000
+        }
+      }
+    }
+  }
+} 

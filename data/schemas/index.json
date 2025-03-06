@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AIModels Schema Collection",
+  "description": "Collection of schemas for the AIModels package",
+  "type": "object",
+  "properties": {
+    "models": {
+      "description": "Schema for model data files",
+      "$ref": "model.json"
+    },
+    "providers": {
+      "description": "Schema for provider data files",
+      "$ref": "provider.json"
+    },
+    "organizations": {
+      "description": "Schema for organization data",
+      "$ref": "organization.json"
+    }
+  }
+} 

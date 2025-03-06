@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Provider",
+  "description": "Information about an AI service provider",
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the provider"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the provider"
+    },
+    "apiUrl": {
+      "type": "string",
+      "description": "Base URL for the provider's API",
+      "format": "uri"
+    },
+    "apiDocsUrl": {
+      "type": "string",
+      "description": "URL to the provider's API documentation",
+      "format": "uri"
+    },
+    "pricing": {
+      "type": "object",
+      "description": "Pricing information for models offered by this provider",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["token", "character", "request", "second", "minute", "call", "image"]
+          },
+          "input": {
+            "type": "number"
+          },
+          "output": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+} 

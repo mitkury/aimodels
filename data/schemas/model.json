@@ -1,0 +1,241 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Model Collection",
+  "description": "A collection of AI models from a specific creator",
+  "type": "object",
+  "required": ["creator", "models"],
+  "properties": {
+    "creator": {
+      "type": "string",
+      "description": "The ID of the creator/organization that developed these models"
+    },
+    "models": {
+      "type": "array",
+      "description": "Array of model definitions",
+      "items": {
+        "$ref": "#/definitions/model"
+      }
+    }
+  },
+  "definitions": {
+    "model": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the model"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable name of the model"
+        },
+        "license": {
+          "type": "string",
+          "description": "License type of the model (e.g., proprietary, apache-2.0)"
+        },
+        "providers": {
+          "type": "array",
+          "description": "List of provider IDs that offer this model",
+          "items": {
+            "type": "string"
+          }
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Alternative identifiers for this model",
+          "items": {
+            "type": "string"
+          }
+        },
+        "can": {
+          "type": "array",
+          "description": "List of capabilities this model supports",
+          "items": {
+            "type": "string",
+            "enum": [
+              "chat",
+              "reason",
+              "txt-in",
+              "txt-out",
+              "img-in",
+              "img-out",
+              "audio-in",
+              "audio-out",
+              "json-out",
+              "fn-out",
+              "vec-out"
+            ]
+          }
+        },
+        "context": {
+          "type": "object",
+          "description": "Context window information",
+          "oneOf": [
+            {
+              "title": "Text model context",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["token"],
+                  "description": "Type of context measurement for text models"
+                },
+                "total": {
+                  "type": ["integer", "null"],
+                  "description": "Total context window size (in tokens)"
+                },
+                "maxOutput": {
+                  "type": ["integer", "null"],
+                  "description": "Maximum output size (in tokens)"
+                },
+                "outputIsFixed": {
+                  "type": ["integer", "boolean"],
+                  "description": "Whether output size is fixed"
+                },
+                "extended": {
+                  "type": "object",
+                  "description": "Extended context settings for special modes",
+                  "additionalProperties": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": ["type"]
+            },
+            {
+              "title": "Embedding model context",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["embedding"],
+                  "description": "Type of model (embedding)"
+                },
+                "total": {
+                  "type": ["integer", "null"],
+                  "description": "Maximum input size for embedding"
+                },
+                "unit": {
+                  "type": "string",
+                  "description": "Unit of measurement (e.g., tokens)"
+                },
+                "dimensions": {
+                  "type": "integer",
+                  "description": "Number of dimensions in the embedding vector"
+                },
+                "embeddingType": {
+                  "type": "string",
+                  "description": "Type of embedding (e.g., text)"
+                },
+                "normalized": {
+                  "type": "boolean",
+                  "description": "Whether embeddings are normalized"
+                }
+              },
+              "required": ["type", "dimensions"]
+            },
+            {
+              "title": "Image generation model context",
+              "properties": {
+                "maxOutput": {
+                  "type": "integer",
+                  "description": "Maximum number of images that can be generated"
+                },
+                "sizes": {
+                  "type": "array",
+                  "description": "Available size options for generated images",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "qualities": {
+                  "type": "array",
+                  "description": "Available quality options for generated images",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": ["maxOutput", "sizes"]
+            },
+            {
+              "title": "Audio input model context",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["audio-in"],
+                  "description": "Type of audio input model"
+                },
+                "total": {
+                  "type": ["integer", "null"],
+                  "description": "Maximum audio duration"
+                },
+                "maxOutput": {
+                  "type": ["integer", "null"],
+                  "description": "Maximum output size"
+                }
+              },
+              "required": ["type"]
+            },
+            {
+              "title": "Audio output model context",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["audio-out"],
+                  "description": "Type of audio output model"
+                },
+                "total": {
+                  "type": ["integer", "null"],
+                  "description": "Maximum text input size"
+                },
+                "maxOutput": {
+                  "type": ["integer", "null"],
+                  "description": "Maximum audio output duration"
+                }
+              },
+              "required": ["type"]
+            }
+          ]
+        },
+        "extends": {
+          "type": "string",
+          "description": "ID of the model this model extends (inherits from)"
+        },
+        "overrides": {
+          "type": "object",
+          "description": "Properties that override the extended model's properties",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "can": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "context": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "description": "Conditional validation: Base models (those without an 'extends' property) must include all core properties, while models that extend others only need to specify what they're overriding.",
+          "if": {
+            "not": {
+              "properties": {
+                "extends": { "type": "string" }
+              },
+              "required": ["extends"]
+            }
+          },
+          "then": {
+            "required": ["id", "name", "providers", "can", "context"]
+          }
+        }
+      ]
+    }
+  }
+} 

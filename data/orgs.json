@@ -1,93 +1,80 @@
 {
   "openai": {
-    "id": "openai",
     "name": "OpenAI",
     "websiteUrl": "https://openai.com",
     "country": "USA",
     "founded": 2015
   },
   "anthropic": {
-    "id": "anthropic",
     "name": "Anthropic",
     "websiteUrl": "https://anthropic.com",
     "country": "USA",
     "founded": 2021
   },
   "meta": {
-    "id": "meta",
     "name": "Meta",
     "websiteUrl": "https://ai.meta.com",
     "country": "USA",
     "founded": 2004
   },
   "mistral": {
-    "id": "mistral",
     "name": "Mistral AI",
     "websiteUrl": "https://mistral.ai",
     "country": "FRA",
     "founded": 2023
   },
   "cohere": {
-    "id": "cohere",
     "name": "Cohere",
     "websiteUrl": "https://cohere.com",
     "country": "CAN",
     "founded": 2019
   },
   "deepseek": {
-    "id": "deepseek",
     "name": "DeepSeek",
     "websiteUrl": "https://deepseek.com",
     "country": "CHN",
     "founded": 2023
   },
   "google": {
-    "id": "google",
     "name": "Google",
     "websiteUrl": "https://ai.google.dev",
     "country": "USA",
     "founded": 1998
   },
   "xai": {
-    "id": "xai",
     "name": "X.AI",
     "websiteUrl": "https://x.ai",
     "country": "USA",
     "founded": 2023
   },
   "groq": {
-    "id": "groq",
     "name": "Groq",
     "websiteUrl": "https://groq.com",
     "country": "USA",
     "founded": 2016
   },
   "azure": {
-    "id": "azure",
     "name": "Azure",
     "websiteUrl": "https://azure.microsoft.com/en-us/products/ai-services/openai-service",
     "country": "USA",
     "founded": 1975
   },
   "aws": {
-    "id": "aws",
     "name": "Amazon Web Services",
     "websiteUrl": "https://aws.amazon.com",
     "country": "USA",
     "founded": 2006
   },
   "bedrock": {
-    "id": "bedrock",
     "name": "AWS Bedrock",
     "websiteUrl": "https://aws.amazon.com/bedrock",
     "country": "USA",
     "founded": 2023
   },
   "oracle": {
-    "id": "oracle",
     "name": "Oracle Cloud",
     "websiteUrl": "https://www.oracle.com/cloud/ai-services",
     "country": "USA",
     "founded": 1977
   }
-} 
+}
