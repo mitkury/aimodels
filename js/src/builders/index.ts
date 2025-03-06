@@ -1,2 +1,3 @@
-export * from './models.ts';
-export * from './providers.ts';
+export * from './models';
+export * from './providers';
+export * from './organizations';

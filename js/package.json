@@ -2,6 +2,7 @@
   "name": "aimodels",
   "version": "0.3.12",
   "description": "A collection of AI model specifications across different providers",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -18,7 +19,8 @@
   ],
   "scripts": {
     "prebuild": "npm run typecheck && npm run lint && npm test",
-    "build": "tsc build/data.ts && node build/data.js && tsup src/index.ts --format cjs,esm --dts",
+    "build": "npm run build:data && tsup src/index.ts --format cjs,esm --dts",
+    "build:data": "node build.mjs",
     "test": "vitest",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
@@ -67,7 +69,9 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitest/coverage-v8": "^1.0.0",
     "airul": "^0.1.10",
+    "esbuild": "^0.19.11",
     "eslint": "^8.0.0",
+    "ts-node": "^10.9.2",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
     "vitest": "^1.0.0"

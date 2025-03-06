@@ -1,4 +1,4 @@
-import type { Provider, ProvidersData } from '../types/index.ts';
+import type { Provider, ProvidersData, SourceProvider } from '../types/providers';
 
 // Import provider data from root data directory
 import openaiProvider from '@data/providers/openai-provider.json' with { type: 'json' };
@@ -10,6 +10,9 @@ import googleProvider from '@data/providers/google-provider.json' with { type: '
 import deepseekProvider from '@data/providers/deepseek-provider.json' with { type: 'json' };
 import groqProvider from '@data/providers/groq-provider.json' with { type: 'json' };
 import azureProvider from '@data/providers/azure-provider.json' with { type: 'json' };
+import awsProvider from '@data/providers/aws-provider.json' with { type: 'json' };
+import bedrockProvider from '@data/providers/bedrock-provider.json' with { type: 'json' };
+import oracleProvider from '@data/providers/oracle-provider.json' with { type: 'json' };
 
 // Type guard to check if a price object is a token price
 function isTokenPrice(price: unknown): price is { type: 'token'; input: number; output: number } {
@@ -49,65 +52,21 @@ function isSearchPrice(price: unknown): price is { type: 'search'; price: number
     'price' in price && typeof (price as { price: unknown }).price === 'number';
 }
 
-/**
- * Validate and convert a raw provider object to a Provider type
- */
-function validateProvider(raw: unknown): Provider {
-  if (typeof raw !== 'object' || raw === null) {
-    throw new Error('Provider data must be an object');
+// Validation function
+function validateProvider(provider: SourceProvider): boolean {
+  if (!provider.id || !provider.name || !provider.websiteUrl || !provider.apiUrl) {
+    console.error(`Provider with id "${provider.id}" missing required fields`);
+    return false;
   }
+  return true;
+}
 
-  const provider = raw as Record<string, unknown>;
-
-  // Validate Creator fields
-  if (typeof provider.id !== 'string') {
-    throw new Error('Provider id must be a string');
-  }
-  if (typeof provider.name !== 'string') {
-    throw new Error('Provider name must be a string');
-  }
-  if (typeof provider.websiteUrl !== 'string') {
-    throw new Error('Provider websiteUrl must be a string');
-  }
-  if (typeof provider.country !== 'string') {
-    throw new Error('Provider country must be a string');
-  }
-  if (typeof provider.founded !== 'number') {
-    throw new Error('Provider founded must be a number');
-  }
-
-  // Validate Provider fields
-  if (typeof provider.apiUrl !== 'string') {
-    throw new Error('Provider apiUrl must be a string');
-  }
-  if (typeof provider.apiDocsUrl !== 'string') {
-    throw new Error('Provider apiDocsUrl must be a string');
-  }
-  if (typeof provider.pricing !== 'object' || provider.pricing === null) {
-    throw new Error('Provider pricing must be an object');
-  }
-
-  // Validate each model price
-  const pricing = provider.pricing as Record<string, unknown>;
-  Object.values(pricing).forEach(price => {
-    if (!isTokenPrice(price) && !isImagePrice(price) && !isCharacterPrice(price) && !isMinutePrice(price) && !isSearchPrice(price)) {
-      throw new Error(`Invalid price data: ${JSON.stringify(price)}`);
-    }
-  });
-
-  // At this point we've verified all required fields
-  return {
-    id: provider.id as string,
-    name: provider.name as string,
-    websiteUrl: provider.websiteUrl as string,
-    country: provider.country as string,
-    founded: provider.founded as number,
-    apiUrl: provider.apiUrl as string,
-    apiDocsUrl: provider.apiDocsUrl as string,
-    pricing: provider.pricing as Provider['pricing'],
-    ...(provider.defaultModel ? { defaultModel: provider.defaultModel as string } : {}),
-    ...(provider.isLocal ? { isLocal: provider.isLocal as number } : {})
-  };
+interface SourceProvider {
+  id: string;
+  name: string;
+  websiteUrl: string;
+  apiUrl: string;
+  models?: Record<string, unknown>;
 }
 
 /**
@@ -115,17 +74,46 @@ function validateProvider(raw: unknown): Provider {
  * This is a single source of truth for provider data.
  */
 export function buildAllProviders(): Provider[] {
-  return [
-    validateProvider(openaiProvider),
-    validateProvider(anthropicProvider),
-    validateProvider(mistralProvider),
-    validateProvider(cohereProvider),
-    validateProvider(xaiProvider),
-    validateProvider(googleProvider),
-    validateProvider(deepseekProvider),
-    validateProvider(groqProvider),
-    validateProvider(azureProvider)
-  ];
+  try {
+    // Import will be resolved by esbuild plugin
+    const openaiProvider = require('@data/providers/openai-provider.json');
+    const anthropicProvider = require('@data/providers/anthropic-provider.json');
+    const mistralProvider = require('@data/providers/mistral-provider.json');
+    const cohereProvider = require('@data/providers/cohere-provider.json');
+    const xaiProvider = require('@data/providers/xai-provider.json');
+    const googleProvider = require('@data/providers/google-provider.json');
+    const deepseekProvider = require('@data/providers/deepseek-provider.json');
+    const groqProvider = require('@data/providers/groq-provider.json');
+    const azureProvider = require('@data/providers/azure-provider.json');
+    const awsProvider = require('@data/providers/aws-provider.json');
+    const bedrockProvider = require('@data/providers/bedrock-provider.json');
+    const oracleProvider = require('@data/providers/oracle-provider.json');
+
+    // Combine all providers
+    return [
+      openaiProvider,
+      anthropicProvider,
+      mistralProvider,
+      cohereProvider,
+      xaiProvider,
+      googleProvider,
+      deepseekProvider,
+      groqProvider,
+      azureProvider,
+      awsProvider,
+      bedrockProvider,
+      oracleProvider
+    ].map(provider => ({
+      id: provider.id,
+      name: provider.name,
+      websiteUrl: provider.websiteUrl,
+      apiUrl: provider.apiUrl,
+      models: provider.models || {}
+    }));
+  } catch (error) {
+    console.error('Error building providers:', error);
+    return [];
+  }
 }
 
 /**

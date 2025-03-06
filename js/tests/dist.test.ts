@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { models, providers, organizations } from '../../dist/data';
-import type { Model, Provider } from '../src/types/models';
+import { models, providers, organizations } from '../dist/data.js';
+import type { Model, Provider } from '../src/types/models.js';
 
 describe('dist data', () => {
   it('loads pre-built data correctly', () => {

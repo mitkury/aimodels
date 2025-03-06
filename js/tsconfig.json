@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext",
+    "module": "NodeNext",
     "lib": ["ES2020"],
-    "moduleResolution": "node",
-    "rootDir": "./src",
+    "moduleResolution": "NodeNext",
+    "rootDir": ".",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
@@ -18,6 +18,6 @@
       "@data/*": ["../data/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "build"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }
