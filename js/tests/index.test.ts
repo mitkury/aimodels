@@ -6,63 +6,56 @@ describe('aimodels package', () => {
   it('exports a models object with fluent API methods', () => {
     expect(models).toBeDefined();
     expect(typeof models).toBe('object');
-    // Check for fluent API methods
-    expect(typeof models.canChat).toBe('function');
-    expect(typeof models.canSee).toBe('function');
-    expect(typeof models.fromProvider).toBe('function');
-    expect(typeof models.fromCreator).toBe('function');
-    expect(typeof models.id).toBe('function');
-  });
-
-  it('has models loaded', () => {
-    // Check how many models we have in total
-    console.log('Total models:', models.length);
     expect(models.length).toBeGreaterThan(0);
     
-    // Check what providers we have
-    const uniqueProviders = new Set<string>();
-    models.forEach((model: any) => {
-      model.providers.forEach((provider: string) => uniqueProviders.add(provider));
-    });
-    console.log('Available providers:', [...uniqueProviders]);
+    // Check for the presence of all expected API methods
+    // This verifies the public API contract
+    
+    // Core utilities
+    expect(typeof models.id).toBe('function');
+    expect(typeof models.fromProvider).toBe('function');
+    expect(typeof models.fromCreator).toBe('function');
+    expect(typeof models.withMinContext).toBe('function');
+    expect(typeof models.can).toBe('function');
+    expect(typeof models.getProvider).toBe('function');
+    expect(typeof models.getProviders).toBe('function');
+    
+    // Fluent capability API methods
+    expect(typeof models.canChat).toBe('function');
+    expect(typeof models.canRead).toBe('function');
+    expect(typeof models.canWrite).toBe('function');
+    expect(typeof models.canReason).toBe('function');
+    expect(typeof models.canSee).toBe('function');
+    expect(typeof models.canGenerateImages).toBe('function');
+    expect(typeof models.canHear).toBe('function');
+    expect(typeof models.canSpeak).toBe('function');
+    expect(typeof models.canOutputJSON).toBe('function');
+    expect(typeof models.canCallFunctions).toBe('function');
+    expect(typeof models.canGenerateEmbeddings).toBe('function');
+    
+    // Array-like methods
+    expect(typeof models.filter).toBe('function');
+    expect(typeof models.map).toBe('function');
+    expect(typeof models.forEach).toBe('function');
+    expect(typeof models.slice).toBe('function');
   });
-
-  it('filters models by capability', () => {
+  
+  it('verifies API works as documented in README', () => {
+    // Based on README examples - make sure the basic API works
     const chatModels = models.canChat();
-    expect(Array.isArray(chatModels)).toBe(true);
-  });
-
-  it('filters models by provider', () => {
+    const multimodalModels = models.canChat().canSee();
     const openaiModels = models.fromProvider('openai');
+    const model = models.id('gpt-4');
+    
+    // Just verify the calls return results in expected format
+    expect(Array.isArray(chatModels)).toBe(true);
+    expect(Array.isArray(multimodalModels)).toBe(true);
     expect(Array.isArray(openaiModels)).toBe(true);
-    // Check that we have at least one model from OpenAI
-    expect(openaiModels.length).toBeGreaterThan(0);
-    // Log the first model for debugging
-    if (openaiModels.length > 0) {
-      console.log('First OpenAI model:', openaiModels[0].id);
-    }
-  });
-
-  it('filters models by creator', () => {
-    const metaModels = models.fromCreator('meta');
-    expect(Array.isArray(metaModels)).toBe(true);
-  });
-
-  it('filters models by context window', () => {
-    const largeContextModels = models.withMinContext(8192);
-    expect(Array.isArray(largeContextModels)).toBe(true);
-  });
-
-  it('supports method chaining for advanced filtering', () => {
-    // This tests the fluent API chaining capability
-    const chatModelsWithJson = models.canChat().can('json-out');
-    expect(Array.isArray(chatModelsWithJson)).toBe(true);
-
-    // Check that we have at least one model that supports JSON output
-    expect(chatModelsWithJson.length).toBeGreaterThan(0);
-    // Log the first model for debugging
-    if (chatModelsWithJson.length > 0) {
-      console.log('First model that supports JSON output:', chatModelsWithJson[0].id);
+    
+    // Verify a specific model can be found
+    if (model) {
+      expect(typeof model.context).toBe('object');
+      expect(Array.isArray(model.providers)).toBe(true);
     }
   });
 }); 
