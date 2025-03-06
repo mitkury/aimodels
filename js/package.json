@@ -3,14 +3,14 @@
   "version": "0.3.12",
   "description": "A collection of AI model specifications across different providers",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/npm-entry.js",
+  "module": "dist/npm-entry.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/npm-entry.js",
+      "require": "./dist/npm-entry.cjs"
     }
   },
   "files": [

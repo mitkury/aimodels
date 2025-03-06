@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-// Import directly from the built distribution as a user would
-import { models } from '../dist/index.js';
+// Import directly from the npm-entry.js file which should have data populated
+import { models } from '../dist/npm-entry.js';
 
 describe('aimodels package', () => {
   it('exports a models object with fluent API methods', () => {
@@ -21,7 +21,7 @@ describe('aimodels package', () => {
     
     // Check what providers we have
     const uniqueProviders = new Set<string>();
-    models.forEach(model => {
+    models.forEach((model: any) => {
       model.providers.forEach((provider: string) => uniqueProviders.add(provider));
     });
     console.log('Available providers:', [...uniqueProviders]);

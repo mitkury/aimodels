@@ -52,6 +52,21 @@ export class AIModels extends ModelCollection {
       .map(id => prebuiltProviders[id])
       .filter((p): p is Provider => p !== undefined);
   }
+
+  /**
+   * Static method to add model, provider, and organization data
+   * This allows separating the API from the data and injecting it later
+   */
+  static addData(
+    modelData: Record<string, Model>, 
+    providerData: Record<string, Provider>, 
+    orgData: Record<string, Creator>
+  ): void {
+    // Populate the prebuilt data containers
+    Object.assign(prebuiltModels, modelData);
+    Object.assign(prebuiltProviders, providerData);
+    Object.assign(prebuiltOrgs, orgData);
+  }
 }
 
 export const models = new AIModels();

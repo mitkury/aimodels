@@ -50,6 +50,29 @@ async function main() {
   const { generateData } = await import(join(distDir, 'build-data.mjs'));
   await generateData();
   
+  // Copy npm-entry.js to dist folder
+  console.log('Copying npm-entry.js to dist folder...');
+  
+  // Process npm-entry.js to CJS format for require support
+  await build({
+    entryPoints: [join(__dirname, 'src/npm-entry.js')],
+    bundle: false,
+    platform: 'node',
+    target: 'node18',
+    outfile: join(distDir, 'npm-entry.cjs'),
+    format: 'cjs',
+  });
+  
+  // Copy the ESM version directly
+  await build({
+    entryPoints: [join(__dirname, 'src/npm-entry.js')],
+    bundle: false,
+    platform: 'node',
+    target: 'node18',
+    outfile: join(distDir, 'npm-entry.js'),
+    format: 'esm',
+  });
+  
   console.log(`Data generation completed successfully in ${buildDir}!`);
 }
 
