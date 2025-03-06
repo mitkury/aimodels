@@ -9,11 +9,14 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, '..');
 
+// Use BUILD_DIR environment variable if provided, default to 'dist'
+const buildDir = process.env.BUILD_DIR || 'dist';
+const distDir = join(__dirname, buildDir);
+
 async function main() {
-  console.log('Building data generation script...');
+  console.log(`Building data generation script into ${buildDir}...`);
   
   // Ensure dist directory exists
-  const distDir = join(__dirname, 'dist');
   if (!existsSync(distDir)) {
     mkdirSync(distDir, { recursive: true });
   }
@@ -24,7 +27,7 @@ async function main() {
     bundle: true,
     platform: 'node',
     target: 'node18',
-    outfile: join(__dirname, 'dist/build-data.mjs'),
+    outfile: join(distDir, 'build-data.mjs'),
     format: 'esm',
     plugins: [
       {
@@ -44,10 +47,10 @@ async function main() {
   
   // Run the generated script to produce data
   // eslint-disable-next-line import/no-unresolved
-  const { generateData } = await import('./dist/build-data.mjs');
+  const { generateData } = await import(join(distDir, 'build-data.mjs'));
   await generateData();
   
-  console.log('Build completed successfully!');
+  console.log(`Data generation completed successfully in ${buildDir}!`);
 }
 
 main().catch(err => {

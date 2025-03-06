@@ -1,66 +1,71 @@
 import { describe, it, expect } from 'vitest';
-import { models, providers, organizations } from '../dist/data.js';
-import type { Model, Provider } from '../src/types/models.js';
 
-describe('dist data', () => {
-  it('loads pre-built data correctly', () => {
+// Import directly from the built distribution data file
+import { models, providers, organizations } from '../dist/data.js';
+import type { Model, Provider } from '../src/types/models';
+
+describe('Generated data file', () => {
+  // Verify data structures exist and are populated
+  it('contains populated data structures', () => {
     expect(models).toBeDefined();
     expect(Object.keys(models).length).toBeGreaterThan(0);
     expect(providers).toBeDefined();
     expect(Object.keys(providers).length).toBeGreaterThan(0);
     expect(organizations).toBeDefined();
     expect(Object.keys(organizations).length).toBeGreaterThan(0);
-
-    const gpt4 = models['gpt-4'] as Model;
-    expect(gpt4).toBeDefined();
-    expect(gpt4.creator).toBe('openai');
-    expect(gpt4.providers).toContain('openai');
-  });
-});
-
-describe('public API', () => {
-  it('finds models by ID', () => {
-    const gpt4 = models['gpt-4'] as Model;
-    expect(gpt4).toBeDefined();
-    expect(gpt4.name).toBe('GPT-4');
-    expect(gpt4.creator).toBe('openai');
   });
 
-  it('finds models by creator', () => {
-    const openaiModels = Object.values(models).filter((m): m is Model => 
-      typeof m === 'object' && m !== null && 'creator' in m && m.creator === 'openai'
-    );
-    expect(openaiModels.length).toBeGreaterThan(0);
-    expect(openaiModels.every(m => m.creator === 'openai')).toBe(true);
+  // Test popular models to ensure they have required fields
+  describe('model data integrity', () => {
+    it('includes GPT-4 with correct properties', () => {
+      const gpt4 = models['gpt-4'] as Model;
+      expect(gpt4).toBeDefined();
+      expect(gpt4.id).toBe('gpt-4');
+      expect(gpt4.name).toBe('GPT-4');
+      expect(gpt4.creator).toBe('openai');
+      expect(gpt4.providers).toContain('openai');
+      expect(gpt4.can).toContain('chat');
+      expect(gpt4.context.total).toBeGreaterThan(0);
+    });
+
+    it('includes Claude 3 with correct properties', () => {
+      const claude = Object.values(models).find(
+        (m: any) => m.id.includes('claude') && m.id.includes('3')
+      ) as Model;
+      
+      expect(claude).toBeDefined();
+      expect(claude.creator).toBe('anthropic');
+      expect(claude.providers).toContain('anthropic');
+      expect(claude.can).toContain('chat');
+    });
   });
 
-  it('finds models by provider', () => {
-    const openaiModels = Object.values(models).filter((m): m is Model => 
-      typeof m === 'object' && m !== null && 'providers' in m && Array.isArray(m.providers) && m.providers.includes('openai')
-    );
-    expect(openaiModels.length).toBeGreaterThan(0);
-    expect(openaiModels.every(m => m.providers.includes('openai'))).toBe(true);
+  // Test provider data integrity
+  describe('provider data integrity', () => {
+    it('includes OpenAI with correct properties', () => {
+      const openai = providers['openai'] as Provider;
+      expect(openai).toBeDefined();
+      expect(openai.id).toBe('openai');
+      expect(openai.name).toBe('OpenAI');
+      expect(openai.websiteUrl).toBeDefined();
+      expect(openai.apiUrl).toBeDefined();
+    });
+
+    it('includes Anthropic with correct properties', () => {
+      const anthropic = providers['anthropic'] as Provider;
+      expect(anthropic).toBeDefined();
+      expect(anthropic.id).toBe('anthropic');
+      expect(anthropic.name).toBe('Anthropic');
+    });
   });
 
-  it('filters models by capabilities', () => {
-    const chatModels = Object.values(models).filter((m): m is Model => 
-      typeof m === 'object' && m !== null && 'can' in m && Array.isArray(m.can) && m.can.includes('chat')
-    );
-    expect(chatModels.length).toBeGreaterThan(0);
-    expect(chatModels.every(m => m.can.includes('chat'))).toBe(true);
-  });
-
-  it('gets creator information', () => {
-    const openai = organizations['openai'] as Provider;
-    expect(openai).toBeDefined();
-    expect(openai.id).toBe('openai');
-    expect(openai.name).toBe('OpenAI');
-  });
-
-  it('gets provider information', () => {
-    const openai = providers['openai'] as Provider;
-    expect(openai).toBeDefined();
-    expect(openai.id).toBe('openai');
-    expect(openai.name).toBe('OpenAI');
+  // Test organization data integrity
+  describe('organization data integrity', () => {
+    it('includes OpenAI organization data', () => {
+      const openai = organizations['openai'];
+      expect(openai).toBeDefined();
+      expect(openai.id).toBe('openai');
+      expect(openai.name).toBe('OpenAI');
+    });
   });
 }); 

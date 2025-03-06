@@ -1,10 +1,7 @@
 import type { Model } from './models';
 import type { Provider } from './providers';
 import type { Organization } from './organizations';
-
-// Import from the template file during development
-// During build, this file will be replaced with actual data
-import { models as prebuiltModels, providers as prebuiltProviders, organizations as prebuiltOrgs } from '../data/template.js';
+import { prebuiltModels, prebuiltProviders, prebuiltOrgs } from './models';
 
 // Re-export types
 export type { Model, Provider, Organization };

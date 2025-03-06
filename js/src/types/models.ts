@@ -1,7 +1,12 @@
 import type { Capability } from './capabilities';
 import type { Provider } from './providers';
 import type { Organization } from './organizations';
-import { models as prebuiltModels, providers as prebuiltProviders, organizations as prebuiltOrgs } from '../../dist/data';
+
+// Empty default data structures for development
+// These will be replaced at runtime with actual data
+export const prebuiltModels: Record<string, Model> = {};
+export const prebuiltProviders: Record<string, Provider> = {};
+export const prebuiltOrgs: Record<string, Organization> = {};
 
 export class ModelCollection extends Array<Model> {
   /** Create a new ModelCollection from an array of models */

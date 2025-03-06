@@ -1,7 +1,7 @@
 import type { TokenBasedPricePerMillionTokens, Provider } from './types/index.ts';
 import type { Model } from './types/models.ts';
 import type { Creator } from './types/creators.ts';
-import { ModelCollection } from './types/models.ts';
+import { ModelCollection, prebuiltModels, prebuiltProviders, prebuiltOrgs } from './types/models.ts';
 
 // Re-export types that users will need
 export type { Model, ModelContext } from './types/models.ts';
@@ -10,9 +10,6 @@ export type { TokenBasedPricePerMillionTokens } from './types/pricing.ts';
 export type { Provider } from './types/providers.ts';
 export type { Creator } from './types/creators.ts';
 export { ModelCollection } from './types/models.ts';
-
-// Import pre-built data
-import { models as prebuiltModels, providers as prebuiltProviders, organizations as prebuiltOrgs } from '../dist/data';
 
 export class AIModels extends ModelCollection {
   constructor(models: Model[] = Object.values(prebuiltModels)) {
