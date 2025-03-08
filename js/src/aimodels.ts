@@ -1,15 +1,7 @@
-import type { Provider } from './types/providers';
-import type { Model } from './types/models';
-import type { Creator } from './types/creators';
-import { ModelCollection } from './types/models';
-
-// Re-export types that users will need
-export type { Model, ModelContext } from './types/models';
-export type { Capability } from './types/capabilities';
-export type { TokenBasedPricePerMillionTokens } from './types/pricing';
-export type { Provider } from './types/providers';
-export type { Creator } from './types/creators';
-export { ModelCollection } from './types/models';
+import { Model } from './types/model';
+import { ModelCollection } from './types/modelCollection';
+import type { Provider } from './types/provider';
+import type { Organization } from './types/organization';
 
 /**
  * AIModels is a collection of AI models with associated metadata.
@@ -51,11 +43,11 @@ export class AIModels extends ModelCollection {
     return AIModels._instance;
   }
 
-  // Add data to the instance
+  // Add data directly to the instance
   addData(data: {
     models?: Record<string, Model>;
     providers?: Record<string, Provider>;
-    orgs?: Record<string, Creator>;
+    orgs?: Record<string, Organization>;
   }): this {
     // Add models to the array if provided
     if (data.models) {
@@ -95,7 +87,7 @@ export class AIModels extends ModelCollection {
    * Override to return all creators directly without filtering through models.
    * We want to return all known creators here.
    */
-  override getCreators(): Creator[] {
+  override getCreators(): Organization[] {
     return Object.values(this._creators);
   }
 }

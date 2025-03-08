@@ -1,11 +1,12 @@
-import type { Capability } from './capabilities';
-import type { Provider } from './providers';
-import type { Creator } from './creators';
+import type { Provider } from './provider';
+import type { Organization } from './organization';
+import { Model } from './model';
+import { Capability } from './capabilities';
 
 export class ModelCollection extends Array<Model> {
   // Static containers shared across all instances
   private static _providersData: Record<string, Provider> = {};
-  private static _creatorsData: Record<string, Creator> = {};
+  private static _creatorsData: Record<string, Organization> = {};
 
   /** Create a new ModelCollection from an array of models */
   constructor(
@@ -24,7 +25,7 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Set the shared creators data */
-  static setCreators(creators: Record<string, Creator>): void {
+  static setCreators(creators: Record<string, Organization>): void {
     ModelCollection._creatorsData = creators;
   }
 
@@ -34,7 +35,7 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Get access to the shared creators data */
-  protected get _creators(): Record<string, Creator> {
+  protected get _creators(): Record<string, Organization> {
     return ModelCollection._creatorsData;
   }
 
@@ -157,11 +158,11 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Get all creators from all models in the collection deduplicated */
-  getCreators(): Creator[] {
+  getCreators(): Organization[] {
     const creatorIds = [...new Set(this.map(model => model.creator))];
     return creatorIds
       .map(id => this._creators[id])
-      .filter((c): c is Creator => c !== undefined);
+      .filter((c): c is Organization => c !== undefined);
   }
 
   /** Get a specific provider by ID */
@@ -170,7 +171,7 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Get a specific creator by ID */
-  getCreator(id: string): Creator | undefined {
+  getCreator(id: string): Organization | undefined {
     return this._creators[id];
   }
 
@@ -184,121 +185,9 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Get creator for a specific model */
-  getCreatorForModel(modelId: string): Creator | undefined {
+  getCreatorForModel(modelId: string): Organization | undefined {
     const model = this.id(modelId);
     if (!model) return undefined;
     return this._creators[model.creator];
   }
-}
-
-export interface BaseContext {
-  /** The type discriminator */
-  type: string;
-}
-
-export interface TokenContext extends BaseContext {
-  type: "token";
-  /** Maximum input tokens the model can accept */
-  total: number | null;
-  /** Maximum tokens the model can generate in response */
-  maxOutput: number | null;
-  /** 
-   * When set to 1, indicates the model can generate up to maxOutput tokens
-   * regardless of input size (as long as input is within total limit).
-   * When not set, available output tokens may be reduced based on input size.
-   */
-  outputIsFixed?: 1;
-  /**
-   * Extended capabilities beyond the standard model behavior.
-   * This is a flexible object that can contain any properties or nested objects
-   * related to model-specific extensions (e.g., reasoning, experimental features).
-   */
-  extended?: Record<string, any>;
-}
-
-export interface CharacterContext extends BaseContext {
-  type: "character";
-  /** Maximum input characters the model can accept */
-  total: number | null;
-  /** Maximum characters the model can generate in response */
-  maxOutput: number | null;
-}
-
-export interface ImageContext extends BaseContext {
-  type: "image";
-  /** Maximum outputs per request */
-  maxOutput: number;
-  /** Available image sizes (e.g. "1024x1024") */
-  sizes: string[];
-  /** Available quality settings (e.g. "standard", "hd") */
-  qualities: string[];
-}
-
-export interface AudioInputContext extends BaseContext {
-  type: "audio-in";
-  /** Maximum duration in seconds, null if unlimited */
-  maxDuration?: number | null;
-  /** Supported input formats */
-  formats?: string[];
-  /** Maximum file size in bytes */
-  maxSize?: number | null;
-}
-
-export interface AudioOutputContext extends BaseContext {
-  type: "audio-out";
-  /** Maximum text length that can be converted to speech */
-  maxInput?: number | null;
-  /** Supported output formats */
-  formats?: string[];
-  /** Available voices */
-  voices?: string[];
-  /** Available quality settings */
-  qualities?: string[];
-}
-
-export interface EmbeddingContext extends BaseContext {
-  type: "embedding";
-  /** Maximum input size */
-  total: number;
-  /** Unit of measurement for input */
-  unit: "tokens" | "characters";
-  /** Size of output embedding vectors */
-  dimensions: number;
-  /** Type of embeddings produced */
-  embeddingType?: "text" | "image" | "audio" | "multimodal";
-  /** Normalization of output vectors */
-  normalized?: boolean;
-}
-
-export type ModelContext = 
-  | TokenContext 
-  | CharacterContext 
-  | ImageContext 
-  | AudioInputContext 
-  | AudioOutputContext 
-  | EmbeddingContext;
-
-export interface Model {
-  /** Unique identifier */
-  id: string;
-  /** Display name */
-  name: string;
-  /** Model capabilities */
-  can: Capability[];
-  /** Available providers */
-  providers: string[];
-  /** Context window information */
-  context: ModelContext;
-  /** Organization that created this model */
-  creator: string;
-  /** License type (e.g., "proprietary", "apache-2.0", "llama-2-community") */
-  license: string;
-  /** Languages the model knows */
-  languages?: string[];
-  /** Alternative identifiers for this model */
-  aliases?: string[];
-  /** Base model ID this model extends */
-  extends?: string;
-  /** Properties that override the base model */
-  overrides?: Partial<Omit<Model, 'id' | 'extends' | 'overrides'>>;
 }

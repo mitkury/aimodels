@@ -1,5 +1,5 @@
 /** Core organization data */
-export interface Creator {
+export interface Organization {
   /** Unique identifier (e.g., "openai", "meta", "anthropic") */
   id: string;
   

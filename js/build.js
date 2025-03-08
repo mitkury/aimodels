@@ -24,6 +24,14 @@ const orgsFile = join(dataDir, 'orgs.json');
  * Check if required directories exist
  */
 function checkRequiredDirectories() {
+  console.log('Checking required directories...');
+  
+  // Ensure dist directory exists
+  if (!existsSync(distDir)) {
+    mkdirSync(distDir, { recursive: true });
+    console.log(`Created directory: ${distDir}`);
+  }
+  
   if (!existsSync(dataDir)) {
     console.error(`Error: Data directory not found at ${dataDir}`);
     console.error('Make sure you have the data directory in the project root.');
@@ -160,10 +168,10 @@ export const organizations = ${JSON.stringify(organizations, null, 2)};
 }
 
 /**
- * Build the JavaScript package - simplified without CommonJS
+ * Copy the index.js file to the distribution directory
  */
-function buildPackage() {
-  console.log('Building JavaScript package...');
+function copyIndexFile() {
+  console.log('Copying index.js to distribution directory...');
   
   // Look for src directory inside the js directory instead of at the root
   const srcIndexPath = join(__dirname, 'src/index.js');
@@ -224,24 +232,16 @@ function compileTypeScript() {
 async function main() {
   console.log('Starting build process...');
   
-  // Check for required directories first
-  checkRequiredDirectories();
-  
-  // Ensure dist directory exists
-  if (!existsSync(distDir)) {
-    mkdirSync(distDir, { recursive: true });
+  try {
+    checkRequiredDirectories();
+    generateData();
+    copyIndexFile();
+    compileTypeScript();
+    console.log('✅ Build completed successfully');
+  } catch (error) {
+    console.error('❌ Build failed:', error);
+    process.exit(1);
   }
-  
-  // Generate the data
-  generateData();
-  
-  // Build the package - now synchronous and simpler
-  buildPackage();
-  
-  // Compile TypeScript files
-  compileTypeScript();
-  
-  console.log('Build completed successfully!');
 }
 
 // Run the main function

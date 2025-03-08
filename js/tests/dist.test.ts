@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 
 // Import directly from the built distribution data file
 import { models, providers, organizations } from '../dist/data.js';
-import type { Model, Provider } from '../src/types/models';
+import type { Model, Provider } from '../src/types/modelCollection.js';
 
 describe('Generated data file', () => {
   // Verify data structures exist and are populated
