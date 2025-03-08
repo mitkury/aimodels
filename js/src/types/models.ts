@@ -1,21 +1,41 @@
 import type { Capability } from './capabilities';
 import type { Provider } from './providers';
-import type { Organization } from './organizations';
-
-// Empty default data structures for development
-// These will be replaced at runtime with actual data
-export const prebuiltModels: Record<string, Model> = {};
-export const prebuiltProviders: Record<string, Provider> = {};
-export const prebuiltOrgs: Record<string, Organization> = {};
+import type { Creator } from './creators';
 
 export class ModelCollection extends Array<Model> {
+  // Static containers shared across all instances
+  private static _providersData: Record<string, Provider> = {};
+  private static _creatorsData: Record<string, Creator> = {};
+
   /** Create a new ModelCollection from an array of models */
-  constructor(models: Model[] = Object.values(prebuiltModels)) {
+  constructor(
+    models: Model[] = []
+  ) {
     super();
     if (models.length > 0) {
       this.push(...models);
     }
     Object.setPrototypeOf(this, ModelCollection.prototype);
+  }
+
+  /** Set the shared providers data */
+  static setProviders(providers: Record<string, Provider>): void {
+    ModelCollection._providersData = providers;
+  }
+
+  /** Set the shared creators data */
+  static setCreators(creators: Record<string, Creator>): void {
+    ModelCollection._creatorsData = creators;
+  }
+
+  /** Get access to the shared providers data */
+  protected get _providers(): Record<string, Provider> {
+    return ModelCollection._providersData;
+  }
+
+  /** Get access to the shared creators data */
+  protected get _creators(): Record<string, Creator> {
+    return ModelCollection._creatorsData;
   }
 
   /** Filter models by one or more capabilities (all must be present) */
@@ -131,37 +151,43 @@ export class ModelCollection extends Array<Model> {
   /** Get all providers from all models in the collection deduplicated */
   getProviders(): Provider[] {
     const providerIds = [...new Set(this.flatMap(model => model.providers))];
-    return providerIds.map(id => prebuiltProviders[id]).filter(Boolean);
+    return providerIds
+      .map(id => this._providers[id])
+      .filter((p): p is Provider => p !== undefined);
   }
 
   /** Get all creators from all models in the collection deduplicated */
-  getCreators(): Organization[] {
+  getCreators(): Creator[] {
     const creatorIds = [...new Set(this.map(model => model.creator))];
-    return creatorIds.map(id => prebuiltOrgs[id]).filter(Boolean);
+    return creatorIds
+      .map(id => this._creators[id])
+      .filter((c): c is Creator => c !== undefined);
   }
 
   /** Get a specific provider by ID */
   getProvider(id: string): Provider | undefined {
-    return prebuiltProviders[id];
+    return this._providers[id];
   }
 
   /** Get a specific creator by ID */
-  getCreator(id: string): Organization | undefined {
-    return prebuiltOrgs[id];
+  getCreator(id: string): Creator | undefined {
+    return this._creators[id];
   }
 
   /** Get providers for a specific model */
   getProvidersForModel(modelId: string): Provider[] {
     const model = this.id(modelId);
     if (!model) return [];
-    return model.providers.map(id => prebuiltProviders[id]).filter(Boolean);
+    return model.providers
+      .map(id => this._providers[id])
+      .filter((p): p is Provider => p !== undefined);
   }
 
   /** Get creator for a specific model */
-  getCreatorForModel(modelId: string): Organization | undefined {
+  getCreatorForModel(modelId: string): Creator | undefined {
     const model = this.id(modelId);
     if (!model) return undefined;
-    return prebuiltOrgs[model.creator];
+    return this._creators[model.creator];
   }
 }
 

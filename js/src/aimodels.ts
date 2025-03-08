@@ -1,7 +1,7 @@
-import type { TokenBasedPricePerMillionTokens, Provider } from './types/index';
+import type { Provider } from './types/index';
 import type { Model } from './types/models';
 import type { Creator } from './types/creators';
-import { ModelCollection, prebuiltModels, prebuiltProviders, prebuiltOrgs } from './types/models';
+import { ModelCollection } from './types/models';
 
 // Re-export types that users will need
 export type { Model, ModelContext } from './types/models';
@@ -12,64 +12,56 @@ export type { Creator } from './types/creators';
 export { ModelCollection } from './types/models';
 
 export class AIModels extends ModelCollection {
-  constructor(models: Model[] = Object.values(prebuiltModels)) {
-    super(models);
-    Object.setPrototypeOf(this, AIModels.prototype);
+  constructor() {
+    super([]);
   }
 
+  // Add data directly to the instance
+  addData(data: {
+    models?: Record<string, Model>;
+    providers?: Record<string, Provider>;
+    orgs?: Record<string, Creator>;
+  }): this {
+    // Add models to the array if provided
+    if (data.models) {
+      this.push(...Object.values(data.models));
+    }
+    
+    // Store providers if provided
+    if (data.providers) {
+      ModelCollection.setProviders(data.providers);
+    }
+    
+    // Store organizations if provided
+    if (data.orgs) {
+      ModelCollection.setCreators(data.orgs);
+    }
+    
+    return this;
+  }
+  
   get creators(): string[] {
-    return Object.keys(prebuiltOrgs);
+    return Object.keys(this._creators);
   }
 
   get providers(): string[] {
-    return Object.keys(prebuiltProviders);
+    return Object.keys(this._providers);
   }
-
-  getPrice(modelId: string, provider: string): TokenBasedPricePerMillionTokens | undefined {
-    const providerData = prebuiltProviders[provider];
-    const price = providerData?.pricing[modelId];
-    return price?.type === 'token' ? price : undefined;
-  }
-
-  /** Get provider information by ID */
-  override getProvider(providerId: string): Provider | undefined {
-    return prebuiltProviders[providerId];
-  }
-
-  /** Get all providers that can serve a specific model */
-  override getProvidersForModel(modelId: string): Provider[] {
-    // First try to find the model by its ID
-    let model = this.id(modelId);
-    
-    // If not found, try to find it by alias
-    if (!model) {
-      model = this.find(m => m.aliases?.includes(modelId));
-    }
-    
-    if (!model) return [];
-    
-    return model.providers
-      .map(id => prebuiltProviders[id])
-      .filter((p): p is Provider => p !== undefined);
-  }
-
-  /**
-   * Static method to add model, provider, and organization data
-   * This allows separating the API from the data and injecting it later
+  
+  /** 
+   * Override to return all providers directly without filtering through models.
+   * We want to return all known providers here.
    */
-  static addData(
-    modelData: Record<string, Model>, 
-    providerData: Record<string, Provider>, 
-    orgData: Record<string, Creator>
-  ): void {
-    // Populate the prebuilt data containers
-    Object.assign(prebuiltModels, modelData);
-    Object.assign(prebuiltProviders, providerData);
-    Object.assign(prebuiltOrgs, orgData);
+  override getProviders(): Provider[] {
+    return Object.values(this._providers);
+  }
+  
+  /**
+   * Override to return all creators directly without filtering through models.
+   * We want to return all known creators here.
+   */
+  override getCreators(): Creator[] {
+    return Object.values(this._creators);
   }
 }
-
-export const models = new AIModels();
-
-export { prebuiltOrgs as creators };
 

@@ -8,16 +8,20 @@
  */
 
 // Import the base library
-import { AIModels, creators } from './aimodels.js';
+import { AIModels } from './aimodels.js';
 
 // Import the data (this file is generated during build)
 import { models as modelData, providers as providerData, organizations as orgData } from './data.js';
 
-// Inject the data into the static containers
-AIModels.addData(modelData, providerData, orgData);
-
-// Create a fresh instance with the loaded data
+// Create a new instance
 const models = new AIModels();
 
-// Re-export everything
-export { AIModels, models, creators };
+// Add data to the instance
+models.addData({
+  models: modelData,
+  providers: providerData,
+  orgs: orgData
+});
+
+// Export the class, the singleton instance, and the organization data
+export { AIModels, models };
