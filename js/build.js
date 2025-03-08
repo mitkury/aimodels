@@ -91,7 +91,7 @@ function buildModelsData() {
   const allModels = modelDataFiles.flatMap(data => 
     data.models.map(model => ({
       ...model,
-      creator: data.creator
+      creatorId: data.creator
     }))
   );
   

@@ -8,7 +8,7 @@
       "description": "Schema for model data files",
       "$ref": "model.json"
     },
-    "providers": {
+    "providerIds": {
       "description": "Schema for provider data files",
       "$ref": "provider.json"
     },

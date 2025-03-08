@@ -5,7 +5,7 @@
       "id": "deepseek-chat",
       "name": "DeepSeek V3",
       "license": "apache-2.0",
-      "providers": ["deepseek"],
+      "providerIds": ["deepseek"],
       "can": [
         "chat",
         "txt-in",
@@ -23,7 +23,7 @@
       "id": "deepseek-reasoner",
       "name": "DeepSeek R1",
       "license": "apache-2.0",
-      "providers": ["deepseek"],
+      "providerIds": ["deepseek"],
       "can": [
         "chat",
         "txt-in",

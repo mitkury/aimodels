@@ -131,7 +131,7 @@ class Model:
     
     @property
     def providers(self) -> List[str]:
-        return self._data["providers"]
+        return self._data["providerIds"]
     
     @property
     def context(self) -> ModelContext:
@@ -229,7 +229,7 @@ class AIModels(ModelCollection):
             self._creators = json.load(f)
         
         # Load providers
-        providers_dir = data_dir / "providers"
+        providers_dir = data_dir / "providerIds"
         logger.debug(f"Loading providers from: {providers_dir}")
         for provider_file in providers_dir.glob("*-provider.json"):
             logger.debug(f"Loading provider: {provider_file}")

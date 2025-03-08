@@ -9,11 +9,11 @@ export interface Model {
   /** Model capabilities */
   can: Capability[];
   /** Available providers */
-  providers: string[];
+  providerIds: string[];
   /** Context window information */
   context: ModelContext;
   /** Organization that created this model */
-  creator: string;
+  creatorId: string;
   /** License type (e.g., "proprietary", "apache-2.0", "llama-2-community") */
   license: string;
   /** Languages the model knows */

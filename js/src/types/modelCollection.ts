@@ -125,13 +125,13 @@ export class ModelCollection extends Array<Model> {
 
   /** Get models available from a specific provider */
   fromProvider(provider: string): ModelCollection {
-    return this.filter(model => model.providers.includes(provider));
+    return this.filter(model => model.providerIds.includes(provider));
   }
 
   /** Get models available from a specific creator */
   fromCreator(creator: string): ModelCollection {
     return new ModelCollection(
-      this.filter(model => model.creator === creator)
+      this.filter(model => model.creatorId === creator)
     );
   }
 
@@ -151,7 +151,7 @@ export class ModelCollection extends Array<Model> {
 
   /** Get all providers from all models in the collection deduplicated */
   getProviders(): Provider[] {
-    const providerIds = [...new Set(this.flatMap(model => model.providers))];
+    const providerIds = [...new Set(this.flatMap(model => model.providerIds))];
     return providerIds
       .map(id => this._providers[id])
       .filter((p): p is Provider => p !== undefined);
@@ -159,7 +159,7 @@ export class ModelCollection extends Array<Model> {
 
   /** Get all creators from all models in the collection deduplicated */
   getCreators(): Organization[] {
-    const creatorIds = [...new Set(this.map(model => model.creator))];
+    const creatorIds = [...new Set(this.map(model => model.creatorId))];
     return creatorIds
       .map(id => this._creators[id])
       .filter((c): c is Organization => c !== undefined);
@@ -179,7 +179,7 @@ export class ModelCollection extends Array<Model> {
   getProvidersForModel(modelId: string): Provider[] {
     const model = this.id(modelId);
     if (!model) return [];
-    return model.providers
+    return model.providerIds
       .map(id => this._providers[id])
       .filter((p): p is Provider => p !== undefined);
   }
@@ -188,6 +188,6 @@ export class ModelCollection extends Array<Model> {
   getCreatorForModel(modelId: string): Organization | undefined {
     const model = this.id(modelId);
     if (!model) return undefined;
-    return this._creators[model.creator];
+    return this._creators[model.creatorId];
   }
 }

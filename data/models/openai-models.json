@@ -5,7 +5,7 @@
       "id": "gpt-4",
       "name": "GPT-4",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -38,7 +38,7 @@
       "id": "gpt-3.5-turbo",
       "name": "GPT-3.5 Turbo",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -71,7 +71,7 @@
       "id": "gpt-3.5-turbo-instruct",
       "name": "GPT-3.5 Turbo Instruct",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -89,7 +89,7 @@
       "id": "gpt-4o",
       "name": "GPT-4o",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -279,7 +279,7 @@
       "id": "o1",
       "name": "OpenAI O1",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -355,7 +355,7 @@
       "id": "o3-mini",
       "name": "OpenAI O3 Mini",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -384,7 +384,7 @@
       "id": "whisper-1",
       "name": "Whisper",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -402,7 +402,7 @@
       "id": "tts-1",
       "name": "TTS-1",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -427,7 +427,7 @@
       "id": "dall-e-2",
       "name": "DALL-E 2",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -450,7 +450,7 @@
       "id": "dall-e-3",
       "name": "DALL-E 3",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -475,7 +475,7 @@
       "id": "text-embedding-ada-002",
       "name": "Text Embedding Ada 002",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -496,7 +496,7 @@
       "id": "text-embedding-3-small",
       "name": "Text Embedding 3 Small",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],
@@ -517,7 +517,7 @@
       "id": "text-embedding-3-large",
       "name": "Text Embedding 3 Large",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "openai",
         "azure"
       ],

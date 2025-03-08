@@ -6,7 +6,7 @@
       "name": "Grok 2 Vision",
       "creator": "xai",
       "license": "proprietary",
-      "providers": ["xai"],
+      "providerIds": ["xai"],
       "can": ["chat", "txt-in", "txt-out", "img-in"],
       "context": {
         "type": "token",
@@ -20,7 +20,7 @@
       "name": "Grok 2",
       "creator": "xai",
       "license": "proprietary",
-      "providers": ["xai"],
+      "providerIds": ["xai"],
       "can": ["chat", "txt-in", "txt-out"],
       "context": {
         "type": "token",
@@ -34,7 +34,7 @@
       "name": "Grok Vision Beta",
       "creator": "xai",
       "license": "proprietary",
-      "providers": ["xai"],
+      "providerIds": ["xai"],
       "can": ["chat", "txt-in", "txt-out", "img-in"],
       "context": {
         "type": "token",
@@ -47,7 +47,7 @@
       "name": "Grok Beta",
       "creator": "xai",
       "license": "proprietary",
-      "providers": ["xai"],
+      "providerIds": ["xai"],
       "can": ["chat", "txt-in", "txt-out"],
       "context": {
         "type": "token",

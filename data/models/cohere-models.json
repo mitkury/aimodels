@@ -6,7 +6,7 @@
       "name": "Command R7B",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere"
       ],
       "can": [
@@ -27,7 +27,7 @@
       "name": "Command R+",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "bedrock",
         "azure",
@@ -54,7 +54,7 @@
       "name": "Command R",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "bedrock",
         "azure",
@@ -82,7 +82,7 @@
       "name": "Command",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "bedrock",
         "oracle"
@@ -103,7 +103,7 @@
       "name": "Command Light",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "bedrock",
         "oracle"
@@ -124,7 +124,7 @@
       "name": "Embed English v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "bedrock",
         "azure",
@@ -146,7 +146,7 @@
       "name": "Embed English Light v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "oracle"
       ],
@@ -166,7 +166,7 @@
       "name": "Embed Multilingual v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "bedrock",
         "azure",
@@ -188,7 +188,7 @@
       "name": "Embed Multilingual Light v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "oracle"
       ],
@@ -208,7 +208,7 @@
       "name": "Rerank v3.5",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "bedrock",
         "azure"
@@ -228,7 +228,7 @@
       "name": "Rerank English v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "azure"
       ],
@@ -247,7 +247,7 @@
       "name": "Rerank Multilingual v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providers": [
+      "providerIds": [
         "cohere",
         "azure"
       ],

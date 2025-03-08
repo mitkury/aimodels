@@ -34,7 +34,7 @@
           "type": "string",
           "description": "License type of the model (e.g., proprietary, apache-2.0)"
         },
-        "providers": {
+        "providerIds": {
           "type": "array",
           "description": "List of provider IDs that offer this model",
           "items": {
@@ -232,7 +232,7 @@
             }
           },
           "then": {
-            "required": ["id", "name", "providers", "can", "context"]
+            "required": ["id", "name", "providerIds", "can", "context"]
           }
         }
       ]
