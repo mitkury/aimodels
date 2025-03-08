@@ -61,14 +61,14 @@ export class AIModels extends ModelCollection {
     
     // Store organizations if provided
     if (data.orgs) {
-      ModelCollection.setCreators(data.orgs);
+      ModelCollection.setOrgs(data.orgs);
     }
     
     return this;
   }
   
   get creators(): string[] {
-    return Object.keys(this._creators);
+    return Object.keys(this._orgs);
   }
 
   get providers(): string[] {
@@ -88,7 +88,7 @@ export class AIModels extends ModelCollection {
    * We want to return all known creators here.
    */
   override getCreators(): Organization[] {
-    return Object.values(this._creators);
+    return Object.values(this._orgs);
   }
 }
 

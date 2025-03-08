@@ -6,7 +6,7 @@ import { Capability } from './capabilities';
 export class ModelCollection extends Array<Model> {
   // Static containers shared across all instances
   private static _providersData: Record<string, Provider> = {};
-  private static _creatorsData: Record<string, Organization> = {};
+  private static _orgsData: Record<string, Organization> = {};
 
   /** Create a new ModelCollection from an array of models */
   constructor(
@@ -25,8 +25,8 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Set the shared creators data */
-  static setCreators(creators: Record<string, Organization>): void {
-    ModelCollection._creatorsData = creators;
+  static setOrgs(orgs: Record<string, Organization>): void {
+    ModelCollection._orgsData = orgs;
   }
 
   /** Get access to the shared providers data */
@@ -35,8 +35,8 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Get access to the shared creators data */
-  protected get _creators(): Record<string, Organization> {
-    return ModelCollection._creatorsData;
+  protected get _orgs(): Record<string, Organization> {
+    return ModelCollection._orgsData;
   }
 
   /** Filter models by one or more capabilities (all must be present) */
@@ -161,7 +161,7 @@ export class ModelCollection extends Array<Model> {
   getCreators(): Organization[] {
     const creatorIds = [...new Set(this.map(model => model.creatorId))];
     return creatorIds
-      .map(id => this._creators[id])
+      .map(id => this._orgs[id])
       .filter((c): c is Organization => c !== undefined);
   }
 
@@ -172,7 +172,7 @@ export class ModelCollection extends Array<Model> {
 
   /** Get a specific creator by ID */
   getCreator(id: string): Organization | undefined {
-    return this._creators[id];
+    return this._orgs[id];
   }
 
   /** Get providers for a specific model */
@@ -188,6 +188,6 @@ export class ModelCollection extends Array<Model> {
   getCreatorForModel(modelId: string): Organization | undefined {
     const model = this.id(modelId);
     if (!model) return undefined;
-    return this._creators[model.creatorId];
+    return this._orgs[model.creatorId];
   }
 }
