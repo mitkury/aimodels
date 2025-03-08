@@ -7,14 +7,11 @@
  * as they are correct for the runtime environment, not the development environment.
  */
 
-// Import the base library
-import { AIModels } from './aimodels.js';
+// Import the base library and singleton instance
+import { AIModels, models } from './aimodels.js';
 
 // Import the data (this file is generated during build)
 import { models as modelData, providers as providerData, organizations as orgData } from './data.js';
-
-// Create a new instance
-const models = new AIModels();
 
 // Add data to the instance
 models.addData({
@@ -23,5 +20,5 @@ models.addData({
   orgs: orgData
 });
 
-// Export the class, the singleton instance, and the organization data
+// Export the class for type references, and the singleton instance for actual use
 export { AIModels, models };
