@@ -100,4 +100,61 @@ export class Model {
     const id = this.creatorId;
     return id ? ModelCollection.orgsData[id] : undefined;
   }
+
+  /** 
+   * Capability check methods for better readability 
+   * Each method returns a boolean indicating if the model has a specific capability
+   */
+  hasCapabilities(...capabilities: Capability[]): boolean {
+    return capabilities.every(cap => this.can.includes(cap));
+  }
+
+  // Basic capabilities
+  canChat(): boolean {
+    return this.can.includes("chat");
+  }
+
+  canReason(): boolean {
+    return this.can.includes("reason");
+  }
+
+  // Text capabilities
+  canRead(): boolean {
+    return this.can.includes("txt-in");
+  }
+
+  canWrite(): boolean {
+    return this.can.includes("txt-out");
+  }
+
+  // Image capabilities
+  canSee(): boolean {
+    return this.can.includes("img-in");
+  }
+
+  canGenerateImages(): boolean {
+    return this.can.includes("img-out");
+  }
+
+  // Audio capabilities
+  canHear(): boolean {
+    return this.can.includes("audio-in");
+  }
+
+  canSpeak(): boolean {
+    return this.can.includes("audio-out");
+  }
+
+  // Output capabilities
+  canOutputJSON(): boolean {
+    return this.can.includes("json-out");
+  }
+
+  canCallFunctions(): boolean {
+    return this.can.includes("fn-out");
+  }
+
+  canGenerateEmbeddings(): boolean {
+    return this.can.includes("vec-out");
+  }
 }

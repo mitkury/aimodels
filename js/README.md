@@ -40,6 +40,21 @@ if (model?.canSee()) {
   const allowAttachingImgs = true;
 }
 
+// You can also check multiple capabilities with a single method
+if (model?.hasCapabilities('img-in', 'chat')) {
+  console.log(`${model.name} can both chat and understand images`);
+}
+
+// And use capability checks to make UI decisions
+function renderModelControls(model) {
+  return {
+    showImageUpload: model.canSee(),
+    showAudioRecorder: model.canHear(),
+    showFunctionEditor: model.canCallFunctions(),
+    showResponseFormatting: model.canOutputJSON(),
+  };
+}
+
 // 4. Make decisions based on context window size
 function selectModelBasedOnInputLength(inputTokens) {
   // Find models that can handle your content's size
@@ -58,7 +73,14 @@ const recommendedModel = selectModelBasedOnInputLength(contentLength);
 console.log(`Recommended model: ${recommendedModel?.name}`);
 
 // 5. Utility function to trim chat messages to fit a model's context window
-function trimChatHistory(messages, contextWindow, reserveTokens = 500) {
+function trimChatHistory(messages, model, reserveTokens = 500) {
+  // Only proceed if we have a valid model with a context window
+  if (!model || !model.context?.total) {
+    console.warn('Invalid model or missing context window information');
+    return messages;
+  }
+  
+  const contextWindow = model.context.total;
   let totalTokens = 0;
   const availableTokens = contextWindow - reserveTokens;
   const trimmedMessages = [];
@@ -66,6 +88,11 @@ function trimChatHistory(messages, contextWindow, reserveTokens = 500) {
   // This is a simplified token counting approach
   // In production, you may use a proper tokenizer for your model
   for (const msg of messages.reverse()) {
+    // If the model can't process images, remove any image attachments
+    if (!model.canSee() && msg.attachments?.some(a => a.type === 'image')) {
+      msg.attachments = msg.attachments.filter(a => a.type !== 'image');
+    }
+    
     const estimatedTokens = JSON.stringify(msg).length / 4;
     if (totalTokens + estimatedTokens <= availableTokens) {
       trimmedMessages.unshift(msg);
@@ -81,7 +108,7 @@ function trimChatHistory(messages, contextWindow, reserveTokens = 500) {
 // Example usage
 const chatHistory = [/* array of message objects */];
 const gpt4 = models.id('gpt-4');
-const fittedMessages = trimChatHistory(chatHistory, gpt4.context.total || 8192);
+const fittedMessages = trimChatHistory(chatHistory, gpt4);
 ```
 
 ### Available API Methods
