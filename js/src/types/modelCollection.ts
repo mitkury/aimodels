@@ -2,11 +2,13 @@ import type { Provider } from './provider';
 import type { Organization } from './organization';
 import { Model } from './model';
 import { Capability } from './capabilities';
+import { ModelSource } from './modelSource';
 
 export class ModelCollection extends Array<Model> {
-  // Static containers shared across all instances
-  private static _providersData: Record<string, Provider> = {};
-  private static _orgsData: Record<string, Organization> = {};
+  // Static data stores - accessible from Model
+  public static providersData: Record<string, Provider> = {};
+  public static orgsData: Record<string, Organization> = {};
+  public static modelSources: Record<string, ModelSource> = {};
 
   /** Create a new ModelCollection from an array of models */
   constructor(
@@ -21,22 +23,12 @@ export class ModelCollection extends Array<Model> {
 
   /** Set the shared providers data */
   static setProviders(providers: Record<string, Provider>): void {
-    ModelCollection._providersData = providers;
+    ModelCollection.providersData = providers;
   }
 
   /** Set the shared creators data */
   static setOrgs(orgs: Record<string, Organization>): void {
-    ModelCollection._orgsData = orgs;
-  }
-
-  /** Get access to the shared providers data */
-  protected get _providers(): Record<string, Provider> {
-    return ModelCollection._providersData;
-  }
-
-  /** Get access to the shared creators data */
-  protected get _orgs(): Record<string, Organization> {
-    return ModelCollection._orgsData;
+    ModelCollection.orgsData = orgs;
   }
 
   /** Filter models by one or more capabilities (all must be present) */
@@ -48,7 +40,7 @@ export class ModelCollection extends Array<Model> {
    * Fluent capability filters for better readability 
    * Each method filters models by a specific capability
    */
-  
+
   // Basic capabilities
   canChat(): ModelCollection {
     return this.can("chat");
@@ -57,47 +49,47 @@ export class ModelCollection extends Array<Model> {
   canReason(): ModelCollection {
     return this.can("reason");
   }
-  
+
   // Text capabilities
   canRead(): ModelCollection {
     return this.can("txt-in");
   }
-  
+
   canWrite(): ModelCollection {
     return this.can("txt-out");
   }
-  
+
   // Image capabilities
   canSee(): ModelCollection {
     return this.can("img-in");
   }
-  
+
   canGenerateImages(): ModelCollection {
     return this.can("img-out");
   }
-  
+
   // Audio capabilities
   canHear(): ModelCollection {
     return this.can("audio-in");
   }
-  
+
   canSpeak(): ModelCollection {
     return this.can("audio-out");
   }
-  
+
   // Output capabilities
   canOutputJSON(): ModelCollection {
     return this.can("json-out");
   }
-  
+
   canCallFunctions(): ModelCollection {
     return this.can("fn-out");
   }
-  
+
   canGenerateEmbeddings(): ModelCollection {
     return this.can("vec-out");
   }
-  
+
   /** Filter models by one or more languages (all must be supported) */
   know(...languages: string[]): ModelCollection {
     return this.filter(model => languages.every(lang => model.languages?.includes(lang)));
@@ -117,8 +109,8 @@ export class ModelCollection extends Array<Model> {
 
   /** Find a model by its ID or alias */
   id(modelId: string): Model | undefined {
-    return this.find(model => 
-      model.id === modelId || 
+    return this.find(model =>
+      model.id === modelId ||
       model.aliases?.includes(modelId)
     );
   }
@@ -139,7 +131,7 @@ export class ModelCollection extends Array<Model> {
   withMinContext(tokens: number): ModelCollection {
     return this.filter(model => {
       const context = model.context;
-      if (context.type !== "token" && context.type !== "character") {
+      if (context?.type !== "token" && context?.type !== "character") {
         return false;
       }
       if (context.total === null) {
@@ -150,44 +142,47 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Get all providers from all models in the collection deduplicated */
-  getProviders(): Provider[] {
+  get providers(): Provider[] {
     const providerIds = [...new Set(this.flatMap(model => model.providerIds))];
     return providerIds
-      .map(id => this._providers[id])
+      .map(id => ModelCollection.providersData[id])
       .filter((p): p is Provider => p !== undefined);
   }
 
-  /** Get all creators from all models in the collection deduplicated */
-  getCreators(): Organization[] {
-    const creatorIds = [...new Set(this.map(model => model.creatorId))];
+  /** Get all orgs from all models in the collection deduplicated */
+  get orgs(): Organization[] {
+    // Extract creator IDs and filter out undefined values
+    const creatorIds = [...new Set(this.map(model => model.creatorId).filter((id): id is string => id !== undefined))];
+
+    // Map to organizations and filter out any that aren't found
     return creatorIds
-      .map(id => this._orgs[id])
+      .map(id => ModelCollection.orgsData[id])
       .filter((c): c is Organization => c !== undefined);
   }
 
   /** Get a specific provider by ID */
   getProvider(id: string): Provider | undefined {
-    return this._providers[id];
+    return ModelCollection.providersData[id];
   }
 
   /** Get a specific creator by ID */
   getCreator(id: string): Organization | undefined {
-    return this._orgs[id];
+    return ModelCollection.orgsData[id];
   }
 
   /** Get providers for a specific model */
   getProvidersForModel(modelId: string): Provider[] {
     const model = this.id(modelId);
-    if (!model) return [];
+    if (!model || !model.providerIds) return [];
     return model.providerIds
-      .map(id => this._providers[id])
+      .map(id => ModelCollection.providersData[id])
       .filter((p): p is Provider => p !== undefined);
   }
 
   /** Get creator for a specific model */
   getCreatorForModel(modelId: string): Organization | undefined {
     const model = this.id(modelId);
-    if (!model) return undefined;
-    return this._orgs[model.creatorId];
+    if (!model || !model.creatorId) return undefined;
+    return ModelCollection.orgsData[model.creatorId];
   }
 }

@@ -1,7 +1,7 @@
-import { Model } from './types/model';
 import { ModelCollection } from './types/modelCollection';
 import type { Provider } from './types/provider';
 import type { Organization } from './types/organization';
+import { Model, ModelSource } from './types';
 
 /**
  * AIModels is a collection of AI models with associated metadata.
@@ -24,71 +24,77 @@ import type { Organization } from './types/organization';
 export class AIModels extends ModelCollection {
   // Singleton instance
   private static _instance: AIModels | null = null;
-  
+
   /**
    * @private
    * Private constructor used only by the static instance getter.
    * Users should import the pre-configured instance from the package.
    */
-  private constructor() {
-    super([]);
+  private constructor(models: Model[]) {
+    super(models);
     // Ensure prototype methods are properly set
     Object.setPrototypeOf(this, AIModels.prototype);
   }
-  
+
+  /**
+ * Add data to the static data containers
+ * @param data Object containing model sources, providers, and organizations to add
+ */
+  static addStaticData({
+    models = {},
+    providers = {},
+    orgs = {}
+  }: {
+    models?: Record<string, ModelSource>;
+    providers?: Record<string, Provider>;
+    orgs?: Record<string, Organization>;
+  }): void {
+    // Add new models
+    ModelCollection.modelSources = {
+      ...ModelCollection.modelSources,
+      ...models
+    };
+
+    // Update the array in the singleton instance
+    AIModels.instance.length = 0; // Clear existing array
+    AIModels.instance.push(...Object.values(ModelCollection.modelSources).map(source => new Model(source)));
+
+    // Add new providers
+    ModelCollection.providersData = {
+      ...ModelCollection.providersData,
+      ...providers
+    };
+
+    // Add new organizations
+    ModelCollection.orgsData = {
+      ...ModelCollection.orgsData,
+      ...orgs
+    };
+  }
+
+
   public static get instance(): AIModels {
     if (!AIModels._instance) {
-      AIModels._instance = new AIModels();
+      // We pass an empty array because we will add models later from the 'addStaticData' method
+      AIModels._instance = new AIModels([]);
     }
     return AIModels._instance;
   }
 
-  // Add data directly to the instance
-  addData(data: {
-    models?: Record<string, Model>;
-    providers?: Record<string, Provider>;
-    orgs?: Record<string, Organization>;
-  }): this {
-    // Add models to the array if provided
-    if (data.models) {
-      this.push(...Object.values(data.models));
-    }
-    
-    // Store providers if provided
-    if (data.providers) {
-      ModelCollection.setProviders(data.providers);
-    }
-    
-    // Store organizations if provided
-    if (data.orgs) {
-      ModelCollection.setOrgs(data.orgs);
-    }
-    
-    return this;
-  }
-  
-  get creators(): string[] {
-    return Object.keys(this._orgs);
-  }
-
-  get providers(): string[] {
-    return Object.keys(this._providers);
-  }
-  
   /** 
    * Override to return all providers directly without filtering through models.
    * We want to return all known providers here.
    */
-  override getProviders(): Provider[] {
-    return Object.values(this._providers);
+  override get providers(): Provider[] {
+    return Object.values(ModelCollection.providersData);
   }
-  
+
   /**
    * Override to return all creators directly without filtering through models.
    * We want to return all known creators here.
    */
-  override getCreators(): Organization[] {
-    return Object.values(this._orgs);
+  override get orgs(): Organization[] {
+    return Object.values(ModelCollection.orgsData);
   }
 }
 

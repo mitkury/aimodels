@@ -18,7 +18,10 @@
     "README.md"
   ],
   "scripts": {
-    "build": "npm run clean && node build.js && npm test",
+    "gen-data-js-file": "node genDataFile.js",
+    "prebuild": "npm run gen-data-js-file",
+    "build:ts": "tsup",
+    "build": "npm run build:ts && npm test",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
