@@ -11,7 +11,7 @@ export interface ModelSource {
   /** Display name */
   name?: string;
   /** Model capabilities */
-  can?: Capability[];
+  capabilities?: Capability[];
   /** Available providers */
   providerIds?: string[];
   /** Context window information */

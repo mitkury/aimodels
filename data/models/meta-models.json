@@ -6,7 +6,7 @@
       "name": "Llama 3 70B",
       "license": "llama-3-community",
       "providerIds": ["groq"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
       "context": {
         "type": "token",
         "total": 8192,
@@ -18,7 +18,7 @@
       "name": "Llama 3 8B",
       "license": "llama-3-community",
       "providerIds": ["groq"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
       "context": {
         "type": "token",
         "total": 8192,
@@ -30,7 +30,7 @@
       "name": "Llama 3.2 11B Vision",
       "license": "llama-3-community",
       "providerIds": ["groq"],
-      "can": ["chat", "txt-in", "txt-out", "img-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
       "context": {
         "type": "token",
         "total": 4096,
@@ -42,7 +42,7 @@
       "name": "Llama 3.2 90B Vision",
       "license": "llama-3-community",
       "providerIds": ["groq"],
-      "can": ["chat", "txt-in", "txt-out", "img-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
       "context": {
         "type": "token",
         "total": 4096,
@@ -54,7 +54,7 @@
       "name": "LlamaGuard 3 8B",
       "license": "llama-3-community",
       "providerIds": ["groq"],
-      "can": ["chat", "txt-in", "txt-out"],
+      "capabilities": ["chat", "txt-in", "txt-out"],
       "context": {
         "type": "token",
         "total": 4096,

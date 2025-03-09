@@ -6,7 +6,7 @@
       "name": "Claude 3 Opus",
       "license": "proprietary",
       "providerIds": ["anthropic", "aws", "google"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -27,7 +27,7 @@
       "name": "Claude 3 Sonnet",
       "license": "proprietary",
       "providerIds": ["anthropic", "aws", "google"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -48,7 +48,7 @@
       "name": "Claude 3 Haiku",
       "license": "proprietary",
       "providerIds": ["anthropic", "aws", "google"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -69,7 +69,7 @@
       "name": "Claude 3.5 Sonnet",
       "license": "proprietary",
       "providerIds": ["anthropic", "aws", "google"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -90,7 +90,7 @@
       "name": "Claude 3.5 Sonnet (2024-06-20)",
       "license": "proprietary",
       "providerIds": ["anthropic", "aws", "google"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -110,7 +110,7 @@
       "name": "Claude 3.5 Haiku",
       "license": "proprietary",
       "providerIds": ["anthropic", "aws", "google"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -130,7 +130,7 @@
       "name": "Claude 3.7 Sonnet",
       "license": "proprietary",
       "providerIds": ["anthropic", "aws", "google"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",

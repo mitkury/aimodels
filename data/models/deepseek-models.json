@@ -6,7 +6,7 @@
       "name": "DeepSeek V3",
       "license": "apache-2.0",
       "providerIds": ["deepseek"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -24,7 +24,7 @@
       "name": "DeepSeek R1",
       "license": "apache-2.0",
       "providerIds": ["deepseek"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",

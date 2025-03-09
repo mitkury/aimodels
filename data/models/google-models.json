@@ -6,7 +6,7 @@
       "name": "Gemini 2.0 Flash",
       "license": "proprietary",
       "providerIds": ["google"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in", "reason"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in", "reason"],
       "context": {
         "type": "token",
         "total": 1048576,
@@ -19,7 +19,7 @@
       "name": "Gemini 2.0 Flash Lite",
       "license": "proprietary",
       "providerIds": ["google"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in"],
       "context": {
         "type": "token",
         "total": 1048576,
@@ -32,7 +32,7 @@
       "name": "Gemini 1.5 Flash",
       "license": "proprietary",
       "providerIds": ["google"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in"],
       "context": {
         "type": "token",
         "total": 2097152,
@@ -44,7 +44,7 @@
       "name": "Gemini 1.5 Flash 8B",
       "license": "proprietary",
       "providerIds": ["google"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in"],
       "context": {
         "type": "token",
         "total": 2097152,
@@ -56,7 +56,7 @@
       "name": "Gemini 1.5 Pro",
       "license": "proprietary",
       "providerIds": ["google"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in", "reason"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "audio-in", "reason"],
       "context": {
         "type": "token",
         "total": 2097152,
@@ -69,7 +69,7 @@
       "name": "Text Embedding 004",
       "license": "proprietary",
       "providerIds": ["google"],
-      "can": ["txt-in", "vec-out"],
+      "capabilities": ["txt-in", "vec-out"],
       "context": {
         "type": "token",
         "total": 2048,
@@ -81,7 +81,7 @@
       "name": "Gemma 7B Instruct",
       "license": "apache-2.0",
       "providerIds": ["google"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
       "context": {
         "type": "token",
         "total": 8192,
@@ -93,7 +93,7 @@
       "name": "Gemma 2B Instruct",
       "license": "apache-2.0",
       "providerIds": ["google"],
-      "can": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
       "context": {
         "type": "token",
         "total": 8192,

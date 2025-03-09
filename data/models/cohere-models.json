@@ -9,7 +9,7 @@
       "providerIds": [
         "cohere"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -33,7 +33,7 @@
         "azure",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -60,7 +60,7 @@
         "azure",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -87,7 +87,7 @@
         "bedrock",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out"
@@ -108,7 +108,7 @@
         "bedrock",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out"
@@ -130,7 +130,7 @@
         "azure",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "img-in",
         "vec-out"
@@ -150,7 +150,7 @@
         "cohere",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "img-in",
         "vec-out"
@@ -172,7 +172,7 @@
         "azure",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "img-in",
         "vec-out"
@@ -192,7 +192,7 @@
         "cohere",
         "oracle"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "img-in",
         "vec-out"
@@ -213,7 +213,7 @@
         "bedrock",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "txt-out"
       ],
@@ -232,7 +232,7 @@
         "cohere",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "txt-out"
       ],
@@ -251,7 +251,7 @@
         "cohere",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "txt-out"
       ],

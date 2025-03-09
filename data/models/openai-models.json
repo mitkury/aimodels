@@ -9,7 +9,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -42,7 +42,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -75,7 +75,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "txt-out"
       ],
@@ -93,7 +93,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -157,7 +157,7 @@
       "extends": "gpt-4o",
       "overrides": {
         "name": "GPT-4o Audio",
-        "can": [
+        "capabilities": [
           "chat",
           "txt-in",
           "txt-out",
@@ -191,7 +191,7 @@
       "extends": "gpt-4o-mini",
       "overrides": {
         "name": "GPT-4o Mini Audio",
-        "can": [
+        "capabilities": [
           "chat",
           "txt-in",
           "txt-out",
@@ -219,7 +219,7 @@
       "extends": "gpt-4o",
       "overrides": {
         "name": "GPT-4o Realtime",
-        "can": [
+        "capabilities": [
           "chat",
           "txt-in",
           "txt-out",
@@ -253,7 +253,7 @@
       "extends": "gpt-4o-mini",
       "overrides": {
         "name": "GPT-4o Mini Realtime",
-        "can": [
+        "capabilities": [
           "chat",
           "txt-in",
           "txt-out",
@@ -283,7 +283,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -310,7 +310,7 @@
       "extends": "o1",
       "overrides": {
         "name": "OpenAI O1 Mini",
-        "can": [
+        "capabilities": [
           "chat",
           "txt-in",
           "txt-out",
@@ -359,7 +359,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -388,7 +388,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "audio-in",
         "txt-out"
       ],
@@ -406,7 +406,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "audio-out"
       ],
@@ -431,7 +431,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "img-out"
       ],
       "context": {
@@ -454,7 +454,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "img-out"
       ],
@@ -479,7 +479,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "vec-out"
       ],
@@ -500,7 +500,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "vec-out"
       ],
@@ -521,7 +521,7 @@
         "openai",
         "azure"
       ],
-      "can": [
+      "capabilities": [
         "txt-in",
         "vec-out"
       ],

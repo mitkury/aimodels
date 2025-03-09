@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { models } from '../dist/index.js';
 import type { Capability } from '../src/types/capabilities';
-import type { ModelCollection } from '../src/types/models';
+import type { ModelCollection } from '../src/types/modelCollection';
 
 describe('AI Model Capabilities Tests', () => {
   describe('Capability Relationships', () => {
@@ -10,10 +10,10 @@ describe('AI Model Capabilities Tests', () => {
       
       // All chat models should have text capabilities
       chatModels.forEach(model => {
-        expect(model.can).toContain('chat');
+        expect(model.capabilities).toContain('chat');
         // Most chat models should have both txt-in and txt-out
         // But we'll check if at least one is present
-        const hasTextCapability = model.can.includes('txt-in') || model.can.includes('txt-out');
+        const hasTextCapability = model.capabilities.includes('txt-in') || model.capabilities.includes('txt-out');
         expect(hasTextCapability).toBe(true);
       });
       
@@ -24,7 +24,7 @@ describe('AI Model Capabilities Tests', () => {
       const reasoningModels = models.canReason();
       
       // Models with reasoning generally should be able to chat
-      const reasoningWithChat = reasoningModels.filter(model => model.can.includes('chat'));
+      const reasoningWithChat = reasoningModels.filter(model => model.capabilities.includes('chat'));
       
       console.log(`Models with reasoning: ${reasoningModels.length}`);
       console.log(`Models with reasoning and chat: ${reasoningWithChat.length}`);
@@ -137,7 +137,7 @@ describe('AI Model Capabilities Tests', () => {
       };
       
       models.forEach(model => {
-        model.can.forEach(capability => {
+        model.capabilities.forEach(capability => {
           // Check if capability is one of the keys in capabilityCounts
           if (Object.prototype.hasOwnProperty.call(capabilityCounts, capability)) {
             capabilityCounts[capability as Capability]++;

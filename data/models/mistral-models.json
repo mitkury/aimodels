@@ -6,7 +6,7 @@
       "name": "Mistral Large",
       "license": "proprietary",
       "providerIds": ["mistral", "azure"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -24,7 +24,7 @@
       "name": "Mistral Small",
       "license": "proprietary",
       "providerIds": ["mistral", "azure"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out",
@@ -42,7 +42,7 @@
       "name": "Mistral Medium",
       "license": "proprietary",
       "providerIds": ["mistral"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out"
@@ -58,7 +58,7 @@
       "name": "Open Mistral 7B",
       "license": "apache-2.0",
       "providerIds": ["mistral", "groq"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out"
@@ -74,7 +74,7 @@
       "name": "Open Mixtral 8x7B",
       "license": "apache-2.0",
       "providerIds": ["mistral", "groq"],
-      "can": [
+      "capabilities": [
         "chat",
         "txt-in",
         "txt-out"

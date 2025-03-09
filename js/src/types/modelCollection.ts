@@ -33,7 +33,7 @@ export class ModelCollection extends Array<Model> {
 
   /** Filter models by one or more capabilities (all must be present) */
   can(...capabilities: Capability[]): ModelCollection {
-    return this.filter(model => capabilities.every(cap => model.can.includes(cap)));
+    return this.filter(model => capabilities.every(cap => model.capabilities.includes(cap)));
   }
 
   /** 

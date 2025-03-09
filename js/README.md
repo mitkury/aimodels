@@ -41,7 +41,7 @@ if (model?.canSee()) {
 }
 
 // You can also check multiple capabilities with a single method
-if (model?.hasCapabilities('img-in', 'chat')) {
+if (model?.can('img-in', 'chat')) {
   console.log(`${model.name} can both chat and understand images`);
 }
 

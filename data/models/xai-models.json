@@ -7,7 +7,7 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "can": ["chat", "txt-in", "txt-out", "img-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
       "context": {
         "type": "token",
         "total": 32768,
@@ -21,7 +21,7 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "can": ["chat", "txt-in", "txt-out"],
+      "capabilities": ["chat", "txt-in", "txt-out"],
       "context": {
         "type": "token",
         "total": 131072,
@@ -35,7 +35,7 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "can": ["chat", "txt-in", "txt-out", "img-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
       "context": {
         "type": "token",
         "total": 8192,
@@ -48,7 +48,7 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "can": ["chat", "txt-in", "txt-out"],
+      "capabilities": ["chat", "txt-in", "txt-out"],
       "context": {
         "type": "token",
         "total": 131072,

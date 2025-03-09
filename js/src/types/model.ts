@@ -60,11 +60,12 @@ export class Model {
   get name(): string {
     return this.resolveProperty<string>('name') || this.id;
   }
-  
-  get can(): Capability[] {
-    return this.resolveProperty<Capability[]>('can') || [];
+
+  // The array of capabilities - accessed through capabilities property
+  get capabilities(): Capability[] {
+    return this.resolveProperty<Capability[]>('capabilities') || [];
   }
-  
+
   get context(): ModelContext | undefined {
     return this.resolveProperty<ModelContext>('context');
   }
@@ -101,60 +102,60 @@ export class Model {
     return id ? ModelCollection.orgsData[id] : undefined;
   }
 
-  /** 
-   * Capability check methods for better readability 
-   * Each method returns a boolean indicating if the model has a specific capability
+  /**
+   * Check if model has all specified capabilities
+   * Uses same API pattern as ModelCollection.can() but returns boolean
    */
-  hasCapabilities(...capabilities: Capability[]): boolean {
-    return capabilities.every(cap => this.can.includes(cap));
+  can(...capabilities: Capability[]): boolean {
+    return capabilities.every(cap => this.capabilities.includes(cap));
   }
 
   // Basic capabilities
   canChat(): boolean {
-    return this.can.includes("chat");
+    return this.capabilities.includes("chat");
   }
 
   canReason(): boolean {
-    return this.can.includes("reason");
+    return this.capabilities.includes("reason");
   }
 
   // Text capabilities
   canRead(): boolean {
-    return this.can.includes("txt-in");
+    return this.capabilities.includes("txt-in");
   }
 
   canWrite(): boolean {
-    return this.can.includes("txt-out");
+    return this.capabilities.includes("txt-out");
   }
 
   // Image capabilities
   canSee(): boolean {
-    return this.can.includes("img-in");
+    return this.capabilities.includes("img-in");
   }
 
   canGenerateImages(): boolean {
-    return this.can.includes("img-out");
+    return this.capabilities.includes("img-out");
   }
 
   // Audio capabilities
   canHear(): boolean {
-    return this.can.includes("audio-in");
+    return this.capabilities.includes("audio-in");
   }
 
   canSpeak(): boolean {
-    return this.can.includes("audio-out");
+    return this.capabilities.includes("audio-out");
   }
 
   // Output capabilities
   canOutputJSON(): boolean {
-    return this.can.includes("json-out");
+    return this.capabilities.includes("json-out");
   }
 
   canCallFunctions(): boolean {
-    return this.can.includes("fn-out");
+    return this.capabilities.includes("fn-out");
   }
 
   canGenerateEmbeddings(): boolean {
-    return this.can.includes("vec-out");
+    return this.capabilities.includes("vec-out");
   }
 }

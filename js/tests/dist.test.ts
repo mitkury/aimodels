@@ -24,7 +24,7 @@ describe('Generated data file', () => {
       expect(gpt4.id).toBe('gpt-4');
       expect(gpt4.name).toBe('GPT-4');
       expect(gpt4.providerIds).toContain('openai');
-      expect(gpt4.can).toContain('chat');
+      expect(gpt4.capabilities).toContain('chat');
       expect(gpt4.context?.total).toBeGreaterThan(0);
     });
 
@@ -35,7 +35,7 @@ describe('Generated data file', () => {
       
       expect(claude).toBeDefined();
       expect(claude.providerIds).toContain('anthropic');
-      expect(claude.can).toContain('chat');
+      expect(claude.capabilities).toContain('chat');
     });
   });
 
