@@ -15,8 +15,6 @@ export class Model {
   
   constructor(source: ModelSource) {
     this.source = source;
-    // Register this source in the global registry
-    ModelCollection.modelSources[source.id] = source;
   }
   
   // Basic property getters (direct from source)

@@ -18,7 +18,7 @@ describe('aimodels package', () => {
     expect(typeof models.withMinContext).toBe('function');
     expect(typeof models.can).toBe('function');
     expect(typeof models.getProvider).toBe('function');
-    expect(typeof models.getProviders).toBe('function');
+    expect(typeof models.providers).toBe('object');
     
     // Fluent capability API methods
     expect(typeof models.canChat).toBe('function');

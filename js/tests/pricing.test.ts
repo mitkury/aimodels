@@ -103,7 +103,7 @@ describe('AI Model Pricing Tests', () => {
       const tokenPricingData: Array<{ provider: string; model: string; pricing: TokenBasedPricePerMillionTokens }> = [];
       
       // Gather all available token pricing data
-      const providers = models.getProviders();
+      const providers = models.providers;
       providers.forEach(provider => {
         if (provider.pricing) {
           Object.entries(provider.pricing).forEach(([modelId, pricing]) => {

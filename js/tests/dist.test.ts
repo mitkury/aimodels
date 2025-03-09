@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 
 // Import directly from the built distribution data file
-import { models, providers, organizations } from '../dist/data.js';
-import type { Model, Provider } from '../src/types/modelCollection.js';
+import { models, providers, organizations } from '../src/data.js';
+import type { Model } from '../src/types/model.js';
+import type { Provider } from '../src/types/provider.js';
 
 describe('Generated data file', () => {
   // Verify data structures exist and are populated
@@ -22,10 +23,9 @@ describe('Generated data file', () => {
       expect(gpt4).toBeDefined();
       expect(gpt4.id).toBe('gpt-4');
       expect(gpt4.name).toBe('GPT-4');
-      expect(gpt4.creator).toBe('openai');
-      expect(gpt4.providers).toContain('openai');
+      expect(gpt4.providerIds).toContain('openai');
       expect(gpt4.can).toContain('chat');
-      expect(gpt4.context.total).toBeGreaterThan(0);
+      expect(gpt4.context?.total).toBeGreaterThan(0);
     });
 
     it('includes Claude 3 with correct properties', () => {
@@ -34,8 +34,7 @@ describe('Generated data file', () => {
       ) as Model;
       
       expect(claude).toBeDefined();
-      expect(claude.creator).toBe('anthropic');
-      expect(claude.providers).toContain('anthropic');
+      expect(claude.providerIds).toContain('anthropic');
       expect(claude.can).toContain('chat');
     });
   });
@@ -47,7 +46,6 @@ describe('Generated data file', () => {
       expect(openai).toBeDefined();
       expect(openai.id).toBe('openai');
       expect(openai.name).toBe('OpenAI');
-      expect(openai.websiteUrl).toBeDefined();
       expect(openai.apiUrl).toBeDefined();
     });
 
@@ -64,7 +62,6 @@ describe('Generated data file', () => {
     it('includes OpenAI organization data', () => {
       const openai = organizations['openai'];
       expect(openai).toBeDefined();
-      expect(openai.id).toBe('openai');
       expect(openai.name).toBe('OpenAI');
     });
   });

@@ -6,7 +6,7 @@ describe('AI Providers Specific Tests', () => {
   const providers = (() => {
     const uniqueProviders = new Set<string>();
     models.forEach(model => {
-      model.providers.forEach(provider => uniqueProviders.add(provider));
+      model.providers.forEach(provider => uniqueProviders.add(provider.id));
     });
     return Array.from(uniqueProviders);
   })();
@@ -53,17 +53,16 @@ describe('AI Providers Specific Tests', () => {
   describe('Provider Capabilities', () => {
     it('identifies providers with multimodal capabilities', () => {
       // Find providers that offer multimodal models
-      const providersWithVision = providers.filter(provider => {
-        const providerModels = models.fromProvider(provider);
-        return providerModels.some(model => model.can.includes('img-in'));
-      });
+      const modelsWithVision = models.canSee();
+      const providersWithVision = [...new Set(modelsWithVision.flatMap(model => model.providerIds))];
       
-      const providersWithAudio = providers.filter(provider => {
-        const providerModels = models.fromProvider(provider);
-        return providerModels.some(model => 
-          model.can.includes('audio-in') || model.can.includes('audio-out')
-        );
-      });
+      // Use fluent methods instead of manual filtering
+      const modelsWithAudioIn = models.canHear();
+      const modelsWithAudioOut = models.canSpeak();
+      const providersWithAudio = [...new Set([
+        ...modelsWithAudioIn.flatMap(model => model.providerIds),
+        ...modelsWithAudioOut.flatMap(model => model.providerIds)
+      ])];
       
       console.log('Providers with vision capabilities:', providersWithVision);
       console.log('Providers with audio capabilities:', providersWithAudio);
@@ -72,10 +71,9 @@ describe('AI Providers Specific Tests', () => {
     });
 
     it('identifies providers with image generation capabilities', () => {
-      const providersWithImageGen = providers.filter(provider => {
-        const providerModels = models.fromProvider(provider);
-        return providerModels.some(model => model.can.includes('img-out'));
-      });
+      // Use fluent method instead of manual filtering
+      const modelsWithImageGen = models.canGenerateImages();
+      const providersWithImageGen = [...new Set(modelsWithImageGen.flatMap(model => model.providerIds))];
       
       console.log('Providers with image generation capabilities:', providersWithImageGen);
       expect(providersWithImageGen.length).toBeGreaterThan(0);
