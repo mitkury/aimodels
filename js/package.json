@@ -1,6 +1,6 @@
 {
   "name": "aimodels",
-  "version": "0.3.12",
+  "version": "0.4.0",
   "description": "A collection of AI model specifications across different providers",
   "type": "module",
   "main": "dist/index.js",
@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "gen-data-js-file": "node genDataFile.js",
-    "prebuild": "npm run gen-data-js-file",
+    "prebuild": "npm run clean && npm run gen-data-js-file",
     "build:ts": "tsup",
     "build": "npm run build:ts && npm test",
     "test": "vitest run",
@@ -32,7 +32,7 @@
     "preversion": "npm run typecheck && npm run lint && npm test",
     "version": "git add -A",
     "postversion": "git push && git push --tags",
-    "prepublishOnly": "npm run clean && npm run typecheck && npm test && npm run lint",
+    "prepublishOnly": "npm run typecheck && npm run lint && npm run build",
     "postpublish": "npm run clean",
     "rules": "airul generate",
     "rules:comment": "# Generate AI rules from documentation",
