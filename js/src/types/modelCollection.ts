@@ -1,4 +1,4 @@
-import type { Provider } from './provider';
+import type { Provider, ProviderSource } from './provider';
 import type { Organization } from './organization';
 import { Model } from './model';
 import { Capability } from './capabilities';
@@ -6,7 +6,7 @@ import { ModelSource } from './modelSource';
 
 export class ModelCollection extends Array<Model> {
   // Static data stores - accessible from Model
-  public static providersData: Record<string, Provider> = {};
+  public static providersData: Record<string, ProviderSource> = {};
   public static orgsData: Record<string, Organization> = {};
   public static modelSources: Record<string, ModelSource> = {};
 
@@ -144,9 +144,17 @@ export class ModelCollection extends Array<Model> {
   /** Get all providers from all models in the collection deduplicated */
   get providers(): Provider[] {
     const providerIds = [...new Set(this.flatMap(model => model.providerIds))];
-    return providerIds
-      .map(id => ModelCollection.providersData[id])
-      .filter((p): p is Provider => p !== undefined);
+
+    const providers = []
+    for (const id of providerIds) {
+      const provider = ModelCollection.providersData[id];
+      const organization = ModelCollection.orgsData[id];
+      providers.push({
+        ...organization,
+        ...provider
+      });
+    }
+    return providers;
   }
 
   /** Get all orgs from all models in the collection deduplicated */
@@ -162,7 +170,12 @@ export class ModelCollection extends Array<Model> {
 
   /** Get a specific provider by ID */
   getProvider(id: string): Provider | undefined {
-    return ModelCollection.providersData[id];
+    const provider = ModelCollection.providersData[id];
+    const organization = ModelCollection.orgsData[id];
+    return {
+      ...organization,
+      ...provider
+    };
   }
 
   /** Get a specific creator by ID */

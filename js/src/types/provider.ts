@@ -1,6 +1,13 @@
 import type { TokenBasedPricePerMillionTokens, ImagePrice } from './pricing';
 import type { Organization } from './organization';
 
+export interface ProviderSource {
+  id: string;
+  apiUrl: string;
+  apiDocsUrl: string;
+  pricing: Record<string, TokenBasedPricePerMillionTokens | ImagePrice>;
+}
+
 /** Provider-specific data */
 export interface Provider extends Organization {
   /** Provider's API endpoint URL */

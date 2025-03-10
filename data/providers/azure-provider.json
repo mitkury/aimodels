@@ -1,6 +1,6 @@
 {
   "id": "azure",
-  "name": "Azure OpenAI",
+  "name": "Azure",
   "apiUrl": "",
   "apiDocsUrl": "https://learn.microsoft.com/en-us/azure/ai-services/openai/reference",
   "pricing": {

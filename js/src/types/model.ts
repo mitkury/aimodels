@@ -88,9 +88,18 @@ export class Model {
   }
   
   get providers(): Provider[] {
-    return this.providerIds
-      .map(id => ModelCollection.providersData[id])
-      .filter(Boolean);
+    const providers = [];
+
+    for (const id of this.providerIds) {
+      const provider = ModelCollection.providersData[id];
+      const organization = ModelCollection.orgsData[id];
+      providers.push({
+        ...organization,
+        ...provider
+      });
+    }
+
+    return providers;
   }
   
   get creatorId(): string | undefined {

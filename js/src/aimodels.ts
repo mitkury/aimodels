@@ -1,5 +1,5 @@
 import { ModelCollection } from './types/modelCollection';
-import type { Provider } from './types/provider';
+import type { Provider, ProviderSource } from './types/provider';
 import type { Organization } from './types/organization';
 import { Model, ModelSource } from './types';
 
@@ -46,7 +46,7 @@ export class AIModels extends ModelCollection {
     orgs = {}
   }: {
     models?: Record<string, ModelSource>;
-    providers?: Record<string, Provider>;
+    providers?: Record<string, ProviderSource>;
     orgs?: Record<string, Organization>;
   }): void {
     // Add new models
@@ -86,7 +86,10 @@ export class AIModels extends ModelCollection {
    * We want to return all known providers here.
    */
   override get providers(): Provider[] {
-    return Object.values(ModelCollection.providersData);
+    return Object.values(ModelCollection.providersData).map(provider => ({
+      ...ModelCollection.orgsData[provider.id],
+      ...provider
+    }));
   }
 
   /**
