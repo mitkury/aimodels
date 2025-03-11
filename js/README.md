@@ -8,8 +8,8 @@ aimodels is useful when you need to programmatically access info about AI models
 
 aimodels powers: 
 - [aimodels.dev](https://aimodels.dev) - a website about AI models
-- [aiwrapper](https://github.com/mitkury/aiwrapper) - an AI wrapper for running AI models ([aiwrapper.dev](https://aiwrapper.dev))
-- [Supa](https://github.com/supaorg/supa) - an open alternative to ChatGPT ([supa.cloud](https://supa.cloud))
+- [aiwrapper](https://github.com/mitkury/aiwrapper) - an AI wrapper for running AI models
+- [Supa](https://github.com/supaorg/supa) - an open alternative to ChatGPT
 
 ## Installation
 
