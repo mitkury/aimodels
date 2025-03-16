@@ -64,7 +64,6 @@
         "chat",
         "txt-in",
         "txt-out",
-        "reason",
         "json-out",
         "fn-out"
       ],
