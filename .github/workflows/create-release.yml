@@ -28,19 +28,21 @@ jobs:
           
           if [ -z "$PREV_TAG" ]; then
             # If no previous tag exists, list all commits
-            CHANGELOG=$(git log --pretty=format:"* %s (%h)" --no-merges)
+            COMMITS=$(git log --pretty=format:"%s (%h)" --no-merges)
           else
             # List commits between tags
-            CHANGELOG=$(git log --pretty=format:"* %s (%h)" --no-merges ${PREV_TAG}..HEAD)
+            COMMITS=$(git log --pretty=format:"%s (%h)" --no-merges ${PREV_TAG}..HEAD)
           fi
           
-          # Escape newlines for GitHub Actions
-          CHANGELOG="${CHANGELOG//'%'/'%25'}"
-          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
-          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
+          # Process commits into proper markdown format
+          CHANGELOG=""
+          while IFS= read -r line; do
+            CHANGELOG="${CHANGELOG}* ${line}\n"
+          done <<< "$COMMITS"
           
-          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          # Write to output
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$CHANGELOG" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
       
       - name: Create Release
@@ -50,7 +52,7 @@ jobs:
           body: |
             ## Changes in this Release
             
-            ${{ steps.changelog.outputs.CHANGELOG }}
+            ${{ steps.changelog.outputs.changelog }}
             
             ## Installation
             
