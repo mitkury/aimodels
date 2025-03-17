@@ -277,7 +277,7 @@
     },
     {
       "id": "o1",
-      "name": "OpenAI O1",
+      "name": "OpenAI o1",
       "license": "proprietary",
       "providerIds": [
         "openai",
@@ -302,14 +302,14 @@
       "id": "o1-2024-12-17",
       "extends": "o1",
       "overrides": {
-        "name": "OpenAI O1 (2024-12-17)"
+        "name": "OpenAI o1 (2024-12-17)"
       }
     },
     {
       "id": "o1-mini",
       "extends": "o1",
       "overrides": {
-        "name": "OpenAI O1 Mini",
+        "name": "OpenAI o1 Mini",
         "capabilities": [
           "chat",
           "txt-in",
@@ -329,14 +329,14 @@
       "id": "o1-mini-2024-09-12",
       "extends": "o1-mini",
       "overrides": {
-        "name": "OpenAI O1 Mini (2024-09-12)"
+        "name": "OpenAI o1 Mini (2024-09-12)"
       }
     },
     {
       "id": "o1-preview",
       "extends": "o1",
       "overrides": {
-        "name": "OpenAI O1 Preview",
+        "name": "OpenAI o1 Preview",
         "context": {
           "type": "token",
           "total": 128000,
@@ -348,12 +348,12 @@
       "id": "o1-preview-2024-09-12",
       "extends": "o1-preview",
       "overrides": {
-        "name": "OpenAI O1 Preview (2024-09-12)"
+        "name": "OpenAI o1 Preview (2024-09-12)"
       }
     },
     {
       "id": "o3-mini",
-      "name": "OpenAI O3 Mini",
+      "name": "OpenAI o3 Mini",
       "license": "proprietary",
       "providerIds": [
         "openai",
@@ -377,8 +377,31 @@
       "id": "o3-mini-2025-01-31",
       "extends": "o3-mini",
       "overrides": {
-        "name": "OpenAI O3 Mini (2025-01-31)"
+        "name": "OpenAI o3 Mini (2025-01-31)"
       }
+    },
+    {
+      "id": "gpt-4.5-preview",
+      "name": "GPT-4.5 Preview",
+      "license": "proprietary",
+      "providerIds": [
+        "openai",
+        "azure"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 16384
+      },
+      "aliases": ["gpt-4.5-preview-2025-02-27"]
     },
     {
       "id": "whisper-1",
