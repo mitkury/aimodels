@@ -23,7 +23,7 @@ import { Model, ModelSource } from './types';
  */
 export class AIModels extends ModelCollection {
   // Singleton instance
-  private static _instance: AIModels | null = null;
+  private static _instance: AIModels;
 
   /**
    * @private
