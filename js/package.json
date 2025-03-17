@@ -1,14 +1,14 @@
 {
   "name": "aimodels",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "A collection of AI model specifications across different providers",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/aimodels.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/aimodels.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
   },
