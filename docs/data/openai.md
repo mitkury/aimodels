@@ -1,0 +1,9 @@
+# OpenAI
+
+Info about the models: https://platform.openai.com/docs/models
+
+To list models with the API:  
+```bash
+curl https://api.openai.com/v1/models \
+  -H "Authorization: Bearer $OPENAI_API_KEY"
+```
