@@ -2,6 +2,27 @@
   "creator": "cohere",
   "models": [
     {
+      "id": "command-a-03-2025",
+      "name": "Command A",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      }
+    },
+    {
       "id": "command-r7b-12-2024",
       "name": "Command R7B",
       "creator": "cohere",
@@ -21,6 +42,31 @@
         "total": 128000,
         "maxOutput": 4096
       }
+    },
+    {
+      "id": "command-r-plus-04-2024",
+      "name": "Command R+ (April 2024)",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere",
+        "azure"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      },
+      "aliases": [
+        "command-r-plus"
+      ]
     },
     {
       "id": "command-r-plus-08-2024",
@@ -50,6 +96,27 @@
       ]
     },
     {
+      "id": "command-r-08-2024",
+      "name": "Command R (August 2024)",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
       "id": "command-r-03-2024",
       "name": "Command R",
       "creator": "cohere",
@@ -75,6 +142,27 @@
       "aliases": [
         "command-r"
       ]
+    },
+    {
+      "id": "command-nightly",
+      "name": "Command Nightly",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      }
     },
     {
       "id": "command",
@@ -258,6 +346,145 @@
         "type": "token",
         "total": 4096,
         "maxOutput": null
+      }
+    },
+    {
+      "id": "embed-english-v2.0",
+      "name": "Embed English v2.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "txt-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": 512,
+        "dimensions": 4096,
+        "embeddingType": "text",
+        "normalized": true
+      }
+    },
+    {
+      "id": "embed-english-light-v2.0",
+      "name": "Embed English Light v2.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere",
+        "oracle"
+      ],
+      "capabilities": [
+        "txt-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": 512,
+        "dimensions": 1024,
+        "embeddingType": "text",
+        "normalized": true
+      }
+    },
+    {
+      "id": "embed-multilingual-v2.0",
+      "name": "Embed Multilingual v2.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "txt-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": 256,
+        "dimensions": 768,
+        "embeddingType": "text",
+        "normalized": false
+      }
+    },
+    {
+      "id": "c4ai-aya-expanse-8b",
+      "name": "Aya Expanse 8B",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "c4ai-aya-expanse-32b",
+      "name": "Aya Expanse 32B",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "c4ai-aya-vision-8b",
+      "name": "Aya Vision 8B",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 16384,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "c4ai-aya-vision-32b",
+      "name": "Aya Vision 32B",
+      "creator": "cohere",
+      "license": "proprietary",
+      "providerIds": [
+        "cohere"
+      ],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 16384,
+        "maxOutput": 4096
       }
     }
   ]

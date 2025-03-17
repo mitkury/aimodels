@@ -103,11 +103,6 @@ class Provider:
     models: Dict[str, Union[TokenPrice, Dict[str, Any]]]
 ```
 
-For more detailed information, see:
-- [Model Capabilities](../docs/model-capabilities.md)
-- [Model Structure](../docs/model-structure.md)
-- [Providers](../docs/providers.md)
-
 ## License
 
 MIT
