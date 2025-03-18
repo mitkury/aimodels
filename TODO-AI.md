@@ -19,3 +19,9 @@ Learn from the user about their project, get the idea of what they want to make
 - I'll keep sections concise but informative
 - I'll update status and add key decisions/changes
 - I'll add new tasks as they come up
+- When versioning the package, ensure Git tags are created and pushed correctly:
+  ```
+  git tag v[version]  # e.g., git tag v0.4.5
+  git push origin v[version]  # e.g., git push origin v0.4.5
+  ```
+  This should be done if the npm version command doesn't properly create or push tags
