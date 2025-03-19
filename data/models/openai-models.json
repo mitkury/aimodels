@@ -455,6 +455,7 @@
         "azure"
       ],
       "capabilities": [
+        "txt-in",
         "img-out"
       ],
       "context": {
