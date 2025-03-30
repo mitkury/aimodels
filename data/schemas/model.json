@@ -48,7 +48,7 @@
             "type": "string"
           }
         },
-        "can": {
+        "capabilities": {
           "type": "array",
           "description": "List of capabilities this model supports",
           "items": {
@@ -208,7 +208,7 @@
             "name": {
               "type": "string"
             },
-            "can": {
+            "capabilities": {
               "type": "array",
               "items": {
                 "type": "string"
@@ -232,7 +232,7 @@
             }
           },
           "then": {
-            "required": ["id", "name", "providerIds", "can", "context"]
+            "required": ["id", "name", "providerIds", "capabilities", "context"]
           }
         }
       ]
