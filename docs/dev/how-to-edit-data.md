@@ -22,23 +22,14 @@ In short:
 
 ## Reasoning Capabilities
 When specifying reasoning capabilities:
-- Use `reason` capability for models that are trained to "think" before giving the final answer
-- These models produce an internal chain of thought before responding
-- Common terms in provider documentation:
-  - "Chain of thought" reasoning
-  - "Test-time compute"
-  - "Step-by-step thinking"
-  - "Intermediate reasoning"
-  - "Extended thinking"
-  - "Internal monologue"
-- Models with this capability excel in:
-  - Complex problem solving
-  - Coding and refactoring
-  - Scientific reasoning
-  - Multi-step planning
-  - Agentic workflows
-  - Step-by-step analysis
-  - Breaking down complex tasks
+- Use `reason` capability for models that are trained to "think" before giving the final answer. It's when models dynamically increase their reasoning time during inference. This means they can spend more time thinking about complex questions, improving accuracy at the cost of higher compute usage.
+
+Common terms in provider documentation:
+- "Reasoning"
+- "Test-time compute"
+- "Step-by-step thinking"
+- "Internal reasoning"
+- "Extended thinking"
 
 ## Structured Output Capabilities
 Both `json-out` and `fn-out` are about dedicated API endpoints that ensure structured output:
