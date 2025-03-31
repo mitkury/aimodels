@@ -1,0 +1,50 @@
+name: Trigger AIWrapper Update
+
+on:
+  # Trigger on new releases
+  release:
+    types: [published]
+  # Trigger on package publish
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to notify AIWrapper about (e.g., 0.4.1)'
+        required: true
+        default: ''
+
+jobs:
+  notify-aiwrapper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Get package version
+        id: package-version
+        run: |
+          if [ "${{ github.event_name }}" == "release" ]; then
+            # Extract version from the release tag
+            VERSION=${GITHUB_REF#refs/tags/v}
+            VERSION=${VERSION#refs/tags/}
+            # Remove 'v' prefix if present
+            VERSION=${VERSION#v}
+          else
+            # Use the manually provided version
+            VERSION="${{ github.event.inputs.version }}"
+            if [ -z "$VERSION" ]; then
+              # If no version provided, get it from package.json
+              VERSION=$(node -p "require('./js/package.json').version")
+            fi
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Trigger AIWrapper update workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: mitkury/aiwrapper
+          event-type: aimodels-package-updated
+          client-payload: |
+            {
+              "version": "${{ steps.package-version.outputs.version }}"
+            } 
