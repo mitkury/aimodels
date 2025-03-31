@@ -12,6 +12,11 @@ After a big change or before committing, do "npm test"
 Short and concise.
 Add "<scope>: <description>" suffix.
 
+Scopes:
+data - for anything that relates to data about models and providers in data/ directory
+docs - anything related to .md docs in /docs directory
+feat(name of the feature) - any dedicated feature
+
 ## Publishing
 1. Commit changes with descriptive message
 2. Run "npm version patch" (or minor/major) to bump version
