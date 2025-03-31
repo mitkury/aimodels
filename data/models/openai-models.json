@@ -105,7 +105,8 @@
         "type": "token",
         "total": 128000,
         "maxOutput": 16384
-      }
+      },
+      "aliases": ["gpt-4o-2024-08-06"]
     },
     {
       "id": "chatgpt-4o-latest",
@@ -133,6 +134,13 @@
       "extends": "gpt-4o",
       "overrides": {
         "name": "GPT-4o (2024-05-13)",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "img-in",
+          "fn-out"
+        ],
         "context": {
           "type": "token",
           "total": 128000,
