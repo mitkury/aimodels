@@ -16,17 +16,29 @@ In short:
   - This reduces duplication and makes maintenance easier
 
 **Model IDs and Aliases**
-  - Use the exact model ID as provided by the provider (e.g., `gpt-4-turbo-preview`)
-  - Add shorter aliases for common usage (e.g., `gpt-4`)
+  - Use the exact model ID as provided by the provider (e.g., `gpt-4o`)
+  - Add the latest stable snapshot/version as an alias to the base model (e.g., `gpt-4o-2024-08-06` and `gpt-4o-latest` for `gpt-4o` in early 2025)
   - Place aliases in the `aliases` array
 
 ## Reasoning Capabilities
 When specifying reasoning capabilities:
-- Use `reason` capability for models that are trained to "think" before giving the final answer.
+- Use `reason` capability for models that are trained to "think" before giving the final answer
+- These models produce an internal chain of thought before responding
 - Common terms in provider documentation:
-  - reasoning
-  - thinking
-  - time test compute
+  - "Chain of thought" reasoning
+  - "Test-time compute"
+  - "Step-by-step thinking"
+  - "Intermediate reasoning"
+  - "Extended thinking"
+  - "Internal monologue"
+- Models with this capability excel in:
+  - Complex problem solving
+  - Coding and refactoring
+  - Scientific reasoning
+  - Multi-step planning
+  - Agentic workflows
+  - Step-by-step analysis
+  - Breaking down complex tasks
 
 ## Structured Output Capabilities
 Both `json-out` and `fn-out` are about dedicated API endpoints that ensure structured output:
