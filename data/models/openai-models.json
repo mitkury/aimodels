@@ -106,14 +106,7 @@
         "total": 128000,
         "maxOutput": 16384
       },
-      "aliases": ["gpt-4o-2024-08-06"]
-    },
-    {
-      "id": "chatgpt-4o-latest",
-      "extends": "gpt-4o",
-      "overrides": {
-        "name": "GPT-4o used in ChatGPT"
-      }
+      "aliases": ["chatgpt-4o-latest", "gpt-4o-2024-08-06"]
     },
     {
       "id": "gpt-4o-2024-11-20",
