@@ -20,9 +20,8 @@ feat(name of the feature) - any dedicated feature
 ## Publishing
 1. Commit changes with descriptive message
 2. Run "npm version patch" (or minor/major) to bump version
-3. Verify that Git tag was created properly. If not, create it manually:
+3. Push the tag to trigger the release workflow:
    ```
-   git tag v[version]  # e.g., git tag v0.4.5
    git push origin v[version]  # e.g., git push origin v0.4.5
    ```
 4. Run "npm publish" to publish to npm
