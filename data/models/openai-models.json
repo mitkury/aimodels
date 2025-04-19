@@ -353,6 +353,16 @@
       }
     },
     {
+      "id": "o1-pro",
+      "extends": "o1",
+      "overrides": {
+        "name": "OpenAI o1 Pro",
+        "providerIds": [
+          "openai"
+        ]
+      }
+    },
+    {
       "id": "o3",
       "name": "OpenAI o3",
       "license": "proprietary",
