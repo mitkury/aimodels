@@ -2,18 +2,77 @@
   "creator": "xai",
   "models": [
     {
+      "id": "grok-3-beta",
+      "name": "Grok 3 Beta",
+      "creator": "xai",
+      "license": "proprietary",
+      "providerIds": ["xai"],
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "aliases": ["grok-3", "grok-3-latest"],
+      "releasedAt": "2025-04-03"
+    },
+    {
+      "id": "grok-3-fast-beta",
+      "name": "Grok 3 Beta (Fast mode)",
+      "creator": "xai",
+      "license": "proprietary",
+      "providerIds": ["xai"],
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "releasedAt": "2025-04-03"
+    },
+    {
+      "id": "grok-3-mini-beta",
+      "name": "Grok 3 Mini Beta",
+      "creator": "xai",
+      "license": "proprietary",
+      "providerIds": ["xai"],
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "aliases": ["grok-3-mini", "grok-3-mini-latest"],
+      "releasedAt": "2025-04-03"
+    },
+    {
+      "id": "grok-3-mini-fast-beta",
+      "name": "Grok 3 Mini Beta (Fast mode)",
+      "creator": "xai",
+      "license": "proprietary",
+      "providerIds": ["xai"],
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "releasedAt": "2025-04-03"
+    },
+    {
       "id": "grok-2-vision-1212",
       "name": "Grok 2 Vision",
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
         "type": "token",
         "total": 32768,
-        "maxOutput": 4096
+        "maxOutput": 32768
       },
-      "aliases": ["grok-2-vision", "grok-2-vision-latest"]
+      "aliases": ["grok-2-vision", "grok-2-vision-latest"],
+      "releasedAt": "2024-12-12"
     },
     {
       "id": "grok-2-1212",
@@ -21,13 +80,14 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "capabilities": ["chat", "txt-in", "txt-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "fn-out", "json-out"],
       "context": {
         "type": "token",
         "total": 131072,
-        "maxOutput": 4096
+        "maxOutput": 131072
       },
-      "aliases": ["grok-2", "grok-2-latest"]
+      "aliases": ["grok-2", "grok-2-latest"],
+      "releasedAt": "2024-12-12"
     },
     {
       "id": "grok-vision-beta",
@@ -35,11 +95,11 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out"],
       "context": {
         "type": "token",
         "total": 8192,
-        "maxOutput": 4096
+        "maxOutput": 8192
       }
     },
     {
@@ -48,11 +108,11 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "capabilities": ["chat", "txt-in", "txt-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "fn-out"],
       "context": {
         "type": "token",
         "total": 131072,
-        "maxOutput": 4096
+        "maxOutput": 131072
       }
     }
   ]
