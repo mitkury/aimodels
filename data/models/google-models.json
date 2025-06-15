@@ -314,6 +314,339 @@
         "total": 7168,
         "maxOutput": 1024
       }
+    },
+    {
+      "id": "gemini-2.5-pro-preview-06-05",
+      "name": "Gemini 2.5 Pro Preview",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out", 
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      }
+    },
+    {
+      "id": "gemini-2.5-pro-preview-05-06",
+      "extends": "gemini-2.5-pro-preview-06-05",
+      "overrides": {
+        "name": "Gemini 2.5 Pro Preview 05-06"
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-preview-05-20",
+      "extends": "gemini-2.5-flash-preview",
+      "overrides": {
+        "name": "Gemini 2.5 Flash Preview 05-20"
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-preview-04-17-thinking",
+      "extends": "gemini-2.5-flash-preview",
+      "overrides": {
+        "name": "Gemini 2.5 Flash Preview (Thinking)",
+        "capabilities": [
+          "chat",
+          "txt-in", 
+          "txt-out",
+          "img-in",
+          "json-out",
+          "fn-out",
+          "reason"
+        ],
+        "context": {
+          "type": "token",
+          "total": 1048576,
+          "maxOutput": 65536
+        }
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-preview-tts", 
+      "name": "Gemini 2.5 Flash Preview TTS",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 16384
+      }
+    },
+    {
+      "id": "gemini-2.5-pro-preview-tts",
+      "extends": "gemini-2.5-flash-preview-tts", 
+      "overrides": {
+        "name": "Gemini 2.5 Pro Preview TTS"
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-preview-native-audio-dialog",
+      "name": "Gemini 2.5 Flash Preview Native Audio Dialog",
+      "license": "proprietary", 
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-001",
+      "extends": "gemini-2.0-flash",
+      "overrides": {
+        "name": "Gemini 2.0 Flash 001"
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-exp",
+      "extends": "gemini-2.0-flash",
+      "overrides": {
+        "name": "Gemini 2.0 Flash Experimental"
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-exp-image-generation",
+      "extends": "gemini-2.0-flash",
+      "overrides": {
+        "name": "Gemini 2.0 Flash Image Generation Experimental",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "img-in",
+          "img-out",
+          "json-out",
+          "fn-out"
+        ]
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-preview-image-generation", 
+      "name": "Gemini 2.0 Flash Preview Image Generation",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 32768,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-lite-001",
+      "extends": "gemini-2.0-flash-lite", 
+      "overrides": {
+        "name": "Gemini 2.0 Flash Lite 001"
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-lite-preview",
+      "extends": "gemini-2.0-flash-lite",
+      "overrides": {
+        "name": "Gemini 2.0 Flash Lite Preview"
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-lite-preview-02-05",
+      "extends": "gemini-2.0-flash-lite",
+      "overrides": {
+        "name": "Gemini 2.0 Flash Lite Preview 02-05"
+      }
+    },
+    {
+      "id": "gemini-2.0-pro-exp",
+      "name": "Gemini 2.0 Pro Experimental",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat", 
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      }
+    },
+    {
+      "id": "gemini-2.0-pro-exp-02-05",
+      "extends": "gemini-2.0-pro-exp",
+      "overrides": {
+        "name": "Gemini 2.0 Pro Experimental 02-05"
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-thinking-exp",
+      "name": "Gemini 2.0 Flash Thinking Experimental", 
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in", 
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-thinking-exp-1219",
+      "extends": "gemini-2.0-flash-thinking-exp",
+      "overrides": {
+        "name": "Gemini 2.0 Flash Thinking Experimental 1219"
+      }
+    },
+    {
+      "id": "gemini-2.0-flash-thinking-exp-01-21",
+      "extends": "gemini-2.0-flash-thinking-exp",
+      "overrides": {
+        "name": "Gemini 2.0 Flash Thinking Experimental 01-21"
+      }
+    },
+    {
+      "id": "learnlm-2.0-flash-experimental",
+      "name": "LearnLM 2.0 Flash Experimental",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 32768
+      }
+    },
+    {
+      "id": "gemma-3-1b-it",
+      "name": "Gemma 3 1B",
+      "license": "apache-2.0",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token", 
+        "total": 32768,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "gemma-3-4b-it",
+      "extends": "gemma-3-1b-it",
+      "overrides": {
+        "name": "Gemma 3 4B"
+      }
+    },
+    {
+      "id": "gemma-3-12b-it",
+      "extends": "gemma-3-1b-it",
+      "overrides": {
+        "name": "Gemma 3 12B"
+      }
+    },
+    {
+      "id": "gemma-3-27b-it",
+      "extends": "gemma-3-1b-it",
+      "overrides": {
+        "name": "Gemma 3 27B",
+        "context": {
+          "type": "token",
+          "total": 131072,
+          "maxOutput": 8192
+        }
+      }
+    },
+    {
+      "id": "gemma-3n-e4b-it",
+      "name": "Gemma 3n E4B",
+      "license": "apache-2.0",
+      "providerIds": ["google"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 2048
+      }
+    },
+    {
+      "id": "imagen-3.0-generate-002",
+      "name": "Imagen 3.0",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": [
+        "txt-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": ["1024x1024", "1792x1024", "1024x1792"]
+      }
+    },
+    {
+      "id": "veo-2.0-generate-001",
+      "name": "Veo 2",
+      "license": "proprietary", 
+      "providerIds": ["google"],
+      "capabilities": [
+        "txt-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
     }
   ]
 }

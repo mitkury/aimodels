@@ -63,6 +63,143 @@
       "type": "token",
       "input": 0.50,
       "output": 0.50
+    },
+    "text-embedding-ada-002": {
+      "type": "token",
+      "input": 0.10
+    },
+    "gemini-2.5-pro-preview-06-05": {
+      "type": "token",
+      "input": 2.50,
+      "output": 10.00
+    },
+    "gemini-2.5-pro-preview-05-06": {
+      "type": "token", 
+      "input": 2.50,
+      "output": 10.00
+    },
+    "gemini-2.5-flash-preview-05-20": {
+      "type": "token",
+      "input": 0.20,
+      "output": 0.80
+    },
+    "gemini-2.5-flash-preview-04-17-thinking": {
+      "type": "token",
+      "input": 0.20,
+      "output": 0.80
+    },
+    "gemini-2.5-flash-preview-tts": {
+      "type": "token",
+      "input": 0.20,
+      "output": 0.80
+    },
+    "gemini-2.5-pro-preview-tts": {
+      "type": "token",
+      "input": 2.50,
+      "output": 10.00
+    },
+    "gemini-2.5-flash-preview-native-audio-dialog": {
+      "type": "token",
+      "input": 0.20,
+      "output": 0.80
+    },
+    "gemini-2.0-flash-001": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemini-2.0-flash-exp": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemini-2.0-flash-exp-image-generation": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemini-2.0-flash-preview-image-generation": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemini-2.0-flash-lite-001": {
+      "type": "token",
+      "input": 0.075,
+      "output": 0.30
+    },
+    "gemini-2.0-flash-lite-preview": {
+      "type": "token",
+      "input": 0.075,
+      "output": 0.30
+    },
+    "gemini-2.0-flash-lite-preview-02-05": {
+      "type": "token",
+      "input": 0.075,
+      "output": 0.30
+    },
+    "gemini-2.0-pro-exp": {
+      "type": "token",
+      "input": 1.25,
+      "output": 5.00
+    },
+    "gemini-2.0-pro-exp-02-05": {
+      "type": "token",
+      "input": 1.25,
+      "output": 5.00
+    },
+    "gemini-2.0-flash-thinking-exp": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemini-2.0-flash-thinking-exp-1219": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemini-2.0-flash-thinking-exp-01-21": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "learnlm-2.0-flash-experimental": {
+      "type": "token",
+      "input": 0.1,
+      "output": 0.4
+    },
+    "gemma-3-1b-it": {
+      "type": "token",
+      "input": 0.10,
+      "output": 0.10
+    },
+    "gemma-3-4b-it": {
+      "type": "token",
+      "input": 0.15,
+      "output": 0.15
+    },
+    "gemma-3-12b-it": {
+      "type": "token",
+      "input": 0.25,
+      "output": 0.25
+    },
+    "gemma-3-27b-it": {
+      "type": "token",
+      "input": 0.50,
+      "output": 0.50
+    },
+    "gemma-3n-e4b-it": {
+      "type": "token",
+      "input": 0.05,
+      "output": 0.05
+    },
+    "imagen-3.0-generate-002": {
+      "type": "image",
+      "price": 0.08
+    },
+    "veo-2.0-generate-001": {
+      "type": "second",
+      "price": 0.10
     }
   }
 } 
