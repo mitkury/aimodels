@@ -95,7 +95,7 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
         "type": "token",
         "total": 8192,
@@ -108,11 +108,11 @@
       "creator": "xai",
       "license": "proprietary",
       "providerIds": ["xai"],
-      "capabilities": ["chat", "txt-in", "txt-out", "fn-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "fn-out", "json-out"],
       "context": {
         "type": "token",
         "total": 131072,
-        "maxOutput": 131072
+        "maxOutput": 4096
       }
     }
   ]
