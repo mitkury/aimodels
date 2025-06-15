@@ -234,6 +234,86 @@
         "total": 8192,
         "maxOutput": 4096
       }
+    },
+    {
+      "id": "gemini-1.5-flash-001",
+      "extends": "gemini-1.5-flash",
+      "overrides": {
+        "name": "Gemini 1.5 Flash (001)"
+      }
+    },
+    {
+      "id": "gemini-1.5-flash-002",
+      "extends": "gemini-1.5-flash",
+      "overrides": {
+        "name": "Gemini 1.5 Flash (002)"
+      }
+    },
+    {
+      "id": "gemini-1.5-flash-8b-001", 
+      "extends": "gemini-1.5-flash-8b",
+      "overrides": {
+        "name": "Gemini 1.5 Flash 8B (001)"
+      }
+    },
+    {
+      "id": "gemini-1.5-flash-8b-exp-0827",
+      "extends": "gemini-1.5-flash-8b",
+      "overrides": {
+        "name": "Gemini 1.5 Flash 8B (Experimental 0827)"
+      }
+    },
+    {
+      "id": "gemini-1.5-pro-exp-0801",
+      "extends": "gemini-1.5-pro",
+      "overrides": {
+        "name": "Gemini 1.5 Pro (Experimental 0801)"
+      }
+    },
+    {
+      "id": "gemini-1.5-pro-exp-0827",
+      "extends": "gemini-1.5-pro", 
+      "overrides": {
+        "name": "Gemini 1.5 Pro (Experimental 0827)"
+      }
+    },
+    {
+      "id": "gemini-1.0-pro",
+      "name": "Gemini 1.0 Pro",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 30720,
+        "maxOutput": 2048
+      },
+      "aliases": ["gemini-1.0-pro-latest", "gemini-1.0-pro-001", "gemini-pro"]
+    },
+    {
+      "id": "gemini-1.0-pro-vision",
+      "name": "Gemini 1.0 Pro Vision",
+      "license": "proprietary", 
+      "providerIds": ["google"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in"],
+      "context": {
+        "type": "token",
+        "total": 12288,
+        "maxOutput": 4096
+      },
+      "aliases": ["gemini-pro-vision"]
+    },
+    {
+      "id": "aqa",
+      "name": "Attributed Question Answering",
+      "license": "proprietary",
+      "providerIds": ["google"],
+      "capabilities": ["txt-in", "txt-out"],
+      "context": {
+        "type": "token",
+        "total": 7168,
+        "maxOutput": 1024
+      }
     }
   ]
 }
