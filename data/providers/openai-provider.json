@@ -209,6 +209,98 @@
       "price": 0.08,
       "size": "1024x1024",
       "unit": "per_image"
+    },
+    "text-embedding-ada-002": {
+      "type": "token",
+      "input": 0.10
+    },
+    "gpt-4.1-2025-04-14": {
+      "type": "token",
+      "input": 5.00,
+      "input_cached": 2.50,
+      "output": 15.00
+    },
+    "gpt-4.1-mini-2025-04-14": {
+      "type": "token",
+      "input": 0.30,
+      "input_cached": 0.15,
+      "output": 1.20
+    },
+    "gpt-4.1-nano-2025-04-14": {
+      "type": "token",
+      "input": 0.10,
+      "input_cached": 0.05,
+      "output": 0.40
+    },
+    "o4-mini-2025-04-16": {
+      "type": "token",
+      "input": 2.20,
+      "input_cached": 1.10,
+      "output": 8.80
+    },
+    "computer-use-preview-2025-03-11": {
+      "type": "token",
+      "input": 2.50,
+      "input_cached": 1.25,
+      "output": 10.00
+    },
+    "gpt-4o-search-preview-2025-03-11": {
+      "type": "token",
+      "input": 2.50,
+      "input_cached": 1.25,
+      "output": 10.00
+    },
+    "gpt-4o-mini-search-preview-2025-03-11": {
+      "type": "token",
+      "input": 0.15,
+      "input_cached": 0.075,
+      "output": 0.60
+    },
+    "gpt-4o-transcribe": {
+      "type": "token",
+      "input": 2.50,
+      "input_cached": 1.25,
+      "output": 10.00
+    },
+    "gpt-4o-mini-transcribe": {
+      "type": "token",
+      "input": 0.15,
+      "input_cached": 0.075,
+      "output": 0.60
+    },
+    "gpt-4o-mini-tts": {
+      "type": "token",
+      "input": 0.15,
+      "input_cached": 0.075,
+      "output": 0.60
+    },
+    "gpt-image-1": {
+      "type": "image",
+      "price": 0.02,
+      "size": "1024x1024",
+      "unit": "per_image"
+    },
+    "omni-moderation-2024-09-26": {
+      "type": "token",
+      "input": 0.50,
+      "output": 0.50
+    },
+    "o1-pro-2025-03-19": {
+      "type": "token",
+      "input": 60.00,
+      "input_cached": 30.00,
+      "output": 240.00
+    },
+    "gpt-4o-audio-preview-2025-06-03": {
+      "type": "token",
+      "input": 2.50,
+      "output": 10.00
+    },
+    "gpt-4o-realtime-preview-2025-06-03": {
+      "type": "token",
+      "input": 5.00,
+      "input_cached": 2.50,
+      "output": 20.00
     }
   }
 }
