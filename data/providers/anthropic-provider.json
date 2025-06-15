@@ -4,6 +4,21 @@
   "apiUrl": "https://api.anthropic.com/v1",
   "apiDocsUrl": "https://docs.anthropic.com/en/api",
   "pricing": {
+    "claude-opus-4-20250514": {
+      "type": "token",
+      "input": 15,
+      "output": 75
+    },
+    "claude-sonnet-4-20250514": {
+      "type": "token",
+      "input": 3,
+      "output": 15
+    },
+    "claude-3-7-sonnet-20250219": {
+      "type": "token",
+      "input": 3,
+      "output": 15
+    },
     "claude-3-opus-20240229": {
       "type": "token",
       "input": 15,
