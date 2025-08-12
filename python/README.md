@@ -18,6 +18,10 @@ chat_models = models.can("chat")
 vision_models = models.can("img-in")
 reasoning_models = models.can("reason")
 
+# Fluent API (equivalent to the capability filters above)
+fluent_chat = models.canChat()
+fluent_multimodal = models.canChat().canSee()
+
 # Find models with multiple capabilities
 multimodal_models = models.can("chat", "img-in")
 audio_models = models.can("audio-in", "audio-out")
@@ -37,18 +41,19 @@ model = models.id("gpt-4")
 print(model.context.total)  # Context window size
 print(model.providers)  # ['openai']
 
-# Get pricing information
-price = models.get_price("gpt-4", "openai")
-if price:
-    print(f"Input: ${price.input}/1M tokens")
-    print(f"Output: ${price.output}/1M tokens")
+# Get pricing information (via provider pricing table)
+provider = models.get_provider("openai")
+if provider and provider.pricing:
+    pricing = provider.pricing.get("gpt-4")
+    if isinstance(pricing, dict) and pricing.get("type") == "token":
+        print(f"Input: ${pricing['input']}/1M tokens")
+        print(f"Output: ${pricing['output']}/1M tokens")
 
 # Get provider information
-provider = models.get_provider("openai")
 if provider:
     print(f"Name: {provider.name}")
-    print(f"Website: {provider.website_url}")
-    print(f"API: {provider.api_url}")
+    print(f"Website: {provider.websiteUrl}")
+    print(f"API: {provider.apiUrl}")
 ```
 
 ## Features
@@ -66,15 +71,33 @@ if provider:
 
 ### Model
 ```python
-@dataclass
 class Model:
     """Represents an AI model with its capabilities and specifications."""
-    id: str          # Unique identifier
-    name: str        # Display name
-    can: List[str]   # Model capabilities
-    providers: List[str]  # Available providers
-    context: ModelContext  # Context window information
-    license: str     # License or creator
+    id: str
+    name: str
+    capabilities: List[str]
+    providerIds: List[str]
+    creatorId: Optional[str]
+    context: ModelContext
+
+    def can(self, *caps: str) -> bool: ...
+    def canChat(self) -> bool: ...
+    def canReason(self) -> bool: ...
+    def canRead(self) -> bool: ...
+    def canWrite(self) -> bool: ...
+    def canSee(self) -> bool: ...
+    def canGenerateImages(self) -> bool: ...
+    def canHear(self) -> bool: ...
+    def canSpeak(self) -> bool: ...
+    def canOutputJSON(self) -> bool: ...
+    def canCallFunctions(self) -> bool: ...
+    def canGenerateEmbeddings(self) -> bool: ...
+
+    # Convenience aliases
+    @property
+    def providers(self) -> List[str]: ...
+    @property
+    def creator(self) -> Optional[str]: ...
 ```
 
 ### ModelContext
@@ -82,25 +105,33 @@ class Model:
 @dataclass
 class ModelContext:
     """Context window information for a model."""
-    total: Optional[int] = None        # Maximum input tokens
-    max_output: Optional[int] = None   # Maximum output tokens
-    sizes: Optional[List[str]] = None  # Available sizes
-    qualities: Optional[List[str]] = None  # Available qualities
-    type: Optional[str] = None         # Context type
-    unit: Optional[str] = None         # Unit of measurement
-    dimensions: Optional[int] = None    # Vector dimensions
+    total: Optional[int] = None
+    max_output: Optional[int] = None
+    sizes: Optional[List[str]] = None
+    qualities: Optional[List[str]] = None
+    type: Optional[str] = None
+    unit: Optional[str] = None
+    dimensions: Optional[int] = None
+    output_is_fixed: Optional[Union[int, bool]] = None
+    extended: Optional[Dict[str, Any]] = None
+    embedding_type: Optional[str] = None
+    normalized: Optional[bool] = None
 ```
 
 ### Provider
 ```python
 @dataclass
 class Provider:
-    """Provider information."""
+    """Provider information (merged with organization fields to match JS Provider)."""
     id: str
     name: str
-    website_url: str
-    api_url: str
-    models: Dict[str, Union[TokenPrice, Dict[str, Any]]]
+    websiteUrl: Optional[str] = None
+    country: Optional[str] = None
+    founded: Optional[int] = None
+    apiUrl: Optional[str] = None
+    apiDocsUrl: Optional[str] = None
+    isLocal: Optional[int] = None
+    pricing: Dict[str, Dict[str, Any]] | None = None
 ```
 
 ## License
