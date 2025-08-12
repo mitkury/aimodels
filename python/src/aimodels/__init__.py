@@ -7,7 +7,8 @@ from importlib.metadata import version
 from .models import AIModels, Model, ModelContext, Capability, Provider, TokenPrice
 
 try:
-    __version__ = version("aimodels")
+    # Package name as published on PyPI
+    __version__ = version("aimodels.dev")
 except Exception:
     __version__ = "unknown"
 
@@ -16,10 +17,11 @@ models = AIModels()
 
 # Re-export types
 __all__ = [
+    "AIModels",
     "models",
     "Model",
     "ModelContext",
     "Capability",
     "Provider",
-    "TokenPrice"
+    "TokenPrice",
 ] 
