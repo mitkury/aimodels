@@ -19,7 +19,9 @@
   ],
   "scripts": {
     "gen-data-js-file": "node genDataFile.js",
-    "prebuild": "npm run clean && npm run gen-data-js-file",
+    "schemas:export": "tsx src/schemas/export.ts",
+    "validate:data": "tsx src/schemas/validate-data.ts",
+    "prebuild": "npm run validate:data && npm run clean && npm run gen-data-js-file",
     "build:ts": "tsup",
     "build": "npm run build:ts && npm test",
     "test": "vitest run",
@@ -72,8 +74,11 @@
     "airul": "^0.1.10",
     "eslint": "^8.0.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
-    "vitest": "^1.0.0"
+    "vitest": "^1.0.0",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.5"
   }
 }
