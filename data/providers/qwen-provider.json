@@ -1,0 +1,6 @@
+{
+  "id": "qwen",
+  "apiUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "apiDocsUrl": "https://help.aliyun.com/zh/model-studio/developer-reference/",
+  "pricing": {}
+}

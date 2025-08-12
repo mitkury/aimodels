@@ -114,6 +114,34 @@
         "total": 131072,
         "maxOutput": 4096
       }
+    },
+    {
+      "id": "grok-4",
+      "name": "Grok 4",
+      "creator": "xai",
+      "license": "proprietary",
+      "providerIds": ["xai"],
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      },
+      "aliases": ["grok-4-2025-07-09", "grok-4-latest"]
+    },
+    {
+      "id": "grok-4-heavy",
+      "name": "Grok 4 Heavy",
+      "creator": "xai",
+      "license": "proprietary",
+      "providerIds": ["xai"],
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      },
+      "aliases": ["grok-4-heavy-2025-07-09", "grok-4-heavy-latest"]
     }
   ]
 } 

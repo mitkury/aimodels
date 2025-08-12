@@ -53,6 +53,12 @@
     "country": "USA",
     "founded": 2016
   },
+  "qwen": {
+    "name": "Qwen",
+    "websiteUrl": "https://qwenlm.ai",
+    "country": "CHN",
+    "founded": 2023
+  },
   "azure": {
     "name": "Azure",
     "websiteUrl": "https://azure.microsoft.com/en-us/products/ai-services/openai-service",
