@@ -47,7 +47,6 @@ addopts = "-v"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/aimodels"]
-force-include = { "../data" = "aimodels/data" }
 
 [project.optional-dependencies]
 dev = [
