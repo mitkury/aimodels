@@ -74,7 +74,9 @@ class Provider:
     apiUrl: Optional[str] = None
     apiDocsUrl: Optional[str] = None
     isLocal: Optional[int] = None
-    pricing: Dict[str, Dict[str, Any]] | None = None
+    # Use Optional[...] for Python 3.8/3.9 compatibility (PEP 604 '|' requires 3.10+)
+    from typing import Optional as _Optional  # local alias to avoid shadowing top-level Optional
+    pricing: _Optional[Dict[str, Dict[str, Any]]] = None
 
     @classmethod
     def from_sources(cls, org: Dict[str, Any], provider: Dict[str, Any]) -> "Provider":
@@ -339,13 +341,23 @@ class AIModels(ModelCollection):
         models = self._load_and_build_models()
         super().__init__(models)
 
-    def _project_root(self) -> Path:
-        # /workspace/python/src/aimodels/models.py -> project root is 3 levels up (.. to /workspace)
-        return Path(__file__).resolve().parents[3]
+    def _data_root(self) -> Path:
+        """Resolve data directory location.
+
+        Priority:
+        1. Packaged data under the installed module: aimodels/data
+        2. Repository root data directory (for local development/tests)
+        """
+        # 1) Packaged data directory next to this module
+        packaged = Path(__file__).resolve().parent / "data"
+        if packaged.exists():
+            return packaged
+        # 2) Repo root: three levels up from this file -> project root, then /data
+        repo_root = Path(__file__).resolve().parents[3]
+        return repo_root / "data"
 
     def _load_and_build_models(self) -> List[Model]:
-        root = self._project_root()
-        data_dir = root / "data"
+        data_dir = self._data_root()
         models_dir = data_dir / "models"
         providers_dir = data_dir / "providers"
         orgs_path = data_dir / "orgs.json"

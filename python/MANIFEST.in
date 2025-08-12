@@ -2,4 +2,6 @@ include ../LICENSE
 include README.md
 include CHANGELOG.md
 
-recursive-include data *.json 
+# Include the shared data directory from repo root when building sdist, and also package data under module
+recursive-include ../data *.json
+recursive-include src/aimodels/data *.json

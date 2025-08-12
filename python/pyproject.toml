@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "aimodels.dev"
-version = "0.3.12"
+version = "0.3.13"
 description = "A collection of AI model specifications across different providers"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -47,6 +47,7 @@ addopts = "-v"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/aimodels"]
+force-include = { "../data" = "aimodels/data" }
 
 [project.optional-dependencies]
 dev = [
