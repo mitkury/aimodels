@@ -1,9 +1,9 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ModelCollectionSchema } from './model.ts';
-import { ProviderSourceSchema } from './provider.ts';
-import { OrganizationsMapSchema } from './organization.ts';
+import { ModelCollectionSchema } from './model';
+import { ProviderSourceSchema } from './provider';
+import { OrganizationsMapSchema } from './organization';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = resolve(__filename, '..');
