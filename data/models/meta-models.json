@@ -2,6 +2,32 @@
   "creator": "meta",
   "models": [
     {
+      "id": "llama-4-scout",
+      "name": "Llama 4 Scout",
+      "license": "llama-4-community",
+      "providerIds": ["groq"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "reason"],
+      "context": {
+        "type": "token",
+        "total": 10000000,
+        "maxOutput": 65536
+      },
+      "aliases": ["llama-4-scout-2025-04", "llama-4-scout-latest"]
+    },
+    {
+      "id": "llama-4-maverick",
+      "name": "Llama 4 Maverick",
+      "license": "llama-4-community",
+      "providerIds": ["groq"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "reason"],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 65536
+      },
+      "aliases": ["llama-4-maverick-2025-04", "llama-4-maverick-latest"]
+    },
+    {
       "id": "llama3-70b-8192",
       "name": "Llama 3 70B",
       "license": "llama-3-community",
