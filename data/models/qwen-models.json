@@ -1,0 +1,57 @@
+{
+  "creator": "qwen",
+  "models": [
+    {
+      "id": "qwen-3-235b-instruct",
+      "name": "Qwen 3 235B Instruct",
+      "license": "apache-2.0",
+      "providerIds": ["qwen"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-3-235b", "qwen-3-235b-instruct-latest"]
+    },
+    {
+      "id": "qwen-3-72b-instruct",
+      "name": "Qwen 3 72B Instruct",
+      "license": "apache-2.0",
+      "providerIds": ["qwen"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-3-72b", "qwen-3-72b-instruct-latest"]
+    },
+    {
+      "id": "qwen-3-32b-instruct",
+      "name": "Qwen 3 32B Instruct",
+      "license": "apache-2.0",
+      "providerIds": ["qwen"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-3-32b", "qwen-3-32b-instruct-latest"]
+    },
+    {
+      "id": "qwen-3-7b-instruct",
+      "name": "Qwen 3 7B Instruct",
+      "license": "apache-2.0",
+      "providerIds": ["qwen"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-3-7b", "qwen-3-7b-instruct-latest"]
+    }
+  ]
+}

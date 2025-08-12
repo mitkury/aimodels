@@ -437,6 +437,28 @@
       "aliases": ["gpt-4.5-preview-2025-02-27"]
     },
     {
+      "id": "gpt-5",
+      "name": "GPT-5",
+      "license": "proprietary",
+      "providerIds": ["openai", "azure"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 400000,
+        "maxOutput": 65536
+      },
+      "aliases": ["gpt-5-2025-08-07", "gpt-5-latest"]
+    },
+    {
       "id": "whisper-1",
       "name": "Whisper",
       "license": "proprietary",
