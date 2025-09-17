@@ -459,6 +459,25 @@
       "aliases": ["gpt-5-2025-08-07", "gpt-5-latest"]
     },
     {
+      "id": "gpt-5-nano",
+      "name": "GPT-5 Nano",
+      "license": "proprietary",
+      "providerIds": ["openai"],
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 16384
+      },
+      "aliases": ["gpt-5-nano-latest"]
+    },
+    {
       "id": "whisper-1",
       "name": "Whisper",
       "license": "proprietary",
