@@ -366,17 +366,16 @@
         "google"
       ],
       "capabilities": [
+        "chat",
         "txt-in",
+        "txt-out",
         "img-in",
         "img-out"
       ],
       "context": {
-        "maxOutput": 1,
-        "sizes": [
-          "1024x1024",
-          "1792x1024",
-          "1024x1792"
-        ]
+        "type": "token",
+        "total": 32768,
+        "maxOutput": 8192
       },
       "aliases": [
         "nano-banana"
