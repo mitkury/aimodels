@@ -18,14 +18,14 @@ describe('Generated data file', () => {
 
   // Test popular models to ensure they have required fields
   describe('model data integrity', () => {
-    it('includes GPT-4 with correct properties', () => {
-      const gpt4 = models['gpt-4'] as Model;
-      expect(gpt4).toBeDefined();
-      expect(gpt4.id).toBe('gpt-4');
-      expect(gpt4.name).toBe('GPT-4');
-      expect(gpt4.providerIds).toContain('openai');
-      expect(gpt4.capabilities).toContain('chat');
-      expect(gpt4.context?.total).toBeGreaterThan(0);
+    it('includes GPT-5.1 with correct properties', () => {
+      const gpt51 = models['gpt-5.1'] as Model;
+      expect(gpt51).toBeDefined();
+      expect(gpt51.id).toBe('gpt-5.1');
+      expect(gpt51.name).toBe('GPT-5.1');
+      expect(gpt51.providerIds).toContain('openai');
+      expect(gpt51.capabilities).toContain('chat');
+      expect(gpt51.context?.total).toBeGreaterThan(0);
     });
 
     it('includes Claude 3 with correct properties', () => {

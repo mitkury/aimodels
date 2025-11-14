@@ -16,9 +16,9 @@ In short:
   - This reduces duplication and makes maintenance easier
 
 **Model IDs and Aliases**
-  - Use the exact model ID as provided by the creator (e.g., `gpt-4o`)
+  - Use the exact model ID as provided by the creator (e.g., `gpt-5.1`)
   - If the creator is also a provider, the ID of the model must work in the API for inference. E.g Anthropic allows `claude-3-7-sonnet-20250219` but not `claude-3-7-sonnet` when using its API.
-  - Add the latest stable snapshot/version as an alias to the base model (e.g., `gpt-4o-2024-08-06` and `gpt-4o-latest` for `gpt-4o` in early 2025)
+  - Add the latest stable snapshot/version as an alias to the base model (e.g., `gpt-5.1-2025-11-01` and `gpt-5.1-latest` for `gpt-5.1` in late 2025)
   - Place aliases in the `aliases` array
 
 ## Reasoning Capabilities

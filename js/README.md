@@ -30,10 +30,10 @@ console.log(`Available chat models: ${chatModels.length}`);
 // 2. Find all chat models with vision capabilities from OpenAI
 const visionModelsFromOpenAI = models.canChat().canSee().fromProvider('openai');
 console.log(visionModelsFromOpenAI.map(model => model.name));
-// Example output: ["GPT-4o", "GPT-4 Vision", ...]
+// Example output: ["GPT-5", "GPT-5.1", ...]
 
 // 3. Check if a specific model can process images
-const model = models.id('gpt-4o');
+const model = models.id('gpt-5.1');
 if (model?.canSee()) {
   console.log(`${model.name} can process images`);
   // Enable image upload in your UI
@@ -107,8 +107,8 @@ function trimChatHistory(messages, model, reserveTokens = 500) {
 
 // Example usage
 const chatHistory = [/* array of message objects */];
-const gpt4 = models.id('gpt-4');
-const fittedMessages = trimChatHistory(chatHistory, gpt4);
+const gpt5 = models.id('gpt-5.1');
+const fittedMessages = trimChatHistory(chatHistory, gpt5);
 ```
 
 ### Available API Methods
@@ -135,7 +135,7 @@ models.fromCreator('meta')     // Find models by creator
 models.withMinContext(32768)   // Find models with at least this context size
 
 // Model lookup
-models.id('gpt-4o')            // Find a specific model by ID
+models.id('gpt-5.1')           // Find a specific model by ID
 ```
 
 ## Features
