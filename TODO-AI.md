@@ -10,6 +10,7 @@ Learn from the user about their project, get the idea of what they want to make
 - Created: 2025-02-13
 - I (AI) will maintain this document as we work together
 - My current focus: Understanding and working on the active task
+- 2025-11-14: Added the first AIWrapper chat smoke tests (openai, openrouter, anthropic) so we can verify providers with real prompts using aimodels data
 
 ## Task History
 - Initial task: Learn from the user about their project, get the idea of what they want to make
