@@ -374,8 +374,8 @@
       ],
       "context": {
         "type": "token",
-        "total": 32768,
-        "maxOutput": 8192
+        "total": 1048576,
+        "maxOutput": 65535
       },
       "aliases": [
         "nano-banana"
