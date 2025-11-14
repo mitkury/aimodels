@@ -13,7 +13,7 @@
         "maxOutput": 131072
       },
       "aliases": ["grok-3", "grok-3-latest"],
-      "releasedAt": "2025-04-03"
+      "releasedAt": "2025-02-18"
     },
     {
       "id": "grok-3-fast-beta",
@@ -26,7 +26,7 @@
         "total": 131072,
         "maxOutput": 131072
       },
-      "releasedAt": "2025-04-03"
+      "releasedAt": "2025-02-18"
     },
     {
       "id": "grok-3-mini-beta",
@@ -40,7 +40,7 @@
         "maxOutput": 131072
       },
       "aliases": ["grok-3-mini", "grok-3-mini-latest"],
-      "releasedAt": "2025-04-03"
+      "releasedAt": "2025-02-18"
     },
     {
       "id": "grok-3-mini-fast-beta",
@@ -53,7 +53,7 @@
         "total": 131072,
         "maxOutput": 131072
       },
-      "releasedAt": "2025-04-03"
+      "releasedAt": "2025-02-18"
     },
     {
       "id": "grok-2-vision-1212",
@@ -112,7 +112,7 @@
       "name": "Grok 4",
       "creator": "xai",
       "license": "proprietary",
-      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
         "total": 131072,
@@ -125,7 +125,7 @@
       "name": "Grok 4 Heavy",
       "creator": "xai",
       "license": "proprietary",
-      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
         "total": 131072,
