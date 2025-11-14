@@ -135,6 +135,8 @@ class Provider:
     apiDocsUrl: Optional[str] = None
     isLocal: Optional[int] = None
     pricing: Dict[str, Dict[str, Any]] | None = None
+    # Optional model mappings describing which creators' models this provider exposes
+    models: List[Dict[str, Any]] | None = None
 ```
 
 ## License

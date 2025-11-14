@@ -1,8 +1,29 @@
 """
 Basic tests for the aimodels package (Python).
+
+These tests are intended to run against the local source in this repository,
+not any globally installed `aimodels` package. We explicitly add the `src`
+directory to `sys.path` so that `import aimodels` resolves to the local code.
 """
 
-from aimodels import models, __version__
+from pathlib import Path
+import sys
+import importlib.util
+
+# Ensure local src/aimodels is imported instead of any globally installed package
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+PKG_ROOT = SRC / "aimodels"
+
+# Manually load the local aimodels package and register it in sys.modules
+spec = importlib.util.spec_from_file_location("aimodels", PKG_ROOT / "__init__.py")
+assert spec is not None and spec.loader is not None
+aimodels = importlib.util.module_from_spec(spec)
+sys.modules["aimodels"] = aimodels
+spec.loader.exec_module(aimodels)  # type: ignore[assignment]
+
+models = aimodels.models
+__version__ = aimodels.__version__
 
 
 def test_version():

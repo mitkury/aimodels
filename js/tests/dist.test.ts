@@ -23,7 +23,6 @@ describe('Generated data file', () => {
       expect(gpt51).toBeDefined();
       expect(gpt51.id).toBe('gpt-5.1');
       expect(gpt51.name).toBe('GPT-5.1');
-      expect(gpt51.providerIds).toContain('openai');
       expect(gpt51.capabilities).toContain('chat');
       expect(gpt51.context?.total).toBeGreaterThan(0);
     });
@@ -34,7 +33,6 @@ describe('Generated data file', () => {
       ) as Model;
       
       expect(claude).toBeDefined();
-      expect(claude.providerIds).toContain('anthropic');
       expect(claude.capabilities).toContain('chat');
     });
   });
