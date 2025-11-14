@@ -3,34 +3,5 @@
   "name": "Groq",
   "apiUrl": "https://api.groq.com/openai/v1",
   "apiDocsUrl": "https://console.groq.com/docs/api-reference",
-  "pricing": {
-    "llama3-70b-8192": {
-      "type": "token",
-      "input": 0.7,
-      "output": 0.7
-    },
-    "llama3-8b-8192": {
-      "type": "token",
-      "input": 0.1,
-      "output": 0.1
-    },
-    "mixtral-8x7b-32768": {
-      "type": "token",
-      "input": 0.5,
-      "output": 0.5
-    },
-    "gemma2-9b-it": {
-      "type": "token",
-      "input": 0.2,
-      "output": 0.2
-    },
-    "whisper-large-v3": {
-      "type": "minute",
-      "price": 0.006
-    },
-    "whisper-large-v3-turbo": {
-      "type": "minute",
-      "price": 0.006
-    }
-  }
+  "pricing": {}
 }

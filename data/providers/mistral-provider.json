@@ -3,16 +3,5 @@
   "name": "Mistral",
   "apiUrl": "https://api.mistral.ai/v1",
   "apiDocsUrl": "https://docs.mistral.ai/",
-  "pricing": {
-    "mixtral-8x7b-32768": {
-      "type": "token",
-      "input": 0.7,
-      "output": 0.7
-    },
-    "mistral-large-latest": {
-      "type": "token",
-      "input": 0.7,
-      "output": 0.7
-    }
-  }
+  "pricing": {}
 }

@@ -3,16 +3,5 @@
   "name": "DeepSeek",
   "apiUrl": "https://api.deepseek.com/v1",
   "apiDocsUrl": "https://platform.deepseek.com/docs",
-  "pricing": {
-    "deepseek-chat": {
-      "type": "token",
-      "input": 0.2,
-      "output": 0.2
-    },
-    "deepseek-reasoner": {
-      "type": "token",
-      "input": 0.3,
-      "output": 0.3
-    }
-  }
+  "pricing": {}
 }

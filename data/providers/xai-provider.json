@@ -3,46 +3,5 @@
   "name": "X.AI",
   "apiUrl": "https://x.ai/api",
   "apiDocsUrl": "https://x.ai/docs",
-  "pricing": {
-    "grok-3-beta": {
-      "type": "token",
-      "input": 2.0,
-      "output": 10.0
-    },
-    "grok-3-fast-beta": {
-      "type": "token",
-      "input": 2.0,
-      "output": 10.0
-    },
-    "grok-3-mini-beta": {
-      "type": "token",
-      "input": 1.0,
-      "output": 5.0
-    },
-    "grok-3-mini-fast-beta": {
-      "type": "token",
-      "input": 1.0,
-      "output": 5.0
-    },
-    "grok-2-vision-1212": {
-      "type": "token",
-      "input": 2.0,
-      "output": 10.0
-    },
-    "grok-2-1212": {
-      "type": "token",
-      "input": 2.0,
-      "output": 10.0
-    },
-    "grok-vision-beta": {
-      "type": "token",
-      "input": 5.0,
-      "output": 15.0
-    },
-    "grok-beta": {
-      "type": "token",
-      "input": 5.0,
-      "output": 15.0
-    }
-  }
+  "pricing": {}
 } 

@@ -3,11 +3,5 @@
   "name": "Oracle Cloud",
   "apiUrl": "https://ai.oraclecloud.com",
   "apiDocsUrl": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/overview.htm",
-  "pricing": {
-    "command-r-plus-08-2024": {
-      "type": "token",
-      "input": 0.015,
-      "output": 0.075
-    }
-  }
+  "pricing": {}
 } 

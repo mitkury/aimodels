@@ -3,51 +3,5 @@
   "name": "Azure",
   "apiUrl": "",
   "apiDocsUrl": "https://learn.microsoft.com/en-us/azure/ai-services/openai/reference",
-  "pricing": {
-    "gpt-4": {
-      "type": "token",
-      "input": 0,
-      "output": 0
-    },
-    "gpt-4-32k": {
-      "type": "token",
-      "input": 0,
-      "output": 0
-    },
-    "gpt-4-vision": {
-      "type": "token",
-      "input": 0,
-      "output": 0
-    },
-    "gpt-4o": {
-      "type": "token",
-      "input": 0,
-      "output": 0
-    },
-    "gpt-3.5-turbo": {
-      "type": "token",
-      "input": 0,
-      "output": 0
-    },
-    "gpt-3.5-turbo-16k": {
-      "type": "token",
-      "input": 0,
-      "output": 0
-    },
-    "text-embedding-ada-002": {
-      "type": "token",
-      "input": 0,
-      "output": 0
-    },
-    "whisper": {
-      "type": "minute",
-      "price": 0
-    },
-    "dall-e-3": {
-      "type": "image",
-      "price": 0,
-      "size": "1024x1024",
-      "unit": "per_image"
-    }
-  }
+  "pricing": {}
 } 

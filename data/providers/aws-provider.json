@@ -3,11 +3,5 @@
   "name": "Amazon Web Services",
   "apiUrl": "https://bedrock-runtime.us-east-1.amazonaws.com",
   "apiDocsUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-  "pricing": {
-    "claude-3-opus-20240229": {
-      "type": "token",
-      "input": 0.015,
-      "output": 0.075
-    }
-  }
+  "pricing": {}
 } 
