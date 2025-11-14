@@ -37,17 +37,20 @@ meta_models = models.from_creator("meta")
 large_context_models = models.with_min_context(32768)
 
 # Find specific model
-model = models.id("gpt-4")
+model = models.id("gpt-5.1")
 print(model.context.total)  # Context window size
 print(model.providers)  # ['openai']
 
 # Get pricing information (via provider pricing table)
 provider = models.get_provider("openai")
 if provider and provider.pricing:
-    pricing = provider.pricing.get("gpt-4")
+    # Prefer the exact model ID, but gracefully fall back to the base GPT-5 listing
+    pricing = provider.pricing.get(model.id) or provider.pricing.get("gpt-5")
     if isinstance(pricing, dict) and pricing.get("type") == "token":
         print(f"Input: ${pricing['input']}/1M tokens")
         print(f"Output: ${pricing['output']}/1M tokens")
+    else:
+        print("Pricing data for GPT-5 era models is not yet available.")
 
 # Get provider information
 if provider:

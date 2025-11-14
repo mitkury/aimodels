@@ -45,7 +45,7 @@ describe('aimodels package', () => {
     const chatModels = models.canChat();
     const multimodalModels = models.canChat().canSee();
     const openaiModels = models.fromProvider('openai');
-    const model = models.id('gpt-4');
+    const model = models.id('gpt-5.1');
     
     // Just verify the calls return results in expected format
     expect(Array.isArray(chatModels)).toBe(true);

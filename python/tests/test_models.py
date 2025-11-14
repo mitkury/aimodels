@@ -60,10 +60,10 @@ def test_with_min_context():
 
 
 def test_find_specific_model():
-    gpt4 = models.id("gpt-4")
-    assert gpt4 is not None
-    assert gpt4.id == "gpt-4"
-    assert "openai" in gpt4.providers
+    gpt51 = models.id("gpt-5.1")
+    assert gpt51 is not None
+    assert gpt51.id == "gpt-5.1"
+    assert "openai" in gpt51.providers
 
 
 def test_providers_api_and_data():
