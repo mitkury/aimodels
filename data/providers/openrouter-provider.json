@@ -1,0 +1,23 @@
+{
+  "id": "openrouter",
+  "name": "OpenRouter",
+  "apiUrl": "https://openrouter.ai/api/v1",
+  "apiDocsUrl": "https://openrouter.ai/docs/api",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "openai",
+      "include": "all"
+    },
+    {
+      "creator": "anthropic",
+      "include": "all"
+    },
+    {
+      "creator": "google",
+      "include": "all"
+    }
+  ]
+}
+
+

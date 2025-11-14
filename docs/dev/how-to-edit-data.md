@@ -21,6 +21,42 @@ In short:
   - Add the latest stable snapshot/version as an alias to the base model (e.g., `gpt-5.1-2025-11-01` and `gpt-5.1-latest` for `gpt-5.1` in late 2025)
   - Place aliases in the `aliases` array
 
+## Provider Model Mappings
+
+Provider JSON files in `data/providers/` describe *how* models are exposed by each provider.
+
+- Keep canonical model definitions in `data/models/*.json` (one file per creator).
+- Do **not** encode where a model is served in the model JSON itself (avoid `providerIds`).
+- Use provider files to describe which creators' models each provider exposes.
+- Aggregator providers (like `openrouter`) should use the optional `models` array to reference creators instead of duplicating model data.
+
+Each `models` entry in a provider file has this shape:
+
+```json
+{
+  "creator": "openai",
+  "include": "all",
+  "exclude": ["gpt-4o-2024-08-06"]
+}
+```
+
+- `creator`: the ID from the `creator` field in the corresponding `*-models.json` file (and `orgs.json`).
+- `include`: `"all"` to include all models from this creator, or an explicit array of model IDs.
+- `exclude` (optional): model IDs to omit when `include` is `"all"`.
+
+Example (`data/providers/openrouter-provider.json`):
+
+```json
+{
+  "id": "openrouter",
+  "models": [
+    { "creator": "openai", "include": "all" },
+    { "creator": "anthropic", "include": "all" },
+    { "creator": "google", "include": "all" }
+  ]
+}
+```
+
 ## Reasoning Capabilities
 When specifying reasoning capabilities:
 - Use `reason` capability for models that are trained to "think" before giving the final answer. It's when models dynamically increase their reasoning time during inference. This means they can spend more time thinking about complex questions, improving accuracy at the cost of higher compute usage.

@@ -1,11 +1,21 @@
 import { z } from 'zod';
 import { PricingEntrySchema } from './pricing';
 
+const ProviderModelsEntrySchema = z.object({
+  creator: z.string(),
+  include: z.union([
+    z.literal('all'),
+    z.array(z.string()),
+  ]),
+  exclude: z.array(z.string()).optional(),
+});
+
 export const ProviderSourceSchema = z.object({
   id: z.string(),
   apiUrl: z.string().url().or(z.string().length(0)).optional(),
   apiDocsUrl: z.string().url().optional(),
   pricing: z.record(z.string(), PricingEntrySchema).default({}),
+  models: z.array(ProviderModelsEntrySchema).optional(),
 });
 
 export const ProviderSchema = ProviderSourceSchema.extend({

@@ -82,5 +82,11 @@
     "websiteUrl": "https://www.oracle.com/cloud/ai-services",
     "country": "USA",
     "founded": 1977
+  },
+  "openrouter": {
+    "name": "OpenRouter",
+    "websiteUrl": "https://openrouter.ai",
+    "country": "USA",
+    "founded": 2023
   }
 }

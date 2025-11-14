@@ -45,6 +45,42 @@
           }
         }
       }
+    },
+    "models": {
+      "type": "array",
+      "description": "Model mappings describing which creators' models this provider exposes",
+      "items": {
+        "type": "object",
+        "required": ["creator", "include"],
+        "properties": {
+          "creator": {
+            "type": "string",
+            "description": "ID of the creator whose models are referenced (e.g. 'openai')"
+          },
+          "include": {
+            "description": "Either 'all' to include all models from this creator, or an explicit list of model IDs",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": ["all"]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "exclude": {
+            "type": "array",
+            "description": "Optional list of model IDs from this creator to exclude when include is 'all'",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   }
 } 
