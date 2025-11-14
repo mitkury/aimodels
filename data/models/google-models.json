@@ -359,6 +359,30 @@
       }
     },
     {
+      "id": "gemini-2.5-flash-image",
+      "name": "Gemini 2.5 Flash Image (Nano Banana)",
+      "license": "proprietary",
+      "providerIds": [
+        "google"
+      ],
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1024x1024",
+          "1792x1024",
+          "1024x1792"
+        ]
+      },
+      "aliases": [
+        "nano-banana"
+      ]
+    },
+    {
       "id": "imagen-3.0-generate-002",
       "name": "Imagen 3.0",
       "license": "proprietary",
