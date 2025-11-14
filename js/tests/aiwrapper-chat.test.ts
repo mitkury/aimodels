@@ -1,5 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
-import type { Model } from '../src/types/model.js';
+import { describe, it, vi } from 'vitest';
 import type { LanguageProvider } from 'aiwrapper';
 
 /**
@@ -30,6 +29,8 @@ const OPENROUTER_SITE_NAME = process.env.OPENROUTER_SITE_NAME ?? 'aimodels smoke
 
 const IGNORED_MODEL_IDS = new Set<string>(['computer-use-preview-2025-03-11']);
 
+const PROVIDER_FILTERS = getProviderFilters();
+
 const providerConfigs: ProviderTestConfig[] = [
   {
     id: 'openai',
@@ -38,7 +39,6 @@ const providerConfigs: ProviderTestConfig[] = [
       Lang.openai({
         apiKey,
         model: modelId,
-        maxTokens: 64,
         systemPrompt: SYSTEM_PROMPT
       })
   },
@@ -63,7 +63,6 @@ const providerConfigs: ProviderTestConfig[] = [
       Lang.anthropic({
         apiKey,
         model: modelId,
-        maxTokens: 64,
         systemPrompt: SYSTEM_PROMPT
       })
   }
@@ -74,6 +73,11 @@ describe('AIWrapper chat smoke tests', () => {
     const title = `${provider.id} chat models respond with "hey"`;
     const apiKey = process.env[provider.envVar];
     const chatModels = getChatModels(provider.id);
+
+    if (PROVIDER_FILTERS.length > 0 && !PROVIDER_FILTERS.includes(provider.id)) {
+      it.skip(`${title} (skipped by PROVIDERS filter)`, () => {});
+      continue;
+    }
 
     if (!apiKey) {
       it.skip(`${title} (set ${provider.envVar} to enable)`, () => {});
@@ -132,12 +136,31 @@ function computeTimeout(modelCount: number): number {
   return Math.max(15_000, modelCount * TIMEOUT_PER_MODEL_MS);
 }
 
-function getChatModels(providerId: ProviderId): Model[] {
+function getChatModels(providerId: ProviderId) {
   const chatModels = models.fromProvider(providerId).can('chat');
   return Array.from(chatModels).filter(model => !IGNORED_MODEL_IDS.has(model.id));
 }
 
-async function expectModelToRespond(provider: ProviderTestConfig, apiKey: string, model: Model): Promise<void> {
+function getProviderFilters(): ProviderId[] {
+  const envProviders = process.env.PROVIDERS;
+  if (!envProviders) {
+    return [];
+  }
+
+  const parsed = envProviders
+    .split(',')
+    .map(provider => provider.trim().toLowerCase())
+    .filter(Boolean) as ProviderId[];
+
+  // Deduplicate while preserving order
+  return Array.from(new Set(parsed));
+}
+
+async function expectModelToRespond(
+  provider: ProviderTestConfig,
+  apiKey: string,
+  model: { id: string }
+): Promise<void> {
   const client = provider.createClient(apiKey, model.id);
   const response = await client.ask(TEST_PROMPT);
   const answer = response.answer?.trim().toLowerCase() ?? '';
