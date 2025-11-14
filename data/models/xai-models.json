@@ -6,7 +6,6 @@
       "name": "Grok 3 Beta",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -21,7 +20,6 @@
       "name": "Grok 3 Beta (Fast mode)",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -35,7 +33,6 @@
       "name": "Grok 3 Mini Beta",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -50,7 +47,6 @@
       "name": "Grok 3 Mini Beta (Fast mode)",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -64,7 +60,6 @@
       "name": "Grok 2 Vision",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -79,7 +74,6 @@
       "name": "Grok 2",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -94,7 +88,6 @@
       "name": "Grok Vision Beta",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -107,7 +100,6 @@
       "name": "Grok Beta",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -120,7 +112,6 @@
       "name": "Grok 4",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
@@ -134,7 +125,6 @@
       "name": "Grok 4 Heavy",
       "creator": "xai",
       "license": "proprietary",
-      "providerIds": ["xai"],
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",

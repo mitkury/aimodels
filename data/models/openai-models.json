@@ -5,10 +5,6 @@
       "id": "gpt-5",
       "name": "GPT-5",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -33,10 +29,6 @@
       "id": "gpt-5.1",
       "name": "GPT-5.1",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -61,10 +53,6 @@
       "id": "gpt-4o",
       "name": "GPT-4o",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -87,9 +75,6 @@
       "id": "gpt-5-nano",
       "name": "GPT-5 Nano",
       "license": "proprietary",
-      "providerIds": [
-        "openai"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -110,10 +95,6 @@
       "id": "gpt-5-mini",
       "name": "GPT-5 Mini",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -134,10 +115,6 @@
       "id": "whisper-1",
       "name": "Whisper",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "audio-in",
         "txt-out"
@@ -152,10 +129,6 @@
       "id": "tts-1",
       "name": "TTS-1",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "audio-out"
@@ -177,10 +150,6 @@
       "id": "dall-e-2",
       "name": "DALL-E 2",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "img-out"
@@ -201,10 +170,6 @@
       "id": "dall-e-3",
       "name": "DALL-E 3",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "img-out"
@@ -226,10 +191,6 @@
       "id": "text-embedding-ada-002",
       "name": "Text Embedding Ada 002",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "vec-out"
@@ -247,10 +208,6 @@
       "id": "text-embedding-3-small",
       "name": "Text Embedding 3 Small",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "vec-out"
@@ -268,10 +225,6 @@
       "id": "text-embedding-3-large",
       "name": "Text Embedding 3 Large",
       "license": "proprietary",
-      "providerIds": [
-        "openai",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "vec-out"
@@ -289,9 +242,6 @@
       "id": "o4-mini",
       "name": "OpenAI o4 Mini",
       "license": "proprietary",
-      "providerIds": [
-        "openai"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -311,9 +261,6 @@
       "id": "o4-mini-2025-04-16",
       "name": "OpenAI o4 Mini",
       "license": "proprietary",
-      "providerIds": [
-        "openai"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -335,9 +282,6 @@
       "id": "computer-use-preview-2025-03-11",
       "name": "Computer Use Preview",
       "license": "proprietary",
-      "providerIds": [
-        "openai"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -359,9 +303,6 @@
       "id": "gpt-image-1",
       "name": "GPT Image 1",
       "license": "proprietary",
-      "providerIds": [
-        "openai"
-      ],
       "capabilities": [
         "img-in",
         "img-out"
@@ -383,9 +324,6 @@
       "id": "omni-moderation-2024-09-26",
       "name": "Omni Moderation",
       "license": "proprietary",
-      "providerIds": [
-        "openai"
-      ],
       "capabilities": [
         "txt-in",
         "img-in",

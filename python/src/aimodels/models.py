@@ -64,6 +64,16 @@ class TokenPrice:
     output: float = 0.0
 
 @dataclass
+class ProviderModelsEntry:
+    """Mapping entry describing which creators' models a provider exposes."""
+    creator: str
+    # Either "all" to include all models from this creator, or an explicit list of model IDs
+    include: Union[str, List[str]]
+    # Optional list of model IDs to exclude when include is "all"
+    exclude: Optional[List[str]] = None
+
+
+@dataclass
 class Provider:
     """Provider information (merged with organization fields to match JS Provider)."""
     id: str
@@ -77,6 +87,8 @@ class Provider:
     # Use Optional[...] for Python 3.8/3.9 compatibility (PEP 604 '|' requires 3.10+)
     from typing import Optional as _Optional  # local alias to avoid shadowing top-level Optional
     pricing: _Optional[Dict[str, Dict[str, Any]]] = None
+    # Optional model mappings describing which creators' models this provider exposes
+    models: Optional[List[ProviderModelsEntry]] = None
 
     @classmethod
     def from_sources(cls, org: Dict[str, Any], provider: Dict[str, Any]) -> "Provider":
@@ -145,7 +157,30 @@ class Model:
 
     @property
     def providerIds(self) -> List[str]:
-        return list(self._resolve("providerIds", []))
+        ids: Set[str] = set()
+        creator_id = self.creatorId
+
+        # Native provider: provider with the same id as the creator (if it exists)
+        if creator_id and creator_id in AIModels.providers_data:
+            ids.add(creator_id)
+
+        # Providers that declare model mappings in their own config (e.g. aggregators like openrouter)
+        for provider_id, provider in AIModels.providers_data.items():
+            entries = provider.get("models") or []
+            for entry in entries:
+                if entry.get("creator") != creator_id:
+                    continue
+
+                include = entry.get("include")
+                exclude = entry.get("exclude") or []
+
+                if include == "all":
+                    if self.id not in exclude:
+                        ids.add(provider_id)
+                elif isinstance(include, list) and self.id in include:
+                    ids.add(provider_id)
+
+        return sorted(ids)
 
     @property
     def creatorId(self) -> Optional[str]:

@@ -6,9 +6,6 @@
       "name": "Command A",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -27,9 +24,6 @@
       "name": "Command R7B",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -48,10 +42,6 @@
       "name": "Command R+ (April 2024)",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "azure"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -73,12 +63,6 @@
       "name": "Command R+",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "bedrock",
-        "azure",
-        "oracle"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -100,9 +84,6 @@
       "name": "Command R (August 2024)",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -121,12 +102,6 @@
       "name": "Command R",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "bedrock",
-        "azure",
-        "oracle"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -148,9 +123,6 @@
       "name": "Command Nightly",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -169,11 +141,6 @@
       "name": "Command",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "bedrock",
-        "oracle"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -190,11 +157,6 @@
       "name": "Command Light",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "bedrock",
-        "oracle"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -211,12 +173,6 @@
       "name": "Embed English v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "bedrock",
-        "azure",
-        "oracle"
-      ],
       "capabilities": [
         "txt-in",
         "img-in",
@@ -233,10 +189,6 @@
       "name": "Embed English Light v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "oracle"
-      ],
       "capabilities": [
         "txt-in",
         "img-in",
@@ -253,12 +205,6 @@
       "name": "Embed Multilingual v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "bedrock",
-        "azure",
-        "oracle"
-      ],
       "capabilities": [
         "txt-in",
         "img-in",
@@ -275,10 +221,6 @@
       "name": "Embed Multilingual Light v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "oracle"
-      ],
       "capabilities": [
         "txt-in",
         "img-in",
@@ -295,11 +237,6 @@
       "name": "Rerank v3.5",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "bedrock",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "txt-out"
@@ -315,10 +252,6 @@
       "name": "Rerank English v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "txt-out"
@@ -334,10 +267,6 @@
       "name": "Rerank Multilingual v3.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "azure"
-      ],
       "capabilities": [
         "txt-in",
         "txt-out"
@@ -353,9 +282,6 @@
       "name": "Embed English v2.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "txt-in",
         "vec-out"
@@ -373,10 +299,6 @@
       "name": "Embed English Light v2.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere",
-        "oracle"
-      ],
       "capabilities": [
         "txt-in",
         "vec-out"
@@ -394,9 +316,6 @@
       "name": "Embed Multilingual v2.0",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "txt-in",
         "vec-out"
@@ -414,9 +333,6 @@
       "name": "Aya Expanse 8B",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -433,9 +349,6 @@
       "name": "Aya Expanse 32B",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -452,9 +365,6 @@
       "name": "Aya Vision 8B",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -472,9 +382,6 @@
       "name": "Aya Vision 32B",
       "creator": "cohere",
       "license": "proprietary",
-      "providerIds": [
-        "cohere"
-      ],
       "capabilities": [
         "chat",
         "txt-in",

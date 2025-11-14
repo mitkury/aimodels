@@ -84,7 +84,33 @@ export class Model {
   
   // Getters for related objects
   get providerIds(): string[] {
-    return this.resolveProperty<string[]>('providerIds') || [];
+    const ids = new Set<string>();
+    const creatorId = this.creatorId;
+
+    // Native provider: provider with the same id as the creator
+    if (creatorId && ModelCollection.providersData[creatorId]) {
+      ids.add(creatorId);
+    }
+
+    // Providers that declare model mappings in their own config (e.g. aggregators like openrouter)
+    for (const [providerId, provider] of Object.entries(ModelCollection.providersData)) {
+      const entries = provider.models;
+      if (!entries) continue;
+
+      for (const entry of entries) {
+        if (entry.creator !== creatorId) continue;
+
+        if (entry.include === 'all') {
+          if (!entry.exclude || !entry.exclude.includes(this.id)) {
+            ids.add(providerId);
+          }
+        } else if (Array.isArray(entry.include) && entry.include.includes(this.id)) {
+          ids.add(providerId);
+        }
+      }
+    }
+
+    return Array.from(ids);
   }
   
   get providers(): Provider[] {

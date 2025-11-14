@@ -32,12 +32,13 @@ export const ModelSourceSchema = z.object({
 export const ValidatedModelSchema = ModelSourceSchema.refine(
   (data) => {
     if (!data.extends) {
-      return Boolean(data.name && data.providerIds && data.capabilities && data.context);
+      // Base models must define core descriptive fields, but no longer need providerIds
+      return Boolean(data.name && data.capabilities && data.context);
     }
     return true;
   },
   {
-    message: "Base models (without 'extends') must include name, providerIds, capabilities, and context",
+    message: "Base models (without 'extends') must include name, capabilities, and context",
     path: ['extends'],
   }
 );

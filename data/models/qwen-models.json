@@ -5,7 +5,6 @@
       "id": "qwen-3-235b-instruct",
       "name": "Qwen 3 235B Instruct",
       "license": "apache-2.0",
-      "providerIds": ["qwen"],
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
       "context": {
         "type": "token",
@@ -18,7 +17,6 @@
       "id": "qwen-3-72b-instruct",
       "name": "Qwen 3 72B Instruct",
       "license": "apache-2.0",
-      "providerIds": ["qwen"],
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
       "context": {
         "type": "token",
@@ -31,7 +29,6 @@
       "id": "qwen-3-32b-instruct",
       "name": "Qwen 3 32B Instruct",
       "license": "apache-2.0",
-      "providerIds": ["qwen"],
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
       "context": {
         "type": "token",
@@ -44,7 +41,6 @@
       "id": "qwen-3-7b-instruct",
       "name": "Qwen 3 7B Instruct",
       "license": "apache-2.0",
-      "providerIds": ["qwen"],
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
       "context": {
         "type": "token",

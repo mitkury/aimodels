@@ -5,11 +5,6 @@
       "id": "claude-opus-4-20250514",
       "name": "Claude Opus 4",
       "license": "proprietary",
-      "providerIds": [
-        "anthropic",
-        "aws",
-        "google"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -32,11 +27,6 @@
       "id": "claude-sonnet-4-20250514",
       "name": "Claude Sonnet 4",
       "license": "proprietary",
-      "providerIds": [
-        "anthropic",
-        "aws",
-        "google"
-      ],
       "capabilities": [
         "chat",
         "txt-in",
@@ -59,11 +49,6 @@
       "id": "claude-3-7-sonnet-20250219",
       "name": "Claude 3.7 Sonnet",
       "license": "proprietary",
-      "providerIds": [
-        "anthropic",
-        "aws",
-        "google"
-      ],
       "capabilities": [
         "chat",
         "txt-in",

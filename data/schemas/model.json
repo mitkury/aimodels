@@ -222,7 +222,7 @@
       },
       "allOf": [
         {
-          "description": "Conditional validation: Base models (those without an 'extends' property) must include all core properties, while models that extend others only need to specify what they're overriding.",
+          "description": "Conditional validation: Base models (those without an 'extends' property) must include all core descriptive properties, while models that extend others only need to specify what they're overriding. Provider relationships are defined in provider files, not model definitions.",
           "if": {
             "not": {
               "properties": {
@@ -232,7 +232,7 @@
             }
           },
           "then": {
-            "required": ["id", "name", "providerIds", "capabilities", "context"]
+            "required": ["id", "name", "capabilities", "context"]
           }
         }
       ]
