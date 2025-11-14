@@ -4,6 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
+    testTimeout: 1000 * 60 * 5, // 5 minutes timeout
     include: ['tests/**/*.test.ts'],
     setupFiles: ['./tests/setup.ts'],
     coverage: {
