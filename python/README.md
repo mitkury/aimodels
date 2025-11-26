@@ -66,9 +66,6 @@ if provider:
 - Model capabilities (chat, img-in, img-out, function-out, etc.)
 - Context window information
 - Creator and provider associations
-- Type hints with full type safety
-- Zero dependencies
-- Regular updates with new models
 
 ## Types
 

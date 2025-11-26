@@ -9,7 +9,7 @@ aimodels is useful when you need to programmatically access info about AI models
 aimodels powers: 
 - [aimodels.dev](https://aimodels.dev) - a website about AI models
 - [aiwrapper](https://github.com/mitkury/aiwrapper) - an AI wrapper for running AI models
-- [Supa](https://github.com/supaorg/supa) - an open alternative to ChatGPT
+- [Sila](https://github.com/silaorg/sila) - an open alternative to ChatGPT
 
 ## Installation
 
@@ -55,60 +55,6 @@ function renderModelControls(model) {
   };
 }
 
-// 4. Make decisions based on context window size
-function selectModelBasedOnInputLength(inputTokens) {
-  // Find models that can handle your content's size
-  const suitableModels = models.canChat().filter(model => 
-    (model.context.total || 0) >= inputTokens
-  );
-  
-  // Sort by context window size (smallest suitable model first)
-  return suitableModels.sort((a, b) => 
-    (a.context.total || 0) - (b.context.total || 0)
-  )[0];
-}
-
-const contentLength = 10000; // tokens
-const recommendedModel = selectModelBasedOnInputLength(contentLength);
-console.log(`Recommended model: ${recommendedModel?.name}`);
-
-// 5. Utility function to trim chat messages to fit a model's context window
-function trimChatHistory(messages, model, reserveTokens = 500) {
-  // Only proceed if we have a valid model with a context window
-  if (!model || !model.context?.total) {
-    console.warn('Invalid model or missing context window information');
-    return messages;
-  }
-  
-  const contextWindow = model.context.total;
-  let totalTokens = 0;
-  const availableTokens = contextWindow - reserveTokens;
-  const trimmedMessages = [];
-  
-  // This is a simplified token counting approach
-  // In production, you may use a proper tokenizer for your model
-  for (const msg of messages.reverse()) {
-    // If the model can't process images, remove any image attachments
-    if (!model.canSee() && msg.attachments?.some(a => a.type === 'image')) {
-      msg.attachments = msg.attachments.filter(a => a.type !== 'image');
-    }
-    
-    const estimatedTokens = JSON.stringify(msg).length / 4;
-    if (totalTokens + estimatedTokens <= availableTokens) {
-      trimmedMessages.unshift(msg);
-      totalTokens += estimatedTokens;
-    } else {
-      break;
-    }
-  }
-  
-  return trimmedMessages;
-}
-
-// Example usage
-const chatHistory = [/* array of message objects */];
-const gpt5 = models.id('gpt-5.1');
-const fittedMessages = trimChatHistory(chatHistory, gpt5);
 ```
 
 ### Available API Methods

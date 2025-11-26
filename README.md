@@ -19,24 +19,20 @@ aimodels/
 ## Available Packages
 
 ### JavaScript/TypeScript Package
-Universal JavaScript implementation with TypeScript support:
-- [Documentation](js/README.md)
 - [NPM Package](https://www.npmjs.com/package/aimodels)
+- [Documentation](js/README.md)
 
 ### Python Package
-The Python implementation with type hints:
-- [Documentation](python/README.md)
 - [PyPI Package](https://pypi.org/project/aimodels.dev/)
+- [Documentation](python/README.md)
 
 ## Features
 
-- Comprehensive database of AI models from major providers (OpenAI, Anthropic, Mistral, etc.)
+- Practical, modern AI models from major providers (OpenAI, Anthropic, Google, etc.)
 - Normalized data structure for easy comparison
 - Model capabilities (chat, img-in, img-out, fn-out, etc.)
 - Context window information
 - Creator and provider associations
-- Zero dependencies
-- Regular updates with new models
 
 ## License
 
