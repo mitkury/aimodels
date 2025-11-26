@@ -5,6 +5,7 @@
     "TODO-AI.md",
     "docs/dev/rules-for-ai.md",
     "docs/dev/how-to-edit-data.md",
+    "docs/dev/data/*.md",
     "README.md",
     "data/schemas/*"
   ],

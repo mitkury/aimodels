@@ -1,4 +1,4 @@
-This is a context for AI editor/agent about the project. It's generated with a tool Airul (https://github.com/mitkury/airul) out of 8 sources. Edit .airul.json to change sources or enabled outputs. After any change to sources or .airul.json, run `airul gen` to regenerate the context. Keep TODO-AI.md updated after major changes to track tasks and decisions.
+This is a context for AI editor/agent about the project. It's generated with a tool Airul (https://github.com/mitkury/airul) out of 13 sources. Edit .airul.json to change sources or enabled outputs. After any change to sources or .airul.json, run `airul gen` to regenerate the context. Keep TODO-AI.md updated after major changes to track tasks and decisions.
 
 # From TODO-AI.md:
 
@@ -14,6 +14,7 @@ Learn from the user about their project, get the idea of what they want to make
 - Created: 2025-02-13
 - I (AI) will maintain this document as we work together
 - My current focus: Understanding and working on the active task
+- 2025-11-14: Added the first AIWrapper chat smoke tests (openai, openrouter, anthropic) so we can verify providers with real prompts using aimodels data
 
 ## Task History
 - Initial task: Learn from the user about their project, get the idea of what they want to make
@@ -91,6 +92,42 @@ In short:
   - Add the latest stable snapshot/version as an alias to the base model (e.g., `gpt-5.1-2025-11-01` and `gpt-5.1-latest` for `gpt-5.1` in late 2025)
   - Place aliases in the `aliases` array
 
+## Provider Model Mappings
+
+Provider JSON files in `data/providers/` describe *how* models are exposed by each provider.
+
+- Keep canonical model definitions in `data/models/*.json` (one file per creator).
+- Do **not** encode where a model is served in the model JSON itself (avoid `providerIds`).
+- Use provider files to describe which creators' models each provider exposes.
+- Aggregator providers (like `openrouter`) should use the optional `models` array to reference creators instead of duplicating model data.
+
+Each `models` entry in a provider file has this shape:
+
+```json
+{
+  "creator": "openai",
+  "include": "all",
+  "exclude": ["gpt-4o-2024-08-06"]
+}
+```
+
+- `creator`: the ID from the `creator` field in the corresponding `*-models.json` file (and `orgs.json`).
+- `include`: `"all"` to include all models from this creator, or an explicit array of model IDs.
+- `exclude` (optional): model IDs to omit when `include` is `"all"`.
+
+Example (`data/providers/openrouter-provider.json`):
+
+```json
+{
+  "id": "openrouter",
+  "models": [
+    { "creator": "openai", "include": "all" },
+    { "creator": "anthropic", "include": "all" },
+    { "creator": "google", "include": "all" }
+  ]
+}
+```
+
 ## Reasoning Capabilities
 When specifying reasoning capabilities:
 - Use `reason` capability for models that are trained to "think" before giving the final answer. It's when models dynamically increase their reasoning time during inference. This means they can spend more time thinking about complex questions, improving accuracy at the cost of higher compute usage.
@@ -114,6 +151,45 @@ Both `json-out` and `fn-out` are about dedicated API endpoints that ensure struc
   - Ensures function parameters are properly structured
 
 Note: Some providers (like Anthropic) only support `fn-out` without a dedicated JSON endpoint. In such cases, we don't include `json-out` in the model's capabilities, even though users can get JSON output through prompting.
+---
+
+# From docs/dev/data/anthropic.md:
+
+# Anthropic
+
+Info about models: https://docs.anthropic.com/en/docs/about-claude/models/overview
+---
+
+# From docs/dev/data/cohere.md:
+
+# Cohere
+
+Info about models: https://docs.cohere.com/v2/docs/models
+---
+
+# From docs/dev/data/google.md:
+
+# Google
+
+Info about Gemini models: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/
+---
+
+# From docs/dev/data/openai.md:
+
+# OpenAI
+
+Info about the models: https://platform.openai.com/docs/models
+
+To list models with the API:  
+```bash
+curl https://api.openai.com/v1/models \
+  -H "Authorization: Bearer $OPENAI_API_KEY"
+```
+---
+
+# From docs/dev/data/xai.md:
+
+# xAI
 ---
 
 # From README.md:
@@ -413,7 +489,7 @@ MIT
       },
       "allOf": [
         {
-          "description": "Conditional validation: Base models (those without an 'extends' property) must include all core properties, while models that extend others only need to specify what they're overriding.",
+          "description": "Conditional validation: Base models (those without an 'extends' property) must include all core descriptive properties, while models that extend others only need to specify what they're overriding. Provider relationships are defined in provider files, not model definitions.",
           "if": {
             "not": {
               "properties": {
@@ -423,7 +499,7 @@ MIT
             }
           },
           "then": {
-            "required": ["id", "name", "providerIds", "capabilities", "context"]
+            "required": ["id", "name", "capabilities", "context"]
           }
         }
       ]
@@ -520,6 +596,42 @@ MIT
           },
           "price": {
             "type": "number"
+          }
+        }
+      }
+    },
+    "models": {
+      "type": "array",
+      "description": "Model mappings describing which creators' models this provider exposes",
+      "items": {
+        "type": "object",
+        "required": ["creator", "include"],
+        "properties": {
+          "creator": {
+            "type": "string",
+            "description": "ID of the creator whose models are referenced (e.g. 'openai')"
+          },
+          "include": {
+            "description": "Either 'all' to include all models from this creator, or an explicit list of model IDs",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": ["all"]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "exclude": {
+            "type": "array",
+            "description": "Optional list of model IDs from this creator to exclude when include is 'all'",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
