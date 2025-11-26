@@ -10,8 +10,11 @@ vi.mock('aimodels', async () => {
   return await import('../dist/index.js');
 });
 
-import { Lang } from 'aiwrapper';
-import { models } from '../dist/index.js';
+import { AIModels as AIWrapperAIModels, Lang } from 'aiwrapper';
+import { ModelCollection, models } from '../dist/index.js';
+
+// Ensure AIWrapper uses the freshly built local data even if its own dependency is older
+syncAiWrapperData();
 
 type ProviderId = 'openai' | 'openrouter' | 'anthropic';
 
@@ -111,6 +114,18 @@ describe('AIWrapper chat smoke tests', async () => {
 function getChatModels(providerId: ProviderId): Model[] {
   const chatModels = models.fromProvider(providerId).can('chat');
   return Array.from(chatModels).filter(model => !IGNORED_MODEL_IDS.has(model.id));
+}
+
+function syncAiWrapperData(): void {
+  if (Object.keys(ModelCollection.modelSources).length === 0) {
+    return;
+  }
+
+  AIWrapperAIModels.addStaticData({
+    models: ModelCollection.modelSources,
+    providers: ModelCollection.providersData,
+    orgs: ModelCollection.orgsData
+  });
 }
 
 async function expectModelToRespond(
