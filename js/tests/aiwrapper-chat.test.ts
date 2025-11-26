@@ -125,18 +125,37 @@ async function expectModelToRespond(
 }
 
 function getProviderFilters(): ProviderId[] {
-  const envProviders = process.env.PROVIDERS;
-  if (!envProviders) {
+  const rawValue =
+    process.env.PROVIDERS ??
+    process.env.npm_config_providers ??
+    process.env.npm_config_PROVIDERS ??
+    getProvidersFromArgv();
+
+  if (!rawValue) {
     return [];
   }
 
   const allowed: ProviderId[] = ['openai', 'openrouter', 'anthropic'];
 
-  const parsed = envProviders
+  const parsed = rawValue
     .split(',')
     .map(provider => provider.trim().toLowerCase())
     .filter((provider): provider is ProviderId => allowed.includes(provider as ProviderId));
 
   // Deduplicate while preserving order
   return Array.from(new Set(parsed));
+}
+
+function getProvidersFromArgv(): string | undefined {
+  const inline = process.argv.find(arg => arg.startsWith('--providers='));
+  if (inline) {
+    return inline.split('=')[1];
+  }
+
+  const flagIndex = process.argv.indexOf('--providers');
+  if (flagIndex !== -1 && process.argv[flagIndex + 1]) {
+    return process.argv[flagIndex + 1];
+  }
+
+  return undefined;
 }
