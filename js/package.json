@@ -1,6 +1,6 @@
 {
   "name": "aimodels",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "A collection of AI model specifications across different providers",
   "type": "module",
   "main": "dist/index.js",
