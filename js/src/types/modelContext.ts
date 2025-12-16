@@ -20,7 +20,7 @@ export interface TokenContext extends BaseContext {
    * This is a flexible object that can contain any properties or nested objects
    * related to model-specific extensions (e.g., reasoning, experimental features).
    */
-  extended?: Record<string, any>;
+  extended?: Record<string, unknown>;
 }
 
 export interface CharacterContext extends BaseContext {

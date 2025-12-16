@@ -15,9 +15,11 @@ function readJson(path: string) {
   return JSON.parse(raw);
 }
 
-function logIssues(error: any) {
+function logIssues(error: unknown) {
   try {
-    console.error(JSON.stringify(error.issues ?? error, null, 2));
+    // ZodError shape has `issues`, but avoid `any` here.
+    const maybeIssues = (error as { issues?: unknown }).issues;
+    console.error(JSON.stringify(maybeIssues ?? error, null, 2));
   } catch {
     console.error(error);
   }

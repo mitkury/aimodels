@@ -9,7 +9,7 @@ import { OrganizationSchema } from './organization';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = resolve(__filename, '..');
 
-function writeSchema(filename: string, schema: any) {
+function writeSchema(filename: string, schema: unknown) {
   writeFileSync(filename, JSON.stringify(schema, null, 2));
   console.log(`Wrote ${filename}`);
 }
