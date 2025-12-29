@@ -3,5 +3,15 @@
   "name": "OpenAI",
   "apiUrl": "https://api.openai.com/v1",
   "apiDocsUrl": "https://platform.openai.com/docs/api-reference",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "openai",
+      "include": "all",
+      "exclude": [
+        "gpt-oss-120b",
+        "gpt-oss-20b"
+      ]
+    }
+  ]
 }

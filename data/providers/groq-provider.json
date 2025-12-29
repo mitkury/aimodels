@@ -3,5 +3,23 @@
   "name": "Groq",
   "apiUrl": "https://api.groq.com/openai/v1",
   "apiDocsUrl": "https://console.groq.com/docs/api-reference",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "meta",
+      "include": [
+        "llama3-8b-8192",
+        "llama3-70b-8192",
+        "llama-guard-3-8b"
+      ]
+    },
+    {
+      "creator": "openai",
+      "include": [
+        "gpt-oss-120b",
+        "gpt-oss-20b",
+        "whisper-1"
+      ]
+    }
+  ]
 }

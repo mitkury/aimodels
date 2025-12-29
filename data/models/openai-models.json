@@ -123,6 +123,40 @@
       ]
     },
     {
+      "id": "gpt-oss-120b",
+      "name": "GPT OSS 120B",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      }
+    },
+    {
+      "id": "gpt-oss-20b",
+      "name": "GPT OSS 20B",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      }
+    },
+    {
       "id": "whisper-1",
       "name": "Whisper",
       "license": "proprietary",
