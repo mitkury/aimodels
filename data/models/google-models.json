@@ -13,6 +13,7 @@
         "fn-out",
         "img-in",
         "audio-in",
+        "video-in",
         "reason"
       ],
       "context": {
@@ -36,6 +37,7 @@
         "fn-out",
         "img-in",
         "audio-in",
+        "video-in",
         "reason"
       ],
       "context": {
@@ -48,6 +50,48 @@
       ]
     },
     {
+      "id": "gemini-3-pro-preview",
+      "name": "Gemini 3 Pro Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 64000
+      }
+    },
+    {
+      "id": "gemini-3-flash-preview",
+      "name": "Gemini 3 Flash Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      }
+    },
+    {
       "id": "gemini-2.5-flash-preview",
       "name": "Gemini 2.5 Flash Preview",
       "license": "proprietary",
@@ -58,6 +102,7 @@
         "json-out",
         "fn-out",
         "img-in",
+        "video-in",
         "reason"
       ],
       "context": {
@@ -176,6 +221,7 @@
         "img-in",
         "json-out",
         "fn-out",
+        "video-in",
         "reason"
       ],
       "context": {
@@ -354,11 +400,104 @@
       }
     },
     {
+      "id": "imagen-4.0-generate-001",
+      "name": "Imagen 4.0",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 4,
+        "sizes": [
+          "1024x1024",
+          "896x1280",
+          "1280x896",
+          "768x1408",
+          "1408x768",
+          "2048x2048",
+          "1792x2560",
+          "2560x1792",
+          "1536x2816",
+          "2816x1536"
+        ]
+      }
+    },
+    {
+      "id": "imagen-4.0-ultra-generate-001",
+      "name": "Imagen 4.0 Ultra",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 4,
+        "sizes": [
+          "1024x1024",
+          "896x1280",
+          "1280x896",
+          "768x1408",
+          "1408x768",
+          "2048x2048",
+          "1792x2560",
+          "2560x1792",
+          "1536x2816",
+          "2816x1536"
+        ]
+      }
+    },
+    {
       "id": "veo-2.0-generate-001",
       "name": "Veo 2",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "veo-3.0-generate-preview",
+      "name": "Veo 3.0 Generate",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "veo-3.1-generate-preview",
+      "name": "Veo 3.1 Generate",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "veo-3.1-fast-generate-preview",
+      "name": "Veo 3.1 Fast Generate",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
         "video-out"
       ],
       "context": {
