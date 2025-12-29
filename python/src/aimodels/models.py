@@ -161,26 +161,47 @@ class Model:
     def providerIds(self) -> List[str]:
         ids: Set[str] = set()
         creator_id = self.creatorId
+        if not creator_id:
+            return []
 
-        # Native provider: provider with the same id as the creator (if it exists)
-        if creator_id and creator_id in AIModels.providers_data:
-            ids.add(creator_id)
+        # Helper: check if an entry includes this model
+        def includes_model(entry: dict) -> bool:
+            if entry.get("creator") != creator_id:
+                return False
+            
+            include = entry.get("include")
+            exclude = entry.get("exclude") or []
+            
+            if include == "all":
+                return self.id not in exclude
+            
+            return isinstance(include, list) and self.id in include
 
-        # Providers that declare model mappings in their own config (e.g. aggregators like openrouter)
         for provider_id, provider in AIModels.providers_data.items():
+            is_native = provider_id == creator_id
             entries = provider.get("models") or []
-            for entry in entries:
-                if entry.get("creator") != creator_id:
-                    continue
 
-                include = entry.get("include")
-                exclude = entry.get("exclude") or []
-
-                if include == "all":
-                    if self.id not in exclude:
-                        ids.add(provider_id)
-                elif isinstance(include, list) and self.id in include:
+            # Native provider: include by default, unless models array says otherwise
+            if is_native:
+                if not entries:
                     ids.add(provider_id)
+                    continue
+                
+                creator_entry = next((e for e in entries if e.get("creator") == creator_id), None)
+                if not creator_entry:
+                    # No entry for creator, default to including all
+                    ids.add(provider_id)
+                elif includes_model(creator_entry):
+                    # Entry exists and includes this model
+                    ids.add(provider_id)
+                continue
+
+            # Non-native provider: only include if explicitly listed
+            if not entries:
+                continue
+            
+            if any(includes_model(entry) for entry in entries):
+                ids.add(provider_id)
 
         return sorted(ids)
 

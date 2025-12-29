@@ -86,27 +86,46 @@ export class Model {
   get providerIds(): string[] {
     const ids = new Set<string>();
     const creatorId = this.creatorId;
+    if (!creatorId) return [];
 
-    // Native provider: provider with the same id as the creator
-    if (creatorId && ModelCollection.providersData[creatorId]) {
-      ids.add(creatorId);
-    }
+    // Helper: check if an entry includes this model
+    const includesModel = (entry: { creator: string; include: 'all' | string[]; exclude?: string[] }): boolean => {
+      if (entry.creator !== creatorId) return false;
+      
+      if (entry.include === 'all') {
+        return !entry.exclude || !entry.exclude.includes(this.id);
+      }
+      
+      return Array.isArray(entry.include) && entry.include.includes(this.id);
+    };
 
-    // Providers that declare model mappings in their own config (e.g. aggregators like openrouter)
     for (const [providerId, provider] of Object.entries(ModelCollection.providersData)) {
+      const isNative = providerId === creatorId;
       const entries = provider.models;
-      if (!entries) continue;
 
-      for (const entry of entries) {
-        if (entry.creator !== creatorId) continue;
-
-        if (entry.include === 'all') {
-          if (!entry.exclude || !entry.exclude.includes(this.id)) {
-            ids.add(providerId);
-          }
-        } else if (Array.isArray(entry.include) && entry.include.includes(this.id)) {
+      // Native provider: include by default, unless models array says otherwise
+      if (isNative) {
+        if (!entries || entries.length === 0) {
+          ids.add(providerId);
+          continue;
+        }
+        
+        const creatorEntry = entries.find(e => e.creator === creatorId);
+        if (!creatorEntry) {
+          // No entry for creator, default to including all
+          ids.add(providerId);
+        } else if (includesModel(creatorEntry)) {
+          // Entry exists and includes this model
           ids.add(providerId);
         }
+        continue;
+      }
+
+      // Non-native provider: only include if explicitly listed
+      if (!entries) continue;
+      
+      if (entries.some(includesModel)) {
+        ids.add(providerId);
       }
     }
 
