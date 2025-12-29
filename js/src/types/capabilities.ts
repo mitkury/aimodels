@@ -10,6 +10,8 @@ export type Capability =
   | "img-out"      // generate images
   | "audio-in"     // process audio input
   | "audio-out"    // generate audio/speech
+  | "video-in"     // process video input
+  | "video-out"    // generate video
   | "json-out"     // structured JSON output
   | "fn-out"       // function calling
   | "vec-out"      // output vector embeddings

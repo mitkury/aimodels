@@ -9,10 +9,11 @@ export const CapabilitySchema = z.enum([
   'img-out',
   'audio-in',
   'audio-out',
+  'video-in',
+  'video-out',
   'json-out',
   'fn-out',
   'vec-out',
-  'video-out',
 ]);
 
 export type Capability = z.infer<typeof CapabilitySchema>;

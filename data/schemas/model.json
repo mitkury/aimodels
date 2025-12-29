@@ -62,6 +62,8 @@
               "img-out",
               "audio-in",
               "audio-out",
+              "video-in",
+              "video-out",
               "json-out",
               "fn-out",
               "vec-out"

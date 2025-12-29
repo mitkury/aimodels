@@ -22,6 +22,8 @@ class Capability(str, Enum):
     IMG_OUT = "img-out"   # generate images
     AUDIO_IN = "audio-in" # process audio input
     AUDIO_OUT = "audio-out" # generate audio/speech
+    VIDEO_IN = "video-in" # process video input
+    VIDEO_OUT = "video-out" # generate video
     JSON_OUT = "json-out" # structured JSON output
     FUNCTION_OUT = "fn-out" # function calling
     VECTORS_OUT = "vec-out" # output vector embeddings
