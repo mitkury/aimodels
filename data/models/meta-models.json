@@ -79,6 +79,90 @@
         "total": 4096,
         "maxOutput": 4096
       }
+    },
+    {
+      "id": "llama-3.1-8b-instant",
+      "name": "Llama 3.1 8B",
+      "license": "llama-3-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "aliases": ["llama-3.1-8b"]
+    },
+    {
+      "id": "llama-3.3-70b-versatile",
+      "name": "Llama 3.3 70B",
+      "license": "llama-3-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 32768
+      },
+      "aliases": ["llama-3.3-70b"]
+    },
+    {
+      "id": "meta-llama/llama-guard-4-12b",
+      "name": "LlamaGuard 4 12B",
+      "license": "llama-4-community",
+      "capabilities": ["chat", "txt-in", "txt-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 1024
+      },
+      "aliases": ["llama-guard-4-12b"]
+    },
+    {
+      "id": "meta-llama/llama-4-maverick-17b-128e-instruct",
+      "name": "Llama 4 Maverick 17B 128E",
+      "license": "llama-4-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["llama-4-maverick-17b-128e"]
+    },
+    {
+      "id": "meta-llama/llama-4-scout-17b-16e-instruct",
+      "name": "Llama 4 Scout 17B 16E",
+      "license": "llama-4-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["llama-4-scout-17b-16e"]
+    },
+    {
+      "id": "meta-llama/llama-prompt-guard-2-22m",
+      "name": "Llama Prompt Guard 2 22M",
+      "license": "llama-3-community",
+      "capabilities": ["chat", "txt-in", "txt-out"],
+      "context": {
+        "type": "token",
+        "total": 512,
+        "maxOutput": 512
+      },
+      "aliases": ["llama-prompt-guard-2-22m"]
+    },
+    {
+      "id": "meta-llama/llama-prompt-guard-2-86m",
+      "name": "Llama Prompt Guard 2 86M",
+      "license": "llama-3-community",
+      "capabilities": ["chat", "txt-in", "txt-out"],
+      "context": {
+        "type": "token",
+        "total": 512,
+        "maxOutput": 512
+      },
+      "aliases": ["llama-prompt-guard-2-86m"]
     }
   ]
 }
