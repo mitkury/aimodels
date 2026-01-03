@@ -33,7 +33,7 @@
       "context": {
         "type": "token",
         "total": 131072,
-        "maxOutput": 8192
+        "maxOutput": 65536
       }
     }
   ]
