@@ -44,6 +44,25 @@
       }
     },
     {
+      "id": "gemini-3-pro-image-preview",
+      "extends": "gemini-3-pro-preview",
+      "overrides": {
+        "name": "Gemini 3 Pro Image Preview",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "json-out",
+          "fn-out",
+          "img-in",
+          "img-out",
+          "audio-in",
+          "video-in",
+          "reason"
+        ]
+      }
+    },
+    {
       "id": "gemini-2.5-pro",
       "name": "Gemini 2.5 Pro",
       "license": "proprietary",
@@ -134,6 +153,59 @@
       "extends": "gemini-2.5-flash-lite",
       "overrides": {
         "name": "Gemini 2.5 Flash Lite Preview 09-25"
+      }
+    },
+    {
+      "id": "gemini-live-2.5-flash-native-audio",
+      "name": "Gemini Live 2.5 Flash Native Audio",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "extends": "gemini-live-2.5-flash-native-audio",
+      "overrides": {
+        "name": "Gemini 2.5 Flash Native Audio Preview 12-25"
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-tts-preview",
+      "name": "Gemini 2.5 Flash TTS Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "audio-out",
+        "total": 1048576,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "gemini-2.5-pro-tts-preview",
+      "name": "Gemini 2.5 Pro TTS Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "audio-out",
+        "total": 1048576,
+        "maxOutput": null
       }
     },
     {
