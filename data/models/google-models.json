@@ -23,6 +23,30 @@
       }
     },
     {
+      "id": "gemini-3-flash",
+      "name": "Gemini 3 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "aliases": [
+        "gemini-3-flash-latest"
+      ]
+    },
+    {
       "id": "gemini-3-flash-preview",
       "name": "Gemini 3 Flash Preview",
       "license": "proprietary",
