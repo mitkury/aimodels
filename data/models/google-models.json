@@ -137,6 +137,30 @@
       }
     },
     {
+      "id": "gemini-2.0-flash-thinking-exp-01-21",
+      "name": "Gemini 2.0 Flash Thinking",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "aliases": [
+        "gemini-2.0-flash-thinking"
+      ]
+    },
+    {
       "id": "gemini-2.0-flash",
       "name": "Gemini 2.0 Flash",
       "license": "proprietary",
@@ -173,6 +197,100 @@
       "context": {
         "type": "token",
         "total": 1048576,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "gemini-1.5-pro",
+      "name": "Gemini 1.5 Pro",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 2097152,
+        "maxOutput": 8192
+      },
+      "aliases": [
+        "gemini-1.5-pro-latest"
+      ]
+    },
+    {
+      "id": "gemini-1.5-flash",
+      "name": "Gemini 1.5 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 8192
+      },
+      "aliases": [
+        "gemini-1.5-flash-latest"
+      ]
+    },
+    {
+      "id": "gemma-2-27b-it",
+      "name": "Gemma 2 27B",
+      "license": "gemma",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "gemma-2-9b-it",
+      "name": "Gemma 2 9B",
+      "license": "gemma",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "gemma-2-2b-it",
+      "name": "Gemma 2 2B",
+      "license": "gemma",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
         "maxOutput": 8192
       }
     },
