@@ -81,16 +81,64 @@
       }
     },
     {
-      "id": "llama-3.1-8b-instant",
-      "name": "Llama 3.1 8B",
-      "license": "llama-3-community",
+      "id": "llama-3.1-405b-instruct",
+      "name": "Llama 3.1 405B",
+      "license": "llama-3.1-community",
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
       "context": {
         "type": "token",
         "total": 131072,
         "maxOutput": 131072
       },
-      "aliases": ["llama-3.1-8b"]
+      "aliases": ["llama-3.1-405b"]
+    },
+    {
+      "id": "llama-3.1-70b-instruct",
+      "name": "Llama 3.1 70B",
+      "license": "llama-3.1-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "aliases": ["llama-3.1-70b"]
+    },
+    {
+      "id": "llama-3.1-8b-instruct",
+      "name": "Llama 3.1 8B",
+      "license": "llama-3.1-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "aliases": ["llama-3.1-8b", "llama-3.1-8b-instant"]
+    },
+    {
+      "id": "llama-3.2-3b-instruct",
+      "name": "Llama 3.2 3B",
+      "license": "llama-3.2-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "aliases": ["llama-3.2-3b"]
+    },
+    {
+      "id": "llama-3.2-1b-instruct",
+      "name": "Llama 3.2 1B",
+      "license": "llama-3.2-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 131072
+      },
+      "aliases": ["llama-3.2-1b"]
     },
     {
       "id": "llama-3.3-70b-versatile",
