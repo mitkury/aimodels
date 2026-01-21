@@ -27,6 +27,26 @@
       }
     },
     {
+      "id": "mistral-large-2407",
+      "name": "Mistral Large 2",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "mistral-large-latest"
+      ]
+    },
+    {
       "id": "mistral-small-2402",
       "name": "Mistral Small",
       "license": "proprietary",
@@ -87,6 +107,67 @@
         "total": 32768,
         "maxOutput": 4096
       }
+    },
+    {
+      "id": "open-mistral-nemo",
+      "name": "Mistral NeMo",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "open-mistral-nemo-2407"
+      ]
+    },
+    {
+      "id": "codestral-2501",
+      "name": "Codestral",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "codestral-latest"
+      ]
+    },
+    {
+      "id": "pixtral-12b-2409",
+      "name": "Pixtral 12B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "pixtral-12b"
+      ]
     }
   ]
 }
