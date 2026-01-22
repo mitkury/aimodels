@@ -2,6 +2,86 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-large-3-2412",
+      "name": "Mistral Large 3",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in", "reason"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 8192
+      },
+      "aliases": ["mistral-large-3", "mistral-large-latest"]
+    },
+    {
+      "id": "ministral-3-14b",
+      "name": "Ministral 3 14B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "ministral-3-8b",
+      "name": "Ministral 3 8B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "ministral-3-3b",
+      "name": "Ministral 3 3B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "img-in"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "devstral-2-2412",
+      "name": "Devstral 2",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 8192
+      },
+      "aliases": ["devstral-2", "devstral-latest"]
+    },
+    {
+      "id": "devstral-small-2-2412",
+      "name": "Devstral Small 2",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 8192
+      },
+      "aliases": ["devstral-small-2"]
+    },
+    {
+      "id": "mistral-ocr-3",
+      "name": "Mistral OCR 3",
+      "license": "proprietary",
+      "capabilities": ["img-in", "txt-out"],
+      "context": {
+        "type": "token",
+        "total": 16384,
+        "maxOutput": 4096
+      }
+    },
+    {
       "id": "mistral-medium-3-2025-05-07",
       "name": "Mistral Medium 3",
       "license": "proprietary",
