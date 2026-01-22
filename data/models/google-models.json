@@ -2,6 +2,35 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "name": "Gemini 2.5 Flash Native Audio Preview",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "audio-in", "audio-out"],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-tts-preview",
+      "name": "Gemini 2.5 Flash TTS Preview",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "audio-out"],
+      "context": {
+        "type": "audio-out"
+      }
+    },
+    {
+      "id": "gemini-2.5-pro-tts-preview",
+      "name": "Gemini 2.5 Pro TTS Preview",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "audio-out"],
+      "context": {
+        "type": "audio-out"
+      }
+    },
+    {
       "id": "gemini-3-pro-preview",
       "name": "Gemini 3 Pro Preview",
       "license": "proprietary",

@@ -2,6 +2,18 @@
   "creator": "xai",
   "models": [
     {
+      "id": "grok-4.20-preview",
+      "name": "Grok 4.20 Preview",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      },
+      "aliases": ["grok-4.20"]
+    },
+    {
       "id": "grok-3-beta",
       "name": "Grok 3 Beta",
       "creator": "xai",
@@ -199,4 +211,4 @@
       "releasedAt": "2025-11-19"
     }
   ]
-} 
+}

@@ -2,6 +2,84 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen-plus-2025-12-01",
+      "name": "Qwen Plus (Dec 2025)",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-plus", "qwen-plus-latest"]
+    },
+    {
+      "id": "qwen-image-2512",
+      "name": "Qwen Image 2512",
+      "license": "apache-2.0",
+      "capabilities": ["txt-in", "img-out"],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1328x1328",
+          "1664x928",
+          "928x1664",
+          "1472x1104",
+          "1104x1472",
+          "1584x1056",
+          "1056x1584"
+        ]
+      },
+      "aliases": ["qwen-image-latest"]
+    },
+    {
+      "id": "qwen-image-edit-2511",
+      "name": "Qwen Image Edit 2511",
+      "license": "apache-2.0",
+      "capabilities": ["txt-in", "img-in", "img-out"],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1328x1328",
+          "1664x928",
+          "928x1664",
+          "1472x1104",
+          "1104x1472",
+          "1584x1056",
+          "1056x1584"
+        ]
+      },
+      "aliases": ["qwen-image-edit-latest"]
+    },
+    {
+      "id": "qwen3-tts-vd-flash",
+      "name": "Qwen 3 TTS Voice Design Flash",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "audio-out"],
+      "context": {
+        "type": "audio-out"
+      }
+    },
+    {
+      "id": "qwen3-tts-vc-flash",
+      "name": "Qwen 3 TTS Voice Cloning Flash",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "audio-in", "audio-out"],
+      "context": {
+        "type": "audio-out"
+      }
+    },
+    {
+      "id": "qwen3-vl-embedding",
+      "name": "Qwen 3 VL Embedding",
+      "license": "apache-2.0",
+      "capabilities": ["txt-in", "img-in", "vec-out"],
+      "context": {
+        "type": "embedding",
+        "dimensions": 4096
+      }
+    },
+    {
       "id": "qwen-3-235b-instruct",
       "name": "Qwen 3 235B Instruct",
       "license": "apache-2.0",

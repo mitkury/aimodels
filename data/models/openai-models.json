@@ -2,6 +2,18 @@
   "creator": "openai",
   "models": [
     {
+      "id": "gpt-5-codex-mini",
+      "name": "GPT-5 Codex Mini",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 200000,
+        "maxOutput": 100000
+      },
+      "aliases": ["codex-mini-latest"]
+    },
+    {
       "id": "gpt-5",
       "name": "GPT-5",
       "license": "proprietary",
