@@ -20,6 +20,25 @@
       }
     },
     {
+      "id": "command-a-reasoning-08-2025",
+      "name": "Command A Reasoning",
+      "creator": "cohere",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 32000
+      }
+    },
+    {
       "id": "command-r7b-12-2024",
       "name": "Command R7B",
       "creator": "cohere",

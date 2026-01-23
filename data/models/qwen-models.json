@@ -48,6 +48,82 @@
         "maxOutput": 8192
       },
       "aliases": ["qwen-3-7b", "qwen-3-7b-instruct-latest"]
+    },
+    {
+      "id": "qwen-2.5-vl-72b-instruct",
+      "name": "Qwen 2.5 VL 72B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "qwen-2.5-vl-32b-instruct",
+      "name": "Qwen 2.5 VL 32B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "qwen-2.5-vl-7b-instruct",
+      "name": "Qwen 2.5 VL 7B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "qwen-2.5-vl-3b-instruct",
+      "name": "Qwen 2.5 VL 3B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "qwq-32b-preview",
+      "name": "QwQ 32B Preview",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 32768,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "qwen-image-2512",
+      "name": "Qwen Image 2512",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "img-out"],
+      "context": {
+        "maxOutput": 1,
+        "sizes": ["1024x1024"]
+      },
+      "aliases": ["qwen-image-latest"]
+    },
+    {
+      "id": "qwen-image-edit",
+      "name": "Qwen Image Edit",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "img-in", "img-out"],
+      "context": {
+        "maxOutput": 1,
+        "sizes": ["1024x1024"]
+      }
     }
   ]
 }
