@@ -2,6 +2,97 @@
   "creator": "deepseek",
   "models": [
     {
+      "id": "deepseek-v3.2",
+      "name": "DeepSeek V3.2",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 8192
+      },
+      "aliases": [
+        "deepseek-v3.2-latest"
+      ]
+    },
+    {
+      "id": "deepseek-v3.2-speciale",
+      "name": "DeepSeek V3.2 Speciale",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 65536
+      }
+    },
+    {
+      "id": "deepseek-v3.1",
+      "name": "DeepSeek V3.1",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "deepseek-v3-0324",
+      "name": "DeepSeek V3 0324",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "deepseek-r1-0528",
+      "name": "DeepSeek R1 0528",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 65536
+      }
+    },
+    {
       "id": "deepseek-chat",
       "name": "DeepSeek V3",
       "license": "apache-2.0",

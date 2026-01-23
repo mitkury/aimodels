@@ -197,6 +197,33 @@
         "maxOutput": 30000
       },
       "releasedAt": "2025-11-19"
+    },
+    {
+      "id": "grok-4-1",
+      "name": "Grok 4.1",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 65536
+      },
+      "aliases": ["grok-4-1-latest"],
+      "releasedAt": "2025-11-17"
+    },
+    {
+      "id": "grok-4-1-thinking",
+      "name": "Grok 4.1 Thinking",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2025-11-17"
     }
   ]
-} 
+}
