@@ -381,6 +381,62 @@
       "aliases": [
         "omni-moderation-latest"
       ]
+    },
+    {
+      "id": "gpt-o3",
+      "name": "OpenAI o3",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 200000,
+        "maxOutput": 100000
+      }
+    },
+    {
+      "id": "gpt-o3-mini",
+      "name": "OpenAI o3 Mini",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "reason",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 200000,
+        "maxOutput": 100000
+      },
+      "aliases": [
+        "o3-mini"
+      ]
+    },
+    {
+      "id": "gpt-4.5-preview",
+      "name": "GPT-4.5 Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 16384
+      }
     }
   ]
 }
