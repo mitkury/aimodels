@@ -491,6 +491,27 @@
         "total": 480,
         "maxOutput": 8192
       }
+    },
+    {
+      "id": "gemini-2.0-pro-exp",
+      "name": "Gemini 2.0 Pro Experimental",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 2000000,
+        "maxOutput": 65536
+      }
     }
   ]
 }
