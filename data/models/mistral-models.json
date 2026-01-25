@@ -2,6 +2,113 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-large-2512",
+      "name": "Mistral Large 3",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      },
+      "aliases": [
+        "mistral-large-latest"
+      ]
+    },
+    {
+      "id": "ministral-3b-2512",
+      "name": "Ministral 3 3B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "ministral-8b-2512",
+      "name": "Ministral 3 8B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "ministral-14b-2512",
+      "name": "Ministral 3 14B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "devstral-2512",
+      "name": "Devstral 2",
+      "license": "modified-mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "labs-devstral-small-2512",
+      "name": "Devstral Small 2",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      }
+    },
+    {
       "id": "mistral-medium-3-2025-05-07",
       "name": "Mistral Medium 3",
       "license": "proprietary",
