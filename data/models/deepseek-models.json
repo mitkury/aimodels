@@ -3,7 +3,7 @@
   "models": [
     {
       "id": "deepseek-chat",
-      "name": "DeepSeek V3",
+      "name": "DeepSeek V3.2",
       "license": "apache-2.0",
       "capabilities": [
         "chat",
@@ -20,7 +20,7 @@
     },
     {
       "id": "deepseek-reasoner",
-      "name": "DeepSeek R1",
+      "name": "DeepSeek R1 (V3.2)",
       "license": "apache-2.0",
       "capabilities": [
         "chat",

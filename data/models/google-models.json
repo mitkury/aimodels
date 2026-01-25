@@ -20,7 +20,10 @@
         "type": "token",
         "total": 1048576,
         "maxOutput": 65536
-      }
+      },
+      "aliases": [
+        "gemini-pro-latest"
+      ]
     },
     {
       "id": "gemini-3-flash-preview",
@@ -41,7 +44,10 @@
         "type": "token",
         "total": 1048576,
         "maxOutput": 65536
-      }
+      },
+      "aliases": [
+        "gemini-flash-latest"
+      ]
     },
     {
       "id": "gemini-2.5-pro",
@@ -93,10 +99,7 @@
         "type": "token",
         "total": 1048576,
         "maxOutput": 65536
-      },
-      "aliases": [
-        "gemini-flash-latest"
-      ]
+      }
     },
     {
       "id": "gemini-2.5-flash-preview-09-2025",

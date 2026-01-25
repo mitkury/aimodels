@@ -2,6 +2,22 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen-3-max",
+      "name": "Qwen 3 Max",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 8192
+      }
+    },
+    {
       "id": "qwen-3-235b-instruct",
       "name": "Qwen 3 235B Instruct",
       "license": "apache-2.0",
