@@ -48,6 +48,18 @@
         "maxOutput": 8192
       },
       "aliases": ["qwen-3-7b", "qwen-3-7b-instruct-latest"]
+    },
+    {
+      "id": "qwen-3-max",
+      "name": "Qwen 3 Max",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-3-max-latest"]
     }
   ]
 }

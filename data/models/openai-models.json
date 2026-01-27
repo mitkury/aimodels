@@ -52,6 +52,7 @@
     {
       "id": "gpt-5.2",
       "extends": "gpt-5.1",
+      "releasedAt": "2025-12-11",
       "overrides": {
         "name": "GPT-5.2",
         "aliases": [
@@ -381,6 +382,43 @@
       "aliases": [
         "omni-moderation-latest"
       ]
+    },
+    {
+      "id": "sora-2",
+      "name": "Sora 2",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "video-out"
+      ],
+      "context": {
+        "maxOutput": 1
+      },
+      "aliases": [
+        "sora-2-2025-12-08"
+      ]
+    },
+    {
+      "id": "gpt-image-1.5",
+      "name": "GPT Image 1.5",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1024x1024",
+          "1792x1024",
+          "1024x1792"
+        ],
+        "qualities": [
+          "standard",
+          "hd"
+        ]
+      }
     }
   ]
 }
