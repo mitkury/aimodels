@@ -23,6 +23,23 @@
       }
     },
     {
+      "id": "gemini-3-pro-image-preview",
+      "name": "Gemini 3 Pro Image Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 65536,
+        "maxOutput": 32768
+      }
+    },
+    {
       "id": "gemini-3-flash-preview",
       "name": "Gemini 3 Flash Preview",
       "license": "proprietary",
