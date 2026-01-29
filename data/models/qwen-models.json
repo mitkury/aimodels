@@ -2,6 +2,28 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen-3-max-thinking",
+      "name": "Qwen 3 Max Thinking",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 32768
+      }
+    },
+    {
+      "id": "qwq-32b",
+      "name": "QwQ 32B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
       "id": "qwen-3-235b-instruct",
       "name": "Qwen 3 235B Instruct",
       "license": "apache-2.0",
