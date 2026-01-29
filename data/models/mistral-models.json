@@ -2,6 +2,62 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-large-3",
+      "name": "Mistral Large 3",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 262144, "maxOutput": 32768}
+    },
+    {
+      "id": "mistral-medium-3-1",
+      "name": "Mistral Medium 3.1",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192}
+    },
+    {
+      "id": "mistral-small-3-2",
+      "name": "Mistral Small 3.2",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192}
+    },
+    {
+      "id": "ministral-3-14b",
+      "name": "Ministral 3 14B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "context": {"type": "token", "total": 262144, "maxOutput": 8192}
+    },
+    {
+      "id": "ministral-3-8b",
+      "name": "Ministral 3 8B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "context": {"type": "token", "total": 262144, "maxOutput": 8192}
+    },
+    {
+      "id": "ministral-3-3b",
+      "name": "Ministral 3 3B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "context": {"type": "token", "total": 262144, "maxOutput": 8192}
+    },
+    {
+      "id": "magistral-medium-1-2",
+      "name": "Magistral Medium 1.2",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "reason"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192}
+    },
+    {
+      "id": "magistral-small-1-2",
+      "name": "Magistral Small 1.2",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "reason"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192}
+    },
+    {
       "id": "mistral-medium-3-2025-05-07",
       "name": "Mistral Medium 3",
       "license": "proprietary",

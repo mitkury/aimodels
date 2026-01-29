@@ -284,6 +284,25 @@
       }
     },
     {
+      "id": "o3",
+      "name": "OpenAI o3",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 200000,
+        "maxOutput": 100000
+      }
+    },
+    {
       "id": "o4-mini",
       "name": "OpenAI o4 Mini",
       "license": "proprietary",
