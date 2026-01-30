@@ -137,7 +137,7 @@
       }
     },
     {
-      "id": "gemini-2.0-flash",
+      "id": "gemini-2.0-flash-001",
       "name": "Gemini 2.0 Flash",
       "license": "proprietary",
       "capabilities": [
@@ -154,10 +154,13 @@
         "type": "token",
         "total": 1048576,
         "maxOutput": 8192
-      }
+      },
+      "aliases": [
+        "gemini-2.0-flash"
+      ]
     },
     {
-      "id": "gemini-2.0-flash-lite",
+      "id": "gemini-2.0-flash-lite-001",
       "name": "Gemini 2.0 Flash Lite",
       "license": "proprietary",
       "capabilities": [
@@ -174,7 +177,10 @@
         "type": "token",
         "total": 1048576,
         "maxOutput": 8192
-      }
+      },
+      "aliases": [
+        "gemini-2.0-flash-lite"
+      ]
     },
     {
       "id": "gemma-3-1b",
@@ -410,6 +416,30 @@
       }
     },
     {
+      "id": "imagen-4.0-fast-generate-001",
+      "name": "Imagen 4.0 Fast",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 4,
+        "sizes": [
+          "1024x1024",
+          "896x1280",
+          "1280x896",
+          "768x1408",
+          "1408x768",
+          "2048x2048",
+          "1792x2560",
+          "2560x1792",
+          "1536x2816",
+          "2816x1536"
+        ]
+      }
+    },
+    {
       "id": "imagen-4.0-ultra-generate-001",
       "name": "Imagen 4.0 Ultra",
       "license": "proprietary",
@@ -448,7 +478,7 @@
       }
     },
     {
-      "id": "veo-3.0-generate-preview",
+      "id": "veo-3.0-generate-001",
       "name": "Veo 3.0 Generate",
       "license": "proprietary",
       "capabilities": [
@@ -463,7 +493,37 @@
       }
     },
     {
-      "id": "veo-3.1-generate-preview",
+      "id": "veo-3.0-fast-generate-001",
+      "name": "Veo 3.0 Fast Generate",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "veo-3.0-generate-preview",
+      "name": "Veo 3.0 Generate Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "veo-3.1-generate-001",
       "name": "Veo 3.1 Generate",
       "license": "proprietary",
       "capabilities": [
@@ -478,8 +538,38 @@
       }
     },
     {
-      "id": "veo-3.1-fast-generate-preview",
+      "id": "veo-3.1-fast-generate-001",
       "name": "Veo 3.1 Fast Generate",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "veo-3.1-generate-preview",
+      "name": "Veo 3.1 Generate Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "veo-3.1-fast-generate-preview",
+      "name": "Veo 3.1 Fast Generate Preview",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
