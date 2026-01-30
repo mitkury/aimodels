@@ -2,12 +2,100 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-large-2512",
+      "name": "Mistral Large 3",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out", "reason"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["mistral-large-3", "mistral-large-latest"]
+    },
+    {
+      "id": "mistral-large-2411",
+      "name": "Mistral Large 2.1",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["mistral-large-2.1"]
+    },
+    {
+      "id": "mistral-medium-2508",
+      "name": "Mistral Medium 3.1",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["mistral-medium-3.1"]
+    },
+    {
       "id": "mistral-medium-3-2025-05-07",
       "name": "Mistral Medium 3",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
       "context": {"type": "token", "total": 131072, "maxOutput": 8192},
       "aliases": ["mistral-medium-3", "mistral-medium-2025"]
+    },
+    {
+      "id": "mistral-small-2506",
+      "name": "Mistral Small 3.2",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 32768, "maxOutput": 8192},
+      "aliases": ["mistral-small-3.2", "mistral-small-latest"]
+    },
+    {
+      "id": "ministral-3-14b-2512",
+      "name": "Ministral 3 14B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["ministral-3-14b"]
+    },
+    {
+      "id": "ministral-3-8b-2512",
+      "name": "Ministral 3 8B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["ministral-3-8b"]
+    },
+    {
+      "id": "ministral-3-3b-2512",
+      "name": "Ministral 3 3B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["ministral-3-3b"]
+    },
+    {
+      "id": "magistral-medium-2509",
+      "name": "Magistral Medium 1.2",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["magistral-medium-1.2"]
+    },
+    {
+      "id": "magistral-small-2509",
+      "name": "Magistral Small 1.2",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 32768, "maxOutput": 8192},
+      "aliases": ["magistral-small-1.2"]
+    },
+    {
+      "id": "codestral-2508",
+      "name": "Codestral",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out"],
+      "context": {"type": "token", "total": 32768, "maxOutput": 8192},
+      "aliases": ["codestral-latest"]
+    },
+    {
+      "id": "devstral-2-2512",
+      "name": "Devstral 2",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "fn-out"],
+      "context": {"type": "token", "total": 131072, "maxOutput": 8192},
+      "aliases": ["devstral-2"]
     },
     {
       "id": "mistral-large-2402",
