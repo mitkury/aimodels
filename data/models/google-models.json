@@ -23,6 +23,79 @@
       }
     },
     {
+      "id": "gemini-3-pro-image-preview",
+      "name": "Gemini 3 Pro Image Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "img-in",
+        "txt-out",
+        "img-out",
+        "json-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 65536,
+        "maxOutput": 32768,
+        "sizes": [
+          "1024x1024"
+        ]
+      }
+    },
+    {
+      "id": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "name": "Gemini 2.5 Flash Live",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "audio-in",
+        "video-in",
+        "txt-in",
+        "audio-out",
+        "txt-out",
+        "reason",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": [
+        "gemini-2.5-flash-live"
+      ]
+    },
+    {
+      "id": "gemini-2.5-flash-preview-tts",
+      "name": "Gemini 2.5 Flash TTS",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 16384
+      }
+    },
+    {
+      "id": "gemini-2.5-pro-preview-tts",
+      "name": "Gemini 2.5 Pro TTS",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 16384
+      }
+    },
+    {
       "id": "gemini-3-flash-preview",
       "name": "Gemini 3 Flash Preview",
       "license": "proprietary",
