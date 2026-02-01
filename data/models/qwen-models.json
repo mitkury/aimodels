@@ -48,6 +48,53 @@
         "maxOutput": 8192
       },
       "aliases": ["qwen-3-7b", "qwen-3-7b-instruct-latest"]
+    },
+    {
+      "id": "qwen-2.5-72b-instruct",
+      "name": "Qwen 2.5 72B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-2.5-72b"]
+    },
+    {
+      "id": "qwen-2.5-32b-instruct",
+      "name": "Qwen 2.5 32B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-2.5-32b"]
+    },
+    {
+      "id": "qwen-2.5-7b-instruct",
+      "name": "Qwen 2.5 7B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": ["qwen-2.5-7b"]
+    },
+    {
+      "id": "qwen-2.5-coder-32b-instruct",
+      "name": "Qwen 2.5 Coder 32B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
     }
   ]
 }
