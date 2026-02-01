@@ -10,6 +10,81 @@
       "aliases": ["mistral-medium-3", "mistral-medium-2025"]
     },
     {
+      "id": "mistral-large-2407",
+      "name": "Mistral Large 2",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "mistral-large-2"
+      ]
+    },
+    {
+      "id": "pixtral-12b-2409",
+      "name": "Pixtral 12B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "pixtral-12b"
+      ]
+    },
+    {
+      "id": "ministral-8b-latest",
+      "name": "Ministral 8B",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      }
+    },
+    {
+      "id": "ministral-3b-latest",
+      "name": "Ministral 3B",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      }
+    },
+    {
       "id": "mistral-large-2402",
       "name": "Mistral Large",
       "license": "proprietary",
