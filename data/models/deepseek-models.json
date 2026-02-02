@@ -35,6 +35,47 @@
         "total": 131072,
         "maxOutput": 65536
       }
+    },
+    {
+      "id": "deepseek-v3.2",
+      "name": "DeepSeek V3.2",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 163840,
+        "maxOutput": 65536
+      },
+      "aliases": [
+        "deepseek-v3.2-maas"
+      ]
+    },
+    {
+      "id": "deepseek-r1-0528",
+      "name": "DeepSeek R1 (0528)",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 163840,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "deepseek-r1-0528-maas"
+      ]
     }
   ]
 }
