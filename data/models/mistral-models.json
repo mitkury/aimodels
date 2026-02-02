@@ -87,6 +87,23 @@
         "total": 32768,
         "maxOutput": 4096
       }
+    },
+    {
+      "id": "codestral-2",
+      "name": "Codestral 2",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32768
+      }
     }
   ]
 }

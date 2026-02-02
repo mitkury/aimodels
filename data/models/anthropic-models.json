@@ -163,6 +163,70 @@
         "claude-3-7-sonnet-latest",
         "claude-3-7-sonnet"
       ]
+    },
+    {
+      "id": "claude-3-5-sonnet-20241022",
+      "name": "Claude 3.5 Sonnet",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 200000,
+        "maxOutput": 8192,
+        "outputIsFixed": 1
+      },
+      "aliases": [
+        "claude-3-5-sonnet-latest",
+        "claude-3-5-sonnet"
+      ]
+    },
+    {
+      "id": "claude-3-5-haiku-20241022",
+      "name": "Claude 3.5 Haiku",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 200000,
+        "maxOutput": 8192,
+        "outputIsFixed": 1
+      },
+      "aliases": [
+        "claude-3-5-haiku-latest"
+      ]
+    },
+    {
+      "id": "claude-3-opus-20240229",
+      "name": "Claude 3 Opus",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 200000,
+        "maxOutput": 4096,
+        "outputIsFixed": 1
+      },
+      "aliases": [
+        "claude-3-opus-latest"
+      ]
     }
   ]
 }

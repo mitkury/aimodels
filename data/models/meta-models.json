@@ -163,6 +163,30 @@
         "maxOutput": 512
       },
       "aliases": ["llama-prompt-guard-2-86m"]
+    },
+    {
+      "id": "llama-3.1-405b",
+      "name": "Llama 3.1 405B",
+      "license": "llama-3-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 128000
+      },
+      "aliases": ["llama-3.1-405b-instruct"]
+    },
+    {
+      "id": "llama-3.1-70b",
+      "name": "Llama 3.1 70B",
+      "license": "llama-3-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 128000
+      },
+      "aliases": ["llama-3.1-70b-instruct"]
     }
   ]
 }
