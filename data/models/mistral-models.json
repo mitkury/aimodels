@@ -10,6 +10,50 @@
       "aliases": ["mistral-medium-3", "mistral-medium-2025"]
     },
     {
+      "id": "mistral-large-2407",
+      "name": "Mistral Large 2",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "pixtral-12b-2409",
+      "name": "Pixtral 12B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "ministral-8b-latest",
+      "name": "Ministral 8B",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
+      "id": "open-mistral-nemo",
+      "name": "Mistral Nemo",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 4096
+      }
+    },
+    {
       "id": "mistral-large-2402",
       "name": "Mistral Large",
       "license": "proprietary",
