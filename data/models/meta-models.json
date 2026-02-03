@@ -48,6 +48,28 @@
       }
     },
     {
+      "id": "llama-3.2-3b-instruct",
+      "name": "Llama 3.2 3B Instruct",
+      "license": "llama-3.2-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "llama-3.2-1b-instruct",
+      "name": "Llama 3.2 1B Instruct",
+      "license": "llama-3.2-community",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
       "id": "llama-3.2-11b-vision-preview",
       "name": "Llama 3.2 11B Vision",
       "license": "llama-3-community",
