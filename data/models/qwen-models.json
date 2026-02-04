@@ -2,6 +2,71 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen-3-coder-next",
+      "name": "Qwen 3 Coder Next",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      },
+      "aliases": [
+        "qwen-3-coder-next-latest"
+      ]
+    },
+    {
+      "id": "qwen-image-2512",
+      "name": "Qwen Image 2512",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1024x1024"
+        ]
+      }
+    },
+    {
+      "id": "qwen-image-edit-2511",
+      "name": "Qwen Image Edit 2511",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1024x1024"
+        ]
+      }
+    },
+    {
+      "id": "qwen-3-asr-1.7b",
+      "name": "Qwen 3 ASR 1.7B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "audio-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 32000,
+        "maxOutput": 4096
+      }
+    },
+    {
       "id": "qwen-3-235b-instruct",
       "name": "Qwen 3 235B Instruct",
       "license": "apache-2.0",
