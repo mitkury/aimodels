@@ -197,6 +197,70 @@
         "maxOutput": 30000
       },
       "releasedAt": "2025-11-19"
+    },
+    {
+      "id": "grok-4.20-reasoning",
+      "name": "Grok 4.20",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 2000000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-03-10"
+    },
+    {
+      "id": "grok-4.20-beta-latest-non-reasoning",
+      "name": "Grok 4.20 (Non-Reasoning)",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 2000000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-03-10"
+    },
+    {
+      "id": "grok-4.20-multi-agent-beta-0309",
+      "name": "Grok 4.20 Multi-Agent Beta",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 2000000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-03-09"
+    },
+    {
+      "id": "grok-imagine-image",
+      "name": "Grok Imagine Image",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "img-in", "img-out"],
+      "context": {
+        "maxOutput": 10,
+        "sizes": ["1k", "2k"]
+      },
+      "releasedAt": "2026-01-28"
+    },
+    {
+      "id": "grok-imagine-video",
+      "name": "Grok Imagine Video",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "img-in", "video-in", "video-out"],
+      "context": {
+        "type": "token",
+        "total": 15,
+        "maxOutput": 15
+      },
+      "releasedAt": "2026-01-28"
     }
   ]
 } 
