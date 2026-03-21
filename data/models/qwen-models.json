@@ -2,8 +2,136 @@
   "creator": "qwen",
   "models": [
     {
-      "id": "qwen-3-235b-instruct",
-      "name": "Qwen 3 235B Instruct",
+      "id": "qwen3-max",
+      "name": "Qwen3 Max",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 65536
+      },
+      "aliases": ["qwen3-max-2026-01-23"]
+    },
+    {
+      "id": "qwen3.5-plus",
+      "name": "Qwen3.5 Plus",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 65536
+      },
+      "aliases": ["qwen3.5-plus-2026-02-15"]
+    },
+    {
+      "id": "qwen3.5-flash",
+      "name": "Qwen3.5 Flash",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 65536
+      },
+      "aliases": ["qwen3.5-flash-2026-02-23"]
+    },
+    {
+      "id": "qwen3-next-80b-a3b-thinking",
+      "name": "Qwen3 Next 80B A3B Thinking",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 32768
+      }
+    },
+    {
+      "id": "qwen3-next-80b-a3b-instruct",
+      "name": "Qwen3 Next 80B A3B Instruct",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 32768
+      }
+    },
+    {
+      "id": "qwen3-coder-next",
+      "name": "Qwen3 Coder Next",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 65536
+      }
+    },
+    {
+      "id": "qwen3-coder-plus",
+      "name": "Qwen3 Coder Plus",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 65536
+      },
+      "aliases": ["qwen3-coder-plus-2025-09-23"]
+    },
+    {
+      "id": "qwen3-vl-plus",
+      "name": "Qwen3 VL Plus",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 32768
+      },
+      "aliases": ["qwen3-vl-plus-2025-12-19"]
+    },
+    {
+      "id": "qwen3-vl-flash",
+      "name": "Qwen3 VL Flash",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "video-in", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 32768
+      },
+      "aliases": ["qwen3-vl-flash-2026-01-22"]
+    },
+    {
+      "id": "qwen3-235b-a22b",
+      "name": "Qwen3 235B A22B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 16384
+      },
+      "aliases": ["qwen3-235b-a22b-instruct-2507", "qwen3-235b-a22b-thinking-2507"]
+    },
+    {
+      "id": "qwen3-32b",
+      "name": "Qwen3 32B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 8192
+      }
+    },
+    {
+      "id": "qwen3-30b-a3b",
+      "name": "Qwen3 30B A3B",
       "license": "apache-2.0",
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
       "context": {
@@ -11,43 +139,29 @@
         "total": 131072,
         "maxOutput": 8192
       },
-      "aliases": ["qwen-3-235b", "qwen-3-235b-instruct-latest"]
+      "aliases": ["qwen3-30b-a3b-instruct-2507", "qwen3-30b-a3b-thinking-2507"]
     },
     {
-      "id": "qwen-3-72b-instruct",
-      "name": "Qwen 3 72B Instruct",
+      "id": "qwen3-14b",
+      "name": "Qwen3 14B",
       "license": "apache-2.0",
       "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
       "context": {
         "type": "token",
         "total": 131072,
         "maxOutput": 8192
-      },
-      "aliases": ["qwen-3-72b", "qwen-3-72b-instruct-latest"]
+      }
     },
     {
-      "id": "qwen-3-32b-instruct",
-      "name": "Qwen 3 32B Instruct",
+      "id": "qwen3-8b",
+      "name": "Qwen3 8B",
       "license": "apache-2.0",
-      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
+      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out", "reason"],
       "context": {
         "type": "token",
         "total": 131072,
         "maxOutput": 8192
-      },
-      "aliases": ["qwen-3-32b", "qwen-3-32b-instruct-latest"]
-    },
-    {
-      "id": "qwen-3-7b-instruct",
-      "name": "Qwen 3 7B Instruct",
-      "license": "apache-2.0",
-      "capabilities": ["chat", "txt-in", "txt-out", "json-out", "fn-out"],
-      "context": {
-        "type": "token",
-        "total": 131072,
-        "maxOutput": 8192
-      },
-      "aliases": ["qwen-3-7b", "qwen-3-7b-instruct-latest"]
+      }
     }
   ]
 }
