@@ -27,12 +27,12 @@ describe('Generated data file', () => {
       expect(gpt51.context?.total).toBeGreaterThan(0);
     });
 
-    it('includes Claude 3 with correct properties', () => {
-      const claude = Object.values(models).find(
-        (m: any) => m.id.includes('claude') && m.id.includes('3')
-      ) as Model;
-      
+    it('includes Claude Sonnet 4.5 with correct properties', () => {
+      const claude = models['claude-sonnet-4-5-20250929'] as Model;
+
       expect(claude).toBeDefined();
+      expect(claude.id).toBe('claude-sonnet-4-5-20250929');
+      expect(claude.name).toBe('Claude Sonnet 4.5');
       expect(claude.capabilities).toContain('chat');
     });
   });
