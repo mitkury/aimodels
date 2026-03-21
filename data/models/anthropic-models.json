@@ -68,6 +68,19 @@
       ]
     },
     {
+      "id": "claude-opus-4-6",
+      "extends": "claude-opus-4-5-20251101",
+      "overrides": {
+        "name": "Claude Opus 4.6",
+        "context": {
+          "type": "token",
+          "total": 1000000,
+          "maxOutput": 128000,
+          "outputIsFixed": 1
+        }
+      }
+    },
+    {
       "id": "claude-opus-4-1-20250805",
       "name": "Claude Opus 4.1",
       "license": "proprietary",
@@ -132,6 +145,19 @@
       "aliases": [
         "claude-sonnet-4-0"
       ]
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "extends": "claude-sonnet-4-5-20250929",
+      "overrides": {
+        "name": "Claude Sonnet 4.6",
+        "context": {
+          "type": "token",
+          "total": 1000000,
+          "maxOutput": 64000,
+          "outputIsFixed": 1
+        }
+      }
     },
     {
       "id": "claude-3-7-sonnet-20250219",
