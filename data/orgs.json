@@ -59,6 +59,12 @@
     "country": "CHN",
     "founded": 2023
   },
+  "kimi": {
+    "name": "Moonshot AI",
+    "websiteUrl": "https://www.moonshot.ai",
+    "country": "CHN",
+    "founded": 2023
+  },
   "azure": {
     "name": "Azure",
     "websiteUrl": "https://azure.microsoft.com/en-us/products/ai-services/openai-service",

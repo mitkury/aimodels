@@ -1,0 +1,89 @@
+{
+  "creator": "kimi",
+  "models": [
+    {
+      "id": "kimi-k2.5",
+      "name": "Kimi K2.5",
+      "license": "modified-mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "kimi-k2.5-latest"
+      ]
+    },
+    {
+      "id": "kimi-k2-0905-preview",
+      "name": "Kimi K2 0905 Preview",
+      "license": "modified-mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "kimi-k2"
+      ]
+    },
+    {
+      "id": "kimi-k2-turbo-preview",
+      "extends": "kimi-k2-0905-preview",
+      "overrides": {
+        "name": "Kimi K2 Turbo Preview"
+      }
+    },
+    {
+      "id": "kimi-k2-thinking",
+      "extends": "kimi-k2-0905-preview",
+      "overrides": {
+        "name": "Kimi K2 Thinking",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "json-out",
+          "fn-out",
+          "reason"
+        ]
+      }
+    },
+    {
+      "id": "kimi-k2-thinking-turbo",
+      "extends": "kimi-k2-thinking",
+      "overrides": {
+        "name": "Kimi K2 Thinking Turbo"
+      }
+    },
+    {
+      "id": "kimi-k2-0711-preview",
+      "extends": "kimi-k2-0905-preview",
+      "overrides": {
+        "name": "Kimi K2 0711 Preview",
+        "context": {
+          "type": "token",
+          "total": 131072,
+          "maxOutput": 32768
+        }
+      }
+    }
+  ]
+}

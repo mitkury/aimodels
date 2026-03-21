@@ -1,0 +1,7 @@
+{
+  "id": "kimi",
+  "name": "Moonshot AI",
+  "apiUrl": "https://api.moonshot.ai/v1",
+  "apiDocsUrl": "https://platform.moonshot.ai/docs",
+  "pricing": {}
+}
