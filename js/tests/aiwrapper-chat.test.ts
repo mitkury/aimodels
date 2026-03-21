@@ -16,11 +16,11 @@ import { ModelCollection, models } from '../dist/index.js';
 // Ensure AIWrapper uses the freshly built local data even if its own dependency is older
 syncAiWrapperData();
 
-type ProviderId = 'openai' | 'openrouter' | 'anthropic';
+type ProviderId = 'openai' | 'openrouter' | 'anthropic' | 'google';
 
 interface ProviderTestConfig {
   id: ProviderId;
-  envVar: string;
+  envVars: string[];
   createClient: (apiKey: string, model: Model) => LanguageProvider;
 }
 
@@ -28,11 +28,12 @@ const TEST_PROMPT = 'Respond with exactly the word "hey", nothing else.';
 const IGNORED_MODEL_IDS = new Set<string>(['computer-use-preview-2025-03-11']);
 
 const PROVIDER_FILTERS = getProviderFilters();
+const MODEL_FILTERS = getModelFilters();
 
 const providerConfigs: ProviderTestConfig[] = [
   {
     id: 'openai',
-    envVar: 'OPENAI_API_KEY',
+    envVars: ['OPENAI_API_KEY'],
     createClient: (apiKey, model) =>
       Lang.openai({
         apiKey,
@@ -41,7 +42,7 @@ const providerConfigs: ProviderTestConfig[] = [
   },
   {
     id: 'openrouter',
-    envVar: 'OPENROUTER_API_KEY',
+    envVars: ['OPENROUTER_API_KEY'],
     createClient: (apiKey, model) =>
       Lang.openrouter({
         apiKey,
@@ -50,9 +51,18 @@ const providerConfigs: ProviderTestConfig[] = [
   },
   {
     id: 'anthropic',
-    envVar: 'ANTHROPIC_API_KEY',
+    envVars: ['ANTHROPIC_API_KEY'],
     createClient: (apiKey, model) =>
       Lang.anthropic({
+        apiKey,
+        model: model.id
+      })
+  },
+  {
+    id: 'google',
+    envVars: ['GOOGLE_API_KEY', 'GEMINI_API_KEY'],
+    createClient: (apiKey, model) =>
+      Lang.google({
         apiKey,
         model: model.id
       })
@@ -62,7 +72,7 @@ const providerConfigs: ProviderTestConfig[] = [
 describe('AIWrapper chat smoke tests', async () => {
   // Gather all AIWrapper providers that are actually configured via .env
   const enabledProviders = providerConfigs.filter(providerConfig => {
-    const hasApiKey = Boolean(process.env[providerConfig.envVar]);
+    const hasApiKey = getApiKey(providerConfig) !== undefined;
     const isAllowedByFilter =
       PROVIDER_FILTERS.length === 0 || PROVIDER_FILTERS.includes(providerConfig.id);
     return hasApiKey && isAllowedByFilter;
@@ -75,7 +85,7 @@ describe('AIWrapper chat smoke tests', async () => {
 
   for (const provider of enabledProviders) {
     it(`${provider.id} chat models respond with "hey"`, async () => {
-      const apiKey = process.env[provider.envVar]!;
+      const apiKey = getApiKey(provider)!;
       const chatModels = getChatModels(provider.id);
 
       if (chatModels.length === 0) {
@@ -113,7 +123,17 @@ describe('AIWrapper chat smoke tests', async () => {
 
 function getChatModels(providerId: ProviderId): Model[] {
   const chatModels = models.fromProvider(providerId).can('chat');
-  return Array.from(chatModels).filter(model => !IGNORED_MODEL_IDS.has(model.id));
+  return Array.from(chatModels).filter(model => {
+    if (IGNORED_MODEL_IDS.has(model.id)) {
+      return false;
+    }
+
+    if (MODEL_FILTERS.length === 0) {
+      return true;
+    }
+
+    return MODEL_FILTERS.includes(model.id);
+  });
 }
 
 function syncAiWrapperData(): void {
@@ -142,7 +162,12 @@ async function expectModelToRespond(
 function getProviderFilters(): ProviderId[] {
   const rawValue =
     process.env.PROVIDERS ??
+    process.env.PROVIDER ??
     process.env.npm_config_providers ??
+    process.env.npm_config_provider ??
+    getArgValue('--providers') ??
+    getArgValue('--provider') ??
+    getArgValue('--provider-id') ??
     process.env.npm_config_PROVIDERS ??
     getProvidersFromArgv();
 
@@ -150,7 +175,7 @@ function getProviderFilters(): ProviderId[] {
     return [];
   }
 
-  const allowed: ProviderId[] = ['openai', 'openrouter', 'anthropic'];
+  const allowed: ProviderId[] = ['openai', 'openrouter', 'anthropic', 'google'];
 
   const parsed = rawValue
     .split(',')
@@ -161,13 +186,51 @@ function getProviderFilters(): ProviderId[] {
   return Array.from(new Set(parsed));
 }
 
+function getApiKey(provider: ProviderTestConfig): string | undefined {
+  for (const envVar of provider.envVars) {
+    const value = process.env[envVar];
+    if (value) {
+      return value;
+    }
+  }
+
+  return undefined;
+}
+
+function getModelFilters(): string[] {
+  const rawValue =
+    process.env.MODELS ??
+    process.env.MODEL ??
+    process.env.npm_config_models ??
+    process.env.npm_config_model ??
+    getArgValue('--models') ??
+    getArgValue('--model');
+
+  if (!rawValue) {
+    return [];
+  }
+
+  return Array.from(
+    new Set(
+      rawValue
+        .split(',')
+        .map(model => model.trim())
+        .filter(Boolean)
+    )
+  );
+}
+
 function getProvidersFromArgv(): string | undefined {
-  const inline = process.argv.find(arg => arg.startsWith('--providers='));
+  return getArgValue('--providers');
+}
+
+function getArgValue(flag: string): string | undefined {
+  const inline = process.argv.find(arg => arg.startsWith(`${flag}=`));
   if (inline) {
     return inline.split('=')[1];
   }
 
-  const flagIndex = process.argv.indexOf('--providers');
+  const flagIndex = process.argv.indexOf(flag);
   if (flagIndex !== -1 && process.argv[flagIndex + 1]) {
     return process.argv[flagIndex + 1];
   }

@@ -158,37 +158,6 @@
           "outputIsFixed": 1
         }
       }
-    },
-    {
-      "id": "claude-3-7-sonnet-20250219",
-      "name": "Claude 3.7 Sonnet",
-      "license": "proprietary",
-      "capabilities": [
-        "chat",
-        "txt-in",
-        "txt-out",
-        "img-in",
-        "fn-out",
-        "reason"
-      ],
-      "context": {
-        "type": "token",
-        "total": 200000,
-        "maxOutput": 8192,
-        "outputIsFixed": 1,
-        "extended": {
-          "reasoning": {
-            "maxOutput": 64000
-          },
-          "experimental": {
-            "maxOutput": 128000
-          }
-        }
-      },
-      "aliases": [
-        "claude-3-7-sonnet-latest",
-        "claude-3-7-sonnet"
-      ]
     }
   ]
 }
