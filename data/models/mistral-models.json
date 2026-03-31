@@ -2,6 +2,118 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-large-2512",
+      "name": "Mistral Large 3",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "mistral-large-3",
+        "mistral-large-latest"
+      ]
+    },
+    {
+      "id": "magistral-medium-2509",
+      "name": "Magistral Medium 1.2",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "magistral-medium-1.2",
+        "magistral-medium-latest"
+      ]
+    },
+    {
+      "id": "mistral-medium-2508",
+      "name": "Mistral Medium 3.1",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 32768
+      },
+      "aliases": [
+        "mistral-medium-3.1",
+        "mistral-medium-latest"
+      ]
+    },
+    {
+      "id": "mistral-small-2506",
+      "name": "Mistral Small 3.2",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 16384
+      },
+      "aliases": [
+        "mistral-small-3.2",
+        "mistral-small-latest"
+      ]
+    },
+    {
+      "id": "ministral-14b-2512",
+      "name": "Ministral 3 14B",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 16384
+      },
+      "aliases": [
+        "ministral-3-14b",
+        "ministral-14b-latest"
+      ]
+    },
+    {
       "id": "mistral-medium-3-2025-05-07",
       "name": "Mistral Medium 3",
       "license": "proprietary",
