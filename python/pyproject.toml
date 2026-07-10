@@ -48,6 +48,13 @@ addopts = "-v"
 [tool.hatch.build.targets.wheel]
 packages = ["src/aimodels"]
 
+[tool.hatch.build.targets.wheel.force-include]
+"../data" = "aimodels/data"
+
+[tool.hatch.build.targets.sdist.force-include]
+"../data" = "data"
+"../LICENSE" = "LICENSE"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0.0",
