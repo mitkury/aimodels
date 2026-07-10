@@ -2,6 +2,74 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "aliases": [
+        "gemini-flash-latest"
+      ],
+      "releasedAt": "2026-05-19"
+    },
+    {
+      "id": "gemini-3.1-flash-lite",
+      "extends": "gemini-3.5-flash",
+      "overrides": {
+        "name": "Gemini 3.1 Flash-Lite"
+      },
+      "releasedAt": "2026-05-07"
+    },
+    {
+      "id": "gemini-3.1-flash-live-preview",
+      "name": "Gemini 3.1 Flash Live Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "audio-out",
+        "video-in",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-03-26"
+    },
+    {
+      "id": "gemini-3.1-flash-tts-preview",
+      "name": "Gemini 3.1 Flash TTS Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 16384
+      }
+    },
+    {
       "id": "gemini-3-pro-preview",
       "name": "Gemini 3 Pro Preview",
       "license": "proprietary",
@@ -87,6 +155,89 @@
       }
     },
     {
+      "id": "gemini-3.1-flash-image",
+      "extends": "gemini-3.1-flash-image-preview",
+      "overrides": {
+        "name": "Gemini 3.1 Flash Image"
+      },
+      "releasedAt": "2026-05-28"
+    },
+    {
+      "id": "gemini-3.1-flash-lite-image",
+      "name": "Gemini 3.1 Flash Lite Image",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "img-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 65536,
+        "maxOutput": 4096
+      },
+      "releasedAt": "2026-06-30"
+    },
+    {
+      "id": "gemini-3-pro-image",
+      "extends": "gemini-3-pro-image-preview",
+      "overrides": {
+        "name": "Gemini 3 Pro Image"
+      },
+      "releasedAt": "2026-05-28"
+    },
+    {
+      "id": "gemini-omni-flash-preview",
+      "name": "Gemini Omni Flash Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-06-30"
+    },
+    {
+      "id": "lyria-3-clip-preview",
+      "name": "Lyria 3 Clip Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "audio-out",
+        "total": null,
+        "maxOutput": 30
+      },
+      "releasedAt": "2026-03-25"
+    },
+    {
+      "id": "lyria-3-pro-preview",
+      "extends": "lyria-3-clip-preview",
+      "overrides": {
+        "name": "Lyria 3 Pro Preview",
+        "context": {
+          "type": "audio-out",
+          "total": null,
+          "maxOutput": null
+        }
+      },
+      "releasedAt": "2026-03-25"
+    },
+    {
       "id": "gemini-2.5-pro",
       "name": "Gemini 2.5 Pro",
       "license": "proprietary",
@@ -138,7 +289,7 @@
         "maxOutput": 65536
       },
       "aliases": [
-        "gemini-flash-latest"
+        "gemini-2.5-flash-latest"
       ]
     },
     {
@@ -687,6 +838,22 @@
       "overrides": {
         "name": "Veo 3.1 Fast Generate"
       }
+    },
+    {
+      "id": "veo-3.1-lite-generate-preview",
+      "name": "Veo 3.1 Lite Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 480,
+        "maxOutput": 8192
+      },
+      "releasedAt": "2026-03-31"
     }
   ]
 }

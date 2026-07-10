@@ -2,6 +2,135 @@
   "creator": "cohere",
   "models": [
     {
+      "id": "command-a-plus-05-2026",
+      "name": "Command A+",
+      "creator": "cohere",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 64000
+      },
+      "releasedAt": "2026-05-20"
+    },
+    {
+      "id": "north-mini-code-1-0",
+      "name": "North Mini Code 1.0",
+      "creator": "cohere",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 64000
+      },
+      "releasedAt": "2026-06-09"
+    },
+    {
+      "id": "command-a-reasoning-08-2025",
+      "name": "Command A Reasoning",
+      "creator": "cohere",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 32000
+      }
+    },
+    {
+      "id": "command-a-vision-07-2025",
+      "name": "Command A Vision",
+      "creator": "cohere",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 8000
+      }
+    },
+    {
+      "id": "embed-v4.0",
+      "name": "Embed v4.0",
+      "creator": "cohere",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": 128000,
+        "dimensions": 1536,
+        "embeddingType": "multimodal",
+        "normalized": true
+      }
+    },
+    {
+      "id": "rerank-v4.0-pro",
+      "name": "Rerank v4.0 Pro",
+      "creator": "cohere",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "txt-out"],
+      "context": {"type": "token", "total": 32000, "maxOutput": null}
+    },
+    {
+      "id": "rerank-v4.0-fast",
+      "extends": "rerank-v4.0-pro",
+      "overrides": {
+        "name": "Rerank v4.0 Fast"
+      }
+    },
+    {
+      "id": "cohere-transcribe-03-2026",
+      "name": "Cohere Transcribe",
+      "creator": "cohere",
+      "license": "apache-2.0",
+      "capabilities": ["audio-in", "txt-out"],
+      "context": {"type": "audio-in", "total": null, "maxOutput": null},
+      "releasedAt": "2026-03-26"
+    },
+    {
+      "id": "cohere-transcribe-arabic-07-2026",
+      "extends": "cohere-transcribe-03-2026",
+      "overrides": {
+        "name": "Cohere Transcribe Arabic"
+      },
+      "releasedAt": "2026-07-07"
+    },
+    {
       "id": "command-a-03-2025",
       "name": "Command A",
       "creator": "cohere",

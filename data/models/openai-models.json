@@ -2,6 +2,76 @@
   "creator": "openai",
   "models": [
     {
+      "id": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-06-26"
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "extends": "gpt-5.6-sol",
+      "overrides": {
+        "name": "GPT-5.6 Terra"
+      },
+      "releasedAt": "2026-06-26"
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "extends": "gpt-5.6-sol",
+      "overrides": {
+        "name": "GPT-5.6 Luna"
+      },
+      "releasedAt": "2026-06-26"
+    },
+    {
+      "id": "gpt-5.5",
+      "name": "GPT-5.5",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1050000,
+        "maxOutput": 128000
+      },
+      "aliases": [
+        "gpt-5.5-2026-04-23"
+      ],
+      "releasedAt": "2026-04-23"
+    },
+    {
+      "id": "gpt-5.5-pro",
+      "extends": "gpt-5.5",
+      "overrides": {
+        "name": "GPT-5.5 Pro",
+        "aliases": [
+          "gpt-5.5-pro-2026-04-23"
+        ]
+      },
+      "releasedAt": "2026-04-23"
+    },
+    {
       "id": "gpt-5",
       "name": "GPT-5",
       "license": "proprietary",
@@ -59,6 +129,28 @@
           "gpt-5.2-chat-latest"
         ]
       }
+    },
+    {
+      "id": "gpt-5-pro",
+      "name": "GPT-5 Pro",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 400000,
+        "maxOutput": 272000
+      },
+      "aliases": [
+        "gpt-5-pro-2025-10-06"
+      ]
     },
     {
       "id": "gpt-5.4",
@@ -284,6 +376,85 @@
       }
     },
     {
+      "id": "gpt-realtime-2",
+      "name": "GPT Realtime 2",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "audio-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": 32000
+      }
+    },
+    {
+      "id": "gpt-realtime-2.1",
+      "extends": "gpt-realtime-2",
+      "overrides": {
+        "name": "GPT Realtime 2.1"
+      }
+    },
+    {
+      "id": "gpt-realtime-mini",
+      "name": "GPT Realtime Mini",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "audio-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 32000,
+        "maxOutput": 4096
+      },
+      "aliases": [
+        "gpt-realtime-mini-2025-12-15"
+      ]
+    },
+    {
+      "id": "gpt-realtime-translate",
+      "name": "GPT Realtime Translate",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-out",
+        "audio-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 16000,
+        "maxOutput": 2000
+      }
+    },
+    {
+      "id": "gpt-realtime-whisper",
+      "name": "GPT Realtime Whisper",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "txt-out",
+        "audio-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 16000,
+        "maxOutput": 2000
+      }
+    },
+    {
       "id": "gpt-audio-1.5",
       "name": "GPT Audio 1.5",
       "license": "proprietary",
@@ -501,6 +672,33 @@
       "aliases": [
         "gpt-image-1.5-2025-12-16"
       ]
+    },
+    {
+      "id": "gpt-image-2",
+      "name": "GPT Image 2",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1024x1024",
+          "1024x1536",
+          "1536x1024"
+        ],
+        "qualities": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "aliases": [
+        "gpt-image-2-2026-04-21"
+      ],
+      "releasedAt": "2026-04-21"
     },
     {
       "id": "gpt-image-1-mini",

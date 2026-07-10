@@ -2,6 +2,70 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-medium-3-5",
+      "name": "Mistral Medium 3.5",
+      "license": "modified-mit",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out", "reason"],
+      "context": {"type": "token", "total": 256000, "maxOutput": null},
+      "releasedAt": "2026-04-28"
+    },
+    {
+      "id": "mistral-small-2603",
+      "name": "Mistral Small 4",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out", "reason"],
+      "context": {"type": "token", "total": 256000, "maxOutput": null},
+      "releasedAt": "2026-03-16"
+    },
+    {
+      "id": "mistral-large-2512",
+      "name": "Mistral Large 3",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 256000, "maxOutput": null},
+      "releasedAt": "2025-12-02"
+    },
+    {
+      "id": "ministral-14b-2512",
+      "name": "Ministral 3 14B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out"],
+      "context": {"type": "token", "total": 256000, "maxOutput": null},
+      "releasedAt": "2025-12-02"
+    },
+    {
+      "id": "ministral-8b-2512",
+      "extends": "ministral-14b-2512",
+      "overrides": {
+        "name": "Ministral 3 8B"
+      },
+      "releasedAt": "2025-12-02"
+    },
+    {
+      "id": "ministral-3b-2512",
+      "extends": "ministral-14b-2512",
+      "overrides": {
+        "name": "Ministral 3 3B"
+      },
+      "releasedAt": "2025-12-02"
+    },
+    {
+      "id": "voxtral-mini-transcribe-realtime-2602",
+      "name": "Voxtral Mini Transcribe Realtime",
+      "license": "apache-2.0",
+      "capabilities": ["audio-in", "txt-out"],
+      "context": {"type": "audio-in", "total": null, "maxOutput": null},
+      "releasedAt": "2026-02-04"
+    },
+    {
+      "id": "voxtral-mini-tts-2603",
+      "name": "Voxtral TTS",
+      "license": "cc-by-nc-4.0",
+      "capabilities": ["txt-in", "audio-in", "audio-out"],
+      "context": {"type": "audio-out", "total": null, "maxOutput": null},
+      "releasedAt": "2026-03-23"
+    },
+    {
       "id": "mistral-medium-3-2025-05-07",
       "name": "Mistral Medium 3",
       "license": "proprietary",

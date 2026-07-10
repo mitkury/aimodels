@@ -2,6 +2,33 @@
   "creator": "xai",
   "models": [
     {
+      "id": "grok-4.5",
+      "name": "Grok 4.5",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 500000,
+        "maxOutput": null
+      },
+      "aliases": ["grok-4.5-latest"],
+      "releasedAt": "2026-07-08"
+    },
+    {
+      "id": "grok-build-0.1",
+      "name": "Grok Build 0.1",
+      "creator": "xai",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-05-19"
+    },
+    {
       "id": "grok-3-beta",
       "name": "Grok 3 Beta",
       "creator": "xai",
@@ -199,42 +226,58 @@
       "releasedAt": "2025-11-19"
     },
     {
-      "id": "grok-4.20-reasoning",
+      "id": "grok-4.20-0309-reasoning",
       "name": "Grok 4.20",
       "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
-        "total": 2000000,
+        "total": 1000000,
         "maxOutput": null
       },
+      "aliases": [
+        "grok-4.20",
+        "grok-4.20-reasoning",
+        "grok-4.20-reasoning-latest",
+        "grok-4.20-beta-latest"
+      ],
       "releasedAt": "2026-03-10"
     },
     {
-      "id": "grok-4.20-beta-latest-non-reasoning",
+      "id": "grok-4.20-0309-non-reasoning",
       "name": "Grok 4.20 (Non-Reasoning)",
       "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
         "type": "token",
-        "total": 2000000,
+        "total": 1000000,
         "maxOutput": null
       },
+      "aliases": [
+        "grok-4.20-non-reasoning",
+        "grok-4.20-non-reasoning-latest",
+        "grok-4.20-beta-latest-non-reasoning"
+      ],
       "releasedAt": "2026-03-10"
     },
     {
-      "id": "grok-4.20-multi-agent-beta-0309",
+      "id": "grok-4.20-multi-agent-0309",
       "name": "Grok 4.20 Multi-Agent Beta",
       "creator": "xai",
       "license": "proprietary",
-      "capabilities": ["chat", "txt-in", "txt-out", "reason"],
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
         "type": "token",
-        "total": 2000000,
+        "total": 1000000,
         "maxOutput": null
       },
+      "aliases": [
+        "grok-4.20-multi-agent",
+        "grok-4.20-multi-agent-latest",
+        "grok-4.20-multi-agent-beta-0309"
+      ],
       "releasedAt": "2026-03-09"
     },
     {

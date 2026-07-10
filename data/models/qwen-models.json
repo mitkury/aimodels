@@ -2,6 +2,70 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 64000
+      },
+      "aliases": [
+        "qwen3.7-max-preview",
+        "qwen3.7-max-2026-06-08"
+      ]
+    },
+    {
+      "id": "qwen3.7-plus",
+      "name": "Qwen 3.7 Plus",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 64000
+      },
+      "aliases": [
+        "qwen3.7-plus-2026-05-26"
+      ]
+    },
+    {
+      "id": "qwen3.6-plus",
+      "extends": "qwen3.7-plus",
+      "overrides": {
+        "name": "Qwen 3.6 Plus",
+        "aliases": [
+          "qwen3.6-plus-2026-04-02"
+        ]
+      }
+    },
+    {
+      "id": "qwen3.6-flash",
+      "extends": "qwen3.7-plus",
+      "overrides": {
+        "name": "Qwen 3.6 Flash",
+        "aliases": [
+          "qwen3.6-flash-2026-04-16"
+        ]
+      }
+    },
+    {
       "id": "qwen3-max",
       "name": "Qwen3 Max",
       "license": "proprietary",

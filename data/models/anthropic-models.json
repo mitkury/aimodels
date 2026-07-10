@@ -2,6 +2,58 @@
   "creator": "anthropic",
   "models": [
     {
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 128000,
+        "outputIsFixed": 1
+      },
+      "releasedAt": "2026-06-09"
+    },
+    {
+      "id": "claude-mythos-5",
+      "extends": "claude-fable-5",
+      "overrides": {
+        "name": "Claude Mythos 5"
+      },
+      "releasedAt": "2026-06-09"
+    },
+    {
+      "id": "claude-sonnet-5",
+      "extends": "claude-fable-5",
+      "overrides": {
+        "name": "Claude Sonnet 5"
+      },
+      "releasedAt": "2026-06-30"
+    },
+    {
+      "id": "claude-opus-4-8",
+      "extends": "claude-fable-5",
+      "overrides": {
+        "name": "Claude Opus 4.8"
+      },
+      "releasedAt": "2026-05-28"
+    },
+    {
+      "id": "claude-opus-4-7",
+      "extends": "claude-fable-5",
+      "overrides": {
+        "name": "Claude Opus 4.7"
+      },
+      "releasedAt": "2026-04-28"
+    },
+    {
       "id": "claude-sonnet-4-5-20250929",
       "name": "Claude Sonnet 4.5",
       "license": "proprietary",

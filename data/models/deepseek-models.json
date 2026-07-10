@@ -2,6 +2,33 @@
   "creator": "deepseek",
   "models": [
     {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 384000
+      },
+      "releasedAt": "2026-04-24"
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "extends": "deepseek-v4-pro",
+      "overrides": {
+        "name": "DeepSeek V4 Flash"
+      },
+      "releasedAt": "2026-04-24"
+    },
+    {
       "id": "deepseek-chat",
       "name": "DeepSeek V3.2",
       "license": "mit",
