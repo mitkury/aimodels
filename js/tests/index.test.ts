@@ -3,6 +3,11 @@ import { describe, it, expect } from 'vitest';
 import { models } from '../dist/index.js';
 
 describe('aimodels package', () => {
+  it('preserves organization IDs on public creator objects', () => {
+    expect(models.id('gpt-5')?.creator?.id).toBe('openai');
+    expect(models.orgs.find(org => org.id === 'openai')?.name).toBe('OpenAI');
+  });
+
   it('exports a models object with fluent API methods', () => {
     expect(models).toBeDefined();
     expect(typeof models).toBe('object');
@@ -58,4 +63,4 @@ describe('aimodels package', () => {
       expect(Array.isArray(model.providers)).toBe(true);
     }
   });
-}); 
+});

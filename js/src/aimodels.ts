@@ -97,10 +97,12 @@ export class AIModels extends ModelCollection {
    * We want to return all known creators here.
    */
   override get orgs(): Organization[] {
-    return Object.values(ModelCollection.orgsData);
+    return Object.entries(ModelCollection.orgsData).map(([id, organization]) => ({
+      ...organization,
+      id
+    }));
   }
 }
 
 // Create and export the singleton instance
 export const models = AIModels.instance;
-

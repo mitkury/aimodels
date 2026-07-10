@@ -153,7 +153,8 @@ export class Model {
   
   get creator(): Organization | undefined {
     const id = this.creatorId;
-    return id ? ModelCollection.orgsData[id] : undefined;
+    const organization = id ? ModelCollection.orgsData[id] : undefined;
+    return organization && id ? { ...organization, id } : undefined;
   }
 
   /**
