@@ -1,0 +1,48 @@
+name: Validate catalog and packages
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  javascript:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: js
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: js/package-lock.json
+      - run: npm ci
+      - run: npm run validate:data
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install --upgrade build pytest
+      - run: python -m pytest python/tests
+        env:
+          PYTHONPATH: python/src
+      - run: python -m build --wheel --outdir "${{ runner.temp }}/wheels" python
+      - name: Verify the installed wheel contains catalog data
+        run: |
+          python -m venv "${{ runner.temp }}/wheel-test"
+          "${{ runner.temp }}/wheel-test/bin/pip" install "${{ runner.temp }}"/wheels/*.whl
+          cd "${{ runner.temp }}"
+          "${{ runner.temp }}/wheel-test/bin/python" -c "from aimodels import models; assert len(models) > 0; assert models.id('gpt-5.1')"
