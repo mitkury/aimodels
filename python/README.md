@@ -41,6 +41,10 @@ model = models.id("gpt-5.1")
 print(model.context.total)  # Context window size
 print(model.providers)  # ['openai']
 
+# Resolve canonical IDs at the provider boundary
+print(model.id_for("openrouter"))  # openai/gpt-5.1
+canonical = models.from_provider_id("openrouter", "openai/gpt-5.1")
+
 # Get pricing information (via provider pricing table)
 provider = models.get_provider("openai")
 if provider and provider.pricing:

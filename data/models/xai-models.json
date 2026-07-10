@@ -4,7 +4,6 @@
     {
       "id": "grok-4.5",
       "name": "Grok 4.5",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
@@ -18,7 +17,6 @@
     {
       "id": "grok-build-0.1",
       "name": "Grok Build 0.1",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
@@ -31,7 +29,6 @@
     {
       "id": "grok-3-beta",
       "name": "Grok 3 Beta",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
@@ -45,7 +42,6 @@
     {
       "id": "grok-3-fast-beta",
       "name": "Grok 3 Beta (Fast mode)",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
@@ -58,7 +54,6 @@
     {
       "id": "grok-3-mini-beta",
       "name": "Grok 3 Mini Beta",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
@@ -72,7 +67,6 @@
     {
       "id": "grok-3-mini-fast-beta",
       "name": "Grok 3 Mini Beta (Fast mode)",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
@@ -85,7 +79,6 @@
     {
       "id": "grok-2-vision-1212",
       "name": "Grok 2 Vision",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
@@ -99,7 +92,6 @@
     {
       "id": "grok-2-1212",
       "name": "Grok 2",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "fn-out", "json-out"],
       "context": {
@@ -113,7 +105,6 @@
     {
       "id": "grok-vision-beta",
       "name": "Grok Vision Beta",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
@@ -125,7 +116,6 @@
     {
       "id": "grok-beta",
       "name": "Grok Beta",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "fn-out", "json-out"],
       "context": {
@@ -137,7 +127,6 @@
     {
       "id": "grok-4",
       "name": "Grok 4",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
@@ -150,7 +139,6 @@
     {
       "id": "grok-4-heavy",
       "name": "Grok 4 Heavy",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
@@ -163,7 +151,6 @@
     {
       "id": "grok-code-fast-1",
       "name": "Grok Code Fast 1",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "reason", "fn-out", "json-out"],
       "context": {
@@ -176,7 +163,6 @@
     {
       "id": "grok-4-fast",
       "name": "Grok 4 Fast",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
@@ -189,7 +175,6 @@
     {
       "id": "grok-4-fast-non-reasoning",
       "name": "Grok 4 Fast (Non-Reasoning)",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
@@ -202,7 +187,6 @@
     {
       "id": "grok-4-1-fast",
       "name": "Grok 4.1 Fast",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
@@ -215,7 +199,6 @@
     {
       "id": "grok-4-1-fast-non-reasoning",
       "name": "Grok 4.1 Fast (Non-Reasoning)",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
@@ -228,7 +211,6 @@
     {
       "id": "grok-4.20-0309-reasoning",
       "name": "Grok 4.20",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
@@ -247,7 +229,6 @@
     {
       "id": "grok-4.20-0309-non-reasoning",
       "name": "Grok 4.20 (Non-Reasoning)",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "json-out"],
       "context": {
@@ -265,7 +246,6 @@
     {
       "id": "grok-4.20-multi-agent-0309",
       "name": "Grok 4.20 Multi-Agent Beta",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
       "context": {
@@ -283,7 +263,6 @@
     {
       "id": "grok-imagine-image",
       "name": "Grok Imagine Image",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["txt-in", "img-in", "img-out"],
       "context": {
@@ -295,7 +274,6 @@
     {
       "id": "grok-imagine-video",
       "name": "Grok Imagine Video",
-      "creator": "xai",
       "license": "proprietary",
       "capabilities": ["txt-in", "img-in", "video-in", "video-out"],
       "context": {

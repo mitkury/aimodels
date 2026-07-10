@@ -5,7 +5,7 @@ export const OrganizationSchema = z.object({
   websiteUrl: z.string().url(),
   country: z.string().min(2).max(3),
   founded: z.number().int().min(1000).max(3000),
-});
+}).strict();
 
 export const OrganizationsMapSchema = z.record(z.string(), OrganizationSchema);
 

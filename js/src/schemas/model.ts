@@ -8,6 +8,11 @@ export const ModelSourceSchema = z.object({
   license: z.string().optional().describe('License type of the model'),
   providerIds: z.array(z.string()).optional().describe('List of provider IDs that offer this model'),
   aliases: z.array(z.string()).optional().describe('Alternative identifiers for this model'),
+  releasedAt: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .optional()
+    .describe('ISO release date when publicly documented'),
   capabilities: z.array(CapabilitySchema).optional().describe('List of capabilities this model supports'),
   context: ModelContextSchema.optional().describe('Context window information'),
   extends: z.string().optional().describe("ID of the model this model extends"),
@@ -19,15 +24,16 @@ export const ModelSourceSchema = z.object({
       license: z.string().optional(),
       providerIds: z.array(z.string()).optional(),
       aliases: z.array(z.string()).optional(),
+      releasedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
       creatorId: z.string().optional(),
       languages: z.array(z.string()).optional(),
-    })
+    }).strict()
     .partial()
     .optional()
     .describe("Properties that override the extended model's properties"),
   creatorId: z.string().optional(),
   languages: z.array(z.string()).optional(),
-});
+}).strict();
 
 export const ValidatedModelSchema = ModelSourceSchema.refine(
   (data) => {
@@ -46,7 +52,7 @@ export const ValidatedModelSchema = ModelSourceSchema.refine(
 export const ModelCollectionSchema = z.object({
   creator: z.string().describe('The ID of the creator/organization that developed these models'),
   models: z.array(ValidatedModelSchema).describe('Array of model definitions'),
-});
+}).strict();
 
 export type Model = z.infer<typeof ValidatedModelSchema>;
 export type ModelCollection = z.infer<typeof ModelCollectionSchema>;

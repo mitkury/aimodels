@@ -81,6 +81,10 @@ export class Model {
   get aliases(): string[] | undefined {
     return this.resolveProperty<string[]>('aliases');
   }
+
+  get releasedAt(): string | undefined {
+    return this.resolveProperty<string>('releasedAt');
+  }
   
   // Getters for related objects
   get providerIds(): string[] {
@@ -131,6 +135,24 @@ export class Model {
 
     return Array.from(ids);
   }
+
+  /**
+   * Resolve this catalog model's canonical ID to the ID required by a provider.
+   * Returns undefined when the provider does not expose this model.
+   */
+  idFor(providerId: string): string | undefined {
+    if (!this.providerIds.includes(providerId)) return undefined;
+
+    const provider = ModelCollection.providersData[providerId];
+    const entry = provider?.models?.find((item) => {
+      if (item.creator !== this.creatorId) return false;
+      if (item.include === 'all') return !item.exclude?.includes(this.id);
+      return item.include.includes(this.id);
+    });
+    const override = entry?.idOverrides?.[this.id];
+
+    return override ?? `${entry?.idPrefix ?? ''}${this.id}`;
+  }
   
   get providers(): Provider[] {
     const providers = [];
@@ -140,7 +162,8 @@ export class Model {
       const organization = ModelCollection.orgsData[id];
       providers.push({
         ...organization,
-        ...provider
+        ...provider,
+        id
       });
     }
 

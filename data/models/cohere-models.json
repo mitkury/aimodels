@@ -4,7 +4,6 @@
     {
       "id": "command-a-plus-05-2026",
       "name": "Command A+",
-      "creator": "cohere",
       "license": "apache-2.0",
       "capabilities": [
         "chat",
@@ -25,7 +24,6 @@
     {
       "id": "north-mini-code-1-0",
       "name": "North Mini Code 1.0",
-      "creator": "cohere",
       "license": "apache-2.0",
       "capabilities": [
         "chat",
@@ -45,7 +43,6 @@
     {
       "id": "command-a-reasoning-08-2025",
       "name": "Command A Reasoning",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -64,7 +61,6 @@
     {
       "id": "command-a-vision-07-2025",
       "name": "Command A Vision",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -83,7 +79,6 @@
     {
       "id": "embed-v4.0",
       "name": "Embed v4.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -101,7 +96,6 @@
     {
       "id": "rerank-v4.0-pro",
       "name": "Rerank v4.0 Pro",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": ["txt-in", "txt-out"],
       "context": {"type": "token", "total": 32000, "maxOutput": null}
@@ -116,7 +110,6 @@
     {
       "id": "cohere-transcribe-03-2026",
       "name": "Cohere Transcribe",
-      "creator": "cohere",
       "license": "apache-2.0",
       "capabilities": ["audio-in", "txt-out"],
       "context": {"type": "audio-in", "total": null, "maxOutput": null},
@@ -133,7 +126,6 @@
     {
       "id": "command-a-03-2025",
       "name": "Command A",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -151,7 +143,6 @@
     {
       "id": "command-r7b-12-2024",
       "name": "Command R7B",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -169,7 +160,6 @@
     {
       "id": "command-r-plus-04-2024",
       "name": "Command R+ (April 2024)",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -183,14 +173,11 @@
         "total": 128000,
         "maxOutput": 4096
       },
-      "aliases": [
-        "command-r-plus"
-      ]
+      "aliases": []
     },
     {
       "id": "command-r-plus-08-2024",
       "name": "Command R+",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -211,7 +198,6 @@
     {
       "id": "command-r-08-2024",
       "name": "Command R (August 2024)",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -229,7 +215,6 @@
     {
       "id": "command-r-03-2024",
       "name": "Command R",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -250,7 +235,6 @@
     {
       "id": "command-nightly",
       "name": "Command Nightly",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -268,7 +252,6 @@
     {
       "id": "command",
       "name": "Command",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -284,7 +267,6 @@
     {
       "id": "command-light",
       "name": "Command Light",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -300,7 +282,6 @@
     {
       "id": "embed-english-v3.0",
       "name": "Embed English v3.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -316,7 +297,6 @@
     {
       "id": "embed-english-light-v3.0",
       "name": "Embed English Light v3.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -332,7 +312,6 @@
     {
       "id": "embed-multilingual-v3.0",
       "name": "Embed Multilingual v3.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -348,7 +327,6 @@
     {
       "id": "embed-multilingual-light-v3.0",
       "name": "Embed Multilingual Light v3.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -364,7 +342,6 @@
     {
       "id": "rerank-v3.5",
       "name": "Rerank v3.5",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -379,7 +356,6 @@
     {
       "id": "rerank-english-v3.0",
       "name": "Rerank English v3.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -394,7 +370,6 @@
     {
       "id": "rerank-multilingual-v3.0",
       "name": "Rerank Multilingual v3.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -409,7 +384,6 @@
     {
       "id": "embed-english-v2.0",
       "name": "Embed English v2.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -426,7 +400,6 @@
     {
       "id": "embed-english-light-v2.0",
       "name": "Embed English Light v2.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -443,7 +416,6 @@
     {
       "id": "embed-multilingual-v2.0",
       "name": "Embed Multilingual v2.0",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "txt-in",
@@ -460,7 +432,6 @@
     {
       "id": "c4ai-aya-expanse-8b",
       "name": "Aya Expanse 8B",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -476,7 +447,6 @@
     {
       "id": "c4ai-aya-expanse-32b",
       "name": "Aya Expanse 32B",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -492,7 +462,6 @@
     {
       "id": "c4ai-aya-vision-8b",
       "name": "Aya Vision 8B",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",
@@ -509,7 +478,6 @@
     {
       "id": "c4ai-aya-vision-32b",
       "name": "Aya Vision 32B",
-      "creator": "cohere",
       "license": "proprietary",
       "capabilities": [
         "chat",

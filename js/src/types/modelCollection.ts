@@ -1,5 +1,5 @@
 import type { Provider, ProviderSource } from './provider';
-import type { Organization } from './organization';
+import type { Organization, OrganizationSource } from './organization';
 import { Model } from './model';
 import { Capability } from './capabilities';
 import { ModelSource } from './modelSource';
@@ -7,7 +7,7 @@ import { ModelSource } from './modelSource';
 export class ModelCollection extends Array<Model> {
   // Static data stores - accessible from Model
   public static providersData: Record<string, ProviderSource> = {};
-  public static orgsData: Record<string, Organization> = {};
+  public static orgsData: Record<string, OrganizationSource> = {};
   public static modelSources: Record<string, ModelSource> = {};
 
   /** Create a new ModelCollection from an array of models */
@@ -27,7 +27,7 @@ export class ModelCollection extends Array<Model> {
   }
 
   /** Set the shared creators data */
-  static setOrgs(orgs: Record<string, Organization>): void {
+  static setOrgs(orgs: Record<string, OrganizationSource>): void {
     ModelCollection.orgsData = orgs;
   }
 
@@ -115,6 +115,16 @@ export class ModelCollection extends Array<Model> {
     );
   }
 
+  /** Resolve a canonical model ID or alias to the ID required by a provider. */
+  resolveModelIdForProvider(modelId: string, providerId: string): string | undefined {
+    return this.id(modelId)?.idFor(providerId);
+  }
+
+  /** Find a canonical model from an ID returned by a provider. */
+  fromProviderId(providerId: string, providerModelId: string): Model | undefined {
+    return this.fromProvider(providerId).find(model => model.idFor(providerId) === providerModelId);
+  }
+
   /** Get models available from a specific provider */
   fromProvider(provider: string): ModelCollection {
     return this.filter(model => model.providerIds.includes(provider));
@@ -151,7 +161,8 @@ export class ModelCollection extends Array<Model> {
       const organization = ModelCollection.orgsData[id];
       providers.push({
         ...organization,
-        ...provider
+        ...provider,
+        id
       });
     }
     return providers;
@@ -164,23 +175,36 @@ export class ModelCollection extends Array<Model> {
 
     // Map to organizations and filter out any that aren't found
     return creatorIds
-      .map(id => ModelCollection.orgsData[id])
+      .map(id => ModelCollection.orgsData[id] ? { ...ModelCollection.orgsData[id], id } : undefined)
       .filter((c): c is Organization => c !== undefined);
+  }
+
+  /** Organizations that create models in this collection. */
+  get creators(): Organization[] {
+    return this.orgs;
+  }
+
+  /** Providers that expose models in this collection. */
+  get activeProviders(): Provider[] {
+    return this.providers;
   }
 
   /** Get a specific provider by ID */
   getProvider(id: string): Provider | undefined {
     const provider = ModelCollection.providersData[id];
+    if (!provider) return undefined;
     const organization = ModelCollection.orgsData[id];
     return {
       ...organization,
-      ...provider
+      ...provider,
+      id
     };
   }
 
   /** Get a specific creator by ID */
   getCreator(id: string): Organization | undefined {
-    return ModelCollection.orgsData[id];
+    const organization = ModelCollection.orgsData[id];
+    return organization ? { ...organization, id } : undefined;
   }
 
   /** Get providers for a specific model */
@@ -188,7 +212,7 @@ export class ModelCollection extends Array<Model> {
     const model = this.id(modelId);
     if (!model || !model.providerIds) return [];
     return model.providerIds
-      .map(id => ModelCollection.providersData[id])
+      .map(id => this.getProvider(id))
       .filter((p): p is Provider => p !== undefined);
   }
 
@@ -196,6 +220,6 @@ export class ModelCollection extends Array<Model> {
   getCreatorForModel(modelId: string): Organization | undefined {
     const model = this.id(modelId);
     if (!model || !model.creatorId) return undefined;
-    return ModelCollection.orgsData[model.creatorId];
+    return this.getCreator(model.creatorId);
   }
 }

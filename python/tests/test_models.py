@@ -67,6 +67,9 @@ def test_can_find_multimodal_models():
     assert len(multimodal) > 0
     assert all(m.canChat() and m.canSee() for m in multimodal)
 
+    pythonic = models.can_chat().can_see()
+    assert [m.id for m in pythonic] == [m.id for m in multimodal]
+
 
 def test_from_provider():
     openai_models = models.fromProvider("openai")
@@ -85,6 +88,23 @@ def test_find_specific_model():
     assert gpt51 is not None
     assert gpt51.id == "gpt-5.1"
     assert "openai" in gpt51.providers
+
+
+def test_provider_specific_model_ids():
+    model = models.id("gpt-5.1")
+    assert model is not None
+    assert model.id_for("openai") == "gpt-5.1"
+    assert model.id_for("openrouter") == "openai/gpt-5.1"
+    assert models.resolve_model_id_for_provider("gpt-5.1", "openrouter") == "openai/gpt-5.1"
+    assert models.from_provider_id("openrouter", "openai/gpt-5.1") is model
+    assert model.id_for("anthropic") is None
+
+
+def test_creator_ids_are_preserved():
+    creator = models.get_creator("openai")
+    assert creator is not None
+    assert creator["id"] == "openai"
+    assert any(org["id"] == "openai" for org in models.orgs)
 
 
 def test_providers_api_and_data():
@@ -116,4 +136,4 @@ def test_capability_method_equivalence():
     for method, cap in cases:
         fluent = getattr(models, method)()
         direct = models.can(cap)
-        assert len(fluent) == len(direct) 
+        assert len(fluent) == len(direct)

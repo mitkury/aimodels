@@ -1,6 +1,6 @@
 import { ModelCollection } from './types/modelCollection';
 import type { Provider, ProviderSource } from './types/provider';
-import type { Organization } from './types/organization';
+import type { Organization, OrganizationSource } from './types/organization';
 import { Model, ModelSource } from './types';
 
 /**
@@ -47,7 +47,7 @@ export class AIModels extends ModelCollection {
   }: {
     models?: Record<string, ModelSource>;
     providers?: Record<string, ProviderSource>;
-    orgs?: Record<string, Organization>;
+    orgs?: Record<string, OrganizationSource>;
   }): void {
     // Add new models
     ModelCollection.modelSources = {
@@ -88,8 +88,14 @@ export class AIModels extends ModelCollection {
   override get providers(): Provider[] {
     return Object.values(ModelCollection.providersData).map(provider => ({
       ...ModelCollection.orgsData[provider.id],
-      ...provider
+      ...provider,
+      id: provider.id
     }));
+  }
+
+  /** Providers that currently expose at least one catalog model. */
+  get activeProviders(): Provider[] {
+    return super.providers;
   }
 
   /**
@@ -101,6 +107,19 @@ export class AIModels extends ModelCollection {
       ...organization,
       id
     }));
+  }
+
+  /** All known organizations, including providers that are not model creators. */
+  get organizations(): Organization[] {
+    return this.orgs;
+  }
+
+  /** Organizations that create at least one model in this catalog. */
+  get creators(): Organization[] {
+    const creatorIds = [...new Set(this.map(model => model.creatorId).filter(Boolean))] as string[];
+    return creatorIds
+      .map(id => ModelCollection.orgsData[id] ? { ...ModelCollection.orgsData[id], id } : undefined)
+      .filter((organization): organization is Organization => organization !== undefined);
   }
 }
 

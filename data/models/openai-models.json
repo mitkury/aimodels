@@ -600,9 +600,7 @@
         "total": 200000,
         "maxOutput": 100000
       },
-      "aliases": [
-        "o4-mini"
-      ]
+      "aliases": []
     },
     {
       "id": "computer-use-preview-2025-03-11",

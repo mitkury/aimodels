@@ -24,8 +24,10 @@ export interface ModelSource {
   languages?: string[];
   /** Alternative identifiers for this model */
   aliases?: string[];
+  /** ISO release date when publicly documented */
+  releasedAt?: string;
   /** Base model ID this model extends */
   extends?: string;
   /** Properties that override the base model */
   overrides?: Partial<Omit<ModelSource, 'id' | 'extends' | 'overrides'>>;
-} 
+}

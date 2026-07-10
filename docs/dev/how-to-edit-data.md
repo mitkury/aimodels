@@ -44,15 +44,42 @@ Each `models` entry in a provider file has this shape:
 - `include`: `"all"` to include all models from this creator, or an explicit array of model IDs.
 - `exclude` (optional): model IDs to omit when `include` is `"all"`.
 
+When a provider requires a different model ID, keep the canonical ID in
+`data/models` and describe the provider translation in its mapping:
+
+```json
+{
+  "creator": "openai",
+  "include": "all",
+  "idPrefix": "openai/",
+  "idOverrides": {
+    "gpt-5.5": "openai/gpt-5.5-2026-04-23"
+  }
+}
+```
+
+- `idPrefix` handles provider namespaces such as `openai/`.
+- `idOverrides` handles exceptions such as dated provider IDs.
+- Explicit overrides take precedence over the prefix.
+- Do not change the canonical model ID to match one provider.
+
+Consumers resolve IDs only at the provider boundary:
+
+```ts
+models.id('gpt-5.5')?.idFor('openrouter');
+models.resolveModelIdForProvider('gpt-5.5', 'openrouter');
+models.fromProviderId('openrouter', 'openai/gpt-5.5');
+```
+
 Example (`data/providers/openrouter-provider.json`):
 
 ```json
 {
   "id": "openrouter",
   "models": [
-    { "creator": "openai", "include": "all" },
-    { "creator": "anthropic", "include": "all" },
-    { "creator": "google", "include": "all" }
+    { "creator": "openai", "include": "all", "idPrefix": "openai/" },
+    { "creator": "anthropic", "include": "all", "idPrefix": "anthropic/" },
+    { "creator": "google", "include": "all", "idPrefix": "google/" }
   ]
 }
 ```

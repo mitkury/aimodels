@@ -82,6 +82,11 @@ models.withMinContext(32768)   // Find models with at least this context size
 
 // Model lookup
 models.id('gpt-5.1')           // Find a specific model by ID
+
+// Resolve canonical IDs at the provider boundary
+models.id('gpt-5.1')?.idFor('openrouter')
+models.resolveModelIdForProvider('gpt-5.1', 'openrouter')
+models.fromProviderId('openrouter', 'openai/gpt-5.1')
 ```
 
 ## Features

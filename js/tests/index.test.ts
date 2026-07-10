@@ -6,6 +6,28 @@ describe('aimodels package', () => {
   it('preserves organization IDs on public creator objects', () => {
     expect(models.id('gpt-5')?.creator?.id).toBe('openai');
     expect(models.orgs.find(org => org.id === 'openai')?.name).toBe('OpenAI');
+    expect(models.getCreator('openai')?.id).toBe('openai');
+    expect(models.getProvider('does-not-exist')).toBeUndefined();
+    expect(models.creators.every(creator => models.fromCreator(creator.id).length > 0)).toBe(true);
+    expect(models.activeProviders.every(provider => models.fromProvider(provider.id).length > 0)).toBe(
+      true
+    );
+  });
+
+  it('resolves canonical model IDs for each provider', () => {
+    const model = models.id('gpt-5.1');
+
+    expect(model?.idFor('openai')).toBe('gpt-5.1');
+    expect(model?.idFor('openrouter')).toBe('openai/gpt-5.1');
+    expect(models.resolveModelIdForProvider('gpt-5.1', 'openrouter')).toBe(
+      'openai/gpt-5.1'
+    );
+    expect(models.fromProviderId('openrouter', 'openai/gpt-5.1')?.id).toBe('gpt-5.1');
+    expect(model?.idFor('anthropic')).toBeUndefined();
+  });
+
+  it('exposes release dates when the source publishes them', () => {
+    expect(models.id('gpt-5.6-sol')?.releasedAt).toBe('2026-06-26');
   });
 
   it('exports a models object with fluent API methods', () => {

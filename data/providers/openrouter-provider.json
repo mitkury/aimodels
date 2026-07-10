@@ -7,17 +7,19 @@
   "models": [
     {
       "creator": "openai",
-      "include": "all"
+      "include": "all",
+      "idPrefix": "openai/"
     },
     {
       "creator": "anthropic",
-      "include": "all"
+      "include": "all",
+      "idPrefix": "anthropic/"
     },
     {
       "creator": "google",
-      "include": "all"
+      "include": "all",
+      "idPrefix": "google/"
     }
   ]
 }
-
 

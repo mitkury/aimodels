@@ -1,68 +1,123 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Provider",
-  "description": "Information about an AI service provider",
   "type": "object",
-  "required": ["id", "name"],
   "properties": {
     "id": {
-      "type": "string",
-      "description": "Unique identifier for the provider"
+      "type": "string"
     },
     "name": {
-      "type": "string",
-      "description": "Human-readable name of the provider"
+      "type": "string"
     },
     "apiUrl": {
-      "type": "string",
-      "description": "Base URL for the provider's API",
-      "format": "uri"
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 0
+        }
+      ]
     },
     "apiDocsUrl": {
       "type": "string",
-      "description": "URL to the provider's API documentation",
       "format": "uri"
     },
     "pricing": {
       "type": "object",
-      "description": "Pricing information for models offered by this provider",
       "additionalProperties": {
-        "type": "object",
-        "required": ["type"],
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": ["token", "character", "request", "second", "minute", "call", "image"]
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "token"
+              },
+              "input": {
+                "type": "number"
+              },
+              "output": {
+                "type": "number"
+              },
+              "input_cached": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "type",
+              "input",
+              "output"
+            ],
+            "additionalProperties": true
           },
-          "input": {
-            "type": "number"
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "image"
+              },
+              "price": {
+                "type": "number"
+              },
+              "size": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "price"
+            ],
+            "additionalProperties": true
           },
-          "output": {
-            "type": "number"
-          },
-          "price": {
-            "type": "number"
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "character",
+                      "request",
+                      "second",
+                      "minute",
+                      "call"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": true
           }
-        }
-      }
+        ]
+      },
+      "default": {}
     },
     "models": {
       "type": "array",
-      "description": "Model mappings describing which creators' models this provider exposes",
       "items": {
         "type": "object",
-        "required": ["creator", "include"],
         "properties": {
           "creator": {
-            "type": "string",
-            "description": "ID of the creator whose models are referenced (e.g. 'openai')"
+            "type": "string"
           },
           "include": {
-            "description": "Either 'all' to include all models from this creator, or an explicit list of model IDs",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "string",
-                "enum": ["all"]
+                "const": "all"
               },
               {
                 "type": "array",
@@ -74,13 +129,32 @@
           },
           "exclude": {
             "type": "array",
-            "description": "Optional list of model IDs from this creator to exclude when include is 'all'",
             "items": {
               "type": "string"
             }
+          },
+          "idPrefix": {
+            "type": "string"
+          },
+          "idOverrides": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
-        }
+        },
+        "required": [
+          "creator",
+          "include"
+        ],
+        "additionalProperties": false
       }
     }
-  }
-} 
+  },
+  "required": [
+    "id",
+    "name"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2019-09/schema#"
+}

@@ -73,6 +73,10 @@ class ProviderModelsEntry:
     include: Union[str, List[str]]
     # Optional list of model IDs to exclude when include is "all"
     exclude: Optional[List[str]] = None
+    # Optional prefix added to canonical model IDs for this provider
+    idPrefix: Optional[str] = None
+    # Explicit canonical-to-provider model ID overrides
+    idOverrides: Optional[Dict[str, str]] = None
 
 
 @dataclass
@@ -158,6 +162,14 @@ class Model:
         return self._resolve("aliases")
 
     @property
+    def releasedAt(self) -> Optional[str]:
+        return self._resolve("releasedAt")
+
+    @property
+    def released_at(self) -> Optional[str]:
+        return self.releasedAt
+
+    @property
     def providerIds(self) -> List[str]:
         ids: Set[str] = set()
         creator_id = self.creatorId
@@ -204,6 +216,40 @@ class Model:
                 ids.add(provider_id)
 
         return sorted(ids)
+
+    def idFor(self, provider_id: str) -> Optional[str]:
+        """Resolve the canonical model ID to the ID required by a provider."""
+        if provider_id not in self.providerIds:
+            return None
+
+        provider = AIModels.providers_data.get(provider_id) or {}
+        entry = next(
+            (
+                item
+                for item in (provider.get("models") or [])
+                if item.get("creator") == self.creatorId
+                and (
+                    (
+                        item.get("include") == "all"
+                        and self.id not in (item.get("exclude") or [])
+                    )
+                    or (
+                        isinstance(item.get("include"), list)
+                        and self.id in item["include"]
+                    )
+                )
+            ),
+            None,
+        )
+        overrides = (entry or {}).get("idOverrides") or {}
+        if self.id in overrides:
+            return overrides[self.id]
+
+        return f"{(entry or {}).get('idPrefix') or ''}{self.id}"
+
+    def id_for(self, provider_id: str) -> Optional[str]:
+        """Pythonic alias for idFor."""
+        return self.idFor(provider_id)
 
     @property
     def creatorId(self) -> Optional[str]:
@@ -256,6 +302,19 @@ class Model:
     def canGenerateEmbeddings(self) -> bool:
         return "vec-out" in self.capabilities
 
+    # Pythonic capability aliases
+    can_chat = canChat
+    can_reason = canReason
+    can_read = canRead
+    can_write = canWrite
+    can_see = canSee
+    can_generate_images = canGenerateImages
+    can_hear = canHear
+    can_speak = canSpeak
+    can_output_json = canOutputJSON
+    can_call_functions = canCallFunctions
+    can_generate_embeddings = canGenerateEmbeddings
+
 class ModelCollection(List[Model]):
     """Fluent collection API similar to JS ModelCollection (inherits from list)."""
 
@@ -296,6 +355,19 @@ class ModelCollection(List[Model]):
     def canGenerateEmbeddings(self) -> "ModelCollection":
         return self.can("vec-out")
 
+    # Pythonic capability aliases
+    can_chat = canChat
+    can_reason = canReason
+    can_read = canRead
+    can_write = canWrite
+    can_see = canSee
+    can_generate_images = canGenerateImages
+    can_hear = canHear
+    can_speak = canSpeak
+    can_output_json = canOutputJSON
+    can_call_functions = canCallFunctions
+    can_generate_embeddings = canGenerateEmbeddings
+
     def know(self, *languages: str) -> "ModelCollection":
         return ModelCollection([m for m in self if m.languages and all(l in m.languages for l in languages)])
 
@@ -313,6 +385,30 @@ class ModelCollection(List[Model]):
             if m.id == model_id or (m.aliases and model_id in m.aliases):
                 return m
         return None
+
+    def resolveModelIdForProvider(self, model_id: str, provider_id: str) -> Optional[str]:
+        """Resolve a canonical model ID or alias to the ID required by a provider."""
+        model = self.id(model_id)
+        return model.idFor(provider_id) if model else None
+
+    def resolve_model_id_for_provider(self, model_id: str, provider_id: str) -> Optional[str]:
+        """Pythonic alias for resolveModelIdForProvider."""
+        return self.resolveModelIdForProvider(model_id, provider_id)
+
+    def fromProviderId(self, provider_id: str, provider_model_id: str) -> Optional[Model]:
+        """Find a canonical model from an ID returned by a provider."""
+        return next(
+            (
+                model
+                for model in self.fromProvider(provider_id)
+                if model.idFor(provider_id) == provider_model_id
+            ),
+            None,
+        )
+
+    def from_provider_id(self, provider_id: str, provider_model_id: str) -> Optional[Model]:
+        """Pythonic alias for fromProviderId."""
+        return self.fromProviderId(provider_id, provider_model_id)
 
     def fromProvider(self, provider: str) -> "ModelCollection":
         return self.filter(lambda m: provider in m.providerIds)
@@ -356,7 +452,11 @@ class ModelCollection(List[Model]):
     @property
     def orgs(self) -> List[Dict[str, Any]]:
         creator_ids = sorted({m.creatorId for m in self if m.creatorId})
-        return [AIModels.orgs_data[cid] for cid in creator_ids if cid in AIModels.orgs_data]
+        return [
+            {**AIModels.orgs_data[cid], "id": cid}
+            for cid in creator_ids
+            if cid in AIModels.orgs_data
+        ]
 
     def getProvider(self, provider_id: str) -> Optional[Provider]:
         provider = AIModels.providers_data.get(provider_id)
@@ -369,7 +469,8 @@ class ModelCollection(List[Model]):
         return self.getProvider(provider_id)
 
     def getCreator(self, creator_id: str) -> Optional[Dict[str, Any]]:
-        return AIModels.orgs_data.get(creator_id)
+        organization = AIModels.orgs_data.get(creator_id)
+        return {**organization, "id": creator_id} if organization else None
 
     def get_creator(self, creator_id: str) -> Optional[Dict[str, Any]]:
         return self.getCreator(creator_id)
@@ -384,7 +485,7 @@ class ModelCollection(List[Model]):
         model = self.id(model_id)
         if not model or not model.creatorId:
             return None
-        return AIModels.orgs_data.get(model.creatorId)
+        return self.getCreator(model.creatorId)
 
 class AIModels(ModelCollection):
     """Main class for working with AI models."""
@@ -484,4 +585,4 @@ class AIModels(ModelCollection):
         return final_models
 
 # Create singleton instance
-models = AIModels() 
+models = AIModels()
