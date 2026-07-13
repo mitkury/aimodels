@@ -39,7 +39,7 @@ jobs:
       - run: python -m pytest python/tests
         env:
           PYTHONPATH: python/src
-      - run: python -m build --wheel --outdir "${{ runner.temp }}/wheels" python
+      - run: python -m build --outdir "${{ runner.temp }}/wheels" python
       - name: Verify the installed wheel contains catalog data
         run: |
           python -m venv "${{ runner.temp }}/wheel-test"
