@@ -2,7 +2,7 @@ import { Capability } from "./capabilities";
 import { ModelContext } from "./modelContext";
 import { ModelSource } from "./modelSource";
 import { ModelCollection } from "./modelCollection";
-import { Provider } from "./provider";
+import type { Provider, ProviderModelsEntry } from "./provider";
 import { Organization } from "./organization";
 
 /**
@@ -85,23 +85,22 @@ export class Model {
   get releasedAt(): string | undefined {
     return this.resolveProperty<string>('releasedAt');
   }
+
+  private isIncludedBy(entry: ProviderModelsEntry): boolean {
+    if (entry.creator !== this.creatorId) return false;
+    if (entry.include === 'all') return !entry.exclude?.includes(this.id);
+    return entry.include.includes(this.id);
+  }
+
+  private providerMapping(providerId: string): ProviderModelsEntry | undefined {
+    return ModelCollection.providersData[providerId]?.models?.find(entry => this.isIncludedBy(entry));
+  }
   
   // Getters for related objects
   get providerIds(): string[] {
     const ids = new Set<string>();
     const creatorId = this.creatorId;
     if (!creatorId) return [];
-
-    // Helper: check if an entry includes this model
-    const includesModel = (entry: { creator: string; include: 'all' | string[]; exclude?: string[] }): boolean => {
-      if (entry.creator !== creatorId) return false;
-      
-      if (entry.include === 'all') {
-        return !entry.exclude || !entry.exclude.includes(this.id);
-      }
-      
-      return Array.isArray(entry.include) && entry.include.includes(this.id);
-    };
 
     for (const [providerId, provider] of Object.entries(ModelCollection.providersData)) {
       const isNative = providerId === creatorId;
@@ -118,7 +117,7 @@ export class Model {
         if (!creatorEntry) {
           // No entry for creator, default to including all
           ids.add(providerId);
-        } else if (includesModel(creatorEntry)) {
+        } else if (this.isIncludedBy(creatorEntry)) {
           // Entry exists and includes this model
           ids.add(providerId);
         }
@@ -128,7 +127,7 @@ export class Model {
       // Non-native provider: only include if explicitly listed
       if (!entries) continue;
       
-      if (entries.some(includesModel)) {
+      if (entries.some(entry => this.isIncludedBy(entry))) {
         ids.add(providerId);
       }
     }
@@ -143,12 +142,7 @@ export class Model {
   idFor(providerId: string): string | undefined {
     if (!this.providerIds.includes(providerId)) return undefined;
 
-    const provider = ModelCollection.providersData[providerId];
-    const entry = provider?.models?.find((item) => {
-      if (item.creator !== this.creatorId) return false;
-      if (item.include === 'all') return !item.exclude?.includes(this.id);
-      return item.include.includes(this.id);
-    });
+    const entry = this.providerMapping(providerId);
     const override = entry?.idOverrides?.[this.id];
 
     return override ?? `${entry?.idPrefix ?? ''}${this.id}`;
@@ -163,7 +157,8 @@ export class Model {
       providers.push({
         ...organization,
         ...provider,
-        id
+        id,
+        pricing: provider.pricing ?? {}
       });
     }
 

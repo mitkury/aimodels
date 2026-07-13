@@ -75,7 +75,7 @@ describe('AI Models Specific Domain Tests', () => {
       }
       
       // Test passes as long as we have at least some information
-      expect(tokenBasedModels.length).toBeGreaterThanOrEqual(0);
+      expect(tokenBasedModels.length).toBeGreaterThan(0);
       
       // More descriptive information about models without context data
       const modelsWithoutContext = models.filter(m => 
@@ -116,11 +116,11 @@ describe('AI Models Specific Domain Tests', () => {
       if (multiProviderModels.length > 0) {
         console.log('Examples of multi-provider models:');
         multiProviderModels.slice(0, 3).forEach(model => {
-          console.log(`- ${model.id} is available from: ${model.providers.join(', ')}`);
+          console.log(`- ${model.id} is available from: ${model.providerIds.join(', ')}`);
         });
       }
       
       expect(multiProviderModels.length).toBeGreaterThan(0);
     });
   });
-}); 
+});

@@ -100,6 +100,12 @@ def test_provider_specific_model_ids():
     assert model.id_for("anthropic") is None
 
 
+def test_package_exposes_one_catalog_instance():
+    from aimodels.models import models as module_models
+
+    assert models is module_models
+
+
 def test_creator_ids_are_preserved():
     creator = models.get_creator("openai")
     assert creator is not None
@@ -119,6 +125,10 @@ def test_providers_api_and_data():
     openai = models.getProvider("openai")
     assert openai is not None
     assert openai.apiUrl is not None
+    assert all(isinstance(provider.pricing, dict) for provider in provs)
+
+    providers_for_model = models.getProvidersForModel("gpt-5.1")
+    assert {provider.id for provider in providers_for_model} >= {"openai", "openrouter"}
 
 
 def test_capability_method_equivalence():

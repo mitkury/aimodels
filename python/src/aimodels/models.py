@@ -4,13 +4,9 @@ Core functionality for working with AI models.
 
 import json
 from pathlib import Path
-from typing import List, Optional, Dict, Any, Set, Union, Callable, Iterable
-import logging
-from dataclasses import dataclass
+from typing import List, Optional, Dict, Any, Set, Union, Callable
+from dataclasses import dataclass, field
 from enum import Enum
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 class Capability(str, Enum):
     """Model capabilities as defined in the TypeScript version."""
@@ -66,22 +62,8 @@ class TokenPrice:
     output: float = 0.0
 
 @dataclass
-class ProviderModelsEntry:
-    """Mapping entry describing which creators' models a provider exposes."""
-    creator: str
-    # Either "all" to include all models from this creator, or an explicit list of model IDs
-    include: Union[str, List[str]]
-    # Optional list of model IDs to exclude when include is "all"
-    exclude: Optional[List[str]] = None
-    # Optional prefix added to canonical model IDs for this provider
-    idPrefix: Optional[str] = None
-    # Explicit canonical-to-provider model ID overrides
-    idOverrides: Optional[Dict[str, str]] = None
-
-
-@dataclass
 class Provider:
-    """Provider information (merged with organization fields to match JS Provider)."""
+    """Provider source data enriched with matching organization metadata."""
     id: str
     name: str
     websiteUrl: Optional[str] = None
@@ -90,17 +72,16 @@ class Provider:
     apiUrl: Optional[str] = None
     apiDocsUrl: Optional[str] = None
     isLocal: Optional[int] = None
-    # Use Optional[...] for Python 3.8/3.9 compatibility (PEP 604 '|' requires 3.10+)
-    from typing import Optional as _Optional  # local alias to avoid shadowing top-level Optional
-    pricing: _Optional[Dict[str, Dict[str, Any]]] = None
+    pricing: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     # Optional model mappings describing which creators' models this provider exposes
-    models: Optional[List[ProviderModelsEntry]] = None
+    models: Optional[List[Dict[str, Any]]] = None
 
     @classmethod
     def from_sources(cls, org: Dict[str, Any], provider: Dict[str, Any]) -> "Provider":
         merged: Dict[str, Any] = {**org, **provider}
         # Ensure id is present from provider source
         merged["id"] = provider.get("id") or org.get("id")
+        merged.setdefault("pricing", {})
         return cls(**merged)  # type: ignore[arg-type]
 
 class Model:
@@ -169,25 +150,32 @@ class Model:
     def released_at(self) -> Optional[str]:
         return self.releasedAt
 
+    def _is_included_by(self, entry: Dict[str, Any]) -> bool:
+        if entry.get("creator") != self.creatorId:
+            return False
+
+        include = entry.get("include")
+        if include == "all":
+            return self.id not in (entry.get("exclude") or [])
+        return isinstance(include, list) and self.id in include
+
+    def _provider_mapping(self, provider_id: str) -> Optional[Dict[str, Any]]:
+        provider = AIModels.providers_data.get(provider_id) or {}
+        return next(
+            (
+                entry
+                for entry in (provider.get("models") or [])
+                if self._is_included_by(entry)
+            ),
+            None,
+        )
+
     @property
     def providerIds(self) -> List[str]:
         ids: Set[str] = set()
         creator_id = self.creatorId
         if not creator_id:
             return []
-
-        # Helper: check if an entry includes this model
-        def includes_model(entry: dict) -> bool:
-            if entry.get("creator") != creator_id:
-                return False
-            
-            include = entry.get("include")
-            exclude = entry.get("exclude") or []
-            
-            if include == "all":
-                return self.id not in exclude
-            
-            return isinstance(include, list) and self.id in include
 
         for provider_id, provider in AIModels.providers_data.items():
             is_native = provider_id == creator_id
@@ -203,7 +191,7 @@ class Model:
                 if not creator_entry:
                     # No entry for creator, default to including all
                     ids.add(provider_id)
-                elif includes_model(creator_entry):
+                elif self._is_included_by(creator_entry):
                     # Entry exists and includes this model
                     ids.add(provider_id)
                 continue
@@ -212,7 +200,7 @@ class Model:
             if not entries:
                 continue
             
-            if any(includes_model(entry) for entry in entries):
+            if any(self._is_included_by(entry) for entry in entries):
                 ids.add(provider_id)
 
         return sorted(ids)
@@ -222,25 +210,7 @@ class Model:
         if provider_id not in self.providerIds:
             return None
 
-        provider = AIModels.providers_data.get(provider_id) or {}
-        entry = next(
-            (
-                item
-                for item in (provider.get("models") or [])
-                if item.get("creator") == self.creatorId
-                and (
-                    (
-                        item.get("include") == "all"
-                        and self.id not in (item.get("exclude") or [])
-                    )
-                    or (
-                        isinstance(item.get("include"), list)
-                        and self.id in item["include"]
-                    )
-                )
-            ),
-            None,
-        )
+        entry = self._provider_mapping(provider_id)
         overrides = (entry or {}).get("idOverrides") or {}
         if self.id in overrides:
             return overrides[self.id]
@@ -479,7 +449,8 @@ class ModelCollection(List[Model]):
         model = self.id(model_id)
         if not model:
             return []
-        return [self.getProvider(pid) for pid in model.providerIds if self.getProvider(pid)]  # type: ignore[list-item]
+        providers = (self.getProvider(provider_id) for provider_id in model.providerIds)
+        return [provider for provider in providers if provider is not None]
 
     def getCreatorForModel(self, model_id: str) -> Optional[Dict[str, Any]]:
         model = self.id(model_id)

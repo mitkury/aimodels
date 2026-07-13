@@ -89,7 +89,8 @@ export class AIModels extends ModelCollection {
     return Object.values(ModelCollection.providersData).map(provider => ({
       ...ModelCollection.orgsData[provider.id],
       ...provider,
-      id: provider.id
+      id: provider.id,
+      pricing: provider.pricing ?? {}
     }));
   }
 

@@ -5,7 +5,8 @@ A collection of AI model specifications across different providers.
 from importlib.metadata import version
 from pathlib import Path
 
-from .models import AIModels, Model, ModelContext, Capability, Provider, TokenPrice
+from .models import AIModels, Model, ModelContext, Capability, Provider, TokenPrice, models
+
 
 def _resolve_local_version() -> str:
     # Fallback for local development when the package isn't installed
@@ -38,9 +39,6 @@ else:
     if not __version__ or __version__ == "unknown":
         __version__ = _resolve_local_version()
 
-# Create a singleton instance
-models = AIModels()
-
 # Re-export types
 __all__ = [
     "AIModels",
@@ -50,4 +48,4 @@ __all__ = [
     "Capability",
     "Provider",
     "TokenPrice",
-] 
+]

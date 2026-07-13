@@ -162,7 +162,8 @@ export class ModelCollection extends Array<Model> {
       providers.push({
         ...organization,
         ...provider,
-        id
+        id,
+        pricing: provider.pricing ?? {}
       });
     }
     return providers;
@@ -197,7 +198,8 @@ export class ModelCollection extends Array<Model> {
     return {
       ...organization,
       ...provider,
-      id
+      id,
+      pricing: provider.pricing ?? {}
     };
   }
 
