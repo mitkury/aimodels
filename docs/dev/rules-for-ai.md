@@ -1,4 +1,4 @@
-# Rules for AI
+# Repository rules
 
 ## TLDR Context
 AIModels is a shared JSON catalog published as the `aimodels` npm package and the
@@ -39,10 +39,9 @@ for a catalog release.
 
 Do not use a GitHub release as evidence that npm or PyPI publishing succeeded.
 
-## Update these rules
-After changing a configured Airul source or `.airul.json`, run this from the
-repository root:
+## Documentation
 
-```bash
-./js/node_modules/.bin/airul generate --config .airul.json
-```
+Keep `AGENTS.md` as a short, hand-maintained index of the repository's primary
+documentation. Put detailed explanations in `README.md` or `docs/dev/` and link
+to them from `AGENTS.md`; do not generate the file or duplicate entire documents
+inside it.
