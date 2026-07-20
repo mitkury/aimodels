@@ -79,11 +79,11 @@ export class Model {
   }
   
   get aliases(): string[] | undefined {
-    return this.resolveProperty<string[]>('aliases');
+    return this.source.aliases ?? this.source.overrides?.aliases;
   }
 
   get releasedAt(): string | undefined {
-    return this.resolveProperty<string>('releasedAt');
+    return this.source.releasedAt ?? this.source.overrides?.releasedAt;
   }
 
   private isIncludedBy(entry: ProviderModelsEntry): boolean {

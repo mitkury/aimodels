@@ -13,7 +13,14 @@ Do not add `providerIds` to model records. Availability is derived from provider
 
 ## Model inheritance
 
-Snapshots and closely related variants may use `extends`. The extending record keeps its own `id` and supplies only changed fields through `overrides`. Both packages resolve the chain before exposing the model.
+Snapshots and closely related variants may use `extends`. The extending record
+keeps its own `id` and supplies changed inheritable fields through `overrides`.
+Both packages resolve the chain before exposing the model.
+
+Aliases and release dates identify a specific catalog record, so they are not
+inherited. An extending model must declare its own aliases or release date when
+they are known. This prevents a newer variant from accidentally claiming an
+older model's alias or release date.
 
 Inheritance is for model metadata, not provider identity. A provider mapping always references canonical IDs.
 

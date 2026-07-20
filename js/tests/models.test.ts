@@ -123,4 +123,26 @@ describe('AI Models Specific Domain Tests', () => {
       expect(multiProviderModels.length).toBeGreaterThan(0);
     });
   });
+
+  describe('Inherited Identity Metadata', () => {
+    it('keeps release dates on the extending model', () => {
+      expect(models.id('grok-imagine-video-1.5')?.releasedAt).toBe('2026-06-16');
+    });
+
+    it('does not inherit aliases from a base model', () => {
+      expect(models.id('kimi-k2-thinking')?.aliases).toBeUndefined();
+      expect(models.id('kimi-k2')?.id).toBe('kimi-k2-0905-preview');
+    });
+
+    it('has no ambiguous aliases', () => {
+      const owners = new Map<string, string>();
+
+      for (const model of models) {
+        for (const alias of model.aliases ?? []) {
+          expect(owners.get(alias), `alias '${alias}' is shared by multiple models`).toBeUndefined();
+          owners.set(alias, model.id);
+        }
+      }
+    });
+  });
 });

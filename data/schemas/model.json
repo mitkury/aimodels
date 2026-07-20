@@ -22,13 +22,6 @@
             "type": "string",
             "description": "License type of the model"
           },
-          "providerIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of provider IDs that offer this model"
-          },
           "aliases": {
             "type": "array",
             "items": {
@@ -317,12 +310,6 @@
               "context": {},
               "license": {
                 "type": "string"
-              },
-              "providerIds": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
               },
               "aliases": {
                 "type": "array",

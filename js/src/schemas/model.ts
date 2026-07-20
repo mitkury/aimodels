@@ -6,7 +6,6 @@ export const ModelSourceSchema = z.object({
   id: z.string().describe('Unique identifier for the model'),
   name: z.string().optional().describe("Human-readable name of the model"),
   license: z.string().optional().describe('License type of the model'),
-  providerIds: z.array(z.string()).optional().describe('List of provider IDs that offer this model'),
   aliases: z.array(z.string()).optional().describe('Alternative identifiers for this model'),
   releasedAt: z
     .string()
@@ -22,7 +21,6 @@ export const ModelSourceSchema = z.object({
       capabilities: z.array(CapabilitySchema).optional(),
       context: z.unknown().optional(),
       license: z.string().optional(),
-      providerIds: z.array(z.string()).optional(),
       aliases: z.array(z.string()).optional(),
       releasedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
       creatorId: z.string().optional(),
@@ -38,7 +36,7 @@ export const ModelSourceSchema = z.object({
 export const ValidatedModelSchema = ModelSourceSchema.refine(
   (data) => {
     if (!data.extends) {
-      // Base models must define core descriptive fields, but no longer need providerIds
+      // Base models must define core descriptive fields.
       return Boolean(data.name && data.capabilities && data.context);
     }
     return true;

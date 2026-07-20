@@ -76,6 +76,9 @@ type RawModel = {
   id: string;
   aliases?: string[];
   extends?: string;
+  overrides?: {
+    aliases?: string[];
+  };
 };
 
 type RawModelCollection = {
@@ -116,9 +119,17 @@ function validateRelationships() {
   };
 
   const creators = new Set(collections.map(collection => collection.data.creator));
+  const creatorFiles = new Map<string, string>();
   const modelsById = new Map<string, { creator: string; file: string; model: RawModel }>();
 
   for (const { file, data } of collections) {
+    const existingCreatorFile = creatorFiles.get(data.creator);
+    if (existingCreatorFile) {
+      fail(`duplicate creator '${data.creator}' in ${existingCreatorFile} and ${file}`);
+    } else {
+      creatorFiles.set(data.creator, file);
+    }
+
     if (!orgs[data.creator]) {
       fail(`${file} references unknown creator '${data.creator}'`);
     }
@@ -136,12 +147,18 @@ function validateRelationships() {
   const identifiers = new Map<string, string>();
   for (const modelId of modelsById.keys()) identifiers.set(modelId, `model '${modelId}'`);
 
-  for (const { model, file } of modelsById.values()) {
-    if (model.extends && !modelsById.has(model.extends)) {
-      fail(`${file} model '${model.id}' extends missing model '${model.extends}'`);
+  for (const { creator, model, file } of modelsById.values()) {
+    if (model.extends) {
+      const base = modelsById.get(model.extends);
+      if (!base) {
+        fail(`${file} model '${model.id}' extends missing model '${model.extends}'`);
+      } else if (base.creator !== creator) {
+        fail(`${file} model '${model.id}' extends model from different creator '${base.creator}'`);
+      }
     }
 
-    for (const alias of model.aliases ?? []) {
+    const aliases = model.aliases ?? model.overrides?.aliases ?? [];
+    for (const alias of aliases) {
       const existing = identifiers.get(alias);
       if (existing) {
         fail(`identifier '${alias}' for model '${model.id}' collides with ${existing}`);

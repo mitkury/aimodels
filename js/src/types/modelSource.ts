@@ -12,8 +12,6 @@ export interface ModelSource {
   name?: string;
   /** Model capabilities */
   capabilities?: Capability[];
-  /** Available providers */
-  providerIds?: string[];
   /** Context window information */
   context?: ModelContext;
   /** Organization that created this model */

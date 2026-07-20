@@ -147,3 +147,27 @@ def test_capability_method_equivalence():
         fluent = getattr(models, method)()
         direct = models.can(cap)
         assert len(fluent) == len(direct)
+
+
+def test_extended_model_identity_metadata():
+    video = models.id("grok-imagine-video-1.5")
+    assert video is not None
+    assert video.released_at == "2026-06-16"
+
+    thinking = models.id("kimi-k2-thinking")
+    assert thinking is not None
+    assert thinking.aliases is None
+
+    kimi_k2 = models.id("kimi-k2")
+    assert kimi_k2 is not None
+    assert kimi_k2.id == "kimi-k2-0905-preview"
+
+
+def test_aliases_are_unambiguous():
+    owners = {}
+    for model in models:
+        for alias in model.aliases or []:
+            assert alias not in owners, (
+                f"alias {alias!r} is shared by {owners[alias]!r} and {model.id!r}"
+            )
+            owners[alias] = model.id

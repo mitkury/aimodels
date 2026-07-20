@@ -538,12 +538,16 @@ class AIModels(ModelCollection):
                 raise ValueError(f"Base model '{base_id}' not found for '{source_id}'")
             base = resolve_model(base_id, seen)
             overrides = src.get("overrides") or {}
-            merged = {**base, **overrides, "id": src["id"], "extends": base_id}
-            # Preserve creatorId and providerIds if defined at base only
-            if "creatorId" not in merged and "creatorId" in base:
-                merged["creatorId"] = base["creatorId"]
-            if "providerIds" not in merged and "providerIds" in base:
-                merged["providerIds"] = base["providerIds"]
+            # Match JavaScript precedence: direct fields on the extending record
+            # win over overrides, which win over inherited base metadata.
+            merged = {**base, **overrides, **src}
+
+            # Aliases and release dates identify a specific model record. They
+            # must be declared by the extending record rather than inherited
+            # from an older snapshot or related variant.
+            for identity_key in ("aliases", "releasedAt"):
+                if identity_key not in src and identity_key not in overrides:
+                    merged.pop(identity_key, None)
             return merged
 
         final_models: List[Model] = []
