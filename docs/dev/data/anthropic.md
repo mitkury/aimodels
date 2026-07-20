@@ -1,3 +1,8 @@
 # Anthropic
 
-Info about models: https://docs.anthropic.com/en/docs/about-claude/models/overview
+Official sources:
+
+- Models overview:
+  https://platform.claude.com/docs/en/about-claude/models/overview
+- Models API:
+  https://platform.claude.com/docs/en/api/models/list

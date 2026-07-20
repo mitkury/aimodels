@@ -1,6 +1,8 @@
 # AIModels
 
-A collection of AI model specifications across different providers. This package provides normalized data about AI models, including their capabilities, context windows, and pricing information.
+A normalized catalog of AI models, creators, and inference providers. The
+package includes model capabilities, context windows, aliases, provider
+availability, and provider-specific ID translation.
 
 ## Installation
 
@@ -39,24 +41,14 @@ large_context_models = models.with_min_context(32768)
 # Find specific model
 model = models.id("gpt-5.1")
 print(model.context.total)  # Context window size
-print(model.providers)  # ['openai']
+print(model.providers)  # For example: ['openai', 'openrouter']
 
 # Resolve canonical IDs at the provider boundary
 print(model.id_for("openrouter"))  # openai/gpt-5.1
 canonical = models.from_provider_id("openrouter", "openai/gpt-5.1")
 
-# Get pricing information (via provider pricing table)
-provider = models.get_provider("openai")
-if provider and provider.pricing:
-    # Prefer the exact model ID, but gracefully fall back to the base GPT-5 listing
-    pricing = provider.pricing.get(model.id) or provider.pricing.get("gpt-5")
-    if isinstance(pricing, dict) and pricing.get("type") == "token":
-        print(f"Input: ${pricing['input']}/1M tokens")
-        print(f"Output: ${pricing['output']}/1M tokens")
-    else:
-        print("Pricing data for GPT-5 era models is not yet available.")
-
 # Get provider information
+provider = models.get_provider("openai")
 if provider:
     print(f"Name: {provider.name}")
     print(f"Website: {provider.websiteUrl}")
@@ -143,3 +135,15 @@ class Provider:
 ## License
 
 MIT
+
+## Development
+
+Run the Python checks from the repository root:
+
+```bash
+python3 -m pytest python/tests
+python3 -m build python
+```
+
+Catalog source files live in the repository-level `data/` directory. See the
+repository [documentation map](../docs/README.md) before editing them.

@@ -1,47 +1,64 @@
-# Repository rules
+# Repository rules for AI agents
 
-## TLDR Context
-AIModels is a shared JSON catalog published as the `aimodels` npm package and the
-`aimodels.dev` Python package. The JavaScript package runs in browsers, Node.js,
-and Deno. Downstream consumers include aimodels.dev, AIWrapper, and Sila.
+AIModels is one JSON catalog published through the `aimodels` JavaScript package
+and the `aimodels.dev` Python package. Treat `data/` as the source of truth.
 
-## Test often
+## Before changing anything
+
+1. Read `AGENTS.md` and the relevant links from `docs/README.md`.
+2. Inspect the working tree and preserve unrelated changes.
+3. For catalog edits, read `docs/dev/how-to-edit-data.md` and the relevant
+   creator file under `docs/dev/data/`.
+4. Verify current provider facts against direct official sources.
+
+Do not guess model IDs, aliases, limits, release dates, pricing, or capabilities.
+Omit an uncertain field and record the missing evidence instead.
+
+## While changing code or data
+
+- Keep intrinsic model metadata in `data/models/`.
+- Keep availability, pricing, and provider-specific IDs in `data/providers/`.
+- Edit Zod schema sources, then regenerate JSON Schemas.
+- Preserve JavaScript and Python parity for shared behavior.
+- Prefer validation that rejects bad source data over consumer-side repair logic.
+- Do not publish packages, tag releases, or modify downstream repositories unless
+  the user explicitly asks.
+
+Use the explicit actions in `docs/actions-for-agents/` when the user invokes
+them. Use the working rules in `docs/rules/` for commits, reviews, architecture,
+and documentation.
+
+## Verification
+
 There is no package manager at the repository root.
 
-- For catalog or JavaScript changes, work in `js/` and run `npm run validate:data`,
-  `npm run typecheck`, `npm run lint`, and `npm run build`.
-- For Python changes, run `python -m pytest python/tests` from the repository root.
-- For packaging changes, also build the wheel and source distribution and test a
-  clean install.
+For catalog or JavaScript changes:
 
-## Commit messages
-Keep messages short and concise. Use the `<scope>: <description>` prefix.
+```bash
+cd js
+npm run validate:data
+npm run typecheck
+npm run lint
+npm run build
+```
 
-Common scopes:
+For Python behavior:
 
-- `data` for model, provider, organization, and schema data
-- `docs` for documentation
-- `feat(<name>)` for a dedicated feature
-- `fix(<name>)` for a behavior or packaging correction
-- `ci` for automation
+```bash
+python3 -m pytest python/tests
+python3 -m build python
+```
 
-## Publishing
-Publishing is currently manual. Keep the JavaScript and Python versions aligned
-for a catalog release.
+For shared behavior, run both suites and compare the exposed catalog when
+practical. For packaging changes, also test clean installs from the built
+artifacts.
 
-1. Run the full JavaScript, Python, and package-install checks.
-2. Update `js/package.json`, `js/package-lock.json`, and `python/pyproject.toml` to
-   the same version, then commit the release preparation.
-3. Publish from `js/` to npm and publish the Python distribution to PyPI.
-4. Verify clean installs of both exact versions from the public registries.
-5. Create and push `v<version>` only after both artifacts are available. The tag
-   creates the GitHub release, which then notifies downstream repositories.
+## Releases
 
-Do not use a GitHub release as evidence that npm or PyPI publishing succeeded.
+Publishing is manual. Keep `js/package.json`, `js/package-lock.json`, and
+`python/pyproject.toml` on the same version.
 
-## Documentation
-
-Keep `AGENTS.md` as a short, hand-maintained index of the repository's primary
-documentation. Put detailed explanations in `README.md` or `docs/dev/` and link
-to them from `AGENTS.md`; do not generate the file or duplicate entire documents
-inside it.
+A release is complete only after both exact package versions can be installed
+from their public registries. Create and push `v<version>` only after that
+verification. A GitHub release is not evidence that npm or PyPI publishing
+succeeded.

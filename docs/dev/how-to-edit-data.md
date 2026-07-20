@@ -1,36 +1,107 @@
-# How to edit data
+# How to edit catalog data
 
-When adding or updating models, follow the following guides.
+Catalog accuracy matters more than completeness. A missing field is better than
+a confident-looking guess.
 
-## Model Versioning
+## Workflow
 
-In short:
-1. Always verify model IDs against official provider documentation
-2. Keep aliases short and commonly used
-3. Only override properties that actually differ from the base model
-4. Include all required properties for base models (those without `extends`)
+1. Read the relevant creator notes in `docs/dev/data/`.
+2. Check the creator's current model documentation, API reference, pricing page,
+   release notes, and model-list endpoint when available.
+3. Compare official model IDs with the existing creator file.
+4. Change the smallest set of model and provider records needed.
+5. Add official source links or evidence notes to the creator document.
+6. Run catalog validation and both package suites when exposed behavior changes.
 
-**Use Model Extension**
-  - Find the latest version of a model and extend from it using the `extends` property
-  - Only override properties that differ from the base model
-  - This reduces duplication and makes maintenance easier
+Search results, announcement summaries, model aggregators, and application UI
+labels are discovery aids. They are not enough to establish an API model ID when
+direct creator documentation exists.
 
-**Model IDs and Aliases**
-  - Use the exact model ID as provided by the creator (e.g., `gpt-5.1`)
-  - If the creator is also a provider, the ID of the model must work in the API for inference. E.g Anthropic allows `claude-3-7-sonnet-20250219` but not `claude-3-7-sonnet` when using its API.
-  - Add the latest stable snapshot/version as an alias to the base model (e.g., `gpt-5.1-2025-11-01` and `gpt-5.1-latest` for `gpt-5.1` in late 2025)
-  - Place aliases in the `aliases` array
+## Model records
 
-## Provider Model Mappings
+Model files live in `data/models/`, one collection per creator. They describe
+what a model is:
 
-Provider JSON files in `data/providers/` describe *how* models are exposed by each provider.
+- canonical ID and display name
+- intrinsic capabilities
+- context or output limits
+- license
+- aliases
+- release date
 
-- Keep canonical model definitions in `data/models/*.json` (one file per creator).
-- Do **not** encode where a model is served in the model JSON itself (avoid `providerIds`).
-- Use provider files to describe which creators' models each provider exposes.
-- Aggregator providers (like `openrouter`) should use the optional `models` array to reference creators instead of duplicating model data.
+Base models without `extends` must define `name`, `capabilities`, and `context`.
+Use the exact callable creator API ID as the canonical ID. Do not substitute an
+aggregator namespace or a friendlier marketing name.
 
-Each `models` entry in a provider file has this shape:
+Product modes are not automatically models. A fast mode, reasoning toggle,
+voice preset, application feature, or product tier belongs in the catalog only
+when the API exposes it as a selectable model ID.
+
+## Aliases and release dates
+
+Aliases are alternative IDs accepted by an API or explicitly documented by the
+creator. Keep them exact and useful. Do not add speculative shorthand.
+
+Aliases must be globally unambiguous. An alias cannot also be another canonical
+model ID or belong to multiple models.
+
+Use `releasedAt` only when an official source establishes a public API release
+date. A documentation update date, snapshot suffix, preview build date, and
+product announcement date are not interchangeable.
+
+Aliases and release dates identify a specific record and are not inherited by
+models using `extends`.
+
+## Inheritance
+
+Use `extends` for snapshots or closely related variants from the same creator.
+Choose a base with genuinely shared metadata, then put only changed inheritable
+fields in `overrides`.
+
+Good candidates for inheritance are capabilities, context, license, and
+languages. Do not use inheritance merely because two names look related.
+
+## Capabilities
+
+Capabilities describe dedicated API behavior:
+
+- `chat`: conversational text input and output
+- `reason`: configurable or model-driven inference-time reasoning
+- `txt-in`, `txt-out`: text input and output
+- `img-in`, `img-out`: image understanding and generation
+- `audio-in`, `audio-out`: audio understanding and generation
+- `video-in`, `video-out`: video understanding and generation
+- `json-out`: an API feature that guarantees structured JSON
+- `fn-out`: native function or tool calling
+- `vec-out`: embedding vectors
+
+Do not add `json-out` or `fn-out` because prompting can sometimes produce JSON
+or tool-like text. There must be a dedicated API mechanism.
+
+## Context
+
+Use the context type that matches the model:
+
+- token or character limits for language models
+- audio input or output limits for audio models
+- dimensions and normalization metadata for embeddings
+- output count and supported sizes for image models
+
+Use `null` when a limit is explicitly unspecified or variable. Do not infer
+output limits by subtracting an input limit from a total context window.
+
+## Provider mappings
+
+Provider files in `data/providers/` describe where models are exposed and which
+ID each provider accepts.
+
+- Never add `providerIds` to a model record.
+- Native providers expose their own creator's models by default unless a mapping
+  narrows the set.
+- Aggregators use `models` entries to include creator catalogs.
+- Use `idPrefix` for systematic namespaces and `idOverrides` for exceptions.
+
+Each provider mapping has this shape:
 
 ```json
 {
@@ -40,12 +111,11 @@ Each `models` entry in a provider file has this shape:
 }
 ```
 
-- `creator`: the ID from the `creator` field in the corresponding `*-models.json` file (and `orgs.json`).
-- `include`: `"all"` to include all models from this creator, or an explicit array of model IDs.
-- `exclude` (optional): model IDs to omit when `include` is `"all"`.
+- `creator` must match a model collection and organization ID.
+- `include` is `"all"` or an explicit list of canonical model IDs.
+- `exclude` removes canonical IDs when `include` is `"all"`.
 
-When a provider requires a different model ID, keep the canonical ID in
-`data/models` and describe the provider translation in its mapping:
+Keep the canonical ID in the model file when a provider uses another form:
 
 ```json
 {
@@ -58,12 +128,7 @@ When a provider requires a different model ID, keep the canonical ID in
 }
 ```
 
-- `idPrefix` handles provider namespaces such as `openai/`.
-- `idOverrides` handles exceptions such as dated provider IDs.
-- Explicit overrides take precedence over the prefix.
-- Do not change the canonical model ID to match one provider.
-
-Consumers resolve IDs only at the provider boundary:
+Consumers translate only at the provider boundary:
 
 ```ts
 models.id('gpt-5.5')?.idFor('openrouter');
@@ -71,39 +136,24 @@ models.resolveModelIdForProvider('gpt-5.5', 'openrouter');
 models.fromProviderId('openrouter', 'openai/gpt-5.5');
 ```
 
-Example (`data/providers/openrouter-provider.json`):
+## Validation
 
-```json
-{
-  "id": "openrouter",
-  "models": [
-    { "creator": "openai", "include": "all", "idPrefix": "openai/" },
-    { "creator": "anthropic", "include": "all", "idPrefix": "anthropic/" },
-    { "creator": "google", "include": "all", "idPrefix": "google/" }
-  ]
-}
+From `js/`:
+
+```bash
+npm run schemas:export  # only after changing Zod schemas
+npm run validate:data
+npm run typecheck
+npm run lint
+npm run build
 ```
 
-## Reasoning Capabilities
-When specifying reasoning capabilities:
-- Use `reason` capability for models that are trained to "think" before giving the final answer. It's when models dynamically increase their reasoning time during inference. This means they can spend more time thinking about complex questions, improving accuracy at the cost of higher compute usage.
+From the repository root:
 
-Common terms in provider documentation:
-- "Reasoning"
-- "Test-time compute"
-- "Step-by-step thinking"
-- "Internal reasoning"
-- "Extended thinking"
+```bash
+python3 -m pytest python/tests
+python3 -m build python
+```
 
-## Structured Output Capabilities
-Both `json-out` and `fn-out` are about dedicated API endpoints that ensure structured output:
-
-- `json-out`: Models with an endpoint that guarantees JSON output
-  - Example: OpenAI's response_format parameter
-  - Ensures valid JSON structure
-
-- `fn-out`: Models with an endpoint for function calling
-  - Example: Anthropic's tool use endpoint
-  - Ensures function parameters are properly structured
-
-Note: Some providers (like Anthropic) only support `fn-out` without a dedicated JSON endpoint. In such cases, we don't include `json-out` in the model's capabilities, even though users can get JSON output through prompting.
+Review the final diff after generation. Generated schema changes should reflect
+only the intended source-schema change.

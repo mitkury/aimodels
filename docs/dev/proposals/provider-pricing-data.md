@@ -1,5 +1,7 @@
 # Provider Pricing Data (Proposal)
 
+Status: proposal. Provider pricing remains empty in the current catalog.
+
 ## Context
 
 - The repository previously included **per-model pricing tables** in each provider JSON file under `data/providers/*.json` (for example `openai-provider.json`, `google-provider.json`, etc.).
@@ -86,5 +88,4 @@ When we add pricing back, we should:
 - Do we want to track **historical pricing** or only the latest snapshot?
 
 This proposal serves as a reference for how pricing used to be represented and how we can safely reintroduce it later without misleading users.
-
 

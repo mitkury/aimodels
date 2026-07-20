@@ -67,13 +67,16 @@ npm run build
 Validate the Python package from the repository root:
 
 ```bash
-python -m pytest python/tests
-python -m build python
+python3 -m pytest python/tests
+python3 -m build python
 ```
 
 When a public behavior is implemented in one package, add the equivalent API and tests in the other package unless the difference is intentional and documented.
 
-See [`docs/dev/how-to-edit-data.md`](docs/dev/how-to-edit-data.md) before changing catalog records and [`docs/dev/architecture.md`](docs/dev/architecture.md) for the data flow and invariants.
+See the [`documentation map`](docs/README.md) for maintainer guidance. Read
+[`how to edit data`](docs/dev/how-to-edit-data.md) before changing catalog
+records and [`architecture`](docs/dev/architecture.md) for data flow and
+invariants.
 
 ## License
 

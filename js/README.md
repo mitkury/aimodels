@@ -1,6 +1,8 @@
 # aimodels
 
-A collection of AI model specifications across different providers. This universal JavaScript package provides normalized data about AI models, including their capabilities, context windows, and pricing information. Works in any JavaScript runtime (Node.js, browsers, Deno).
+A normalized catalog of AI models, creators, and inference providers. The package
+includes model capabilities, context windows, aliases, provider availability,
+and provider-specific ID translation. It works in Node.js, browsers, and Deno.
 
 ## Use cases
 
@@ -25,7 +27,6 @@ import { models } from 'aimodels';
 // 1. Get all models that support chat functionality
 const chatModels = models.canChat();
 console.log(`Available chat models: ${chatModels.length}`);
-// Example output: "Available chat models: 99"
 
 // 2. Find all chat models with vision capabilities from OpenAI
 const visionModelsFromOpenAI = models.canChat().canSee().fromProvider('openai');
@@ -97,7 +98,7 @@ models.fromProviderId('openrouter', 'openai/gpt-5.1')
 - Context window information
 - Creator and provider associations
 - TypeScript support with full type safety
-- Zero dependencies
+- Zero runtime dependencies
 - Universal JavaScript support (Node.js, browsers, Deno)
 - Regular updates with new models
 
@@ -107,11 +108,14 @@ MIT
 
 ## Development
 
-### Build Process
-
-This project uses [tsup](https://github.com/egoist/tsup) (built on esbuild) for bundling. The build process is simple:
+Run the complete JavaScript verification from this directory:
 
 ```bash
-# Build the complete package and test
+npm run validate:data
+npm run typecheck
+npm run lint
 npm run build
 ```
+
+Catalog source files live in the repository-level `data/` directory. See the
+repository [documentation map](../docs/README.md) before editing them.

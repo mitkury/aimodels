@@ -1,5 +1,10 @@
 # Model Data Maintenance Agent
 
+Status: proposal, not implemented.
+
+This document describes a possible automation design. It is not a runbook for
+the current repository.
+
 ## Purpose
 Automated agent to keep AI model specifications current across multiple providers.
 
@@ -111,4 +116,4 @@ npm run resume-update --provider=openai --branch=update-openai-2025-03
   "status": "success",
   "message": "Updates found for OpenAI models"
 }
-``` 
+```

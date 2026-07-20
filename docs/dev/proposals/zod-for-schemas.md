@@ -1,4 +1,16 @@
-# Proposal: Using Zod for Schema Definitions
+# Zod schema decision
+
+Status: implemented.
+
+Zod schemas under `js/src/schemas/` are the source of truth. JSON Schemas under
+`data/schemas/` are generated with:
+
+```bash
+cd js
+npm run schemas:export
+```
+
+The rest of this document is the historical implementation proposal.
 
 ## Overview
 
@@ -173,4 +185,4 @@ fs.writeFileSync(
 
 ## Conclusion
 
-Moving to Zod for schema definitions provides significant benefits for the aimodels library, improving type safety, developer experience, and maintainability while preserving compatibility with existing consumers through JSON Schema exports. 
+Moving to Zod for schema definitions provides significant benefits for the aimodels library, improving type safety, developer experience, and maintainability while preserving compatibility with existing consumers through JSON Schema exports.
