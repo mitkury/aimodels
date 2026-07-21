@@ -122,6 +122,18 @@ describe('AI Models Specific Domain Tests', () => {
       
       expect(multiProviderModels.length).toBeGreaterThan(0);
     });
+
+    it('resolves Inkling IDs for Tinker and Together AI', () => {
+      const inkling = models.id('thinkingmachines/Inkling');
+
+      expect(inkling?.creatorId).toBe('thinkingmachines');
+      expect(inkling?.providerIds).toEqual(
+        expect.arrayContaining(['thinkingmachines', 'together'])
+      );
+      expect(inkling?.idFor('thinkingmachines')).toBe('thinkingmachines/Inkling');
+      expect(inkling?.idFor('together')).toBe('thinkingmachines/inkling');
+      expect(models.fromProviderId('together', 'thinkingmachines/inkling')).toBe(inkling);
+    });
   });
 
   describe('Inherited Identity Metadata', () => {

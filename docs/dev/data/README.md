@@ -12,6 +12,7 @@ metadata. Read the page that matches the model file being changed:
 - [Mistral](./mistral.md)
 - [OpenAI](./openai.md)
 - [Qwen](./qwen.md)
+- [Thinking Machines Lab](./thinkingmachines.md)
 - [xAI](./xai.md)
 
 Creator documentation establishes model identity and intrinsic capabilities. It

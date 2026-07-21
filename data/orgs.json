@@ -94,5 +94,17 @@
     "websiteUrl": "https://openrouter.ai",
     "country": "USA",
     "founded": 2023
+  },
+  "thinkingmachines": {
+    "name": "Thinking Machines Lab",
+    "websiteUrl": "https://thinkingmachines.ai",
+    "country": "USA",
+    "founded": 2025
+  },
+  "together": {
+    "name": "Together AI",
+    "websiteUrl": "https://www.together.ai",
+    "country": "USA",
+    "founded": 2022
   }
 }

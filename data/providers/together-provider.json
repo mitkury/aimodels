@@ -1,0 +1,18 @@
+{
+  "id": "together",
+  "name": "Together AI",
+  "apiUrl": "https://api.together.xyz/v1",
+  "apiDocsUrl": "https://docs.together.ai/docs/inference/chat/overview",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "thinkingmachines",
+      "include": [
+        "thinkingmachines/Inkling"
+      ],
+      "idOverrides": {
+        "thinkingmachines/Inkling": "thinkingmachines/inkling"
+      }
+    }
+  ]
+}

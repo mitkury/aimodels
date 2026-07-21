@@ -100,6 +100,16 @@ def test_provider_specific_model_ids():
     assert model.id_for("anthropic") is None
 
 
+def test_inkling_provider_specific_model_ids():
+    model = models.id("thinkingmachines/Inkling")
+    assert model is not None
+    assert model.creatorId == "thinkingmachines"
+    assert set(model.providerIds) >= {"thinkingmachines", "together"}
+    assert model.id_for("thinkingmachines") == "thinkingmachines/Inkling"
+    assert model.id_for("together") == "thinkingmachines/inkling"
+    assert models.from_provider_id("together", "thinkingmachines/inkling") is model
+
+
 def test_package_exposes_one_catalog_instance():
     from aimodels.models import models as module_models
 
