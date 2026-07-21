@@ -12,6 +12,8 @@ a confident-looking guess.
 4. Change the smallest set of model and provider records needed.
 5. Add official source links or evidence notes to the creator document.
 6. Run catalog validation and both package suites when exposed behavior changes.
+7. When adding a new generally recommended flagship model, refresh the root and
+   package README examples in the same change.
 
 Search results, announcement summaries, model aggregators, and application UI
 labels are discovery aids. They are not enough to establish an API model ID when

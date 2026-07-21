@@ -12,9 +12,9 @@ The catalog is also the source of truth for [aimodels.dev](https://aimodels.dev)
 Canonical model identity is independent from the provider that serves it:
 
 ```text
-canonical model: gpt-5.1
-OpenAI API:      gpt-5.1
-OpenRouter API:  openai/gpt-5.1
+canonical model: gpt-5.6-sol
+OpenAI API:      gpt-5.6-sol
+OpenRouter API:  openai/gpt-5.6-sol
 ```
 
 Model files describe what a model is. Provider files describe where it is available and translate the canonical ID when an API expects a prefix, dated snapshot, or other provider-specific form.
@@ -22,19 +22,19 @@ Model files describe what a model is. Provider files describe where it is availa
 ```ts
 import { models } from 'aimodels';
 
-const model = models.id('gpt-5.1');
-model?.idFor('openrouter'); // openai/gpt-5.1
+const model = models.id('gpt-5.6-sol');
+model?.idFor('openrouter'); // openai/gpt-5.6-sol
 
-models.fromProviderId('openrouter', 'openai/gpt-5.1'); // canonical Model
+models.fromProviderId('openrouter', 'openai/gpt-5.6-sol'); // canonical Model
 ```
 
 ```python
 from aimodels import models
 
-model = models.id("gpt-5.1")
-model.id_for("openrouter")  # openai/gpt-5.1
+model = models.id("gpt-5.6-sol")
+model.id_for("openrouter")  # openai/gpt-5.6-sol
 
-models.from_provider_id("openrouter", "openai/gpt-5.1")
+models.from_provider_id("openrouter", "openai/gpt-5.6-sol")
 ```
 
 ## Repository structure

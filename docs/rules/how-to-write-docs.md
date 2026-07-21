@@ -17,3 +17,13 @@ Put information where it belongs:
 Provider facts change quickly. Cite direct official sources and omit uncertain
 facts. Do not present proposals, generated schemas, or old release notes as the
 current architecture.
+
+## Keep examples current
+
+When the catalog gains a new generally recommended flagship model, update the
+model examples in `README.md`, `js/README.md`, and `python/README.md` in the same
+change. Use a stable, callable canonical ID and verify every shown provider ID.
+
+Do not churn the examples for every preview, specialized model, or benchmark
+leader. The example should represent the clearest current default, not merely
+the newest release date.
