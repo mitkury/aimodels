@@ -2,6 +2,27 @@
   "creator": "kimi",
   "models": [
     {
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 1048576
+      },
+      "releasedAt": "2026-07-16"
+    },
+    {
       "id": "kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "license": "modified-mit",

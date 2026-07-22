@@ -1,0 +1,48 @@
+{
+  "id": "tencent",
+  "name": "Tencent TokenHub",
+  "apiUrl": "https://tokenhub.tencentmaas.com/v1",
+  "apiDocsUrl": "https://cloud.tencent.com/document/product/1823/130078",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "tencent",
+      "include": "all"
+    },
+    {
+      "creator": "deepseek",
+      "include": [
+        "deepseek-v4-pro",
+        "deepseek-v4-flash"
+      ]
+    },
+    {
+      "creator": "kimi",
+      "include": [
+        "kimi-k3",
+        "kimi-k2.7-code",
+        "kimi-k2.6",
+        "kimi-k2.5"
+      ]
+    },
+    {
+      "creator": "minimax",
+      "include": [
+        "MiniMax-M3",
+        "MiniMax-M2.7",
+        "MiniMax-M2.5"
+      ],
+      "idOverrides": {
+        "MiniMax-M3": "minimax-m3"
+      }
+    },
+    {
+      "creator": "zai",
+      "include": [
+        "glm-5.2",
+        "glm-5.1",
+        "glm-5v-turbo"
+      ]
+    }
+  ]
+}

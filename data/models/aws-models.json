@@ -1,0 +1,45 @@
+{
+  "creator": "aws",
+  "models": [
+    {
+      "id": "amazon.nova-2-lite-v1:0",
+      "name": "Amazon Nova 2 Lite",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2025-12-02"
+    },
+    {
+      "id": "amazon.nova-2-sonic-v1:0",
+      "name": "Amazon Nova 2 Sonic",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2025-12-02"
+    }
+  ]
+}

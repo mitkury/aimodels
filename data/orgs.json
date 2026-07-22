@@ -65,6 +65,48 @@
     "country": "CHN",
     "founded": 2023
   },
+  "minimax": {
+    "name": "MiniMax",
+    "websiteUrl": "https://www.minimax.io",
+    "country": "CHN",
+    "founded": 2022
+  },
+  "baidu": {
+    "name": "Baidu",
+    "websiteUrl": "https://www.baidu.com",
+    "country": "CHN",
+    "founded": 2000
+  },
+  "nvidia": {
+    "name": "NVIDIA",
+    "websiteUrl": "https://www.nvidia.com",
+    "country": "USA",
+    "founded": 1993
+  },
+  "stepfun": {
+    "name": "StepFun",
+    "websiteUrl": "https://www.stepfun.com",
+    "country": "CHN",
+    "founded": 2023
+  },
+  "tencent": {
+    "name": "Tencent",
+    "websiteUrl": "https://www.tencent.com",
+    "country": "CHN",
+    "founded": 1998
+  },
+  "xiaomi": {
+    "name": "Xiaomi",
+    "websiteUrl": "https://www.mi.com",
+    "country": "CHN",
+    "founded": 2010
+  },
+  "zai": {
+    "name": "Z.ai",
+    "websiteUrl": "https://z.ai",
+    "country": "CHN",
+    "founded": 2019
+  },
   "azure": {
     "name": "Azure",
     "websiteUrl": "https://azure.microsoft.com/en-us/products/ai-services/openai-service",

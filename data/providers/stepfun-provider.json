@@ -1,0 +1,7 @@
+{
+  "id": "stepfun",
+  "name": "StepFun",
+  "apiUrl": "https://api.stepfun.ai/v1",
+  "apiDocsUrl": "https://platform.stepfun.com/docs/zh/api-reference/chat/chat-completion-create",
+  "pricing": {}
+}

@@ -1,0 +1,24 @@
+{
+  "creator": "stepfun",
+  "models": [
+    {
+      "id": "step-3.7-flash",
+      "name": "Step 3.7 Flash",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-05-29"
+    }
+  ]
+}

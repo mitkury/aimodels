@@ -1,0 +1,62 @@
+{
+  "creator": "nvidia",
+  "models": [
+    {
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "name": "NVIDIA Nemotron 3 Ultra 550B A55B",
+      "license": "openmdw-1.1",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-06-04"
+    },
+    {
+      "id": "nvidia/nemotron-3-super-120b-a12b",
+      "extends": "nvidia/nemotron-3-ultra-550b-a55b",
+      "overrides": {
+        "name": "NVIDIA Nemotron 3 Super 120B A12B",
+        "license": "nvidia-nemotron-open-model"
+      },
+      "releasedAt": "2026-03-11"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-30b-a3b",
+      "extends": "nvidia/nemotron-3-super-120b-a12b",
+      "overrides": {
+        "name": "NVIDIA Nemotron 3 Nano 30B A3B"
+      },
+      "releasedAt": "2025-12-15"
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "name": "NVIDIA Nemotron 3 Nano Omni 30B A3B Reasoning",
+      "license": "nvidia-open-model",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-04-28"
+    }
+  ]
+}

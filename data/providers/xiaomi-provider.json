@@ -1,0 +1,7 @@
+{
+  "id": "xiaomi",
+  "name": "Xiaomi MiMo",
+  "apiUrl": "https://api.xiaomimimo.com/v1",
+  "apiDocsUrl": "https://mimo.mi.com/docs/en-US/quick-start/summary/first-api-call",
+  "pricing": {}
+}

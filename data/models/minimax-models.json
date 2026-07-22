@@ -1,0 +1,65 @@
+{
+  "creator": "minimax",
+  "models": [
+    {
+      "id": "MiniMax-M3",
+      "name": "MiniMax M3",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-06-01"
+    },
+    {
+      "id": "MiniMax-M2.7",
+      "name": "MiniMax M2.7",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 204800,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-03-18"
+    },
+    {
+      "id": "MiniMax-M2.7-highspeed",
+      "extends": "MiniMax-M2.7",
+      "overrides": {
+        "name": "MiniMax M2.7 Highspeed"
+      },
+      "releasedAt": "2026-03-18"
+    },
+    {
+      "id": "MiniMax-M2.5",
+      "extends": "MiniMax-M2.7",
+      "overrides": {
+        "name": "MiniMax M2.5"
+      }
+    },
+    {
+      "id": "MiniMax-M2.5-highspeed",
+      "extends": "MiniMax-M2.7",
+      "overrides": {
+        "name": "MiniMax M2.5 Highspeed"
+      }
+    }
+  ]
+}

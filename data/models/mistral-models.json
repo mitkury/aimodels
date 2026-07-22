@@ -2,6 +2,14 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-ocr-4-0",
+      "name": "Mistral OCR 4",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "json-out", "fn-out"],
+      "context": {"type": "token", "total": null, "maxOutput": null},
+      "releasedAt": "2026-06-23"
+    },
+    {
       "id": "mistral-medium-3-5",
       "name": "Mistral Medium 3.5",
       "license": "modified-mit",

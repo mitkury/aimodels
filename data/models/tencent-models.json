@@ -1,0 +1,32 @@
+{
+  "creator": "tencent",
+  "models": [
+    {
+      "id": "hy3",
+      "name": "Tencent Hy3",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 131072
+      },
+      "releasedAt": "2026-07-06"
+    },
+    {
+      "id": "hy3-preview",
+      "extends": "hy3",
+      "overrides": {
+        "name": "Tencent Hy3 Preview"
+      },
+      "releasedAt": "2026-04-23"
+    }
+  ]
+}

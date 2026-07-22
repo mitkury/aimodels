@@ -1,0 +1,7 @@
+{
+  "id": "nvidia",
+  "name": "NVIDIA NIM",
+  "apiUrl": "https://integrate.api.nvidia.com/v1",
+  "apiDocsUrl": "https://docs.api.nvidia.com/nim/reference/llm-apis",
+  "pricing": {}
+}

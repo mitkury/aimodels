@@ -3,5 +3,11 @@
   "name": "AWS Bedrock",
   "apiUrl": "https://bedrock-runtime.us-east-1.amazonaws.com",
   "apiDocsUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html",
-  "pricing": {}
-} 
+  "pricing": {},
+  "models": [
+    {
+      "creator": "aws",
+      "include": "all"
+    }
+  ]
+}

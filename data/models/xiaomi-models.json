@@ -1,0 +1,43 @@
+{
+  "creator": "xiaomi",
+  "models": [
+    {
+      "id": "mimo-v2.5-pro",
+      "name": "Xiaomi MiMo-V2.5-Pro",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 131072
+      },
+      "releasedAt": "2026-04-23"
+    },
+    {
+      "id": "mimo-v2.5",
+      "extends": "mimo-v2.5-pro",
+      "overrides": {
+        "name": "Xiaomi MiMo-V2.5",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "img-in",
+          "audio-in",
+          "video-in",
+          "json-out",
+          "fn-out",
+          "reason"
+        ]
+      },
+      "releasedAt": "2026-04-23"
+    }
+  ]
+}

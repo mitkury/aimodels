@@ -1,0 +1,20 @@
+{
+  "id": "baidu",
+  "name": "Baidu Qianfan",
+  "apiUrl": "https://api.baiduqianfan.ai/v1",
+  "apiDocsUrl": "https://intl.cloud.baidu.com/en/doc/qianfan/s/7m95lyy43-intl-en",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "baidu",
+      "include": "all"
+    },
+    {
+      "creator": "deepseek",
+      "include": [
+        "deepseek-v4-pro",
+        "deepseek-v4-flash"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "zai",
+  "name": "Z.ai",
+  "apiUrl": "https://api.z.ai/api/paas/v4",
+  "apiDocsUrl": "https://docs.z.ai/guides/overview/overview",
+  "pricing": {}
+}

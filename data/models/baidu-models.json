@@ -1,0 +1,23 @@
+{
+  "creator": "baidu",
+  "models": [
+    {
+      "id": "ernie-5.0",
+      "name": "ERNIE 5.0",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-01-22"
+    }
+  ]
+}

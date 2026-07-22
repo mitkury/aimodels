@@ -3,6 +3,8 @@
 Official sources:
 
 - Models overview and specifications: https://docs.mistral.ai/models
+- OCR 4 model card:
+  https://docs.mistral.ai/models/model-cards/ocr-4-0
 - API model list: https://docs.mistral.ai/api/endpoint/models
 - Release notes: https://docs.mistral.ai/resources/changelogs
 
