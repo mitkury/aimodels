@@ -98,6 +98,19 @@ def test_provider_specific_model_ids():
     assert models.resolve_model_id_for_provider("gpt-5.1", "openrouter") == "openai/gpt-5.1"
     assert models.from_provider_id("openrouter", "openai/gpt-5.1") is model
     assert model.id_for("anthropic") is None
+    assert models.id("gpt-realtime-2.1").id_for("openrouter") is None
+    assert (
+        models.id("claude-sonnet-4-5-20250929").id_for("openrouter")
+        == "anthropic/claude-sonnet-4.5"
+    )
+    assert (
+        models.id("gemini-2.5-pro-preview-06-05").id_for("openrouter")
+        == "google/gemini-2.5-pro-preview"
+    )
+    assert (
+        models.id("lyria-3-pro-preview").id_for("openrouter")
+        == "google/lyria-3-pro-preview"
+    )
 
 
 def test_inkling_provider_specific_model_ids():

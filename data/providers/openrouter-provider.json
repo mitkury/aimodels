@@ -7,19 +7,92 @@
   "models": [
     {
       "creator": "openai",
-      "include": "all",
+      "include": [
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-5.6-luna",
+        "gpt-5.5",
+        "gpt-5.5-pro",
+        "gpt-5.3-codex",
+        "gpt-5",
+        "gpt-5.1",
+        "gpt-5.2",
+        "gpt-5.2-pro",
+        "gpt-5-pro",
+        "gpt-5.4",
+        "gpt-5.4-pro",
+        "gpt-5.4-mini",
+        "gpt-5.4-nano",
+        "gpt-4o",
+        "gpt-5-nano",
+        "gpt-5-mini",
+        "gpt-oss-120b",
+        "gpt-oss-20b",
+        "o4-mini"
+      ],
       "idPrefix": "openai/"
     },
     {
       "creator": "anthropic",
-      "include": "all",
-      "idPrefix": "anthropic/"
+      "include": [
+        "claude-fable-5",
+        "claude-sonnet-5",
+        "claude-opus-4-8",
+        "claude-opus-4-7",
+        "claude-sonnet-4-5-20250929",
+        "claude-haiku-4-5-20251001",
+        "claude-opus-4-5-20251101",
+        "claude-opus-4-6",
+        "claude-opus-4-1-20250805",
+        "claude-opus-4-20250514",
+        "claude-sonnet-4-20250514",
+        "claude-sonnet-4-6"
+      ],
+      "idPrefix": "anthropic/",
+      "idOverrides": {
+        "claude-opus-4-8": "anthropic/claude-opus-4.8",
+        "claude-opus-4-7": "anthropic/claude-opus-4.7",
+        "claude-sonnet-4-5-20250929": "anthropic/claude-sonnet-4.5",
+        "claude-haiku-4-5-20251001": "anthropic/claude-haiku-4.5",
+        "claude-opus-4-5-20251101": "anthropic/claude-opus-4.5",
+        "claude-opus-4-6": "anthropic/claude-opus-4.6",
+        "claude-opus-4-1-20250805": "anthropic/claude-opus-4.1",
+        "claude-opus-4-20250514": "anthropic/claude-opus-4",
+        "claude-sonnet-4-20250514": "anthropic/claude-sonnet-4",
+        "claude-sonnet-4-6": "anthropic/claude-sonnet-4.6"
+      }
     },
     {
       "creator": "google",
-      "include": "all",
-      "idPrefix": "google/"
+      "include": [
+        "gemini-3.6-flash",
+        "gemini-3.5-flash-lite",
+        "gemini-3.5-flash",
+        "gemini-3.1-flash-lite",
+        "gemini-3-flash-preview",
+        "gemini-3.1-pro-preview",
+        "gemini-3-pro-image-preview",
+        "gemini-3.1-flash-image-preview",
+        "gemini-3.1-flash-image",
+        "gemini-3.1-flash-lite-image",
+        "gemini-3-pro-image",
+        "lyria-3-clip-preview",
+        "lyria-3-pro-preview",
+        "gemini-2.5-pro",
+        "gemini-2.5-pro-preview-06-05",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite",
+        "gemini-3.1-flash-lite-preview",
+        "gemma-3-4b-it",
+        "gemma-3-12b-it",
+        "gemma-3-27b-it",
+        "gemma-3n-e4b-it",
+        "gemini-2.5-flash-image"
+      ],
+      "idPrefix": "google/",
+      "idOverrides": {
+        "gemini-2.5-pro-preview-06-05": "google/gemini-2.5-pro-preview"
+      }
     }
   ]
 }
-

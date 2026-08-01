@@ -24,6 +24,16 @@ describe('aimodels package', () => {
     );
     expect(models.fromProviderId('openrouter', 'openai/gpt-5.1')?.id).toBe('gpt-5.1');
     expect(model?.idFor('anthropic')).toBeUndefined();
+    expect(models.id('gpt-realtime-2.1')?.idFor('openrouter')).toBeUndefined();
+    expect(models.id('claude-sonnet-4-5-20250929')?.idFor('openrouter')).toBe(
+      'anthropic/claude-sonnet-4.5'
+    );
+    expect(models.id('gemini-2.5-pro-preview-06-05')?.idFor('openrouter')).toBe(
+      'google/gemini-2.5-pro-preview'
+    );
+    expect(models.id('lyria-3-pro-preview')?.idFor('openrouter')).toBe(
+      'google/lyria-3-pro-preview'
+    );
   });
 
   it('exposes release dates when the source publishes them', () => {
