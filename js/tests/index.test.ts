@@ -34,6 +34,21 @@ describe('aimodels package', () => {
     expect(models.id('lyria-3-pro-preview')?.idFor('openrouter')).toBe(
       'google/lyria-3-pro-preview'
     );
+    expect(models.id('meta-models/Muse-Glimmer-30B')?.idFor('openrouter')).toBe(
+      'meta/muse-glimmer-30b'
+    );
+    expect(models.id('nvidia/nemotron-3.5-lightning-30b-a3b')?.idFor('openrouter')).toBe(
+      'nvidia/nemotron-3.5-lightning'
+    );
+    expect(models.id('Qwen/Qwen3.8-2.4T-A95B')?.idFor('openrouter')).toBe(
+      'qwen/qwen3.8-2.4t-a95b'
+    );
+    expect(models.id('thinkingmachines/Inkling-Small')?.idFor('openrouter')).toBe(
+      'thinkingmachines/inkling-small'
+    );
+    expect(models.id('grok-4.6')?.idFor('openrouter')).toBe('x-ai/grok-4.6');
+    expect(models.id('muse-spark-1.2')?.idFor('meta')).toBe('muse-spark-1.2');
+    expect(models.id('claude-opus-5')?.idFor('bedrock')).toBe('anthropic.claude-opus-5');
   });
 
   it('exposes release dates when the source publishes them', () => {

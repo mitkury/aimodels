@@ -2,6 +2,38 @@
   "creator": "meta",
   "models": [
     {
+      "id": "muse-spark-1.1",
+      "name": "Muse Spark 1.1",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "audio-in", "video-in", "json-out", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-07-09"
+    },
+    {
+      "id": "muse-spark-1.2",
+      "extends": "muse-spark-1.1",
+      "overrides": {
+        "name": "Muse Spark 1.2",
+        "aliases": ["muse-spark-1.2-contributor"]
+      }
+    },
+    {
+      "id": "meta-models/Muse-Glimmer-30B",
+      "name": "Muse Glimmer 30B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "fn-out", "reason"],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-08-09"
+    },
+    {
       "id": "llama-4-scout",
       "name": "Llama 4 Scout",
       "license": "llama-4-community",

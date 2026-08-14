@@ -18,6 +18,10 @@ The Voice and Text-to-Speech APIs expose named voice presets, including the 21
 voices announced in July 2026. These are selectable voices, not standalone model
 IDs. The Speech-to-Text REST API similarly does not expose a model selector.
 
+The July 29, 2026 release notes move `grok-voice-latest` to
+`grok-voice-think-fast-2.0`; keep the alias only on the new model. The August 12
+release notes establish `grok-4.6`, its 500,000-token context, and modalities.
+
 To list the models available to an API key:
 
 ```bash

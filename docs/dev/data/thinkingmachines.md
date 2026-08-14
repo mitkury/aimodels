@@ -6,6 +6,10 @@ Official sources:
 - Inkling model card: https://thinkingmachines.ai/model-card/inkling/
 - Open weights and deployment guide:
   https://huggingface.co/thinkingmachines/Inkling
+- Inkling-Small release:
+  https://thinkingmachines.ai/news/inkling-small/
+- Inkling-Small weights and model card:
+  https://huggingface.co/thinkingmachines/Inkling-Small
 - Tinker model IDs and context options:
   https://tinker-docs.thinkingmachines.ai/tinker/models/
 - Together AI serverless announcement and API example:
@@ -19,5 +23,6 @@ The released model has a 1,048,576-token architectural context limit. Tinker
 currently offers 64K and 256K sampling configurations, while Together advertises
 the full 1M context window.
 
-Inkling-Small is a preview, not a released model. Do not add it until callable
-inference or released weights establish a real model ID.
+Inkling-Small is now released with Apache-2.0 weights and is callable on Tinker
+as `thinkingmachines/Inkling-Small`. Its architecture supports a one-million-
+token context, while current Tinker sampling configurations are smaller.

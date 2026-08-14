@@ -35,6 +35,7 @@
     {
       "creator": "anthropic",
       "include": [
+        "claude-opus-5",
         "claude-fable-5",
         "claude-sonnet-5",
         "claude-opus-4-8",
@@ -65,6 +66,7 @@
     {
       "creator": "google",
       "include": [
+        "gemini-3.7-flash",
         "gemini-3.6-flash",
         "gemini-3.5-flash-lite",
         "gemini-3.5-flash",
@@ -93,6 +95,51 @@
       "idOverrides": {
         "gemini-2.5-pro-preview-06-05": "google/gemini-2.5-pro-preview"
       }
+    },
+    {
+      "creator": "meta",
+      "include": [
+        "meta-models/Muse-Glimmer-30B"
+      ],
+      "idOverrides": {
+        "meta-models/Muse-Glimmer-30B": "meta/muse-glimmer-30b"
+      }
+    },
+    {
+      "creator": "nvidia",
+      "include": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b"
+      ],
+      "idOverrides": {
+        "nvidia/nemotron-3.5-lightning-30b-a3b": "nvidia/nemotron-3.5-lightning"
+      }
+    },
+    {
+      "creator": "qwen",
+      "include": [
+        "qwen3.8-max-preview",
+        "Qwen/Qwen3.8-2.4T-A95B"
+      ],
+      "idOverrides": {
+        "qwen3.8-max-preview": "qwen/qwen3.8-max",
+        "Qwen/Qwen3.8-2.4T-A95B": "qwen/qwen3.8-2.4t-a95b"
+      }
+    },
+    {
+      "creator": "thinkingmachines",
+      "include": [
+        "thinkingmachines/Inkling-Small"
+      ],
+      "idOverrides": {
+        "thinkingmachines/Inkling-Small": "thinkingmachines/inkling-small"
+      }
+    },
+    {
+      "creator": "xai",
+      "include": [
+        "grok-4.6"
+      ],
+      "idPrefix": "x-ai/"
     }
   ]
 }

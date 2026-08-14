@@ -2,6 +2,31 @@
   "creator": "xai",
   "models": [
     {
+      "id": "grok-4.6",
+      "name": "Grok 4.6",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "img-in", "reason", "fn-out", "json-out"],
+      "context": {
+        "type": "token",
+        "total": 500000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-08-12"
+    },
+    {
+      "id": "grok-voice-think-fast-2.0",
+      "name": "Grok Voice Think Fast 2.0",
+      "license": "proprietary",
+      "capabilities": ["chat", "txt-in", "txt-out", "audio-in", "audio-out", "reason", "fn-out"],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "aliases": ["grok-voice-latest"],
+      "releasedAt": "2026-07-29"
+    },
+    {
       "id": "grok-4.5",
       "name": "Grok 4.5",
       "license": "proprietary",
@@ -36,7 +61,6 @@
         "total": null,
         "maxOutput": null
       },
-      "aliases": ["grok-voice-latest"],
       "releasedAt": "2026-04-23"
     },
     {

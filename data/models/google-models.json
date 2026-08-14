@@ -2,6 +2,68 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-3.7-flash",
+      "name": "Gemini 3.7 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-08-13"
+    },
+    {
+      "id": "gemini-robotics-er-2-preview",
+      "name": "Gemini Robotics ER 2 Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-07-30"
+    },
+    {
+      "id": "gemini-robotics-er-2-streaming-preview",
+      "extends": "gemini-robotics-er-2-preview",
+      "overrides": {
+        "name": "Gemini Robotics ER 2 Streaming Preview",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "img-in",
+          "audio-in",
+          "video-in",
+          "fn-out",
+          "reason"
+        ]
+      },
+      "releasedAt": "2026-07-30"
+    },
+    {
       "id": "gemini-3.6-flash",
       "name": "Gemini 3.6 Flash",
       "license": "proprietary",

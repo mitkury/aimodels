@@ -8,6 +8,15 @@
     {
       "creator": "aws",
       "include": "all"
+    },
+    {
+      "creator": "anthropic",
+      "include": [
+        "claude-opus-5"
+      ],
+      "idOverrides": {
+        "claude-opus-5": "anthropic.claude-opus-5"
+      }
     }
   ]
 }

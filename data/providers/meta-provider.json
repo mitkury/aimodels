@@ -1,0 +1,16 @@
+{
+  "id": "meta",
+  "name": "Meta Model API",
+  "apiUrl": "https://api.meta.ai/v1",
+  "apiDocsUrl": "https://dev.meta.ai/docs/",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "meta",
+      "include": [
+        "muse-spark-1.1",
+        "muse-spark-1.2"
+      ]
+    }
+  ]
+}

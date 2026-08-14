@@ -123,6 +123,29 @@ def test_inkling_provider_specific_model_ids():
     assert models.from_provider_id("together", "thinkingmachines/inkling") is model
 
 
+def test_recent_provider_specific_model_ids():
+    expected = {
+        ("meta-models/Muse-Glimmer-30B", "openrouter"): "meta/muse-glimmer-30b",
+        (
+            "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "openrouter",
+        ): "nvidia/nemotron-3.5-lightning",
+        ("Qwen/Qwen3.8-2.4T-A95B", "openrouter"): "qwen/qwen3.8-2.4t-a95b",
+        (
+            "thinkingmachines/Inkling-Small",
+            "openrouter",
+        ): "thinkingmachines/inkling-small",
+        ("grok-4.6", "openrouter"): "x-ai/grok-4.6",
+        ("muse-spark-1.2", "meta"): "muse-spark-1.2",
+        ("claude-opus-5", "bedrock"): "anthropic.claude-opus-5",
+    }
+
+    for (model_id, provider_id), provider_model_id in expected.items():
+        model = models.id(model_id)
+        assert model is not None
+        assert model.id_for(provider_id) == provider_model_id
+
+
 def test_package_exposes_one_catalog_instance():
     from aimodels.models import models as module_models
 

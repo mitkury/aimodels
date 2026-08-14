@@ -2,6 +2,24 @@
   "creator": "nvidia",
   "models": [
     {
+      "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "name": "NVIDIA Nemotron 3.5 Lightning 30B A3B",
+      "license": "openmdw-1.1",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-08-11"
+    },
+    {
       "id": "nvidia/nemotron-3-ultra-550b-a55b",
       "name": "NVIDIA Nemotron 3 Ultra 550B A55B",
       "license": "openmdw-1.1",

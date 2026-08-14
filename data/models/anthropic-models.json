@@ -2,6 +2,26 @@
   "creator": "anthropic",
   "models": [
     {
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 128000,
+        "outputIsFixed": 1
+      },
+      "releasedAt": "2026-07-24"
+    },
+    {
       "id": "claude-fable-5",
       "name": "Claude Fable 5",
       "license": "proprietary",

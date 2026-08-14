@@ -2,6 +2,26 @@
   "creator": "minimax",
   "models": [
     {
+      "id": "MiniMax-H3",
+      "name": "MiniMax H3",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "video-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "768p",
+          "2k"
+        ]
+      },
+      "releasedAt": "2026-07-31"
+    },
+    {
       "id": "MiniMax-M3",
       "name": "MiniMax M3",
       "license": "proprietary",
