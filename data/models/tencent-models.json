@@ -2,6 +2,25 @@
   "creator": "tencent",
   "models": [
     {
+      "id": "hy4-preview",
+      "name": "Tencent Hy4 Preview",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-08-28"
+    },
+    {
       "id": "hy3",
       "name": "Tencent Hy3",
       "license": "proprietary",

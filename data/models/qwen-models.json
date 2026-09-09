@@ -2,6 +2,79 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen3.8-max",
+      "name": "Qwen 3.8 Max",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "qwen3.8-max-0902",
+      "extends": "qwen3.8-max",
+      "overrides": {
+        "name": "Qwen 3.8 Max 0902"
+      }
+    },
+    {
+      "id": "qwen3.8-flash",
+      "name": "Qwen 3.8 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "Qwen/Qwen3.8-27B",
+      "name": "Qwen3.8 27B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "Qwen/Qwen3.8-Flash-Next",
+      "extends": "Qwen/Qwen3.8-27B",
+      "overrides": {
+        "name": "Qwen3.8 Flash Next",
+        "license": "qwen-community-1.0"
+      }
+    },
+    {
       "id": "qwen3.8-max-preview",
       "name": "Qwen 3.8 Max Preview",
       "license": "proprietary",

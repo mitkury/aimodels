@@ -2,6 +2,44 @@
   "creator": "zai",
   "models": [
     {
+      "id": "glm-5.3",
+      "name": "GLM-5.3",
+      "license": "glm-5.3",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 128000
+      },
+      "releasedAt": "2026-08-18"
+    },
+    {
+      "id": "glm-5.3-flash",
+      "extends": "glm-5.3",
+      "overrides": {
+        "name": "GLM-5.3 Flash",
+        "license": "mit",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "img-in",
+          "json-out",
+          "fn-out",
+          "reason",
+          "video-in"
+        ]
+      },
+      "releasedAt": "2026-08-26"
+    },
+    {
       "id": "glm-5.2",
       "name": "GLM-5.2",
       "license": "mit",

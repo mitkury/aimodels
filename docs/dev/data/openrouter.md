@@ -15,3 +15,17 @@ Provider IDs often use a creator namespace plus the canonical ID, but not
 always. Anthropic snapshot IDs and Google preview IDs can require explicit
 `idOverrides`. Realtime, Computer Use, and retired preview models should not be
 included unless they appear in OpenRouter's model-list response.
+
+## September 9, 2026 additions
+
+The [live model list](https://openrouter.ai/api/v1/models) confirms Astra,
+Fable 5.1, Gemini 3.8 Flash, Muse Spark 1.1–1.3, Qwen Max 0902/Flash/27B,
+DeepSeek V4 Flash Vision Experimental, GLM-5.3/Flash, and Hy4 Preview.
+
+Preserve provider spellings such as `anthropic/claude-fable-5.1`,
+`qwen/qwen3.8-27b`, `z-ai/glm-5.3`, and `tencent/hy4-preview`.
+Replace the obsolete Qwen Max preview mapping with the explicitly listed
+`qwen/qwen3.8-max-0902`; do not reinterpret it as the open-weight Max
+checkpoint. Mythos 5.1, the new image/transcription endpoints, and Qwen Flash
+Next were not added to this provider without listing evidence. This is a
+scoped availability update, not a fresh certification of every older mapping.

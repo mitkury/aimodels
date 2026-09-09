@@ -22,8 +22,26 @@ capabilities. Hosted API IDs such as Groq slugs are provider-specific facts:
 Keep provider slugs in provider mappings. Do not present them as Meta-native
 model IDs without evidence from Meta.
 
-Meta Model API exposes `muse-spark-1.1` and `muse-spark-1.2`. The
+Meta Model API exposes `muse-spark-1.1`, `muse-spark-1.2`, and `muse-spark-1.3`. The
 `muse-spark-1.2-contributor` selector serves the same 1.2 checkpoint under a
 different data-use and pricing tier, so it is an alias rather than another
 model record. Muse Glimmer is a separate Apache-2.0 open-weight model; preserve
 its first-party Hugging Face repository ID as the canonical checkpoint ID.
+
+## September 9, 2026 audit
+
+[Model documentation](https://dev.meta.ai/docs/models.md) now lists
+`muse-spark-1.3`, `muse-image-1.0`, and `muse-voice-transcribe-1.0`.
+Spark 1.3 is proprietary, with 1,048,576-token context; its contributor
+selector is an alias. Audio is documented as degraded/not fully supported, so
+the 1.3 record does not copy 1.2's audio-input capability.
+
+The [image request schema](https://dev.meta.ai/docs/api-reference/images/schemas.md)
+allows up to ten images and reasoning-strength selection. Its size parameter
+describes aspect ratios rather than fixed pixel dimensions; leave catalog
+sizes empty rather than inventing resolutions. The
+[speech-to-text guide](https://dev.meta.ai/docs/speech-to-text.md) uses the same
+voice model for file and realtime transcription; no duration ceiling or
+initial release date is recorded. Image launch date is also left unset.
+Glimmer remains the distinct Apache-2.0 open-weight model, not a Spark variant
+or a Meta-native API endpoint.

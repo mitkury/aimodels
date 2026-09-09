@@ -2,6 +2,37 @@
   "creator": "cohere",
   "models": [
     {
+      "id": "parse-v5.0",
+      "name": "Cohere Parse 5",
+      "license": "proprietary",
+      "capabilities": [
+        "img-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-08-27"
+    },
+    {
+      "id": "CohereLabs/North-Micro-Vision-Instruct",
+      "name": "North Micro Vision Instruct",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "command-a-plus-05-2026",
       "name": "Command A+",
       "license": "apache-2.0",

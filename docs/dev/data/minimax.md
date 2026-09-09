@@ -26,3 +26,12 @@ not downloadable weights under a published license. Record the callable model
 as proprietary until those artifacts exist. Its API produces one 768p or 2K
 video per task; duration is 4–15 seconds, which the current catalog context
 schema cannot represent.
+
+## September 9, 2026 audit
+
+The [video-generation guide](https://platform.minimax.io/docs/guides/video-generation)
+lists `MiniMax-H3-Max`, post-trained with fal.ai, for text/image-to-video
+generation, at 480p or 768p and 5–15 seconds. Preserve the exact capitalization.
+The catalog's existing video-output convention stores one result and supported
+resolution labels; its schema cannot express the duration range. No initial
+API release date was established.

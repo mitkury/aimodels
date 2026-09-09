@@ -2,6 +2,23 @@
   "creator": "minimax",
   "models": [
     {
+      "id": "MiniMax-H3-Max",
+      "name": "MiniMax H3 Max",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "480p",
+          "768p"
+        ]
+      }
+    },
+    {
       "id": "MiniMax-H3",
       "name": "MiniMax H3",
       "license": "proprietary",

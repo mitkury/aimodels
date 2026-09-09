@@ -39,3 +39,21 @@ The catalog was reviewed across the major first-party model platforms on
 the family is available through Volcano Engine, but it does not establish a
 stable, direct API model ID independent of a customer deployment endpoint. Add
 it once first-party API documentation provides that identifier and its limits.
+
+
+On 2026-09-09, the follow-up audit focused on releases since August 13 and
+missing generally useful models from known creators. It added 31 records
+across 13 creators, including a few older omissions. Creator pages above record
+the exact sources, access restrictions, and intentionally unknown fields.
+OpenRouter and Tencent mappings were checked independently of creator claims.
+
+Kimi K2.7 Code Highspeed was already an alias of the Code model and was not
+duplicated. Meta Spark remains proprietary; the already-cataloged Glimmer is
+open-weight. Qwen and Cohere checkpoint IDs are excluded from native API
+availability unless the provider actually serves those identifiers.
+
+Research-focused GUI, driving, math, and retrieval checkpoints were deferred
+for a dedicated audit of their task-specific metadata and serving support.
+This update does not claim complete coverage of every experimental checkpoint
+or every older provider listing. Unknown dates/limits remain unset rather than
+being inferred from repository timestamps, rounded labels, or nearby models.

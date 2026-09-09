@@ -25,3 +25,22 @@ The July 30, 2026 release notes establish the two Robotics ER 2 endpoint IDs,
 their multimodal inputs, and function calling. Their model pages publish a
 131,072-token input limit and 65,536-token output limit. The August 13 release
 notes and model page establish the stable `gemini-3.7-flash` ID and limits.
+
+## September 9, 2026 audit
+
+- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash):
+  1,048,576 input tokens, 65,536 output tokens; text, image, audio, and video
+  inputs, with text output, thinking, tools, and structured output.
+- [Gemini 3.5 Transcribe](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe):
+  separate unary and live API IDs. The unary limit is one hour, or 30 minutes
+  with diarization/timestamps. Do not inherit that duration onto live sessions.
+- [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash):
+  current ID `gemini-omni-1.1-flash`; text/image/video input and video output.
+  Its documented input context is 1,048,576 tokens. The schema does not encode
+  video duration or output resolution alongside token context.
+- [Music generation](https://ai.google.dev/gemini-api/docs/music-generation):
+  `lyria-3.5` accepts text/images and produces music and lyrics. No exact
+  duration ceiling is recorded.
+- [Changelog](https://ai.google.dev/gemini-api/docs/changelog):
+  Transcribe August 26, Omni 1.1 August 27, Flash 3.8 September 2, and
+  Lyria 3.5 September 3.

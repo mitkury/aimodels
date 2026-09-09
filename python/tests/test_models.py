@@ -217,3 +217,145 @@ def test_aliases_are_unambiguous():
                 f"alias {alias!r} is shared by {owners[alias]!r} and {model.id!r}"
             )
             owners[alias] = model.id
+
+
+def test_september_catalog_canonical_ids():
+    ids = [
+        "gpt-6-astra",
+        "gpt-image-2.5-sunburst",
+        "gpt-image-2.5-flare",
+        "claude-fable-5-1",
+        "claude-mythos-5-1",
+        "gemini-3.8-flash",
+        "gemini-3.5-transcribe",
+        "gemini-3.5-transcribe-live",
+        "gemini-omni-1.1-flash",
+        "lyria-3.5",
+        "muse-spark-1.3",
+        "muse-image-1.0",
+        "muse-voice-transcribe-1.0",
+        "qwen3.8-max",
+        "qwen3.8-max-0902",
+        "qwen3.8-flash",
+        "Qwen/Qwen3.8-27B",
+        "Qwen/Qwen3.8-Flash-Next",
+        "deepseek-v4-flash-vision-exp",
+        "glm-5.3",
+        "glm-5.3-flash",
+        "hy4-preview",
+        "parse-v5.0",
+        "CohereLabs/North-Micro-Vision-Instruct",
+        "MiniMax-H3-Max",
+        "grok-imagine-image-2.0",
+        "mistral-ocr-4-1",
+        "stepaudio-2.5-chat",
+        "stepaudio-2.5-realtime",
+        "stepaudio-2.5-tts",
+        "stepaudio-2.5-asr",
+    ]
+    for model_id in ids:
+        assert models.id(model_id).id == model_id
+
+
+def test_september_provider_mappings():
+    cases = [
+        ["gpt-6-astra", "openrouter", "openai/gpt-6-astra"],
+        ["claude-fable-5-1", "openrouter", "anthropic/claude-fable-5.1"],
+        ["gemini-3.8-flash", "openrouter", "google/gemini-3.8-flash"],
+        ["muse-spark-1.3", "meta", "muse-spark-1.3"],
+        ["muse-spark-1.3", "openrouter", "meta/muse-spark-1.3"],
+        ["Qwen/Qwen3.8-27B", "openrouter", "qwen/qwen3.8-27b"],
+        ["qwen3.8-max-0902", "openrouter", "qwen/qwen3.8-max-0902"],
+        ["qwen3.8-flash", "qwen", "qwen3.8-flash"],
+        ["deepseek-v4-flash-vision-exp", "tencent", "deepseek/deepseek-v4-flash-vision-exp"],
+        ["glm-5.3", "openrouter", "z-ai/glm-5.3"],
+        ["glm-5.3-flash", "tencent", "glm-5.3-flash"],
+        ["hy4-preview", "openrouter", "tencent/hy4-preview"],
+        ["parse-v5.0", "cohere", "parse-v5.0"]
+    ]
+    for model_id, provider, provider_model_id in cases:
+        model = models.id(model_id)
+        assert model.id_for(provider) == provider_model_id
+        assert models.from_provider_id(provider, provider_model_id) is model
+
+
+def test_september_unverified_provider_availability():
+    cases = [
+        ["Qwen/Qwen3.8-27B", "qwen"],
+        ["Qwen/Qwen3.8-2.4T-A95B", "qwen"],
+        ["Qwen/Qwen3.8-Flash-Next", "qwen"],
+        ["CohereLabs/North-Micro-Vision-Instruct", "cohere"],
+        ["meta-models/Muse-Glimmer-30B", "meta"],
+        ["claude-mythos-5-1", "openrouter"],
+        ["qwen3.8-max-preview", "openrouter"],
+        ["Qwen/Qwen3.8-Flash-Next", "openrouter"],
+        ["gpt-image-2.5-sunburst", "openrouter"],
+        ["gemini-3.5-transcribe", "openrouter"]
+    ]
+    for model_id, provider in cases:
+        assert models.id(model_id).id_for(provider) is None
+
+
+def test_september_context_units_and_limits():
+    cases = [
+        ["gpt-6-astra", "token", 1050000, 128000],
+        ["gemini-3.8-flash", "token", 1048576, 65536],
+        ["deepseek-v4-flash-vision-exp", "token", 1000000, 384000],
+        ["glm-5.3-flash", "token", 1000000, 128000],
+        ["hy4-preview", "token", 1048576, 65536],
+        ["gemini-3.5-transcribe", "audio-in", 3600, None],
+        ["gemini-3.5-transcribe-live", "audio-in", None, None],
+        ["stepaudio-2.5-tts", "character", 1000, None],
+        ["CohereLabs/North-Micro-Vision-Instruct", "token", 8192, None],
+        ["Qwen/Qwen3.8-Flash-Next", "token", 262144, None]
+    ]
+    for model_id, unit, total, max_output in cases:
+        context = models.id(model_id).context
+        assert (context.type, context.total, context.max_output) == (
+            unit, total, max_output
+        )
+
+
+def test_september_licenses():
+    cases = [
+        ["glm-5.3", "glm-5.3"],
+        ["glm-5.3-flash", "mit"],
+        ["Qwen/Qwen3.8-27B", "apache-2.0"],
+        ["Qwen/Qwen3.8-Flash-Next", "qwen-community-1.0"],
+        ["muse-spark-1.3", "proprietary"]
+    ]
+    for model_id, license_id in cases:
+        assert models.id(model_id).license == license_id
+
+
+def test_september_aliases():
+    cases = [
+        ["gpt-image-2.5-sunburst-2026-09-08", "gpt-image-2.5-sunburst"],
+        ["gpt-image-2.5-flare-2026-09-08", "gpt-image-2.5-flare"],
+        ["muse-spark-1.3-contributor", "muse-spark-1.3"],
+        ["mistral-ocr-latest", "mistral-ocr-4-1"],
+        ["kimi-k2.7-code-highspeed", "kimi-k2.7-code"]
+    ]
+    for alias, model_id in cases:
+        assert models.id(alias).id == model_id
+        assert not any(model.id == alias for model in models)
+
+
+def test_september_capability_boundaries():
+    assert not models.id("muse-spark-1.3").canHear()
+    assert not models.id("glm-5.3").canSee()
+    assert models.id("glm-5.3-flash").canSee()
+    assert models.id("deepseek-v4-flash-vision-exp").canSee()
+    for model_id in ["parse-v5.0", "mistral-ocr-4-1"]:
+        assert not models.id(model_id).canChat()
+        assert not models.id(model_id).canCallFunctions()
+    assert not models.id("parse-v5.0").canOutputJSON()
+    assert models.id("mistral-ocr-4-1").canOutputJSON()
+
+
+def test_september_release_date_evidence():
+    assert models.id("gpt-6-astra").released_at == "2026-09-03"
+    assert models.id("claude-mythos-5-1").released_at == "2026-09-01"
+    assert models.id("mistral-ocr-4-1").released_at == "2026-07-16"
+    assert models.id("qwen3.8-max-0902").released_at is None
+    assert models.id("Qwen/Qwen3.8-Flash-Next").released_at is None

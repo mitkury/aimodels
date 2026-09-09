@@ -8,6 +8,7 @@
     {
       "creator": "openai",
       "include": [
+        "gpt-6-astra",
         "gpt-5.6-sol",
         "gpt-5.6-terra",
         "gpt-5.6-luna",
@@ -35,6 +36,7 @@
     {
       "creator": "anthropic",
       "include": [
+        "claude-fable-5-1",
         "claude-opus-5",
         "claude-fable-5",
         "claude-sonnet-5",
@@ -51,6 +53,7 @@
       ],
       "idPrefix": "anthropic/",
       "idOverrides": {
+        "claude-fable-5-1": "anthropic/claude-fable-5.1",
         "claude-opus-4-8": "anthropic/claude-opus-4.8",
         "claude-opus-4-7": "anthropic/claude-opus-4.7",
         "claude-sonnet-4-5-20250929": "anthropic/claude-sonnet-4.5",
@@ -66,6 +69,7 @@
     {
       "creator": "google",
       "include": [
+        "gemini-3.8-flash",
         "gemini-3.7-flash",
         "gemini-3.6-flash",
         "gemini-3.5-flash-lite",
@@ -99,8 +103,12 @@
     {
       "creator": "meta",
       "include": [
+        "muse-spark-1.1",
+        "muse-spark-1.2",
+        "muse-spark-1.3",
         "meta-models/Muse-Glimmer-30B"
       ],
+      "idPrefix": "meta/",
       "idOverrides": {
         "meta-models/Muse-Glimmer-30B": "meta/muse-glimmer-30b"
       }
@@ -117,13 +125,31 @@
     {
       "creator": "qwen",
       "include": [
-        "qwen3.8-max-preview",
+        "qwen3.8-max-0902",
+        "qwen3.8-flash",
+        "Qwen/Qwen3.8-27B",
         "Qwen/Qwen3.8-2.4T-A95B"
       ],
+      "idPrefix": "qwen/",
       "idOverrides": {
-        "qwen3.8-max-preview": "qwen/qwen3.8-max",
+        "Qwen/Qwen3.8-27B": "qwen/qwen3.8-27b",
         "Qwen/Qwen3.8-2.4T-A95B": "qwen/qwen3.8-2.4t-a95b"
       }
+    },
+    {
+      "creator": "deepseek",
+      "include": ["deepseek-v4-flash-vision-exp"],
+      "idPrefix": "deepseek/"
+    },
+    {
+      "creator": "zai",
+      "include": ["glm-5.3", "glm-5.3-flash"],
+      "idPrefix": "z-ai/"
+    },
+    {
+      "creator": "tencent",
+      "include": ["hy4-preview"],
+      "idPrefix": "tencent/"
     },
     {
       "creator": "thinkingmachines",

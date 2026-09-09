@@ -28,3 +28,11 @@ To list the models available to an API key:
 curl https://api.x.ai/v1/models \
   -H "Authorization: Bearer $XAI_API_KEY"
 ```
+
+## September 9, 2026 audit
+
+The [image-generation guide](https://docs.x.ai/developers/model-capabilities/images/generation)
+documents `grok-imagine-image-2.0`, text/image input, image output, batches
+of up to ten, 1k/2k resolution selectors, and low/medium/auto quality.
+The August 28 release-note entry describes updated controls, not necessarily
+the initial model launch, so no release date is assigned.

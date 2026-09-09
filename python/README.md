@@ -39,13 +39,13 @@ meta_models = models.from_creator("meta")
 large_context_models = models.with_min_context(32768)
 
 # Find specific model
-model = models.id("gpt-5.6-sol")
+model = models.id("gpt-6-astra")
 print(model.context.total)  # Context window size
-print(model.providers)  # For example: ['openai', 'openrouter']
+print(model.providerIds)  # ['openai', 'openrouter']
 
 # Resolve canonical IDs at the provider boundary
-print(model.id_for("openrouter"))  # openai/gpt-5.6-sol
-canonical = models.from_provider_id("openrouter", "openai/gpt-5.6-sol")
+print(model.id_for("openrouter"))  # openai/gpt-6-astra
+canonical = models.from_provider_id("openrouter", "openai/gpt-6-astra")
 
 # Get provider information
 provider = models.get_provider("openai")

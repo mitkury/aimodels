@@ -12,9 +12,13 @@
     {
       "creator": "deepseek",
       "include": [
+        "deepseek-v4-flash-vision-exp",
         "deepseek-v4-pro",
         "deepseek-v4-flash"
-      ]
+      ],
+      "idOverrides": {
+        "deepseek-v4-flash-vision-exp": "deepseek/deepseek-v4-flash-vision-exp"
+      }
     },
     {
       "creator": "kimi",
@@ -39,6 +43,8 @@
     {
       "creator": "zai",
       "include": [
+        "glm-5.3",
+        "glm-5.3-flash",
         "glm-5.2",
         "glm-5.1",
         "glm-5v-turbo"

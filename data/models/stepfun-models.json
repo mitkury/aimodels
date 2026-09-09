@@ -2,6 +2,65 @@
   "creator": "stepfun",
   "models": [
     {
+      "id": "stepaudio-2.5-chat",
+      "name": "StepAudio 2.5 Chat",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "stepaudio-2.5-realtime",
+      "name": "StepAudio 2.5 Realtime",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "audio-in",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "stepaudio-2.5-tts",
+      "name": "StepAudio 2.5 TTS",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "character",
+        "total": 1000,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "stepaudio-2.5-asr",
+      "name": "StepAudio 2.5 ASR",
+      "license": "proprietary",
+      "capabilities": [
+        "audio-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "audio-in",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "step-3.7-flash",
       "name": "Step 3.7 Flash",
       "license": "apache-2.0",

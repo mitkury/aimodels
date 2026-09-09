@@ -2,6 +2,28 @@
   "creator": "xai",
   "models": [
     {
+      "id": "grok-imagine-image-2.0",
+      "name": "Grok Imagine Image 2.0",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 10,
+        "sizes": [
+          "1k",
+          "2k"
+        ],
+        "qualities": [
+          "low",
+          "medium",
+          "auto"
+        ]
+      }
+    },
+    {
       "id": "grok-4.6",
       "name": "Grok 4.6",
       "license": "proprietary",

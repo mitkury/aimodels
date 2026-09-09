@@ -2,6 +2,59 @@
   "creator": "meta",
   "models": [
     {
+      "id": "muse-spark-1.3",
+      "name": "Muse Spark 1.3",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "aliases": [
+        "muse-spark-1.3-contributor"
+      ],
+      "releasedAt": "2026-09-02"
+    },
+    {
+      "id": "muse-image-1.0",
+      "name": "Muse Image 1.0",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out",
+        "reason"
+      ],
+      "context": {
+        "maxOutput": 10,
+        "sizes": []
+      }
+    },
+    {
+      "id": "muse-voice-transcribe-1.0",
+      "name": "Muse Voice Transcribe 1.0",
+      "license": "proprietary",
+      "capabilities": [
+        "audio-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "audio-in",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "muse-spark-1.1",
       "name": "Muse Spark 1.1",
       "license": "proprietary",

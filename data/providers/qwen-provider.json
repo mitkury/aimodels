@@ -3,5 +3,16 @@
   "name": "Qwen",
   "apiUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
   "apiDocsUrl": "https://help.aliyun.com/zh/model-studio/developer-reference/",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "qwen",
+      "include": "all",
+      "exclude": [
+        "Qwen/Qwen3.8-2.4T-A95B",
+        "Qwen/Qwen3.8-27B",
+        "Qwen/Qwen3.8-Flash-Next"
+      ]
+    }
+  ]
 }

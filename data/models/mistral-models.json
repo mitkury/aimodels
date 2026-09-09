@@ -2,6 +2,26 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "mistral-ocr-4-1",
+      "name": "Mistral OCR 4.1",
+      "license": "proprietary",
+      "capabilities": [
+        "img-in",
+        "txt-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "aliases": [
+        "mistral-ocr-4",
+        "mistral-ocr-latest"
+      ],
+      "releasedAt": "2026-07-16"
+    },
+    {
       "id": "mistral-ocr-4-0",
       "name": "Mistral OCR 4",
       "license": "proprietary",

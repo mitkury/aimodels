@@ -2,6 +2,90 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-3.8-flash",
+      "name": "Gemini 3.8 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-09-02"
+    },
+    {
+      "id": "gemini-3.5-transcribe",
+      "name": "Gemini 3.5 Transcribe",
+      "license": "proprietary",
+      "capabilities": [
+        "audio-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "audio-in",
+        "total": 3600,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-08-26"
+    },
+    {
+      "id": "gemini-3.5-transcribe-live",
+      "extends": "gemini-3.5-transcribe",
+      "overrides": {
+        "name": "Gemini 3.5 Transcribe Live",
+        "context": {
+          "type": "audio-in",
+          "total": null,
+          "maxOutput": null
+        }
+      },
+      "releasedAt": "2026-08-26"
+    },
+    {
+      "id": "gemini-omni-1.1-flash",
+      "name": "Gemini Omni 1.1 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-08-27"
+    },
+    {
+      "id": "lyria-3.5",
+      "name": "Lyria 3.5",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "txt-out",
+        "audio-out"
+      ],
+      "context": {
+        "type": "audio-out",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-09-03"
+    },
+    {
       "id": "gemini-3.7-flash",
       "name": "Gemini 3.7 Flash",
       "license": "proprietary",
