@@ -29,3 +29,10 @@ Replace the obsolete Qwen Max preview mapping with the explicitly listed
 checkpoint. Mythos 5.1, the new image/transcription endpoints, and Qwen Flash
 Next were not added to this provider without listing evidence. This is a
 scoped availability update, not a fresh certification of every older mapping.
+
+## September 10, 2026 availability check
+
+Rechecked all 76 configured provider IDs against the live model-list endpoint.
+`google/gemma-3n-e4b-it` was absent and was removed from OpenRouter availability.
+The remaining 75 IDs were listed. The canonical Gemma record remains in the
+catalog; absence from this provider does not establish retirement of the model.
