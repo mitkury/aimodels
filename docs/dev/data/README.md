@@ -57,3 +57,36 @@ for a dedicated audit of their task-specific metadata and serving support.
 This update does not claim complete coverage of every experimental checkpoint
 or every older provider listing. Unknown dates/limits remain unset rather than
 being inferred from repository timestamps, rounded labels, or nearby models.
+
+## September 16, 2026 follow-up
+
+Compared against the September 9 catalog addition and September 10 provider
+cleanup, with an inclusive September 9–16 discovery window. Added two Gemini
+3.8 Live models (September 15), GPT-Live 1 and DeepSeek V4.1 Flash (September
+10), and the missed North Small Translate release (September 9).
+
+The current official catalogs/release pages for
+[Anthropic](https://platform.claude.com/docs/en/release-notes/overview),
+[Meta](https://dev.meta.ai/docs/models.md),
+[Qwen](https://www.alibabacloud.com/help/en/model-studio/text-generation-model),
+[Z.ai](https://docs.z.ai/release-notes/new-released),
+[xAI](https://docs.x.ai/developers/release-notes),
+[Mistral](https://docs.mistral.ai/resources/changelogs),
+[MiniMax](https://platform.minimax.io/docs/release-notes/models),
+[Kimi](https://platform.kimi.ai/docs/models),
+[Thinking Machines](https://tinker-docs.thinkingmachines.ai/tinker/models/),
+[Amazon Nova](https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html),
+and [Xiaomi](https://mimo.mi.com/docs/zh-CN/quick-start/summary/model)
+did not establish further new model IDs released within this window.
+Recent first-party Hugging Face listings for Qwen and StepFun showed no new
+checkpoints in the window; NVIDIA additions were specialist vision artifacts
+or third-party quantizations, not new general-purpose Nemotron models.
+
+The [Baidu model list](https://intl.cloud.baidu.com/en/doc/qianfan/s/7m95lyy43-intl-en)
+now documents `ernie-5.1`, resolving the earlier missing-ID concern, but the
+release predates this sweep and remains a follow-up catalog omission.
+Tencent's release-history page could not be retrieved; its
+[current Token Plan overview](https://cloud.tencent.com/document/product/1823/130060)
+still lists Hy4 Preview. No new Tencent mappings were inferred from that
+limited evidence. This is a scoped release check, not a complete historical
+catalog or provider-retirement audit.

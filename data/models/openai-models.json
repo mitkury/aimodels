@@ -2,6 +2,25 @@
   "creator": "openai",
   "models": [
     {
+      "id": "gpt-live-1",
+      "name": "GPT-Live 1",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-09-10"
+    },
+    {
       "id": "gpt-6-astra",
       "name": "GPT-6 Astra",
       "license": "proprietary",

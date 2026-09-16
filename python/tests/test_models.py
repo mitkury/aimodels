@@ -359,3 +359,74 @@ def test_september_release_date_evidence():
     assert models.id("mistral-ocr-4-1").released_at == "2026-07-16"
     assert models.id("qwen3.8-max-0902").released_at is None
     assert models.id("Qwen/Qwen3.8-Flash-Next").released_at is None
+
+
+def test_september_16_native_model_identity():
+    cases = [
+        ("gemini-3.8-live", "google", "2026-09-15"),
+        ("gemini-3.8-live-extended-thinking", "google", "2026-09-15"),
+        ("gpt-live-1", "openai", "2026-09-10"),
+        ("deepseek-flash", "deepseek", "2026-09-10"),
+        ("north-small-translate-1-0", "cohere", "2026-09-09"),
+    ]
+    for model_id, provider, date in cases:
+        model = models.id(model_id)
+        assert model.id == model_id
+        assert model.id_for(provider) == model_id
+        assert model.released_at == date
+        assert models.from_provider_id(provider, model_id) is model
+
+
+def test_gemini_38_live_capability_boundaries():
+    for model_id in ["gemini-3.8-live", "gemini-3.8-live-extended-thinking"]:
+        model = models.id(model_id)
+        assert (model.context.type, model.context.total, model.context.max_output) == (
+            "token", 131072, 65536
+        )
+        assert model.can("chat", "audio-in", "audio-out", "img-in", "video-in", "fn-out", "reason")
+        assert not model.canOutputJSON()
+        assert model.id_for("openrouter") is None
+        assert model.aliases is None
+    assert models.id("gemini-3.8-flash").context.total == 1048576
+
+
+def test_gpt_live_does_not_inherit_backend_metadata():
+    model = models.id("gpt-live-1")
+    assert model.can("chat", "audio-in", "audio-out", "fn-out")
+    assert not model.canReason()
+    assert not model.canSee()
+    assert not model.canOutputJSON()
+    assert (model.context.type, model.context.total, model.context.max_output) == (
+        "token", None, None
+    )
+    assert model.id_for("openrouter") is None
+
+
+def test_deepseek_41_native_selector_and_historical_records():
+    model = models.id("deepseek-flash")
+    assert model.name == "DeepSeek V4.1 Flash"
+    assert model.license == "mit"
+    assert model.can("img-in", "fn-out", "json-out", "reason")
+    assert (model.context.type, model.context.total, model.context.max_output) == (
+        "token", 1048576, 393216
+    )
+    assert model.id_for("openrouter") == "deepseek/deepseek-v4.1-flash"
+    assert models.from_provider_id("openrouter", "deepseek/deepseek-v4.1-flash") is model
+    for model_id in ["deepseek-v4-flash", "deepseek-v4-flash-vision-exp"]:
+        assert models.id(model_id).id == model_id
+        assert models.id(model_id).id_for("deepseek") is None
+        assert models.from_provider_id("deepseek", model_id) is None
+    assert models.id("deepseek-v4-pro").id_for("deepseek") == "deepseek-v4-pro"
+    assert models.id("deepseek-v4-flash-vision-exp").id_for("openrouter") == (
+        "deepseek/deepseek-v4-flash-vision-exp"
+    )
+
+
+def test_north_small_translate_is_not_general_chat():
+    model = models.id("north-small-translate-1-0")
+    assert model.license == "cc-by-nc-4.0"
+    assert model.capabilities == ["txt-in", "txt-out"]
+    assert (model.context.type, model.context.total, model.context.max_output) == (
+        "token", 16384, None
+    )
+    assert model.id_for("openrouter") is None

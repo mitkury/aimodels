@@ -2,6 +2,26 @@
   "creator": "deepseek",
   "models": [
     {
+      "id": "deepseek-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 393216
+      },
+      "releasedAt": "2026-09-10"
+    },
+    {
       "id": "deepseek-v4-flash-vision-exp",
       "name": "DeepSeek V4 Flash Vision Experimental",
       "license": "proprietary",

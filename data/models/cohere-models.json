@@ -2,6 +2,21 @@
   "creator": "cohere",
   "models": [
     {
+      "id": "north-small-translate-1-0",
+      "name": "North Small Translate 1.0",
+      "license": "cc-by-nc-4.0",
+      "capabilities": [
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 16384,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-09-09"
+    },
+    {
       "id": "parse-v5.0",
       "name": "Cohere Parse 5",
       "license": "proprietary",

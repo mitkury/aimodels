@@ -36,3 +36,17 @@ Rechecked all 76 configured provider IDs against the live model-list endpoint.
 `google/gemma-3n-e4b-it` was absent and was removed from OpenRouter availability.
 The remaining 75 IDs were listed. The canonical Gemma record remains in the
 catalog; absence from this provider does not establish retirement of the model.
+
+## September 16, 2026 additions
+
+The [live model list](https://openrouter.ai/api/v1/models) includes
+`deepseek/deepseek-v4.1-flash`. Map canonical `deepseek-flash` to that
+provider-specific ID. The older `deepseek/deepseek-v4-flash-vision-exp`
+remains listed, so DeepSeek's native retirement must not automatically remove
+its OpenRouter availability.
+
+The two Gemini 3.8 Live IDs, GPT-Live 1, and North Small Translate were absent.
+Gemini 3.8 Flash remains listed. New `~...-latest` routes and `:batch`
+routes are provider routing/billing variants, not new canonical models.
+Other recent listings from creators outside the current catalog were left for
+a separate creator-onboarding audit.

@@ -3,5 +3,15 @@
   "name": "DeepSeek",
   "apiUrl": "https://api.deepseek.com/v1",
   "apiDocsUrl": "https://platform.deepseek.com/docs",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "deepseek",
+      "include": "all",
+      "exclude": [
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp"
+      ]
+    }
+  ]
 }

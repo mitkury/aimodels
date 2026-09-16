@@ -44,3 +44,19 @@ notes and model page establish the stable `gemini-3.7-flash` ID and limits.
 - [Changelog](https://ai.google.dev/gemini-api/docs/changelog):
   Transcribe August 26, Omni 1.1 August 27, Flash 3.8 September 2, and
   Lyria 3.5 September 3.
+
+## September 16, 2026 audit
+
+The [September 15 release notes](https://ai.google.dev/gemini-api/docs/changelog)
+announce [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live)
+and [Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking).
+Both accept text, images, audio, and video, with 131,072 input tokens and 65,536
+output tokens. Both support thinking and function calling, but not structured
+JSON output. Audio is the response modality; text output is available through
+audio transcription, not a standalone text-only response mode.
+
+The two callable IDs are separate records: the default Live model has interleaved
+reasoning; Extended Thinking exposes background reasoning and async-only tools.
+These differences do not require new catalog capability flags. Do not inherit
+Flash's one-million-token context or JSON support. Gemini 3.8 Flash was already
+present and is not duplicated. Neither Live ID appeared on OpenRouter.

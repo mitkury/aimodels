@@ -132,3 +132,68 @@ describe('September 2026 catalog additions', () => {
     expect(models.id('Qwen/Qwen3.8-Flash-Next')?.releasedAt).toBeUndefined();
   });
 });
+
+describe('September 16 release follow-up', () => {
+  it.each([
+    ['gemini-3.8-live', 'google', '2026-09-15'],
+    ['gemini-3.8-live-extended-thinking', 'google', '2026-09-15'],
+    ['gpt-live-1', 'openai', '2026-09-10'],
+    ['deepseek-flash', 'deepseek', '2026-09-10'],
+    ['north-small-translate-1-0', 'cohere', '2026-09-09'],
+  ])('includes %s with verified native identity and date', (id, provider, date) => {
+    const model = models.id(id);
+    expect(model?.id).toBe(id);
+    expect(model?.idFor(provider)).toBe(id);
+    expect(model?.releasedAt).toBe(date);
+    expect(models.fromProviderId(provider, id)).toBe(model);
+  });
+
+  it.each(['gemini-3.8-live', 'gemini-3.8-live-extended-thinking'])(
+    'keeps %s distinct from Flash and transcription-only models',
+    (id) => {
+      const model = models.id(id);
+      expect(model?.context).toEqual({ type: 'token', total: 131072, maxOutput: 65536 });
+      expect(model?.can('chat', 'audio-in', 'audio-out', 'img-in', 'video-in', 'fn-out', 'reason')).toBe(true);
+      expect(model?.canOutputJSON()).toBe(false);
+      expect(model?.idFor('openrouter')).toBeUndefined();
+      expect(model?.aliases).toBeUndefined();
+      expect(models.id('gemini-3.8-flash')?.context.total).toBe(1048576);
+    }
+  );
+
+  it('does not inherit backend reasoning or context into GPT-Live', () => {
+    const model = models.id('gpt-live-1');
+    expect(model?.can('chat', 'audio-in', 'audio-out', 'fn-out')).toBe(true);
+    expect(model?.canReason()).toBe(false);
+    expect(model?.canSee()).toBe(false);
+    expect(model?.canOutputJSON()).toBe(false);
+    expect(model?.context).toEqual({ type: 'token', total: null, maxOutput: null });
+    expect(model?.idFor('openrouter')).toBeUndefined();
+  });
+
+  it('separates the new DeepSeek native selector from historical checkpoints', () => {
+    const model = models.id('deepseek-flash');
+    expect(model?.name).toBe('DeepSeek V4.1 Flash');
+    expect(model?.license).toBe('mit');
+    expect(model?.can('img-in', 'fn-out', 'json-out', 'reason')).toBe(true);
+    expect(model?.context).toEqual({ type: 'token', total: 1048576, maxOutput: 393216 });
+    expect(model?.idFor('openrouter')).toBe('deepseek/deepseek-v4.1-flash');
+    expect(models.fromProviderId('openrouter', 'deepseek/deepseek-v4.1-flash')).toBe(model);
+    for (const id of ['deepseek-v4-flash', 'deepseek-v4-flash-vision-exp']) {
+      expect(models.id(id)?.id).toBe(id);
+      expect(models.id(id)?.idFor('deepseek')).toBeUndefined();
+      expect(models.fromProviderId('deepseek', id)).toBeUndefined();
+    }
+    expect(models.id('deepseek-v4-pro')?.idFor('deepseek')).toBe('deepseek-v4-pro');
+    expect(models.id('deepseek-v4-flash-vision-exp')?.idFor('openrouter'))
+      .toBe('deepseek/deepseek-v4-flash-vision-exp');
+  });
+
+  it('does not treat the translation endpoint as a general chat model', () => {
+    const model = models.id('north-small-translate-1-0');
+    expect(model?.license).toBe('cc-by-nc-4.0');
+    expect(model?.capabilities).toEqual(['txt-in', 'txt-out']);
+    expect(model?.context).toEqual({ type: 'token', total: 16384, maxOutput: null });
+    expect(model?.idFor('openrouter')).toBeUndefined();
+  });
+});

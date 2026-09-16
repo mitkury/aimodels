@@ -17,6 +17,7 @@ documented for text generation, visual understanding, and deep thinking. The
 current function-calling support page names an older preview rather than the
 stable `ernie-5.0` endpoint, so function calling remains unrecorded.
 
-ERNIE 5.1 has been announced, but the public Qianfan model list does not yet
-provide a stable callable ID for it. Add it when that first-party API surface is
-documented.
+The September 16, 2026 follow-up found `ernie-5.1` in the public Qianfan model
+list, resolving the previous missing-ID concern. It remains a historical
+catalog omission outside that follow-up's release window; its initial API
+release date and model-specific capabilities still need verification.

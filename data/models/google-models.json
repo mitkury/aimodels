@@ -2,6 +2,36 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-3.8-live",
+      "name": "Gemini 3.8 Live",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "audio-in",
+        "audio-out",
+        "video-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-09-15"
+    },
+    {
+      "id": "gemini-3.8-live-extended-thinking",
+      "extends": "gemini-3.8-live",
+      "overrides": {
+        "name": "Gemini 3.8 Live Extended Thinking"
+      },
+      "releasedAt": "2026-09-15"
+    },
+    {
       "id": "gemini-3.8-flash",
       "name": "Gemini 3.8 Flash",
       "license": "proprietary",

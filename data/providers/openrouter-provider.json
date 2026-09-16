@@ -137,8 +137,11 @@
     },
     {
       "creator": "deepseek",
-      "include": ["deepseek-v4-flash-vision-exp"],
-      "idPrefix": "deepseek/"
+      "include": ["deepseek-flash", "deepseek-v4-flash-vision-exp"],
+      "idPrefix": "deepseek/",
+      "idOverrides": {
+        "deepseek-flash": "deepseek/deepseek-v4.1-flash"
+      }
     },
     {
       "creator": "zai",

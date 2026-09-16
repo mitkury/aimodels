@@ -44,3 +44,16 @@ GPT-5.6 Sol. Treat those selectors as aliases, not additional models. The July
   list of supported custom dimensions.
 - [Changelog](https://developers.openai.com/api/docs/changelog):
   Astra released September 3; the two image models released September 8.
+
+## September 16, 2026 audit
+
+The [September 10 changelog](https://developers.openai.com/api/docs/changelog)
+and [GPT-Live 1 model page](https://developers.openai.com/api/docs/models/gpt-live-1)
+establish `gpt-live-1`, with audio/text input and output, streaming, and
+function-calling support through the Live API. No exact context or output
+token ceiling is documented, so both remain unknown.
+
+The [Live guide](https://developers.openai.com/api/docs/guides/live) separates
+the voice model from its independently configured reasoning/tool backend.
+Do not assign the backend's reasoning, vision, structured-output capability,
+or token limits to GPT-Live. It was not listed on OpenRouter.
