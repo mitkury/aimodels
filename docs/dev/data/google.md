@@ -60,3 +60,16 @@ reasoning; Extended Thinking exposes background reasoning and async-only tools.
 These differences do not require new catalog capability flags. Do not inherit
 Flash's one-million-token context or JSON support. Gemini 3.8 Flash was already
 present and is not duplicated. Neither Live ID appeared on OpenRouter.
+
+## October 13, 2026 audit
+
+The [October 13 release notes](https://ai.google.dev/gemini-api/docs/changelog)
+make [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon)
+(`gemini-4-argon`) generally available. Its model page lists text, image, video,
+audio, and PDF input with text output; function calling, structured outputs,
+and thinking (low, medium, high); no Live API. The context window is 1,048,576
+tokens, input and output together. Output is not recorded: the model page gives
+65,536 tokens by default (more with long decode), while the model-list endpoint
+reports an `outputTokenLimit` of 32,768. The September 30 announcement opened
+access to a restricted program only, so `releasedAt` is the GA date. Pricing is
+on a "What's new in Gemini 4 Argon" page and is not recorded here.
