@@ -2,6 +2,66 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-nano-banana-2.1",
+      "name": "Gemini Nano Banana 2.1",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-in",
+        "txt-out",
+        "img-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 32768
+      },
+      "releasedAt": "2026-10-06"
+    },
+    {
+      "id": "gemini-3.8-flash-tts",
+      "name": "Gemini 3.8 Flash TTS",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": 16384
+      },
+      "releasedAt": "2026-09-22"
+    },
+    {
+      "id": "gemini-3.8-flash-lite-tts",
+      "extends": "gemini-3.8-flash-tts",
+      "overrides": {
+        "name": "Gemini 3.8 Flash-Lite TTS"
+      },
+      "releasedAt": "2026-09-22"
+    },
+    {
+      "id": "google/embeddinggemma-2",
+      "name": "EmbeddingGemma 2",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": 8192,
+        "dimensions": 768,
+        "embeddingType": "multimodal"
+      }
+    },
+    {
       "id": "gemini-4-argon",
       "name": "Gemini 4 Argon",
       "license": "proprietary",

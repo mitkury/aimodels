@@ -73,3 +73,21 @@ tokens, input and output together. Output is not recorded: the model page gives
 reports an `outputTokenLimit` of 32,768. The September 30 announcement opened
 access to a restricted program only, so `releasedAt` is the GA date. Pricing is
 on a "What's new in Gemini 4 Argon" page and is not recorded here.
+
+## November 2, 2026 audit
+
+[Nano Banana 2.1](https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1)
+has text/image/video input and text/image output, with 131,072 input tokens
+and 32,768 output tokens. Thinking is supported; function calling and structured
+output are not. [Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts)
+and [Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts)
+use token limits (8,192 input; 16,384 output), not audio seconds. The
+[changelog](https://ai.google.dev/gemini-api/docs/changelog) dates these launches
+October 6 and September 22 respectively.
+
+[EmbeddingGemma 2](https://huggingface.co/google/embeddinggemma-2) is Apache-2.0,
+with text/image/audio/video input, 8,192 tokens and 768 default dimensions.
+Truncated vectors are deployment options, not separate models. No native Gemini
+API selector is established, so explicitly exclude the checkpoint from Google
+availability and omit an API release date. Gemini 4 Argon was already added;
+this audit adds its verified OpenRouter route.

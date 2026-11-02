@@ -43,3 +43,14 @@ the hosted Flash context, license, or dedicated tool/JSON guarantees onto
 downloadable checkpoints. All three checkpoint repository IDs are explicitly
 excluded from the Qwen-native provider. Unverified API release dates are
 omitted; a repository timestamp or ID suffix is not release evidence.
+
+## November 2, 2026 audit
+
+[Qwen3.8 Omni Flash](https://www.alibabacloud.com/help/en/model-studio/qwen3-8-omni-flash)
+documents text/image/audio/video input, text output, thinking, tools, a 1M
+window and 131,072 output tokens. It is not a speech-output model.
+[Qwen Audio 3.1 Realtime Plus](https://www.alibabacloud.com/help/en/model-studio/qwen-audio-3-1-realtime-plus)
+supports text/audio input and output and function calling, with 262,144 context
+and 16,384 output tokens. Page update dates are not API launch dates. Only
+Omni Flash has a verified OpenRouter route in this update; image 2.1 and other
+realtime variants remain deferred until their exact IDs and limits are verified.

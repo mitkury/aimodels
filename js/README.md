@@ -31,10 +31,10 @@ console.log(`Available chat models: ${chatModels.length}`);
 // 2. Find all chat models with vision capabilities from OpenAI
 const visionModelsFromOpenAI = models.canChat().canSee().fromProvider('openai');
 console.log(visionModelsFromOpenAI.map(model => model.name));
-// Example output: ["GPT-6 Astra", "GPT-5.6 Cyber", ...]
+// Example output: ["GPT-6.1 Terra", "GPT-6.1 Sol", ...]
 
 // 3. Check if a specific model can process images
-const model = models.id('gpt-6-astra');
+const model = models.id('gpt-6.1-sol');
 if (model?.canSee()) {
   console.log(`${model.name} can process images`);
   // Enable image upload in your UI
@@ -82,12 +82,12 @@ models.fromCreator('meta')     // Find models by creator
 models.withMinContext(32768)   // Find models with at least this context size
 
 // Model lookup
-models.id('gpt-6-astra')       // Find a specific model by ID
+models.id('gpt-6.1-sol')       // Find a specific model by ID
 
 // Resolve canonical IDs at the provider boundary
-models.id('gpt-6-astra')?.idFor('openrouter')
-models.resolveModelIdForProvider('gpt-6-astra', 'openrouter')
-models.fromProviderId('openrouter', 'openai/gpt-6-astra')
+models.id('gpt-6.1-sol')?.idFor('openrouter')
+models.resolveModelIdForProvider('gpt-6.1-sol', 'openrouter')
+models.fromProviderId('openrouter', 'openai/gpt-6.1-sol')
 ```
 
 ## Features

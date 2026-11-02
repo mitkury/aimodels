@@ -2,6 +2,61 @@
   "creator": "nvidia",
   "models": [
     {
+      "id": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+      "name": "NVIDIA Nemotron 3.5 Super VL",
+      "license": "openmdw-1.1",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
+      "name": "NVIDIA Nemotron 3.5 Bolt 74B A9B",
+      "license": "openmdw-1.1",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+      "name": "NVIDIA Nemotron Labs Dory 1.0 4B",
+      "license": "openmdw-1.1",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
       "name": "NVIDIA Nemotron 3.5 Lightning 30B A3B",
       "license": "openmdw-1.1",

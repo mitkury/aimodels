@@ -24,3 +24,13 @@ aliases. July 16 is the initial release; August 31 general availability must
 not replace it. This is a missing older release found during the September
 audit. Document annotations support structured JSON, but do not imply chat
 or function calls. Exact token limits remain unknown.
+
+## November 2, 2026 audit
+
+The [Large 4 card](https://docs.mistral.ai/models/mistral-large-4-0)
+documents `mistral-large-4` and alias `mistral-large-4-0`, an October 6 API
+preview, 1M context, vision, reasoning, structured output and tools.
+[Published weights](https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B)
+now establish the Mistral Ecosystem Open-Weight License, recorded as
+`mistral-ecosystem`. Output ceiling is unspecified. Timestral forecasting is
+deferred because the catalog does not yet model its task and context units.

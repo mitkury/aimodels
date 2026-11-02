@@ -46,7 +46,7 @@ const providerConfigs: ProviderTestConfig[] = [
     createClient: (apiKey, model) =>
       Lang.openrouter({
         apiKey,
-        model: `${model.creatorId}/${model.id}`
+        model: model.idFor('openrouter')!
       })
   },
   {

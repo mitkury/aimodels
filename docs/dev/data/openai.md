@@ -57,3 +57,17 @@ The [Live guide](https://developers.openai.com/api/docs/guides/live) separates
 the voice model from its independently configured reasoning/tool backend.
 Do not assign the backend's reasoning, vision, structured-output capability,
 or token limits to GPT-Live. It was not listed on OpenRouter.
+
+## November 2, 2026 audit
+
+[GPT-6 Sol](https://developers.openai.com/api/docs/models/gpt-6-sol),
+[GPT-6 Luna](https://developers.openai.com/api/docs/models/gpt-6-luna),
+[GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol), and
+[GPT-6.1 Terra](https://developers.openai.com/api/docs/models/gpt-6.1-terra)
+share Astra's 1,050,000-token context and 128,000-token output limit, with
+text/image input, reasoning, tools, and structured output. The
+[changelog](https://developers.openai.com/api/docs/changelog) establishes
+September 22, September 29, and October 26 API releases respectively.
+GPT-6.1 tool calls require Responses; AIWrapper's OpenAI adapter already uses
+that API. Do not create separate canonical models for OpenRouter's pro routes.
+Rosalind remains deferred pending verification of its restricted-access API specs.

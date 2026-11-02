@@ -2,6 +2,54 @@
   "creator": "cohere",
   "models": [
     {
+      "id": "embed-v5.0-pro",
+      "name": "Cohere Embed 5 Pro",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": 128000,
+        "dimensions": 2048,
+        "embeddingType": "multimodal"
+      },
+      "releasedAt": "2026-09-30"
+    },
+    {
+      "id": "embed-v5.0-fast",
+      "extends": "embed-v5.0-pro",
+      "overrides": {
+        "name": "Cohere Embed 5 Fast"
+      },
+      "releasedAt": "2026-09-30"
+    },
+    {
+      "id": "rerank-v5.0-pro",
+      "name": "Cohere Rerank 5 Pro",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 32000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-10-21"
+    },
+    {
+      "id": "rerank-v5.0-fast",
+      "extends": "rerank-v5.0-pro",
+      "overrides": {
+        "name": "Cohere Rerank 5 Fast"
+      },
+      "releasedAt": "2026-10-21"
+    },
+    {
       "id": "north-small-translate-1-0",
       "name": "North Small Translate 1.0",
       "license": "cc-by-nc-4.0",

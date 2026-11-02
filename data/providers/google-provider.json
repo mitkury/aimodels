@@ -3,5 +3,14 @@
   "name": "Google",
   "apiUrl": "https://generativelanguage.googleapis.com/v1",
   "apiDocsUrl": "https://ai.google.dev/docs",
-  "pricing": {}
-} 
+  "pricing": {},
+  "models": [
+    {
+      "creator": "google",
+      "include": "all",
+      "exclude": [
+        "google/embeddinggemma-2"
+      ]
+    }
+  ]
+}

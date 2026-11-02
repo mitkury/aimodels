@@ -2,6 +2,44 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen3.8-omni-flash",
+      "name": "Qwen3.8 Omni Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 131072
+      }
+    },
+    {
+      "id": "qwen-audio-3.1-realtime-plus",
+      "name": "Qwen Audio 3.1 Realtime Plus",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 16384
+      }
+    },
+    {
       "id": "qwen3.8-max",
       "name": "Qwen 3.8 Max",
       "license": "proprietary",

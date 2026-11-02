@@ -3,5 +3,15 @@
   "name": "NVIDIA NIM",
   "apiUrl": "https://integrate.api.nvidia.com/v1",
   "apiDocsUrl": "https://docs.api.nvidia.com/nim/reference/llm-apis",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "nvidia",
+      "include": "all",
+      "exclude": [
+        "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
+        "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16"
+      ]
+    }
+  ]
 }

@@ -50,3 +50,13 @@ Gemini 3.8 Flash remains listed. New `~...-latest` routes and `:batch`
 routes are provider routing/billing variants, not new canonical models.
 Other recent listings from creators outside the current catalog were left for
 a separate creator-onboarding audit.
+
+## November 2, 2026 audit
+
+Checked the live [model list](https://openrouter.ai/api/v1/models) on
+November 2. Added explicit routes for the new GPT, Claude 5.5, Gemini Argon and
+Nano Banana, Meta, Omni Flash, MiniMax, Mistral, Super VL, MiMo, Grok, Step,
+Kimi, and GLM FlashX records. Route names and creator IDs often differ:
+translate with `idFor`/`fromProviderId`, never by concatenating creator and ID.
+Free, batch and pro serving routes are not automatically new canonical models.
+No listing timestamp is treated as a creator's public API release date.

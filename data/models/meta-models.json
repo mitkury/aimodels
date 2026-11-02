@@ -2,6 +2,47 @@
   "creator": "meta",
   "models": [
     {
+      "id": "muse-wonder-1.0",
+      "name": "Muse Wonder 1.0",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "meta-models/Muse-Spark-Open-816B-A42B",
+      "name": "Muse Spark Open 816B A42B",
+      "license": "muse-model",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "muse-spark-1.3",
       "name": "Muse Spark 1.3",
       "license": "proprietary",

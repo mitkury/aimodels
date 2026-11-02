@@ -29,3 +29,14 @@ First-party guides establish four distinct API IDs:
 
 The guides' request examples supply the canonical selectors. No initial
 release dates or exact audio/chat context ceilings were established.
+
+## November 2, 2026 audit
+
+The [Step 5 API guide](https://platform.stepfun.ai/docs/en/guides/models/step-5-preview)
+establishes `step-5-preview`, text/image/video input, thinking, tools, JSON
+mode/schema, 1M context and a 64K hosted output ceiling. Prefer that hosted
+limit over the checkpoint card's 1M output claim or the request parameter's
+`INF` default. The [checkpoint license](https://huggingface.co/stepfun-ai/Step-5-Preview/blob/main/LICENSE.txt)
+is StepFun Model License 1.0, recorded as `stepfun-model-1.0`. OpenRouter has
+`stepfun/step-5-preview`. No API launch day is inferred from the October 15
+weight release.

@@ -2,6 +2,25 @@
   "creator": "aws",
   "models": [
     {
+      "id": "amazon.nova-2-5-sonic",
+      "name": "Amazon Nova 2.5 Sonic",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 256000,
+        "maxOutput": 64000
+      },
+      "releasedAt": "2026-10-05"
+    },
+    {
       "id": "amazon.nova-2-lite-v1:0",
       "name": "Amazon Nova 2 Lite",
       "license": "proprietary",

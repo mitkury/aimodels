@@ -30,3 +30,13 @@ not establish general conversational, tool-calling, reasoning, or structured
 JSON capabilities, so record only text input/output. No exact maximum output
 is documented. Keep the hosted model ID rather than creating duplicate records
 for FP8 and W4A16 packaging. It was not listed on OpenRouter.
+
+## November 2, 2026 audit
+
+The [model table](https://docs.cohere.com/v2/docs/models) establishes
+`embed-v5.0-pro`/`embed-v5.0-fast`: multimodal embeddings, 128K input, 2,048
+default dimensions; and `rerank-v5.0-pro`/`rerank-v5.0-fast`: 32K text input.
+The [changelog](https://docs.cohere.com/changelog) dates the API releases
+September 30 and October 21. Do not inherit Embed 4's normalization assertion
+without explicit evidence. Rerank uses the catalog's existing text-input/output
+convention; it is not a chat or JSON-generation model.

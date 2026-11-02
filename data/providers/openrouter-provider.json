@@ -8,6 +8,10 @@
     {
       "creator": "openai",
       "include": [
+        "gpt-6-luna",
+        "gpt-6-sol",
+        "gpt-6.1-sol",
+        "gpt-6.1-terra",
         "gpt-6-astra",
         "gpt-5.6-sol",
         "gpt-5.6-terra",
@@ -36,6 +40,9 @@
     {
       "creator": "anthropic",
       "include": [
+        "claude-haiku-5-5",
+        "claude-sonnet-5-5",
+        "claude-opus-5-5",
         "claude-fable-5-1",
         "claude-opus-5",
         "claude-fable-5",
@@ -63,12 +70,17 @@
         "claude-opus-4-1-20250805": "anthropic/claude-opus-4.1",
         "claude-opus-4-20250514": "anthropic/claude-opus-4",
         "claude-sonnet-4-20250514": "anthropic/claude-sonnet-4",
-        "claude-sonnet-4-6": "anthropic/claude-sonnet-4.6"
+        "claude-sonnet-4-6": "anthropic/claude-sonnet-4.6",
+        "claude-opus-5-5": "anthropic/claude-opus-5.5",
+        "claude-sonnet-5-5": "anthropic/claude-sonnet-5.5",
+        "claude-haiku-5-5": "anthropic/claude-haiku-5.5"
       }
     },
     {
       "creator": "google",
       "include": [
+        "gemini-nano-banana-2.1",
+        "gemini-4-argon",
         "gemini-3.8-flash",
         "gemini-3.7-flash",
         "gemini-3.6-flash",
@@ -102,6 +114,8 @@
     {
       "creator": "meta",
       "include": [
+        "meta-models/Muse-Spark-Open-816B-A42B",
+        "muse-wonder-1.0",
         "muse-spark-1.1",
         "muse-spark-1.2",
         "muse-spark-1.3",
@@ -109,21 +123,26 @@
       ],
       "idPrefix": "meta/",
       "idOverrides": {
-        "meta-models/Muse-Glimmer-30B": "meta/muse-glimmer-30b"
+        "meta-models/Muse-Glimmer-30B": "meta/muse-glimmer-30b",
+        "muse-wonder-1.0": "meta/muse-wonder",
+        "meta-models/Muse-Spark-Open-816B-A42B": "meta/muse-spark-open"
       }
     },
     {
       "creator": "nvidia",
       "include": [
+        "nvidia/nemotron-3.5-super-vl-120b-a12b",
         "nvidia/nemotron-3.5-lightning-30b-a3b"
       ],
       "idOverrides": {
-        "nvidia/nemotron-3.5-lightning-30b-a3b": "nvidia/nemotron-3.5-lightning"
+        "nvidia/nemotron-3.5-lightning-30b-a3b": "nvidia/nemotron-3.5-lightning",
+        "nvidia/nemotron-3.5-super-vl-120b-a12b": "nvidia/nemotron-3.5-super-vl"
       }
     },
     {
       "creator": "qwen",
       "include": [
+        "qwen3.8-omni-flash",
         "qwen3.8-max-0902",
         "qwen3.8-flash",
         "Qwen/Qwen3.8-27B",
@@ -137,7 +156,10 @@
     },
     {
       "creator": "deepseek",
-      "include": ["deepseek-flash", "deepseek-v4-flash-vision-exp"],
+      "include": [
+        "deepseek-flash",
+        "deepseek-v4-flash-vision-exp"
+      ],
       "idPrefix": "deepseek/",
       "idOverrides": {
         "deepseek-flash": "deepseek/deepseek-v4.1-flash"
@@ -145,12 +167,18 @@
     },
     {
       "creator": "zai",
-      "include": ["glm-5.3", "glm-5.3-flash"],
+      "include": [
+        "glm-5.3-flashx",
+        "glm-5.3",
+        "glm-5.3-flash"
+      ],
       "idPrefix": "z-ai/"
     },
     {
       "creator": "tencent",
-      "include": ["hy4-preview"],
+      "include": [
+        "hy4-preview"
+      ],
       "idPrefix": "tencent/"
     },
     {
@@ -165,9 +193,51 @@
     {
       "creator": "xai",
       "include": [
+        "grok-4.7",
         "grok-4.6"
       ],
       "idPrefix": "x-ai/"
+    },
+    {
+      "creator": "minimax",
+      "include": [
+        "MiniMax-M3.1-Flash"
+      ],
+      "idOverrides": {
+        "MiniMax-M3.1-Flash": "minimax/minimax-m3.1-flash"
+      }
+    },
+    {
+      "creator": "mistral",
+      "include": [
+        "mistral-large-4"
+      ],
+      "idOverrides": {
+        "mistral-large-4": "mistralai/mistral-large-4-0"
+      }
+    },
+    {
+      "creator": "xiaomi",
+      "include": [
+        "mimo-v2.6-pro-ultraspeed",
+        "mimo-v2.6-flash",
+        "mimo-v2.6-pro"
+      ],
+      "idPrefix": "xiaomi/"
+    },
+    {
+      "creator": "stepfun",
+      "include": [
+        "step-5-preview"
+      ],
+      "idPrefix": "stepfun/"
+    },
+    {
+      "creator": "kimi",
+      "include": [
+        "kimi-k3.1-pro"
+      ],
+      "idPrefix": "moonshotai/"
     }
   ]
 }

@@ -430,3 +430,132 @@ def test_north_small_translate_is_not_general_chat():
         "token", 16384, None
     )
     assert model.id_for("openrouter") is None
+
+
+def test_november_catalog_refresh():
+    for model_id in [
+        "gpt-6.1-terra",
+        "gpt-6.1-sol",
+        "gpt-6-sol",
+        "gpt-6-luna",
+        "claude-opus-5-5",
+        "claude-sonnet-5-5",
+        "claude-haiku-5-5",
+        "gemini-nano-banana-2.1",
+        "gemini-3.8-flash-tts",
+        "gemini-3.8-flash-lite-tts",
+        "google/embeddinggemma-2",
+        "muse-wonder-1.0",
+        "meta-models/Muse-Spark-Open-816B-A42B",
+        "qwen3.8-omni-flash",
+        "qwen-audio-3.1-realtime-plus",
+        "embed-v5.0-pro",
+        "embed-v5.0-fast",
+        "rerank-v5.0-pro",
+        "rerank-v5.0-fast",
+        "MiniMax-M3.1-Flash",
+        "mistral-large-4",
+        "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
+        "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
+        "mimo-v2.6-pro",
+        "mimo-v2.6-flash",
+        "mimo-v2.6-pro-ultraspeed",
+        "grok-4.7",
+        "grok-voice-3.0",
+        "grok-voice-transcribe-2.0",
+        "amazon.nova-2-5-sonic",
+        "step-5-preview",
+        "kimi-k3.1-pro",
+        "glm-5.3-flashx"
+    ]:
+        model = models.id(model_id)
+        assert model is not None
+        assert model.id == model_id
+
+
+def test_november_provider_routes():
+    for model_id, provider, route in [
+        ["gpt-6.1-terra", "openrouter", "openai/gpt-6.1-terra"],
+        ["gpt-6.1-sol", "openrouter", "openai/gpt-6.1-sol"],
+        ["gpt-6-sol", "openrouter", "openai/gpt-6-sol"],
+        ["gpt-6-luna", "openrouter", "openai/gpt-6-luna"],
+        ["claude-opus-5-5", "openrouter", "anthropic/claude-opus-5.5"],
+        ["claude-sonnet-5-5", "openrouter", "anthropic/claude-sonnet-5.5"],
+        ["claude-haiku-5-5", "openrouter", "anthropic/claude-haiku-5.5"],
+        ["gemini-4-argon", "openrouter", "google/gemini-4-argon"],
+        ["gemini-nano-banana-2.1", "openrouter", "google/gemini-nano-banana-2.1"],
+        ["muse-wonder-1.0", "openrouter", "meta/muse-wonder"],
+        ["meta-models/Muse-Spark-Open-816B-A42B", "openrouter", "meta/muse-spark-open"],
+        ["qwen3.8-omni-flash", "openrouter", "qwen/qwen3.8-omni-flash"],
+        ["MiniMax-M3.1-Flash", "openrouter", "minimax/minimax-m3.1-flash"],
+        ["mistral-large-4", "openrouter", "mistralai/mistral-large-4-0"],
+        ["nvidia/nemotron-3.5-super-vl-120b-a12b", "openrouter", "nvidia/nemotron-3.5-super-vl"],
+        ["mimo-v2.6-pro", "openrouter", "xiaomi/mimo-v2.6-pro"],
+        ["mimo-v2.6-flash", "openrouter", "xiaomi/mimo-v2.6-flash"],
+        ["mimo-v2.6-pro-ultraspeed", "openrouter", "xiaomi/mimo-v2.6-pro-ultraspeed"],
+        ["grok-4.7", "openrouter", "x-ai/grok-4.7"],
+        ["step-5-preview", "openrouter", "stepfun/step-5-preview"],
+        ["kimi-k3.1-pro", "openrouter", "moonshotai/kimi-k3.1-pro"],
+        ["glm-5.3-flashx", "openrouter", "z-ai/glm-5.3-flashx"],
+        ["claude-opus-5-5", "bedrock", "anthropic.claude-opus-5-5"],
+        ["claude-sonnet-5-5", "bedrock", "anthropic.claude-sonnet-5-5"],
+        ["claude-haiku-5-5", "bedrock", "anthropic.claude-haiku-5-5"]
+    ]:
+        model = models.id(model_id)
+        assert model is not None
+        assert model.id_for(provider) == route
+        assert models.from_provider_id(provider, route) is model
+
+
+def test_november_unavailable_native_models():
+    for model_id, provider in [
+        ["google/embeddinggemma-2", "google"],
+        ["meta-models/Muse-Spark-Open-816B-A42B", "meta"],
+        ["nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB", "nvidia"],
+        ["nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16", "nvidia"],
+        ["mimo-v2.5-pro", "xiaomi"],
+        ["mimo-v2.5", "xiaomi"]
+    ]:
+        model = models.id(model_id)
+        assert model is not None
+        assert model.id_for(provider) is None
+
+
+def test_november_context_limits():
+    for model_id, total, max_output in [
+        ["gpt-6.1-terra", 1050000, 128000],
+        ["claude-haiku-5-5", 1000000, 128000],
+        ["gemini-3.8-flash-tts", 8192, 16384],
+        ["gemini-nano-banana-2.1", 131072, 32768],
+        ["qwen-audio-3.1-realtime-plus", 262144, 16384],
+        ["step-5-preview", 1000000, 64000],
+        ["kimi-k3.1-pro", 1048576, 1048576],
+        ["amazon.nova-2-5-sonic", 256000, 64000],
+        ["nvidia/nemotron-3.5-super-vl-120b-a12b", 262144, None]
+    ]:
+        context = models.id(model_id).context
+        assert context.type == "token"
+        assert context.total == total
+        assert context.max_output == max_output
+
+
+def test_november_aliases_licenses_and_modalities():
+    assert models.id("grok-voice-latest") is models.id("grok-voice-3.0")
+    assert models.id("grok-voice-think-fast-2.0") is not None
+    assert models.id("kimi-k3.1-pro-highspeed") is models.id("kimi-k3.1-pro")
+    assert models.id("mistral-large-4-0") is models.id("mistral-large-4")
+    assert models.id("kimi-k3.1-pro").releasedAt is None
+    assert models.id("gpt-6.1-terra").releasedAt == "2026-10-26"
+    assert models.id("muse-wonder-1.0").license == "proprietary"
+    assert models.id("meta-models/Muse-Spark-Open-816B-A42B").license == "muse-model"
+    assert models.id("mistral-large-4").license == "mistral-ecosystem"
+    assert models.id("MiniMax-M3.1-Flash").license == "minimax-community"
+    assert models.id("step-5-preview").license == "stepfun-model-1.0"
+    assert models.id("kimi-k3.1-pro").license == "proprietary"
+    assert models.id("qwen3.8-omni-flash").canHear()
+    assert not models.id("qwen3.8-omni-flash").canSpeak()
+    assert models.id("gemini-3.8-flash-tts").canSpeak()
+    assert not models.id("gemini-3.8-flash-tts").canChat()
+    assert models.id("google/embeddinggemma-2").context.dimensions == 768
+    assert models.id("embed-v5.0-fast").context.dimensions == 2048

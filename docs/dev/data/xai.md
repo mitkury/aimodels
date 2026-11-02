@@ -36,3 +36,18 @@ documents `grok-imagine-image-2.0`, text/image input, image output, batches
 of up to ten, 1k/2k resolution selectors, and low/medium/auto quality.
 The August 28 release-note entry describes updated controls, not necessarily
 the initial model launch, so no release date is assigned.
+
+## November 2, 2026 audit
+
+[Grok 4.7](https://docs.x.ai/developers/grok-4-7) has text/image input,
+reasoning, tools, 500,000-token context and no fixed text-output ceiling. Fast
+is a product-only serving tier, not a public API model ID.
+
+[Speech to Speech](https://docs.x.ai/developers/model-capabilities/audio/speech-to-speech)
+now exposes `grok-voice-3.0`; move `grok-voice-latest` from the old model to
+this record. It supports bidirectional text/audio and tools, with no documented
+context ceiling. [Speech to Text](https://docs.x.ai/developers/model-capabilities/audio/speech-to-text)
+uses `grok-voice-transcribe-2.0` for batch and realtime transcription. Neither
+session timeouts nor VAD settings establish model context limits. Month-only
+[release notes](https://docs.x.ai/developers/release-notes) do not establish exact
+launch days, so dates remain unset.

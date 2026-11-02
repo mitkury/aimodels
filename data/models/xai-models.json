@@ -2,6 +2,59 @@
   "creator": "xai",
   "models": [
     {
+      "id": "grok-4.7",
+      "name": "Grok 4.7",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 500000,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "grok-voice-3.0",
+      "name": "Grok Voice 3.0",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "aliases": [
+        "grok-voice-latest"
+      ]
+    },
+    {
+      "id": "grok-voice-transcribe-2.0",
+      "name": "Grok Voice Transcribe 2.0",
+      "license": "proprietary",
+      "capabilities": [
+        "audio-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "audio-in",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "grok-imagine-image-2.0",
       "name": "Grok Imagine Image 2.0",
       "license": "proprietary",
@@ -45,7 +98,6 @@
         "total": null,
         "maxOutput": null
       },
-      "aliases": ["grok-voice-latest"],
       "releasedAt": "2026-07-29"
     },
     {

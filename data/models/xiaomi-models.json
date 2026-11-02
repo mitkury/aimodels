@@ -2,6 +2,41 @@
   "creator": "xiaomi",
   "models": [
     {
+      "id": "mimo-v2.6-pro",
+      "name": "Xiaomi MiMo-V2.6-Pro",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 131072
+      }
+    },
+    {
+      "id": "mimo-v2.6-flash",
+      "extends": "mimo-v2.6-pro",
+      "overrides": {
+        "name": "Xiaomi MiMo-V2.6-Flash"
+      }
+    },
+    {
+      "id": "mimo-v2.6-pro-ultraspeed",
+      "extends": "mimo-v2.6-pro",
+      "overrides": {
+        "name": "Xiaomi MiMo-V2.6-Pro-Ultraspeed"
+      }
+    },
+    {
       "id": "mimo-v2.5-pro",
       "name": "Xiaomi MiMo-V2.5-Pro",
       "license": "proprietary",

@@ -32,3 +32,11 @@ August 18 and August 26 respectively.
 The [5.3 model card](https://huggingface.co/zai-org/GLM-5.3) uses the custom
 `glm-5.3` license, while [Flash](https://huggingface.co/zai-org/GLM-5.3-Flash)
 uses MIT. These must not inherit the same license.
+
+## November 2, 2026 audit
+
+The [GLM-5.3 Flash guide](https://docs.z.ai/guides/llm/glm-5.3-flash)
+documents `glm-5.3-flashx` as the faster separately selectable API variant,
+sharing Flash's capabilities, limits and license. OpenRouter confirms
+`z-ai/glm-5.3-flashx`. Do not create models for third-party Prime serving
+routes or infer a release date from their listing dates.

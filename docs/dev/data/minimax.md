@@ -35,3 +35,13 @@ generation, at 480p or 768p and 5–15 seconds. Preserve the exact capitalizatio
 The catalog's existing video-output convention stores one result and supported
 resolution labels; its schema cannot express the duration range. No initial
 API release date was established.
+
+## November 2, 2026 audit
+
+The [text generation guide](https://platform.minimax.io/docs/guides/text-generation)
+and [model card](https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash) establish
+`MiniMax-M3.1-Flash`, 1,000,000 context, text/image/video input, text output,
+reasoning and tools. The card declares `minimax-community`; do not inherit an
+older MiniMax model's license. The [release notes](https://platform.minimax.io/docs/release-notes)
+date the API release October 19. Maximum output remains unknown. OpenRouter's
+verified paid route is `minimax/minimax-m3.1-flash`, not a native alias.

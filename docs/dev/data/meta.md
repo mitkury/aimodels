@@ -45,3 +45,19 @@ voice model for file and realtime transcription; no duration ceiling or
 initial release date is recorded. Image launch date is also left unset.
 Glimmer remains the distinct Apache-2.0 open-weight model, not a Spark variant
 or a Meta-native API endpoint.
+
+## November 2, 2026 audit
+
+The [model list](https://dev.meta.ai/docs/models.md) documents
+`muse-wonder-1.0`: proprietary API preview, 1,048,576 tokens, text/image/audio/video
+input, tools, reasoning, and structured output. Wonder Full is a Muse Code mode,
+not a verified separate API model. No exact public API launch day or output
+ceiling is recorded.
+
+[Muse Spark Open](https://dev.meta.ai/docs/muse-spark-open) and its
+[checkpoint list](https://dev.meta.ai/docs/muse-spark-open/get-the-model)
+establish the BF16 canonical ID, multimodal inputs, tools, reasoning, and 1M
+context. Its [Muse Model License](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B/blob/main/LICENSE.md)
+is recorded as `muse-model`, not Apache-2.0 or proprietary. The October 15
+checkpoint release is not used as a native API release date. OpenRouter serves
+both Wonder and Spark Open; Meta's own API mapping includes only Wonder.

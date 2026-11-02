@@ -2,6 +2,26 @@
   "creator": "stepfun",
   "models": [
     {
+      "id": "step-5-preview",
+      "name": "Step 5 Preview",
+      "license": "stepfun-model-1.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 64000
+      }
+    },
+    {
       "id": "stepaudio-2.5-chat",
       "name": "StepAudio 2.5 Chat",
       "license": "proprietary",

@@ -2,6 +2,26 @@
   "creator": "minimax",
   "models": [
     {
+      "id": "MiniMax-M3.1-Flash",
+      "name": "MiniMax M3.1 Flash",
+      "license": "minimax-community",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-10-19"
+    },
+    {
       "id": "MiniMax-H3-Max",
       "name": "MiniMax H3 Max",
       "license": "proprietary",

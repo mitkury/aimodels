@@ -25,3 +25,13 @@ establish the September 1 release of `claude-fable-5-1` and
 vision, thinking, tools, and structured output. Mythos remains restricted to
 Project Glasswing participants; catalog presence does not imply unrestricted
 access. Only Fable 5.1 was verified on OpenRouter.
+
+## November 2, 2026 audit
+
+The [model overview](https://platform.claude.com/docs/en/models/overview)
+lists Opus, Sonnet, and Haiku 5.5 with exact native and Bedrock IDs, 1M context,
+128K synchronous output, vision, tools, and thinking. The
+[release notes](https://platform.claude.com/docs/en/release-notes/overview)
+establish September 22, September 28, and October 7 launches. Preserve the
+hyphenated creator IDs; OpenRouter uses dotted 5.5 IDs. Do not treat the
+300K batch/beta output limit as the default synchronous limit.
