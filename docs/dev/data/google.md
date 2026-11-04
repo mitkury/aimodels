@@ -91,3 +91,36 @@ Truncated vectors are deployment options, not separate models. No native Gemini
 API selector is established, so explicitly exclude the checkpoint from Google
 availability and omit an API release date. Gemini 4 Argon was already added;
 this audit adds its verified OpenRouter route.
+
+## November 4, 2026 audit
+
+[Gemini Embedding 2](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2)
+has a stable Gemini API ID, an 8,192-token input limit and multimodal inputs.
+The [embedding guide](https://ai.google.dev/gemini-api/docs/embeddings) specifies
+3,072 default dimensions; the [April 22 release notes](https://ai.google.dev/gemini-api/docs/changelog)
+establish GA. Keep the preview as a historical record, not an alias.
+
+The [Gemini API shutdown schedule](https://ai.google.dev/gemini-api/docs/deprecations)
+establishes these completed retirements for cataloged IDs:
+
+| Shutdown | Models excluded from native Gemini availability |
+| --- | --- |
+| 2025-11-10 | `imagen-3.0-generate-002` |
+| 2025-11-12 | `veo-3.0-generate-preview` |
+| 2025-12-02 | `gemini-2.5-pro-preview-06-05` |
+| 2026-01-14 | `text-embedding-004` |
+| 2026-02-17 | `gemini-2.5-flash-preview-09-2025` |
+| 2026-03-09 | `gemini-3-pro-preview` |
+| 2026-03-31 | `gemini-2.5-flash-lite-preview-09-2025` |
+| 2026-05-25 | `gemini-3.1-flash-lite-preview` |
+| 2026-06-01 | `gemini-2.0-flash`, `gemini-2.0-flash-lite` |
+| 2026-06-25 | `gemini-3.1-flash-image-preview`, `gemini-3-pro-image-preview` |
+| 2026-06-30 | `veo-2.0-generate-001`, `veo-3.0-generate-001`, `veo-3.0-fast-generate-001` |
+| 2026-08-10 | `gemini-embedding-2-preview` |
+| 2026-08-17 | `imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`, `imagen-4.0-fast-generate-001` |
+| 2026-10-22 | `veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview`, `gemini-omni-flash-preview` |
+
+These are Gemini API exclusions, not claims about Vertex availability. Keep
+intrinsic records and models with future shutdown dates. Gemini 3.5/3.7 Flash
+remain callable through automatic routing. Managed-agent codes are left out of
+the intrinsic model catalog; they select an agent harness through Interactions.

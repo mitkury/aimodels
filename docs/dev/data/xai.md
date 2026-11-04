@@ -16,7 +16,7 @@ Official sources:
 
 The Voice and Text-to-Speech APIs expose named voice presets, including the 21
 voices announced in July 2026. These are selectable voices, not standalone model
-IDs. The Speech-to-Text REST API similarly does not expose a model selector.
+IDs. At that audit, the Speech-to-Text REST API did not expose a model selector.
 
 The July 29, 2026 release notes move `grok-voice-latest` to
 `grok-voice-think-fast-2.0`; keep the alias only on the new model. The August 12
@@ -48,6 +48,24 @@ now exposes `grok-voice-3.0`; move `grok-voice-latest` from the old model to
 this record. It supports bidirectional text/audio and tools, with no documented
 context ceiling. [Speech to Text](https://docs.x.ai/developers/model-capabilities/audio/speech-to-text)
 uses `grok-voice-transcribe-2.0` for batch and realtime transcription. Neither
-session timeouts nor VAD settings establish model context limits. Month-only
-[release notes](https://docs.x.ai/developers/release-notes) do not establish exact
-launch days, so dates remain unset.
+session timeouts nor VAD settings establish model context limits.
+
+## November 4, 2026 audit
+
+The current [release notes](https://docs.x.ai/developers/release-notes) establish
+exact API release dates: Grok 4.7 on September 21, Grok Voice 3.0 on October 14,
+and Grok Voice Transcribe 2.0 on September 17. The
+[structured-output guide](https://docs.x.ai/developers/model-capabilities/text/structured-outputs)
+demonstrates schema-constrained responses with `grok-4.7`; add `json-out`.
+
+The [November 2 migration guide](https://docs.x.ai/developers/migration/imagine-image-quality-nov-2)
+retires `grok-imagine-image-quality`. Its slug and `grok-imagine-image-pro`
+continue to resolve, but serve Image 2.0 at low quality. Preserve the historical
+model and exclude it from native availability. `grok-imagine-image-2.0-low` is
+a response label for that quality setting, not a documented selectable model.
+Image 1.0 is unaffected. The [May 15 retirement guide](https://docs.x.ai/developers/migration/may-15-retirement)
+also retires the cataloged `grok-code-fast-1`, `grok-4-fast-non-reasoning`, and
+`grok-4-1-fast-non-reasoning` IDs; exclude those native routes.
+
+The [current API example](https://docs.x.ai/developers/grok-4-7) uses
+`https://api.x.ai/v1`; replace the obsolete provider API and documentation URLs.

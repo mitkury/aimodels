@@ -12,9 +12,10 @@ Official sources:
 Use release posts to establish model names, dates, and capabilities. Use the API
 model list to verify deployable IDs rather than deriving them from product names.
 
-Kimi describes K3 as open source, but its guide says the weights will be
-released by 2026-07-27. Until the checkpoint and license are actually public,
-record the live API model as proprietary and revisit the license after release.
+K3 now has [published weights](https://huggingface.co/moonshotai/Kimi-K3)
+under the custom [Kimi K3 License](https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE),
+recorded as `kimi-k3`. A later variant does not inherit this license without
+its own published license evidence.
 
 To list the models available to an API key:
 
@@ -33,3 +34,20 @@ JSON schema and tools. The context and maximum output are both 1,048,576;
 `kimi-k3.1-pro-highspeed` selector as an alias, matching the existing Kimi
 highspeed convention. Weights are promised for November 4, so the license
 remains proprietary as of this audit. OpenRouter serves the standard route.
+
+## November 4, 2026 audit
+
+The [Chinese model list](https://platform.kimi.com/docs/models) identifies
+K2.5 and the K2 preview/thinking variants as already shut down. The
+[platform changelog](https://platform.kimi.com/docs/changelog) confirms the
+K2 series shutdown in May 2026 and the worldwide K2.5 shutdown in August,
+after which K2.5 requests return HTTP 404. Keep those historical records,
+but remove native provider availability.
+
+K2.7 Code and K2.6 have a different status: users registered before November
+1 can still use them, with full shutdown expected in late December 2026.
+Retain their native mappings while documenting that account restriction here.
+
+K3's released weights establish its custom license. K3.1 Pro weights and a
+model-specific license could not be verified, so its explicit proprietary
+override prevents it inheriting K3's newly recorded license.

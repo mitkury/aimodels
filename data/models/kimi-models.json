@@ -5,7 +5,8 @@
       "id": "kimi-k3.1-pro",
       "extends": "kimi-k3",
       "overrides": {
-        "name": "Kimi K3.1 Pro"
+        "name": "Kimi K3.1 Pro",
+        "license": "proprietary"
       },
       "aliases": [
         "kimi-k3.1-pro-highspeed"
@@ -14,7 +15,7 @@
     {
       "id": "kimi-k3",
       "name": "Kimi K3",
-      "license": "proprietary",
+      "license": "kimi-k3",
       "capabilities": [
         "chat",
         "txt-in",

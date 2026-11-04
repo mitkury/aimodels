@@ -11,13 +11,15 @@
         "txt-out",
         "img-in",
         "fn-out",
-        "reason"
+        "reason",
+        "json-out"
       ],
       "context": {
         "type": "token",
         "total": 500000,
         "maxOutput": null
-      }
+      },
+      "releasedAt": "2026-09-21"
     },
     {
       "id": "grok-voice-3.0",
@@ -38,7 +40,8 @@
       },
       "aliases": [
         "grok-voice-latest"
-      ]
+      ],
+      "releasedAt": "2026-10-14"
     },
     {
       "id": "grok-voice-transcribe-2.0",
@@ -52,7 +55,8 @@
         "type": "audio-in",
         "total": null,
         "maxOutput": null
-      }
+      },
+      "releasedAt": "2026-09-17"
     },
     {
       "id": "grok-imagine-image-2.0",

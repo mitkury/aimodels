@@ -2,6 +2,14 @@
   "creator": "zai",
   "models": [
     {
+      "id": "glm-5.3-flashx-legal",
+      "extends": "glm-5.3-flashx",
+      "overrides": {
+        "name": "GLM-5.3-FlashX-Legal",
+        "license": "proprietary"
+      }
+    },
+    {
       "id": "glm-5.3-flashx",
       "extends": "glm-5.3-flash",
       "overrides": {

@@ -2,6 +2,14 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-embedding-2",
+      "extends": "gemini-embedding-2-preview",
+      "overrides": {
+        "name": "Gemini Embedding 2"
+      },
+      "releasedAt": "2026-04-22"
+    },
+    {
       "id": "gemini-nano-banana-2.1",
       "name": "Gemini Nano Banana 2.1",
       "license": "proprietary",

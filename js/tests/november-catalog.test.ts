@@ -103,7 +103,7 @@ describe('November 2026 catalog refresh', () => {
   it('moves the Grok rolling alias without losing the old model', () => {
     expect(models.id('grok-voice-latest')).toBe(models.id('grok-voice-3.0'));
     expect(models.id('grok-voice-think-fast-2.0')?.id).toBe('grok-voice-think-fast-2.0');
-    expect(models.id('grok-voice-3.0')?.releasedAt).toBeUndefined();
+    expect(models.id('grok-voice-3.0')?.releasedAt).toBe('2026-10-14');
   });
 
   it('keeps documented alternate selectors and independent release dates', () => {

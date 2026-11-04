@@ -3,5 +3,16 @@
   "name": "Moonshot AI",
   "apiUrl": "https://api.moonshot.ai/v1",
   "apiDocsUrl": "https://platform.moonshot.ai/docs",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "kimi",
+      "include": [
+        "kimi-k3.1-pro",
+        "kimi-k3",
+        "kimi-k2.7-code",
+        "kimi-k2.6"
+      ]
+    }
+  ]
 }

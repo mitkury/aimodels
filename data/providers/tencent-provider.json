@@ -12,42 +12,47 @@
     {
       "creator": "deepseek",
       "include": [
+        "deepseek-flash",
         "deepseek-v4-flash-vision-exp",
         "deepseek-v4-pro",
         "deepseek-v4-flash"
       ],
       "idOverrides": {
-        "deepseek-v4-flash-vision-exp": "deepseek/deepseek-v4-flash-vision-exp"
+        "deepseek-v4-flash-vision-exp": "deepseek/deepseek-v4-flash-vision-exp",
+        "deepseek-flash": "deepseek/deepseek-flash",
+        "deepseek-v4-flash": "deepseek/deepseek-v4-flash"
       }
     },
     {
       "creator": "kimi",
       "include": [
+        "kimi-k3.1-pro",
         "kimi-k3",
         "kimi-k2.7-code",
-        "kimi-k2.6",
-        "kimi-k2.5"
+        "kimi-k2.6"
       ]
     },
     {
       "creator": "minimax",
       "include": [
+        "MiniMax-M3.1-Flash",
         "MiniMax-M3",
-        "MiniMax-M2.7",
-        "MiniMax-M2.5"
+        "MiniMax-M2.7"
       ],
       "idOverrides": {
-        "MiniMax-M3": "minimax-m3"
+        "MiniMax-M3": "minimax-m3",
+        "MiniMax-M3.1-Flash": "minimax-m3.1-flash",
+        "MiniMax-M2.7": "minimax-m2.7"
       }
     },
     {
       "creator": "zai",
       "include": [
+        "glm-5.3-flashx",
         "glm-5.3",
         "glm-5.3-flash",
         "glm-5.2",
-        "glm-5.1",
-        "glm-5v-turbo"
+        "glm-5.1"
       ]
     }
   ]

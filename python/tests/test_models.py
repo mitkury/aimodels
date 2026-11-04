@@ -542,6 +542,7 @@ def test_november_context_limits():
 
 def test_november_aliases_licenses_and_modalities():
     assert models.id("grok-voice-latest") is models.id("grok-voice-3.0")
+    assert models.id("grok-voice-3.0").released_at == "2026-10-14"
     assert models.id("grok-voice-think-fast-2.0") is not None
     assert models.id("kimi-k3.1-pro-highspeed") is models.id("kimi-k3.1-pro")
     assert models.id("mistral-large-4-0") is models.id("mistral-large-4")

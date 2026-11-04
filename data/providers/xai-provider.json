@@ -1,7 +1,19 @@
 {
   "id": "xai",
   "name": "X.AI",
-  "apiUrl": "https://x.ai/api",
-  "apiDocsUrl": "https://x.ai/docs",
-  "pricing": {}
-} 
+  "apiUrl": "https://api.x.ai/v1",
+  "apiDocsUrl": "https://docs.x.ai/developers",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "xai",
+      "include": "all",
+      "exclude": [
+        "grok-imagine-image-quality",
+        "grok-code-fast-1",
+        "grok-4-fast-non-reasoning",
+        "grok-4-1-fast-non-reasoning"
+      ]
+    }
+  ]
+}

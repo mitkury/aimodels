@@ -44,7 +44,7 @@
     {
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
-      "license": "proprietary",
+      "license": "mit",
       "capabilities": [
         "chat",
         "txt-in",

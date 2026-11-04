@@ -40,3 +40,12 @@ documents `glm-5.3-flashx` as the faster separately selectable API variant,
 sharing Flash's capabilities, limits and license. OpenRouter confirms
 `z-ai/glm-5.3-flashx`. Do not create models for third-party Prime serving
 routes or infer a release date from their listing dates.
+
+## November 4, 2026 audit
+
+The [current Flash guide](https://docs.z.ai/guides/vlm/glm-5.3-flash)
+now explicitly lists the callable `glm-5.3-flashx-legal` model code and
+describes its legal-domain training. Add a separate record with the guide's
+shared modalities, context, thinking and tools. No model-specific published
+weight license or API release date was verified; keep a proprietary license
+override instead of assuming the base Flash weights' MIT license.

@@ -2,6 +2,38 @@
   "creator": "mistral",
   "models": [
     {
+      "id": "voxtral-mini-transcribe-3-0",
+      "name": "Voxtral Mini Transcribe 3",
+      "license": "proprietary",
+      "capabilities": ["audio-in", "txt-out"],
+      "context": {"type": "token", "total": 32000, "maxOutput": null},
+      "releasedAt": "2026-10-20"
+    },
+    {
+      "id": "voxtral-small-transcribe-3-0",
+      "extends": "voxtral-mini-transcribe-3-0",
+      "overrides": {
+        "name": "Voxtral Small Transcribe 3"
+      },
+      "releasedAt": "2026-10-20"
+    },
+    {
+      "id": "voxtral-mini-transcribe-realtime-3-0",
+      "name": "Voxtral Mini Transcribe Realtime 3",
+      "license": "proprietary",
+      "capabilities": ["audio-in", "txt-out"],
+      "context": {"type": "audio-in", "total": null, "maxOutput": null},
+      "releasedAt": "2026-10-20"
+    },
+    {
+      "id": "voxtral-mini-tts-3-0",
+      "name": "Voxtral TTS 3",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "audio-in", "audio-out"],
+      "context": {"type": "audio-out", "total": null, "maxOutput": null},
+      "releasedAt": "2026-10-20"
+    },
+    {
       "id": "mistral-large-4",
       "name": "Mistral Large 4",
       "license": "mistral-ecosystem",

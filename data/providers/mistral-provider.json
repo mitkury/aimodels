@@ -3,5 +3,20 @@
   "name": "Mistral",
   "apiUrl": "https://api.mistral.ai/v1",
   "apiDocsUrl": "https://docs.mistral.ai/",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "mistral",
+      "include": "all",
+      "exclude": ["mistral-ocr-4-0"]
+    },
+    {
+      "creator": "zai",
+      "include": ["glm-5.3", "glm-5.3-flash"],
+      "idOverrides": {
+        "glm-5.3": "zai-glm-5-3",
+        "glm-5.3-flash": "zai-glm-5-3-flash"
+      }
+    }
+  ]
 }

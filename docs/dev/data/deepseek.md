@@ -54,3 +54,19 @@ OpenRouter separately lists `deepseek/deepseek-v4.1-flash`; map it explicitly.
 Its advertised output ceiling is 384,000, unlike the native API's 393,216.
 The schema has no provider-specific context override, so the intrinsic record
 retains the native limit and consumers must account for the provider's limit.
+
+## November 4, 2026 audit
+
+The [API reference](https://api-docs.deepseek.com/api/create-chat-completion/)
+now lists only `deepseek-flash` and `deepseek-v4-pro`. The
+[April 24 retirement notice](https://api-docs.deepseek.com/updates/)
+scheduled `deepseek-chat` and `deepseek-reasoner` for removal on July 24;
+remove those historical V3.2 selectors from native availability as well.
+The October 17 Flash update keeps `deepseek-flash` as its callable selector;
+do not introduce a native `deepseek-v4.1-flash-1017` record from another
+provider's revision route.
+
+The published [V4 Pro](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro)
+and [V4 Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash) cards both
+declare MIT. Update Pro's license and let Flash inherit it; this does not
+establish an open-weight license for the separate vision experiment.

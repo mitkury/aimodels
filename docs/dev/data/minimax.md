@@ -17,15 +17,9 @@ The exact API IDs preserve MiniMax's capitalization. Highspeed variants are
 separate selectable API IDs, so they remain catalog records even though MiniMax
 documents them as having the same quality as their standard counterparts.
 
-MiniMax says M3 open weights are forthcoming. Until released weights and their
-license are public, record the currently callable API model as proprietary.
-
-The same rule applies to MiniMax H3. MiniMax calls H3 an open model, but its
-public documentation currently establishes a hosted `MiniMax-H3` API selector,
-not downloadable weights under a published license. Record the callable model
-as proprietary until those artifacts exist. Its API produces one 768p or 2K
-video per task; duration is 4–15 seconds, which the current catalog context
-schema cannot represent.
+M3 and H3 now have published weights and custom licenses; see the dated audit
+below. H3's API produces one 768p or 2K video per task; duration is 4–15
+seconds, which the current catalog context schema cannot represent.
 
 ## September 9, 2026 audit
 
@@ -45,3 +39,16 @@ reasoning and tools. The card declares `minimax-community`; do not inherit an
 older MiniMax model's license. The [release notes](https://platform.minimax.io/docs/release-notes)
 date the API release October 19. Maximum output remains unknown. OpenRouter's
 verified paid route is `minimax/minimax-m3.1-flash`, not a native alias.
+
+## November 4, 2026 audit
+
+The first-party [M3 card](https://huggingface.co/MiniMaxAI/MiniMax-M3) supplies
+`minimax-community`, while [H3](https://huggingface.co/MiniMaxAI/MiniMax-H3)
+supplies `minimax-h3-community-license-agreement`. Replace their provisional
+proprietary labels with those published identifiers. These licenses differ.
+
+[M2.7's license](https://huggingface.co/MiniMaxAI/MiniMax-M2.7/blob/main/LICENSE)
+is titled **NON-COMMERCIAL LICENSE** and requires separate written permission
+for commercial use; record it as `minimax-m2.7-noncommercial`, not MIT.
+[M2.5's own card](https://huggingface.co/MiniMaxAI/MiniMax-M2.5) identifies
+`modified-mit`; both M2.5 variants override the M2.7 base license.

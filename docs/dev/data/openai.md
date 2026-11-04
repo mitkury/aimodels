@@ -71,3 +71,24 @@ September 22, September 29, and October 26 API releases respectively.
 GPT-6.1 tool calls require Responses; AIWrapper's OpenAI adapter already uses
 that API. Do not create separate canonical models for OpenRouter's pro routes.
 Rosalind remains deferred pending verification of its restricted-access API specs.
+
+## November 4, 2026 audit
+
+[Chat Latest](https://developers.openai.com/api/docs/models/chat-latest) exposes
+the callable `chat-latest` selector with text/image input, text output, tools,
+structured output, 400,000 context tokens, and 128,000 output tokens. It is a
+moving ChatGPT selector, not an alias for a documented fixed GPT-6 model. The
+October 7 changelog describes a snapshot update, so no initial release date is
+inferred from it.
+
+The [deprecation schedule](https://developers.openai.com/api/docs/deprecations)
+confirms DALL-E 2/3 shut down May 12, the computer-use preview snapshot July 23,
+and both `o4-mini` selectors and `gpt-image-1` October 23. Preserve these records
+but exclude them from native OpenAI availability. Deprecated models with future
+shutdown dates remain available.
+
+The [changelog](https://developers.openai.com/api/docs/changelog) and
+[life-sciences pricing](https://developers.openai.com/api/docs/pricing#life-sciences-models)
+confirm `gpt-6-rosalind` released October 30 with restricted research access.
+Its dedicated model page is unavailable; modalities, limits, and dedicated API
+features remain unverified, so the earlier deferral still applies.

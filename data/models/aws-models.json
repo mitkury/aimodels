@@ -59,6 +59,19 @@
         "maxOutput": 65536
       },
       "releasedAt": "2025-12-02"
+    },
+    {
+      "id": "amazon.nova-2-multimodal-embeddings-v1:0",
+      "name": "Amazon Nova Multimodal Embeddings",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "img-in", "audio-in", "video-in", "vec-out"],
+      "context": {
+        "type": "embedding",
+        "total": null,
+        "dimensions": 3072,
+        "embeddingType": "multimodal"
+      },
+      "releasedAt": "2025-10-28"
     }
   ]
 }

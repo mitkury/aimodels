@@ -41,7 +41,7 @@
     {
       "id": "MiniMax-H3",
       "name": "MiniMax H3",
-      "license": "proprietary",
+      "license": "minimax-h3-community-license-agreement",
       "capabilities": [
         "txt-in",
         "img-in",
@@ -61,7 +61,7 @@
     {
       "id": "MiniMax-M3",
       "name": "MiniMax M3",
-      "license": "proprietary",
+      "license": "minimax-community",
       "capabilities": [
         "chat",
         "txt-in",
@@ -81,7 +81,7 @@
     {
       "id": "MiniMax-M2.7",
       "name": "MiniMax M2.7",
-      "license": "proprietary",
+      "license": "minimax-m2.7-noncommercial",
       "capabilities": [
         "chat",
         "txt-in",
@@ -108,14 +108,16 @@
       "id": "MiniMax-M2.5",
       "extends": "MiniMax-M2.7",
       "overrides": {
-        "name": "MiniMax M2.5"
+        "name": "MiniMax M2.5",
+        "license": "modified-mit"
       }
     },
     {
       "id": "MiniMax-M2.5-highspeed",
       "extends": "MiniMax-M2.7",
       "overrides": {
-        "name": "MiniMax M2.5 Highspeed"
+        "name": "MiniMax M2.5 Highspeed",
+        "license": "modified-mit"
       }
     }
   ]

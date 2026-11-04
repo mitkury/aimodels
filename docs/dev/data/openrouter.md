@@ -60,3 +60,18 @@ Kimi, and GLM FlashX records. Route names and creator IDs often differ:
 translate with `idFor`/`fromProviderId`, never by concatenating creator and ID.
 Free, batch and pro serving routes are not automatically new canonical models.
 No listing timestamp is treated as a creator's public API release date.
+
+## November 4, 2026 reconciliation
+
+Compared every configured route with the current
+[model-list endpoint](https://openrouter.ai/api/v1/models). Removed the absent
+`openai/o4-mini`, `anthropic/claude-opus-4`, and `anthropic/claude-sonnet-4`
+routes; their canonical records remain available for historical lookup.
+
+Added the independently listed Hy4 and GLM 5.3 FlashX Legal routes, plus
+missing availability for cataloged Nova 2 Lite, Cohere Command/North models,
+Mistral Medium 3.5/Small 4/Large 3/Ministral 3, Nemotron 3 Ultra/Super/Nano/Nano
+Omni, and Llama Guard 4. Exact overrides preserve provider-specific spellings.
+North Mini Code and Nano Omni currently have only `:free` listings; those
+routes map to existing canonical models rather than creating duplicate models.
+The new Voxtral 3 audio endpoints and Nova Multimodal Embeddings were not listed.

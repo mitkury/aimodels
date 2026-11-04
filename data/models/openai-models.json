@@ -2,6 +2,24 @@
   "creator": "openai",
   "models": [
     {
+      "id": "chat-latest",
+      "name": "Chat Latest",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 400000,
+        "maxOutput": 128000
+      }
+    },
+    {
       "id": "gpt-6.1-terra",
       "extends": "gpt-6-astra",
       "overrides": {
