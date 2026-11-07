@@ -82,8 +82,8 @@ and 32,768 output tokens. Thinking is supported; function calling and structured
 output are not. [Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts)
 and [Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts)
 use token limits (8,192 input; 16,384 output), not audio seconds. The
-[changelog](https://ai.google.dev/gemini-api/docs/changelog) dates these launches
-October 6 and September 22 respectively.
+[changelog](https://ai.google.dev/gemini-api/docs/changelog) dates Nano Banana 2.1
+to October 6, 2026, and both Flash TTS and Flash-Lite TTS to September 22, 2026.
 
 [EmbeddingGemma 2](https://huggingface.co/google/embeddinggemma-2) is Apache-2.0,
 with text/image/audio/video input, 8,192 tokens and 768 default dimensions.
