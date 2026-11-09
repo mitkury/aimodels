@@ -51,4 +51,4 @@ When changing behavior:
 
 ## Release boundary
 
-The repository, npm package, PyPI package, crates.io crate, GitHub release, and downstream consumers are separate states. A release is complete only when every package can be installed at the same intended version. Downstream notifications should happen after those installs are verified.
+The repository, npm package, PyPI package, crates.io crate, GitHub release, and downstream consumers are separate states. A release is complete only when every package can be installed at its intended version: npm and PyPI share one version, while the Rust crate follows its own semver (see [rules for AI](rules-for-ai.md#releases)). Downstream notifications should happen after those installs are verified.

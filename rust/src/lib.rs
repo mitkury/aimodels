@@ -32,6 +32,9 @@
 //! }
 //! ```
 //!
+//! The crate has its own semver: catalog data refreshes are patch releases, so
+//! `cargo update -p aimodels` picks them up; API changes bump the minor version.
+//!
 //! Models that `extends` another inherit its fields, with their own fields and
 //! `overrides` taking precedence. Aliases and release dates identify a single
 //! record and are never inherited.

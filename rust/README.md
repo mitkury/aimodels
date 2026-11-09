@@ -54,6 +54,13 @@ println!("{} ({})", creator.name, creator.country);
 Capabilities also parse from their catalog names, such as
 `"img-in".parse::<Capability>()`.
 
+## Versioning
+
+The crate has its own semver, separate from the npm and PyPI packages. Catalog
+data refreshes are patch releases (`0.1.0` -> `0.1.1`), so `cargo update -p
+aimodels` brings new models without changing your dependency requirement.
+Incompatible API changes bump the minor version (`0.1.x` -> `0.2.0`).
+
 ## Model inheritance
 
 Snapshots and close variants may `extends` another model. The crate resolves

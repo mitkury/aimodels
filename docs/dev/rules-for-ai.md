@@ -66,10 +66,16 @@ artifacts.
 
 ## Releases
 
-Publishing is manual. Keep `js/package.json`, `js/package-lock.json`,
-`python/pyproject.toml`, and `rust/Cargo.toml` on the same version.
+Publishing is manual. Keep `js/package.json`, `js/package-lock.json`, and
+`python/pyproject.toml` on the same version.
+
+The Rust crate in `rust/Cargo.toml` has its own semver, because Cargo treats
+every 0.x minor bump as breaking. Release a crate patch (`0.1.0` -> `0.1.1`)
+for a data-only refresh, so dependents pick it up with `cargo update`. Bump the
+minor (`0.1.x` -> `0.2.0`) when the crate's public API changes incompatibly.
+Publish the crate with every release whose catalog data changed.
 
 A release is complete only after every exact package version can be installed
 from their public registries. Create and push `v<version>` only after that
-verification. A GitHub release is not evidence that npm, PyPI, or crates.io publishing
-succeeded.
+verification. A GitHub release is not evidence that npm, PyPI, or crates.io
+publishing succeeded.
