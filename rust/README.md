@@ -21,17 +21,17 @@ cargo add aimodels
 use aimodels::{models, Capability};
 
 // Find a model by canonical ID or alias
-let model = models().id("gpt-6.1-sol").unwrap();
+let model = models().id("claude-fable-5-2").unwrap();
 println!("{}", model.name());
-println!("{:?}", model.provider_ids().collect::<Vec<_>>()); // ["openai", "openrouter"]
+println!("{:?}", model.provider_ids().collect::<Vec<_>>()); // ["anthropic", "bedrock", "openrouter"]
 
 // Read context limits
 let context = model.context().unwrap();
 println!("{:?} in, {:?} out", context.total, context.max_output);
 
 // Resolve canonical IDs at the provider boundary
-assert_eq!(model.id_for("openrouter"), Some("openai/gpt-6.1-sol"));
-let canonical = models().from_provider_id("openrouter", "openai/gpt-6.1-sol");
+assert_eq!(model.id_for("openrouter"), Some("anthropic/claude-fable-5.2"));
+let canonical = models().from_provider_id("openrouter", "anthropic/claude-fable-5.2");
 
 // Filter by capability, creator, provider, and context size; filters chain
 let vision = models().can(&[Capability::Chat, Capability::ImgIn]);

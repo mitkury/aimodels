@@ -7,7 +7,8 @@
   "models": [
     {
       "creator": "baidu",
-      "include": "all"
+      "include": "all",
+      "exclude": ["baidu/ERNIE-4.5-21B-A3B-Thinking"]
     },
     {
       "creator": "deepseek",

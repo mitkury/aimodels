@@ -143,6 +143,42 @@
     "country": "USA",
     "founded": 2025
   },
+  "antgroup": {
+    "name": "Ant Group",
+    "websiteUrl": "https://www.antgroup.com/en/home",
+    "country": "CHN",
+    "founded": 2000
+  },
+  "meituan": {
+    "name": "Meituan",
+    "websiteUrl": "https://www.meituan.com/en-US",
+    "country": "CHN",
+    "founded": 2010
+  },
+  "openbmb": {
+    "name": "OpenBMB",
+    "websiteUrl": "https://www.openbmb.cn",
+    "country": "CHN",
+    "founded": 2021
+  },
+  "bytedance": {
+    "name": "ByteDance",
+    "websiteUrl": "https://www.bytedance.com",
+    "country": "CHN",
+    "founded": 2012
+  },
+  "lgai": {
+    "name": "LG AI Research",
+    "websiteUrl": "https://www.lgresearch.ai",
+    "country": "KOR",
+    "founded": 2020
+  },
+  "liquid": {
+    "name": "Liquid AI",
+    "websiteUrl": "https://www.liquid.ai",
+    "country": "USA",
+    "founded": 2023
+  },
   "together": {
     "name": "Together AI",
     "websiteUrl": "https://www.together.ai",

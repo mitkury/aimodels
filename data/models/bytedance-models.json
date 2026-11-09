@@ -1,0 +1,22 @@
+{
+  "creator": "bytedance",
+  "models": [
+    {
+      "id": "ByteDance-Seed/Seed-OSS-36B-Instruct",
+      "name": "Seed-OSS-36B Instruct",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 524288,
+        "maxOutput": null
+      }
+    }
+  ]
+}

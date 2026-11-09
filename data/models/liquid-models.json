@@ -1,0 +1,23 @@
+{
+  "creator": "liquid",
+  "models": [
+    {
+      "id": "lfm3-1.7b",
+      "name": "LFM3-1.7B",
+      "license": "lfm1.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 128000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-10-27"
+    }
+  ]
+}

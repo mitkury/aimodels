@@ -11,8 +11,6 @@
       "exclude": [
         "gpt-oss-120b",
         "gpt-oss-20b",
-        "dall-e-2",
-        "dall-e-3",
         "o4-mini",
         "o4-mini-2025-04-16",
         "computer-use-preview-2025-03-11",

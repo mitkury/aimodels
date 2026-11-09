@@ -39,13 +39,13 @@ meta_models = models.from_creator("meta")
 large_context_models = models.with_min_context(32768)
 
 # Find specific model
-model = models.id("gpt-6.1-sol")
+model = models.id("claude-fable-5-2")
 print(model.context.total)  # Context window size
-print(model.providerIds)  # ['openai', 'openrouter']
+print(model.providerIds)  # ['anthropic', 'bedrock', 'openrouter']
 
 # Resolve canonical IDs at the provider boundary
-print(model.id_for("openrouter"))  # openai/gpt-6.1-sol
-canonical = models.from_provider_id("openrouter", "openai/gpt-6.1-sol")
+print(model.id_for("openrouter"))  # anthropic/claude-fable-5.2
+canonical = models.from_provider_id("openrouter", "anthropic/claude-fable-5.2")
 
 # Get provider information
 provider = models.get_provider("openai")

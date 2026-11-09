@@ -1,0 +1,15 @@
+{
+  "id": "meituan",
+  "name": "LongCat",
+  "apiUrl": "https://api.longcat.chat/openai/v1",
+  "apiDocsUrl": "https://longcat.chat/platform/docs/",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "meituan",
+      "include": [
+        "LongCat-2.5"
+      ]
+    }
+  ]
+}

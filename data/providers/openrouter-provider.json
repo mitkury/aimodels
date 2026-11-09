@@ -28,7 +28,6 @@
         "gpt-5.4-pro",
         "gpt-5.4-mini",
         "gpt-5.4-nano",
-        "gpt-4o",
         "gpt-5-nano",
         "gpt-5-mini",
         "gpt-oss-120b",
@@ -39,6 +38,7 @@
     {
       "creator": "anthropic",
       "include": [
+        "claude-fable-5-2",
         "claude-haiku-5-5",
         "claude-sonnet-5-5",
         "claude-opus-5-5",
@@ -57,6 +57,7 @@
       ],
       "idPrefix": "anthropic/",
       "idOverrides": {
+        "claude-fable-5-2": "anthropic/claude-fable-5.2",
         "claude-fable-5-1": "anthropic/claude-fable-5.1",
         "claude-opus-4-8": "anthropic/claude-opus-4.8",
         "claude-opus-4-7": "anthropic/claude-opus-4.7",
@@ -74,6 +75,8 @@
     {
       "creator": "google",
       "include": [
+        "gemini-omni-1.2-flash",
+        "gemini-omni-1.1-flash",
         "gemini-nano-banana-2.1",
         "gemini-4-argon",
         "gemini-3.8-flash",
@@ -110,6 +113,7 @@
       "creator": "meta",
       "include": [
         "meta-models/Muse-Spark-Open-816B-A42B",
+        "muse-ember-1.0",
         "muse-wonder-1.0",
         "muse-spark-1.1",
         "muse-spark-1.2",
@@ -120,6 +124,7 @@
       "idPrefix": "meta/",
       "idOverrides": {
         "meta-models/Muse-Glimmer-30B": "meta/muse-glimmer-30b",
+        "muse-ember-1.0": "meta/muse-ember",
         "muse-wonder-1.0": "meta/muse-wonder",
         "meta-models/Muse-Spark-Open-816B-A42B": "meta/muse-spark-open",
         "meta-llama/llama-guard-4-12b": "meta-llama/llama-guard-4-12b"
@@ -148,10 +153,12 @@
         "qwen3.8-max-0902",
         "qwen3.8-flash",
         "Qwen/Qwen3.8-27B",
+        "Qwen/Qwen3.6-35B-A3B",
         "Qwen/Qwen3.8-2.4T-A95B"
       ],
       "idPrefix": "qwen/",
       "idOverrides": {
+        "Qwen/Qwen3.6-35B-A3B": "qwen/qwen3.6-35b-a3b",
         "Qwen/Qwen3.8-27B": "qwen/qwen3.8-27b",
         "Qwen/Qwen3.8-2.4T-A95B": "qwen/qwen3.8-2.4t-a95b"
       }
@@ -159,12 +166,36 @@
     {
       "creator": "deepseek",
       "include": [
+        "deepseek-ai/DeepSeek-V4.1-Flash-1017",
         "deepseek-flash",
         "deepseek-v4-flash-vision-exp"
       ],
       "idPrefix": "deepseek/",
       "idOverrides": {
+        "deepseek-ai/DeepSeek-V4.1-Flash-1017": "deepseek/deepseek-v4.1-flash-1017",
         "deepseek-flash": "deepseek/deepseek-v4.1-flash"
+      }
+    },
+    {
+      "creator": "antgroup",
+      "include": [
+        "Ling-3.1-flash",
+        "Ling-3.0-flash-VL",
+        "Ling-3.0-tiny"
+      ],
+      "idOverrides": {
+        "Ling-3.1-flash": "inclusionai/ling-3.1-flash",
+        "Ling-3.0-flash-VL": "inclusionai/ling-3.0-flash-vl",
+        "Ling-3.0-tiny": "inclusionai/ling-3.0-tiny"
+      }
+    },
+    {
+      "creator": "liquid",
+      "include": [
+        "lfm3-1.7b"
+      ],
+      "idOverrides": {
+        "lfm3-1.7b": "liquid/lfm-3-1.7b"
       }
     },
     {

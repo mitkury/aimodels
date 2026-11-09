@@ -476,6 +476,9 @@ def test_november_catalog_refresh():
 
 def test_november_provider_routes():
     for model_id, provider, route in [
+        ["claude-fable-5-2", "openrouter", "anthropic/claude-fable-5.2"],
+        ["LongCat-2.5", "meituan", "LongCat-2.5"],
+        ["openbmb/MiniCPM5-2B", "ollama", "openbmb/minicpm5-2b"],
         ["gpt-6.1-terra", "openrouter", "openai/gpt-6.1-terra"],
         ["gpt-6.1-sol", "openrouter", "openai/gpt-6.1-sol"],
         ["gpt-6-sol", "openrouter", "openai/gpt-6-sol"],
@@ -510,6 +513,8 @@ def test_november_provider_routes():
 
 def test_november_unavailable_native_models():
     for model_id, provider in [
+        ["claude-mythos-5-2", "openrouter"],
+        ["XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B", "xiaomi"],
         ["google/embeddinggemma-2", "google"],
         ["meta-models/Muse-Spark-Open-816B-A42B", "meta"],
         ["nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB", "nvidia"],
@@ -553,7 +558,7 @@ def test_november_aliases_licenses_and_modalities():
     assert models.id("mistral-large-4").license == "mistral-ecosystem"
     assert models.id("MiniMax-M3.1-Flash").license == "minimax-community"
     assert models.id("step-5-preview").license == "stepfun-model-1.0"
-    assert models.id("kimi-k3.1-pro").license == "proprietary"
+    assert models.id("kimi-k3.1-pro").license == "kimi-k3.1-pro"
     assert models.id("qwen3.8-omni-flash").canHear()
     assert not models.id("qwen3.8-omni-flash").canSpeak()
     assert models.id("gemini-3.8-flash-tts").canSpeak()

@@ -2,9 +2,26 @@
   "creator": "xiaomi",
   "models": [
     {
+      "id": "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+      "name": "MiMo V2.6 Distill Qwen 9B",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "mimo-v2.6-pro",
       "name": "Xiaomi MiMo-V2.6-Pro",
-      "license": "proprietary",
+      "license": "mit",
       "capabilities": [
         "chat",
         "txt-in",
@@ -39,7 +56,7 @@
     {
       "id": "mimo-v2.5-pro",
       "name": "Xiaomi MiMo-V2.5-Pro",
-      "license": "proprietary",
+      "license": "mit",
       "capabilities": [
         "chat",
         "txt-in",

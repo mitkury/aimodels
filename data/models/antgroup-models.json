@@ -1,0 +1,79 @@
+{
+  "creator": "antgroup",
+  "models": [
+    {
+      "id": "Ling-3.2-flash",
+      "name": "Ling 3.2 Flash",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason",
+        "img-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-05"
+    },
+    {
+      "id": "Ling-3.1-flash",
+      "name": "Ling 3.1 Flash",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "Ling-3.0-flash-VL",
+      "name": "Ling 3.0 Flash VL",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason",
+        "img-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-09-04"
+    },
+    {
+      "id": "Ling-3.0-tiny",
+      "name": "Ling 3.0 Tiny",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-08-07"
+    }
+  ]
+}

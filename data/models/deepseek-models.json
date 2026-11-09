@@ -2,6 +2,14 @@
   "creator": "deepseek",
   "models": [
     {
+      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "extends": "deepseek-flash",
+      "overrides": {
+        "name": "DeepSeek V4.1 Flash 1017"
+      },
+      "releasedAt": "2026-10-17"
+    },
+    {
       "id": "deepseek-flash",
       "name": "DeepSeek V4.1 Flash",
       "license": "mit",

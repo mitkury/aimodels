@@ -11,6 +11,7 @@
       "exclude": [
         "Qwen/Qwen3.8-2.4T-A95B",
         "Qwen/Qwen3.8-27B",
+        "Qwen/Qwen3.6-35B-A3B",
         "Qwen/Qwen3.8-Flash-Next"
       ]
     }

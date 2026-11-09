@@ -2,6 +2,25 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "Qwen/Qwen3.6-35B-A3B",
+      "name": "Qwen3.6 35B A3B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason",
+        "img-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "qwen3.8-omni-flash",
       "name": "Qwen3.8 Omni Flash",
       "license": "proprietary",

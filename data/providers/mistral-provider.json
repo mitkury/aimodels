@@ -11,6 +11,13 @@
       "exclude": ["mistral-ocr-4-0"]
     },
     {
+      "creator": "deepseek",
+      "include": ["deepseek-ai/DeepSeek-V4.1-Flash-1017"],
+      "idOverrides": {
+        "deepseek-ai/DeepSeek-V4.1-Flash-1017": "deepseek-v4-1-flash-1017"
+      }
+    },
+    {
       "creator": "zai",
       "include": ["glm-5.3", "glm-5.3-flash"],
       "idOverrides": {

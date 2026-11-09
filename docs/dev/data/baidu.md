@@ -25,3 +25,9 @@ establishes `ernie-5.1` for text generation, with 128K context and an exact
 a separate record. The vision and thinking tables still identify only 5.0;
 do not inherit those capabilities or function calling onto 5.1. Its initial
 API release date and a public weight license remain unverified.
+
+## November 9, 2026 audit
+
+The [ERNIE 4.5 21B A3B Thinking card](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-Thinking)
+documents Apache-2.0 weights, 131,072 context tokens, and function calling.
+The first-party checkpoint ID is for self-hosting.

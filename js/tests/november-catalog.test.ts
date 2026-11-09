@@ -42,6 +42,9 @@ describe('November 2026 catalog refresh', () => {
   });
 
   it.each([
+    ["claude-fable-5-2", "openrouter", "anthropic/claude-fable-5.2"],
+    ["LongCat-2.5", "meituan", "LongCat-2.5"],
+    ["openbmb/MiniCPM5-2B", "ollama", "openbmb/minicpm5-2b"],
     ["gpt-6.1-terra", "openrouter", "openai/gpt-6.1-terra"],
     ["gpt-6.1-sol", "openrouter", "openai/gpt-6.1-sol"],
     ["gpt-6-sol", "openrouter", "openai/gpt-6-sol"],
@@ -75,6 +78,8 @@ describe('November 2026 catalog refresh', () => {
   });
 
   it.each([
+    ["claude-mythos-5-2", "openrouter"],
+    ["XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B", "xiaomi"],
     ["google/embeddinggemma-2", "google"],
     ["meta-models/Muse-Spark-Open-816B-A42B", "meta"],
     ["nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB", "nvidia"],
@@ -120,7 +125,7 @@ describe('November 2026 catalog refresh', () => {
     expect(models.id('mistral-large-4')?.license).toBe('mistral-ecosystem');
     expect(models.id('MiniMax-M3.1-Flash')?.license).toBe('minimax-community');
     expect(models.id('step-5-preview')?.license).toBe('stepfun-model-1.0');
-    expect(models.id('kimi-k3.1-pro')?.license).toBe('proprietary');
+    expect(models.id('kimi-k3.1-pro')?.license).toBe('kimi-k3.1-pro');
   });
 
   it('does not confuse omni understanding, speech synthesis, and embeddings', () => {

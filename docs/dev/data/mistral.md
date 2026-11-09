@@ -60,3 +60,14 @@ The September 29 changelog explicitly retires `mistral-ocr-4-0` on September
 The same changelog establishes Mistral-hosted GLM 5.3 and GLM 5.3 Flash;
 map their Z.ai canonical IDs to `zai-glm-5-3` and `zai-glm-5-3-flash`.
 GLM 5.2 is not included: its Mistral endpoint retired on October 31.
+
+## November 9, 2026 audit
+
+The [model lifecycle table](https://docs.mistral.ai/models) lists Small and Large
+24.02, Medium 23.12, Mistral 7B, and Mixtral 8x7B as retired. Remove the old
+catalog entries. The original `mistral-medium` selector had already been
+deprecated in the [2024 changelog](https://docs.mistral.ai/resources/changelogs).
+
+The [DeepSeek 1017 model card](https://docs.mistral.ai/models/deepseek-v4-flash-1017)
+documents Mistral's `deepseek-v4-1-flash-1017` route and a 128K output cap.
+The catalog keeps the native DeepSeek limit on the shared record.

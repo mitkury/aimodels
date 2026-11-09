@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "aimodels.dev"
-version = "0.7.0"
+version = "0.7.1"
 description = "A collection of AI model specifications across different providers"
 readme = "README.md"
 requires-python = ">=3.8"

@@ -2,6 +2,24 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-omni-1.2-flash",
+      "name": "Gemini Omni 1.2 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "video-in",
+        "txt-out",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-11-05"
+    },
+    {
       "id": "gemini-embedding-2",
       "extends": "gemini-embedding-2-preview",
       "overrides": {
@@ -823,20 +841,6 @@
         "type": "token",
         "total": 8192,
         "maxOutput": 2048
-      }
-    },
-    {
-      "id": "text-embedding-004",
-      "name": "Text Embedding 004",
-      "license": "proprietary",
-      "capabilities": [
-        "txt-in",
-        "vec-out"
-      ],
-      "context": {
-        "type": "token",
-        "total": 2048,
-        "maxOutput": 768
       }
     },
     {

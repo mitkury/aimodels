@@ -30,3 +30,16 @@ establishes `mimo-v2.6-pro`, `mimo-v2.6-flash`, and the custom-access
 output and tools, with 1M context and 128K output. All three have verified
 OpenRouter routes. Native MiMo 2.5 and 2.5 Pro shut down October 21; retain their
 historical records but exclude them from Xiaomi provider availability.
+
+## November 9, 2026 audit
+
+Xiaomi's [V2.6 release](https://mimo.mi.com/docs/en-US/news/latest/v2-6) ties
+the published MIT [Pro](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL)
+and [Flash](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL) weights to the
+served models. The older [V2.5 Pro](https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro)
+and [V2.5](https://huggingface.co/XiaomiMiMo/MiMo-V2.5) also have MIT weights.
+Their native API availability ended in October.
+
+[MiMo V2.6 Distill Qwen 9B](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B)
+is a separate MIT checkpoint for local deployment, with image input, thinking,
+and 262,144 context tokens in its [config](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B/blob/main/config.json).

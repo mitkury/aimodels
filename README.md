@@ -13,9 +13,9 @@ The catalog is also the source of truth for [aimodels.dev](https://aimodels.dev)
 Canonical model identity is independent from the provider that serves it:
 
 ```text
-canonical model: gpt-6.1-sol
-OpenAI API:      gpt-6.1-sol
-OpenRouter API:  openai/gpt-6.1-sol
+canonical model: claude-fable-5-2
+Claude API:      claude-fable-5-2
+OpenRouter API:  anthropic/claude-fable-5.2
 ```
 
 Model files describe what a model is. Provider files describe where it is available and translate the canonical ID when an API expects a prefix, dated snapshot, or other provider-specific form.
@@ -23,28 +23,28 @@ Model files describe what a model is. Provider files describe where it is availa
 ```ts
 import { models } from 'aimodels';
 
-const model = models.id('gpt-6.1-sol');
-model?.idFor('openrouter'); // openai/gpt-6.1-sol
+const model = models.id('claude-fable-5-2');
+model?.idFor('openrouter'); // anthropic/claude-fable-5.2
 
-models.fromProviderId('openrouter', 'openai/gpt-6.1-sol'); // canonical Model
+models.fromProviderId('openrouter', 'anthropic/claude-fable-5.2'); // canonical Model
 ```
 
 ```python
 from aimodels import models
 
-model = models.id("gpt-6.1-sol")
-model.id_for("openrouter")  # openai/gpt-6.1-sol
+model = models.id("claude-fable-5-2")
+model.id_for("openrouter")  # anthropic/claude-fable-5.2
 
-models.from_provider_id("openrouter", "openai/gpt-6.1-sol")
+models.from_provider_id("openrouter", "anthropic/claude-fable-5.2")
 ```
 
 ```rust
 use aimodels::models;
 
-let model = models().id("gpt-6.1-sol").unwrap();
-model.id_for("openrouter"); // Some("openai/gpt-6.1-sol")
+let model = models().id("claude-fable-5-2").unwrap();
+model.id_for("openrouter"); // Some("anthropic/claude-fable-5.2")
 
-models().from_provider_id("openrouter", "openai/gpt-6.1-sol"); // canonical Model
+models().from_provider_id("openrouter", "anthropic/claude-fable-5.2"); // canonical Model
 ```
 
 ## Repository structure

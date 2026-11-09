@@ -40,3 +40,11 @@ The [changelog](https://docs.cohere.com/changelog) dates the API releases
 September 30 and October 21. Do not inherit Embed 4's normalization assertion
 without explicit evidence. Rerank uses the catalog's existing text-input/output
 convention; it is not a chat or JSON-generation model.
+
+## November 9, 2026 audit
+
+Remove the first Command and Command Light, Command Nightly, and the original
+Command R and R+ snapshots. Cohere lists the older snapshots as
+[deprecated](https://docs.cohere.com/v2/docs/deprecations) and documents Nightly
+on the [legacy Generate endpoint](https://docs.cohere.com/v2/reference/generate-v1).
+The August 2024 Command R and R+ remain listed as replacements and on OpenRouter.

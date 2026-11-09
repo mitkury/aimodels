@@ -1,0 +1,7 @@
+{
+  "id": "antgroup",
+  "name": "Ant Ling",
+  "apiUrl": "https://api.ant-ling.com/v1",
+  "apiDocsUrl": "https://developer.ant-ling.com/en/docs/api-reference/chat/openai",
+  "pricing": {}
+}

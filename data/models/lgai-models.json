@@ -1,0 +1,23 @@
+{
+  "creator": "lgai",
+  "models": [
+    {
+      "id": "k-exaone_v2.5",
+      "name": "K-EXAONE 2.5",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 524288,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-09"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "liquid",
+  "name": "Liquid AI",
+  "apiUrl": "https://api.liquid.ai/openai/v1",
+  "apiDocsUrl": "https://docs.liquid.ai/api/overview",
+  "pricing": {}
+}

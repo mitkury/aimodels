@@ -124,3 +124,16 @@ These are Gemini API exclusions, not claims about Vertex availability. Keep
 intrinsic records and models with future shutdown dates. Gemini 3.5/3.7 Flash
 remain callable through automatic routing. Managed-agent codes are left out of
 the intrinsic model catalog; they select an agent harness through Interactions.
+
+## November 9, 2026 audit
+
+The [November 5 release notes](https://ai.google.dev/gemini-api/docs/changelog)
+and [model page](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash)
+establish the stable Gemini Omni 1.2 Flash API ID, 131,072 input tokens,
+65,536 output tokens, and text/image/video inputs with video and text outputs.
+The audio is part of the generated video. The Omni 1.1 selector continues
+serving 1.1 until Google's December 3 redirect.
+
+Remove the retired `text-embedding-004` record. The January 14 release notes
+confirm its shutdown. [Gemini 4 Carbon](https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/)
+is still in restricted pre-release testing, with no verified Gemini API ID.

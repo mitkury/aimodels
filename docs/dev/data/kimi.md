@@ -51,3 +51,10 @@ Retain their native mappings while documenting that account restriction here.
 K3's released weights establish its custom license. K3.1 Pro weights and a
 model-specific license could not be verified, so its explicit proprietary
 override prevents it inheriting K3's newly recorded license.
+
+## November 9, 2026 audit
+
+Moonshot published [K3.1 Pro weights](https://huggingface.co/moonshotai/Kimi-K3.1-Pro)
+under the [Kimi K3.1 Pro License](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE).
+Record the custom license separately from K3's license. The highspeed
+selector remains an alias.

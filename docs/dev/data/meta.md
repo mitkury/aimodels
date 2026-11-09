@@ -61,3 +61,16 @@ context. Its [Muse Model License](https://huggingface.co/meta-models/Muse-Spark-
 is recorded as `muse-model`, not Apache-2.0 or proprietary. The October 15
 checkpoint release is not used as a native API release date. OpenRouter serves
 both Wonder and Spark Open; Meta's own API mapping includes only Wonder.
+
+## November 9, 2026 audit
+
+The [Muse Ember API page](https://dev.meta.ai/docs/muse-ember) documents
+`muse-ember-1.0`, 1,048,576 context tokens, 524,288 max output tokens, and
+text, image, video, and audio input. It supports thinking, tools, and
+structured output. No dated native API release was established.
+
+Remove the older Groq Llama 3 8B/70B, Llama 3.2 Vision preview, and Llama Guard 3
+records. Remove Groq availability for Llama Guard 4, which is still listed on
+OpenRouter. [Groq's deprecation table](https://console.groq.com/docs/deprecations)
+gives the shutdown dates and distinguishes the enterprise exception for
+Llama 3.1 8B and Llama 3.3 70B.

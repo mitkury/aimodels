@@ -92,3 +92,18 @@ The [changelog](https://developers.openai.com/api/docs/changelog) and
 confirm `gpt-6-rosalind` released October 30 with restricted research access.
 Its dedicated model page is unavailable; modalities, limits, and dedicated API
 features remain unverified, so the earlier deferral still applies.
+
+## November 9, 2026 audit
+
+The [API changelog](https://developers.openai.com/api/docs/changelog) dates
+[GPT-6-Cyber](https://developers.openai.com/api/docs/models/gpt-6-cyber) to
+November 5 and [Sunburst](https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst)
+and [Flare](https://developers.openai.com/api/docs/models/gpt-image-2.6-flare)
+to November 4. GPT-6-Cyber requires both Daybreak Red and model approval.
+The two GPT Image 2.6 IDs share image limits and quality settings. Their model
+pages list the undated selectors only.
+
+This cleanup drops GPT-4o and its aliases from the catalog. OpenAI still
+lists GPT-4o snapshots for shutdown on January 14, 2027, and OpenRouter still
+lists its route. DALL-E 2 and 3 have already shut down.
+See the [OpenAI deprecation schedule](https://developers.openai.com/api/docs/deprecations).

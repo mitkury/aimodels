@@ -2,6 +2,22 @@
   "creator": "anthropic",
   "models": [
     {
+      "id": "claude-fable-5-2",
+      "extends": "claude-fable-5-1",
+      "overrides": {
+        "name": "Claude Fable 5.2"
+      },
+      "releasedAt": "2026-11-09"
+    },
+    {
+      "id": "claude-mythos-5-2",
+      "extends": "claude-fable-5-2",
+      "overrides": {
+        "name": "Claude Mythos 5.2"
+      },
+      "releasedAt": "2026-11-09"
+    },
+    {
       "id": "claude-opus-5-5",
       "name": "Claude Opus 5.5",
       "license": "proprietary",

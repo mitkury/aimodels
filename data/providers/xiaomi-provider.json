@@ -9,6 +9,7 @@
       "creator": "xiaomi",
       "include": "all",
       "exclude": [
+        "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
         "mimo-v2.5-pro",
         "mimo-v2.5"
       ]

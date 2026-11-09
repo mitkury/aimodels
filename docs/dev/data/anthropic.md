@@ -35,3 +35,15 @@ lists Opus, Sonnet, and Haiku 5.5 with exact native and Bedrock IDs, 1M context,
 establish September 22, September 28, and October 7 launches. Preserve the
 hyphenated creator IDs; OpenRouter uses dotted 5.5 IDs. Do not treat the
 300K batch/beta output limit as the default synchronous limit.
+
+## November 9, 2026 audit
+
+[Claude Platform release notes](https://platform.claude.com/docs/en/release-notes/overview)
+establish Fable 5.2 and Mythos 5.2 with the same modalities and limits as Fable
+5.1. Mythos requires organization verification. The
+[model overview](https://platform.claude.com/docs/en/models/overview)
+documents Fable's Bedrock ID. OpenRouter lists Fable only.
+
+The [deprecation schedule](https://platform.claude.com/docs/en/about-claude/model-deprecations)
+confirms that Opus 4 and Sonnet 4 retired on June 15, 2026. Keep their records
+for historical lookup and remove Anthropic-native availability.

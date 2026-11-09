@@ -2,6 +2,23 @@
   "creator": "baidu",
   "models": [
     {
+      "id": "baidu/ERNIE-4.5-21B-A3B-Thinking",
+      "name": "ERNIE 4.5 21B A3B Thinking",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "ernie-5.1",
       "name": "ERNIE 5.1",
       "license": "proprietary",

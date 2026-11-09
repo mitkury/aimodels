@@ -252,24 +252,6 @@
       }
     },
     {
-      "id": "command-r-plus-04-2024",
-      "name": "Command R+ (April 2024)",
-      "license": "proprietary",
-      "capabilities": [
-        "chat",
-        "txt-in",
-        "txt-out",
-        "json-out",
-        "fn-out"
-      ],
-      "context": {
-        "type": "token",
-        "total": 128000,
-        "maxOutput": 4096
-      },
-      "aliases": []
-    },
-    {
       "id": "command-r-plus-08-2024",
       "name": "Command R+",
       "license": "proprietary",
@@ -303,73 +285,6 @@
       "context": {
         "type": "token",
         "total": 128000,
-        "maxOutput": 4096
-      }
-    },
-    {
-      "id": "command-r-03-2024",
-      "name": "Command R",
-      "license": "proprietary",
-      "capabilities": [
-        "chat",
-        "txt-in",
-        "txt-out",
-        "json-out",
-        "fn-out"
-      ],
-      "context": {
-        "type": "token",
-        "total": 128000,
-        "maxOutput": 4096
-      },
-      "aliases": [
-        "command-r"
-      ]
-    },
-    {
-      "id": "command-nightly",
-      "name": "Command Nightly",
-      "license": "proprietary",
-      "capabilities": [
-        "chat",
-        "txt-in",
-        "txt-out",
-        "json-out",
-        "fn-out"
-      ],
-      "context": {
-        "type": "token",
-        "total": 128000,
-        "maxOutput": 4096
-      }
-    },
-    {
-      "id": "command",
-      "name": "Command",
-      "license": "proprietary",
-      "capabilities": [
-        "chat",
-        "txt-in",
-        "txt-out"
-      ],
-      "context": {
-        "type": "token",
-        "total": 4096,
-        "maxOutput": 4096
-      }
-    },
-    {
-      "id": "command-light",
-      "name": "Command Light",
-      "license": "proprietary",
-      "capabilities": [
-        "chat",
-        "txt-in",
-        "txt-out"
-      ],
-      "context": {
-        "type": "token",
-        "total": 4096,
         "maxOutput": 4096
       }
     },

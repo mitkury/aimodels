@@ -70,3 +70,12 @@ The published [V4 Pro](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro)
 and [V4 Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash) cards both
 declare MIT. Update Pro's license and let Flash inherit it; this does not
 establish an open-weight license for the separate vision experiment.
+
+## November 9, 2026 audit
+
+The [October 17 update](https://api-docs.deepseek.com/updates/#deepseek-v41-flash-1017-update)
+confirms that `deepseek-flash` now serves the 1017 revision. Keep that stable
+native selector. Record the separate [MIT checkpoint](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+so OpenRouter and Mistral can resolve their explicitly versioned routes without
+overwriting the older OpenRouter Flash route. The providers document their own
+output ceilings.

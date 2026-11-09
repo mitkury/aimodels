@@ -1,0 +1,22 @@
+{
+  "creator": "openbmb",
+  "models": [
+    {
+      "id": "openbmb/MiniCPM5-2B",
+      "name": "MiniCPM5-2B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": null
+      }
+    }
+  ]
+}

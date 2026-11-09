@@ -54,3 +54,11 @@ supports text/audio input and output and function calling, with 262,144 context
 and 16,384 output tokens. Page update dates are not API launch dates. Only
 Omni Flash has a verified OpenRouter route in this update; image 2.1 and other
 realtime variants remain deferred until their exact IDs and limits are verified.
+
+## November 9, 2026 audit
+
+The [Qwen3.6 35B A3B model card](https://huggingface.co/Qwen/Qwen3.6-35B-A3B)
+documents Apache-2.0 weights, image and video understanding, reasoning,
+tool calling, and 262,144 native context tokens. The model can be served
+with a longer configured context. Use the native limit and the separately
+verified OpenRouter route.

@@ -6,7 +6,7 @@
       "extends": "kimi-k3",
       "overrides": {
         "name": "Kimi K3.1 Pro",
-        "license": "proprietary"
+        "license": "kimi-k3.1-pro"
       },
       "aliases": [
         "kimi-k3.1-pro-highspeed"

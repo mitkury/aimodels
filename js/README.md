@@ -34,7 +34,7 @@ console.log(visionModelsFromOpenAI.map(model => model.name));
 // Example output: ["GPT-6.1 Terra", "GPT-6.1 Sol", ...]
 
 // 3. Check if a specific model can process images
-const model = models.id('gpt-6.1-sol');
+const model = models.id('claude-fable-5-2');
 if (model?.canSee()) {
   console.log(`${model.name} can process images`);
   // Enable image upload in your UI
@@ -82,12 +82,12 @@ models.fromCreator('meta')     // Find models by creator
 models.withMinContext(32768)   // Find models with at least this context size
 
 // Model lookup
-models.id('gpt-6.1-sol')       // Find a specific model by ID
+models.id('claude-fable-5-2')       // Find a specific model by ID
 
 // Resolve canonical IDs at the provider boundary
-models.id('gpt-6.1-sol')?.idFor('openrouter')
-models.resolveModelIdForProvider('gpt-6.1-sol', 'openrouter')
-models.fromProviderId('openrouter', 'openai/gpt-6.1-sol')
+models.id('claude-fable-5-2')?.idFor('openrouter')
+models.resolveModelIdForProvider('claude-fable-5-2', 'openrouter')
+models.fromProviderId('openrouter', 'anthropic/claude-fable-5.2')
 ```
 
 ## Features

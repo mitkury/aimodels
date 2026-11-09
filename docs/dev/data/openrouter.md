@@ -75,3 +75,11 @@ Omni, and Llama Guard 4. Exact overrides preserve provider-specific spellings.
 North Mini Code and Nano Omni currently have only `:free` listings; those
 routes map to existing canonical models rather than creating duplicate models.
 The new Voxtral 3 audio endpoints and Nova Multimodal Embeddings were not listed.
+
+## November 9, 2026 reconciliation
+
+The [model list](https://openrouter.ai/api/v1/models) confirms routes for
+Fable 5.2, both stable Gemini Omni Flash models, Muse Ember, LFM3-1.7B,
+DeepSeek Flash 1017, Qwen3.6 35B A3B, and Ling 3.1 Flash, 3.0 Flash VL, and
+3.0 Tiny. Keep provider spellings in the mappings. OpenRouter still lists
+GPT-4o, whose canonical record was removed in the catalog cleanup.

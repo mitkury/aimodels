@@ -1,4 +1,13 @@
 {
   "id": "ollama",
-  "name": "Ollama"
+  "name": "Ollama",
+  "models": [
+    {
+      "creator": "openbmb",
+      "include": ["openbmb/MiniCPM5-2B"],
+      "idOverrides": {
+        "openbmb/MiniCPM5-2B": "openbmb/minicpm5-2b"
+      }
+    }
+  ]
 }

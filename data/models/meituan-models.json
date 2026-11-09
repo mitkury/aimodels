@@ -1,0 +1,42 @@
+{
+  "creator": "meituan",
+  "models": [
+    {
+      "id": "LongCat-2.5",
+      "name": "LongCat 2.5",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason",
+        "img-in",
+        "video-in",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 262144
+      },
+      "releasedAt": "2026-11-02"
+    },
+    {
+      "id": "meituan-longcat/LongCat-Flash-Lite",
+      "name": "LongCat Flash Lite",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    }
+  ]
+}

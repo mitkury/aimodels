@@ -3,5 +3,15 @@
   "name": "Anthropic",
   "apiUrl": "https://api.anthropic.com/v1",
   "apiDocsUrl": "https://docs.anthropic.com/en/api",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "anthropic",
+      "include": "all",
+      "exclude": [
+        "claude-opus-4-20250514",
+        "claude-sonnet-4-20250514"
+      ]
+    }
+  ]
 }
