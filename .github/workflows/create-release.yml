@@ -65,6 +65,12 @@ jobs:
             ```
             pip install aimodels.dev==${{ steps.get_version.outputs.VERSION }}
             ```
+
+            or
+
+            ```
+            cargo add aimodels@${{ steps.get_version.outputs.VERSION }}
+            ```
           draft: false
           prerelease: false
         env:

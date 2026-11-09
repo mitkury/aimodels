@@ -1,9 +1,10 @@
 # AIModels
 
-AIModels is a normalized catalog of AI models, creators, and inference providers. One shared data set is shipped through two packages:
+AIModels is a normalized catalog of AI models, creators, and inference providers. One shared data set is shipped through three packages:
 
 - JavaScript/TypeScript: [`aimodels`](https://www.npmjs.com/package/aimodels)
 - Python: [`aimodels.dev`](https://pypi.org/project/aimodels.dev/)
+- Rust: [`aimodels`](https://crates.io/crates/aimodels)
 
 The catalog is also the source of truth for [aimodels.dev](https://aimodels.dev), [AIWrapper](https://github.com/mitkury/aiwrapper), and [Sila](https://github.com/silaorg/sila).
 
@@ -37,6 +38,15 @@ model.id_for("openrouter")  # openai/gpt-6.1-sol
 models.from_provider_id("openrouter", "openai/gpt-6.1-sol")
 ```
 
+```rust
+use aimodels::models;
+
+let model = models().id("gpt-6.1-sol").unwrap();
+model.id_for("openrouter"); // Some("openai/gpt-6.1-sol")
+
+models().from_provider_id("openrouter", "openai/gpt-6.1-sol"); // canonical Model
+```
+
 ## Repository structure
 
 ```text
@@ -46,10 +56,11 @@ data/orgs.json     Shared organization metadata
 data/schemas/      Generated JSON Schemas for catalog files
 js/                JavaScript/TypeScript package and tests
 python/            Python package and tests
+rust/              Rust crate and tests
 docs/dev/          Maintainer guidance and architecture notes
 ```
 
-The JSON in `data/` is the only catalog source. Do not duplicate model data in either language implementation.
+The JSON in `data/` is the only catalog source. Do not duplicate model data in any language implementation.
 
 ## Development
 
@@ -71,7 +82,20 @@ python3 -m pytest python/tests
 python3 -m build python
 ```
 
-When a public behavior is implemented in one package, add the equivalent API and tests in the other package unless the difference is intentional and documented.
+Validate the Rust crate:
+
+```bash
+cd rust
+cargo fmt --check
+cargo clippy --all-targets -- -D warnings
+cargo test
+cargo publish --dry-run
+```
+
+The Rust crate also has parity tests against the built JavaScript package; see
+[`rust/README.md`](rust/README.md#development).
+
+When a public behavior is implemented in one package, add the equivalent API and tests in the other packages unless the difference is intentional and documented.
 
 See the [`documentation map`](docs/README.md) for maintainer guidance. Read
 [`how to edit data`](docs/dev/how-to-edit-data.md) before changing catalog

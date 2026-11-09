@@ -18,7 +18,7 @@ For catalog changes, check:
 
 For code or schema changes, check:
 
-1. JavaScript and Python expose equivalent behavior.
+1. JavaScript, Python, and Rust expose equivalent behavior.
 2. Generated schemas match their Zod sources.
 3. Relationship validation rejects bad data instead of silently repairing it.
 4. Package builds contain the catalog and do not depend on repository-only paths.

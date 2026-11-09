@@ -1,6 +1,6 @@
 # AIModels repository
 
-AIModels maintains one normalized model catalog and ships it as JavaScript and Python packages.
+AIModels maintains one normalized model catalog and ships it as JavaScript, Python, and Rust packages.
 
 Start with:
 
