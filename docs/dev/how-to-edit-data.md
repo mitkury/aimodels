@@ -11,7 +11,7 @@ a confident-looking guess.
 3. Compare official model IDs with the existing creator file.
 4. Change the smallest set of model and provider records needed.
 5. Add official source links or evidence notes to the creator document.
-6. Run catalog validation and both package suites when exposed behavior changes.
+6. Run catalog validation and every package suite when exposed behavior changes.
 7. When adding a new generally recommended flagship model, refresh the root and
    package README examples in the same change.
 

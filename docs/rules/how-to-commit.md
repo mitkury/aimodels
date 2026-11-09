@@ -27,5 +27,5 @@ Use these scopes:
 - `dev` for maintainer tooling
 
 Before committing, run the checks relevant to the files changed. For changes
-that affect shared behavior, verify both packages. Push only when the user asks
+that affect shared behavior, verify every package. Push only when the user asks
 for it or the active action explicitly includes pushing.

@@ -65,6 +65,14 @@ jobs:
             ```
             pip install aimodels.dev==${{ steps.get_version.outputs.VERSION }}
             ```
+
+            The Rust crate is versioned separately: data-only refreshes are
+            patch releases and API changes bump the minor version, so
+            `cargo update -p aimodels` picks up new catalog data.
+
+            ```
+            cargo add aimodels
+            ```
           draft: false
           prerelease: false
         env:

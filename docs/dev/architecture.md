@@ -1,6 +1,6 @@
 # Architecture
 
-AIModels is a data product with two library implementations. The most important architectural rule is that `data/` is the source of truth; JavaScript, Python, websites, and downstream frameworks are consumers of that source.
+AIModels is a data product with three library implementations. The most important architectural rule is that `data/` is the source of truth; JavaScript, Python, Rust, websites, and downstream frameworks are consumers of that source.
 
 ## Data ownership
 
@@ -15,7 +15,7 @@ Do not add `providerIds` to model records. Availability is derived from provider
 
 Snapshots and closely related variants may use `extends`. The extending record
 keeps its own `id` and supplies changed inheritable fields through `overrides`.
-Both packages resolve the chain before exposing the model.
+All packages resolve the chain before exposing the model.
 
 Aliases and release dates identify a specific catalog record, so they are not
 inherited. An extending model must declare its own aliases or release date when
@@ -37,16 +37,18 @@ provider response   -> provider ID  -> fromProviderId(provider, id) -> canonical
 
 ## Package parity
 
-The JavaScript and Python packages intentionally expose the same concepts. JavaScript uses camelCase; Python also keeps compatibility aliases but documents snake_case as the preferred style.
+The JavaScript, Python, and Rust packages intentionally expose the same concepts. JavaScript uses camelCase; Python also keeps compatibility aliases but documents snake_case as the preferred style; Rust uses snake_case and typed capabilities and contexts.
+
+The Rust crate embeds `data/` at compile time through the `rust/data` symlink, and its parity tests compare every resolved model with the built JavaScript package.
 
 When changing behavior:
 
 1. Update shared data or schemas if the concept is data-driven.
-2. Implement it in JavaScript and Python.
-3. Add equivalent behavioral tests in both packages.
+2. Implement it in JavaScript, Python, and Rust.
+3. Add equivalent behavioral tests in each package.
 4. Build the distributable packages, not only the source trees.
 5. Verify that packaged catalog data is present after installation.
 
 ## Release boundary
 
-The repository, npm package, PyPI package, GitHub release, and downstream consumers are separate states. A release is complete only when both packages can be installed at the same intended version. Downstream notifications should happen after those installs are verified.
+The repository, npm package, PyPI package, crates.io crate, GitHub release, and downstream consumers are separate states. A release is complete only when every package can be installed at its intended version: npm and PyPI share one version, while the Rust crate follows its own semver (see [rules for AI](rules-for-ai.md#releases)). Downstream notifications should happen after those installs are verified.

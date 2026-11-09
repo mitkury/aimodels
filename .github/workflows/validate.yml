@@ -46,3 +46,42 @@ jobs:
           "${{ runner.temp }}/wheel-test/bin/pip" install "${{ runner.temp }}"/wheels/*.whl
           cd "${{ runner.temp }}"
           "${{ runner.temp }}/wheel-test/bin/python" -c "from aimodels import models; assert len(models) > 0; assert models.id('gpt-5.1')"
+
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: js/package-lock.json
+      - name: Build the JavaScript package for parity tests
+        working-directory: js
+        run: |
+          npm ci
+          npm run gen-data-js-file
+          npm run build:ts
+      - name: Export the JavaScript catalog
+        run: node rust/scripts/export-js-catalog.mjs "${{ runner.temp }}/js-catalog.json"
+      - working-directory: rust
+        run: cargo fmt --check
+      - working-directory: rust
+        run: cargo clippy --all-targets --locked -- -D warnings
+      - working-directory: rust
+        run: cargo test --locked -- --include-ignored
+        env:
+          AIMODELS_JS_CATALOG: ${{ runner.temp }}/js-catalog.json
+      - working-directory: rust
+        run: cargo publish --dry-run --locked
+
+  rust-msrv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.71
+      - working-directory: rust
+        run: cargo test --locked

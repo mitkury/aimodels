@@ -21,8 +21,9 @@ current architecture.
 ## Keep examples current
 
 When the catalog gains a new generally recommended flagship model, update the
-model examples in `README.md`, `js/README.md`, and `python/README.md` in the same
-change. Use a stable, callable canonical ID and verify every shown provider ID.
+model examples in `README.md`, `js/README.md`, `python/README.md`, and
+`rust/README.md` in the same change. Use a stable, callable canonical ID and
+verify every shown provider ID.
 
 Do not churn the examples for every preview, specialized model, or benchmark
 leader. The example should represent the clearest current default, not merely
