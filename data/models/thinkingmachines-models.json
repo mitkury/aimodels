@@ -2,6 +2,25 @@
   "creator": "thinkingmachines",
   "models": [
     {
+      "id": "thinkingmachines/Inkling-2-Small",
+      "name": "Inkling 2 Small",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-05"
+    },
+    {
       "id": "thinkingmachines/Inkling-Small",
       "name": "Inkling-Small",
       "license": "apache-2.0",

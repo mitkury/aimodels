@@ -13,9 +13,9 @@ The catalog is also the source of truth for [aimodels.dev](https://aimodels.dev)
 Canonical model identity is independent from the provider that serves it:
 
 ```text
-canonical model: claude-fable-5-2
-Claude API:      claude-fable-5-2
-OpenRouter API:  anthropic/claude-fable-5.2
+canonical model: gemini-4-carbon
+Gemini API:     gemini-4-carbon
+OpenRouter API:  google/gemini-4-carbon
 ```
 
 Model files describe what a model is. Provider files describe where it is available and translate the canonical ID when an API expects a prefix, dated snapshot, or other provider-specific form.
@@ -23,28 +23,28 @@ Model files describe what a model is. Provider files describe where it is availa
 ```ts
 import { models } from 'aimodels';
 
-const model = models.id('claude-fable-5-2');
-model?.idFor('openrouter'); // anthropic/claude-fable-5.2
+const model = models.id('gemini-4-carbon');
+model?.idFor('openrouter'); // google/gemini-4-carbon
 
-models.fromProviderId('openrouter', 'anthropic/claude-fable-5.2'); // canonical Model
+models.fromProviderId('openrouter', 'google/gemini-4-carbon'); // canonical Model
 ```
 
 ```python
 from aimodels import models
 
-model = models.id("claude-fable-5-2")
-model.id_for("openrouter")  # anthropic/claude-fable-5.2
+model = models.id("gemini-4-carbon")
+model.id_for("openrouter")  # google/gemini-4-carbon
 
-models.from_provider_id("openrouter", "anthropic/claude-fable-5.2")
+models.from_provider_id("openrouter", "google/gemini-4-carbon")
 ```
 
 ```rust
 use aimodels::models;
 
-let model = models().id("claude-fable-5-2").unwrap();
-model.id_for("openrouter"); // Some("anthropic/claude-fable-5.2")
+let model = models().id("gemini-4-carbon").unwrap();
+model.id_for("openrouter"); // Some("google/gemini-4-carbon")
 
-models().from_provider_id("openrouter", "anthropic/claude-fable-5.2"); // canonical Model
+models().from_provider_id("openrouter", "google/gemini-4-carbon"); // canonical Model
 ```
 
 ## Repository structure

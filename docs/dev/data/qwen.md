@@ -62,3 +62,12 @@ documents Apache-2.0 weights, image and video understanding, reasoning,
 tool calling, and 262,144 native context tokens. The model can be served
 with a longer configured context. Use the native limit and the separately
 verified OpenRouter route.
+
+## November 12, 2026 audit
+
+Alibaba's [Qwen4-Max-Preview guide](https://help.aliyun.com/en/model-studio/qwen4-max-preview)
+lists the November 11 launch, 1M context, and 393,216 output tokens shared by
+thinking and the final answer. It documents image and video input, tools,
+and JSON Schema output. Access requires the Beijing
+[Token Plan endpoint](https://help.aliyun.com/en/model-studio/base-url) and
+its dedicated key. The preview runs through November 25 China time.

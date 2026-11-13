@@ -2,6 +2,71 @@
   "creator": "baidu",
   "models": [
     {
+      "id": "ernie-5.5-flash-preview",
+      "name": "ERNIE 5.5 Flash Preview",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "reason",
+        "fn-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 1000000
+      },
+      "releasedAt": "2026-11-11"
+    },
+    {
+      "id": "ernie-light-dt-1.0",
+      "name": "ERNIE Light DT 1.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "reason",
+        "fn-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1024000,
+        "maxOutput": 131072
+      }
+    },
+    {
+      "id": "ernie-wizshot-me",
+      "name": "ERNIE Wizshot ME",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in",
+        "video-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1080p"
+        ]
+      }
+    },
+    {
+      "id": "baidu/ERNIE-5.5-Flash-Base",
+      "name": "ERNIE 5.5 Flash Base",
+      "license": "ernie-5.5-flash-base-model-license-v1.0",
+      "capabilities": [
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "baidu/ERNIE-4.5-21B-A3B-Thinking",
       "name": "ERNIE 4.5 21B A3B Thinking",
       "license": "apache-2.0",

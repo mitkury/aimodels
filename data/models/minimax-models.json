@@ -2,6 +2,42 @@
   "creator": "minimax",
   "models": [
     {
+      "id": "MiniMax-H3-Image",
+      "name": "MiniMax H3 Image",
+      "license": "minimax-h3-image-community-license-agreement",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 10,
+        "sizes": [
+          "1024x1024",
+          "2048x2048",
+          "4096x4096"
+        ]
+      },
+      "releasedAt": "2026-11-10"
+    },
+    {
+      "id": "MiniMax-H3-Image-Highspeed",
+      "name": "MiniMax H3 Image Highspeed",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 10,
+        "sizes": [
+          "1024x1024",
+          "2048x2048",
+          "4096x4096"
+        ]
+      }
+    },
+    {
       "id": "MiniMax-M3.1-Flash",
       "name": "MiniMax M3.1 Flash",
       "license": "minimax-community",

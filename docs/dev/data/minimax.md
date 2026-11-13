@@ -52,3 +52,15 @@ is titled **NON-COMMERCIAL LICENSE** and requires separate written permission
 for commercial use; record it as `minimax-m2.7-noncommercial`, not MIT.
 [M2.5's own card](https://huggingface.co/MiniMaxAI/MiniMax-M2.5) identifies
 `modified-mit`; both M2.5 variants override the M2.7 base license.
+
+## November 12, 2026 audit
+
+The [API release notes](https://platform.minimax.io/docs/release-notes/models)
+date MiniMax H3 Image to November 10. The
+[image generation guide](https://platform.minimax.io/docs/guides/image-generation)
+documents both `MiniMax-H3-Image` and `MiniMax-H3-Image-Highspeed` with the
+same text-to-image and editing inputs, up to ten images per request, and
+custom sizes. The catalog lists the square sizes of the three output area
+presets. The [H3 Image checkpoint](https://huggingface.co/MiniMaxAI/MiniMax-H3-Image)
+identifies its community license. A separate Highspeed weight license and
+exact API launch date remain unverified.

@@ -8,6 +8,8 @@
     {
       "creator": "openai",
       "include": [
+        "gpt-image-2.6-sunburst",
+        "gpt-image-2.6-flare",
         "gpt-6-luna",
         "gpt-6-sol",
         "gpt-6.1-sol",
@@ -75,6 +77,8 @@
     {
       "creator": "google",
       "include": [
+        "gemini-4-carbon",
+        "gemini-4-hydrogen",
         "gemini-omni-1.2-flash",
         "gemini-omni-1.1-flash",
         "gemini-nano-banana-2.1",
@@ -219,9 +223,11 @@
     {
       "creator": "thinkingmachines",
       "include": [
+        "thinkingmachines/Inkling-2-Small",
         "thinkingmachines/Inkling-Small"
       ],
       "idOverrides": {
+        "thinkingmachines/Inkling-2-Small": "thinkingmachines/inkling-2-small",
         "thinkingmachines/Inkling-Small": "thinkingmachines/inkling-small"
       }
     },
@@ -236,9 +242,13 @@
     {
       "creator": "minimax",
       "include": [
+        "MiniMax-H3-Image",
+        "MiniMax-H3-Image-Highspeed",
         "MiniMax-M3.1-Flash"
       ],
       "idOverrides": {
+        "MiniMax-H3-Image": "minimax/minimax-h3-image",
+        "MiniMax-H3-Image-Highspeed": "minimax/minimax-h3-image-highspeed",
         "MiniMax-M3.1-Flash": "minimax/minimax-m3.1-flash"
       }
     },
@@ -312,6 +322,26 @@
         "command-r7b-12-2024": "cohere/command-r7b-12-2024",
         "command-r-08-2024": "cohere/command-r-08-2024",
         "command-r-plus-08-2024": "cohere/command-r-plus-08-2024"
+      }
+    },
+    {
+      "creator": "baidu",
+      "include": [
+        "ernie-5.5-flash-preview",
+        "ernie-light-dt-1.0"
+      ],
+      "idOverrides": {
+        "ernie-5.5-flash-preview": "baidu/ernie-5.5-flash-preview:free",
+        "ernie-light-dt-1.0": "baidu/ernie-light-dt-1.0-intl"
+      }
+    },
+    {
+      "creator": "bytedance",
+      "include": [
+        "doubao-seedream-5-5-261028"
+      ],
+      "idOverrides": {
+        "doubao-seedream-5-5-261028": "bytedance-seed/seedream-5-5"
       }
     }
   ]

@@ -1,0 +1,17 @@
+{
+  "id": "baidu-qianfan-cn",
+  "name": "Baidu Qianfan (China)",
+  "apiUrl": "https://qianfan.baidubce.com/v2",
+  "apiDocsUrl": "https://cloud.baidu.com/doc/qianfan-docs/s/7m95lyy43",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "baidu",
+      "include": [
+        "ernie-5.5-flash-preview",
+        "ernie-light-dt-1.0",
+        "ernie-wizshot-me"
+      ]
+    }
+  ]
+}

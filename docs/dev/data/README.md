@@ -96,3 +96,47 @@ Tencent's release-history page could not be retrieved; its
 still lists Hy4 Preview. No new Tencent mappings were inferred from that
 limited evidence. This is a scoped release check, not a complete historical
 catalog or provider-retirement audit.
+
+## November 12, 2026 audit
+
+Compared the November 9 catalog with current creator release notes, model
+catalogs, and serving-provider listings through November 12. Added Google,
+Qwen, Thinking Machines, MiniMax, ByteDance, and Baidu models. Existing
+Claude Fable 5.2, GPT Image 2.6, Muse Ember, K-EXAONE 2.5, and Ling 3.2 Flash
+records were already present. Provider routes and their sources are recorded
+in the corresponding creator notes.
+
+The review included [Ant Ling](https://developer.ant-ling.com/en/docs/getting-started/changelog),
+[Anthropic](https://platform.claude.com/docs/en/release-notes/overview),
+[Amazon Nova](https://docs.aws.amazon.com/nova/latest/nova2-userguide/what-is-nova-2.html),
+[Baidu](https://ernie.baidu.com/research/),
+[Cohere](https://docs.cohere.com/v2/changelog),
+[DeepSeek](https://api-docs.deepseek.com/updates/),
+[Google](https://aistudio.google.com/docs/changelog),
+[Moonshot](https://platform.kimi.ai/docs/models),
+[LG AI Research](https://docs.exaone.ai/en/docs/models),
+[Liquid AI](https://docs.liquid.ai/api/models),
+[LongCat](https://longcat.chat/platform/docs/ChangeLog.html),
+[Meta](https://dev.meta.ai/docs/models.md),
+[MiniMax](https://platform.minimax.io/docs/release-notes/models),
+[Mistral](https://docs.mistral.ai/resources/changelogs),
+[NVIDIA](https://build.nvidia.com/models),
+[OpenAI](https://developers.openai.com/api/docs/changelog),
+[Qwen](https://help.aliyun.com/en/model-studio/models),
+[StepFun](https://platform.stepfun.com/),
+[Tencent](https://cloud.tencent.com/document/product/1823/130060),
+[Thinking Machines](https://tinker-docs.thinkingmachines.ai/tinker/models/),
+[xAI](https://docs.x.ai/developers/release-notes),
+[Xiaomi](https://mimo.mi.com/docs/updates/model), and
+[Z.ai](https://docs.z.ai/release-notes/new-released). ByteDance's Seed releases
+and OpenBMB's published checkpoints were also checked.
+
+Serving checks covered [Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html),
+[Groq](https://console.groq.com/docs/models), [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/claude-models),
+[Ollama](https://ollama.com/search?o=newest), [OpenRouter](https://openrouter.ai/api/v1/models),
+[Oracle](https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm),
+and [Together](https://docs.together.ai/docs/serverless/models). The review
+focused on recent releases and their routes. Thinking Machines announced
+NVIDIA access for Inkling 2 Small, and the NVIDIA listing checked did not
+establish its callable API ID. Account-specific deployments and historical
+retirements require separate verification.

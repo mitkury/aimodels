@@ -8,6 +8,7 @@
     {
       "creator": "thinkingmachines",
       "include": [
+        "thinkingmachines/Inkling-2-Small",
         "thinkingmachines/Inkling"
       ],
       "idOverrides": {

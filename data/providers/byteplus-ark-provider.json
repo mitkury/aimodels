@@ -1,0 +1,18 @@
+{
+  "id": "byteplus-ark",
+  "name": "BytePlus ModelArk",
+  "apiUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+  "apiDocsUrl": "https://docs.byteplus.com/en/docs/ModelArk/seedream-5-5",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "bytedance",
+      "include": [
+        "doubao-seedream-5-5-261028"
+      ],
+      "idOverrides": {
+        "doubao-seedream-5-5-261028": "dola-seedream-5-5-261028"
+      }
+    }
+  ]
+}

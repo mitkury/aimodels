@@ -137,3 +137,18 @@ serving 1.1 until Google's December 3 redirect.
 Remove the retired `text-embedding-004` record. The January 14 release notes
 confirm its shutdown. [Gemini 4 Carbon](https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/)
 is still in restricted pre-release testing, with no verified Gemini API ID.
+
+## November 12, 2026 audit
+
+The [Gemini API changelog](https://aistudio.google.com/docs/changelog) dates
+Carbon to November 10, Decision 1 to November 11, and Hydrogen to November 12.
+The [model catalog](https://aistudio.google.com/docs/models) lists 1M context
+and 65K default output for both Gemini 4 models. The
+[Carbon model card](https://aistudio.google.com/docs/models/gemini-4-carbon)
+gives the exact context and standard synchronous limits. Both models support
+long decode beyond that standard output limit. OpenRouter lists both IDs.
+
+[Gemini Decision 1](https://aistudio.google.com/docs/decisions-api) accepts
+text, images, audio, and video. The 262,144-token limit includes all questions
+and their shared input. The Decisions API returns scores in a fixed response
+structure and generates zero output tokens.

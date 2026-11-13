@@ -8,7 +8,12 @@
     {
       "creator": "baidu",
       "include": "all",
-      "exclude": ["baidu/ERNIE-4.5-21B-A3B-Thinking"]
+      "exclude": [
+        "baidu/ERNIE-4.5-21B-A3B-Thinking",
+        "baidu/ERNIE-5.5-Flash-Base",
+        "ernie-light-dt-1.0",
+        "ernie-wizshot-me"
+      ]
     },
     {
       "creator": "deepseek",

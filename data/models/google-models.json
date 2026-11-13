@@ -2,6 +2,67 @@
   "creator": "google",
   "models": [
     {
+      "id": "gemini-4-carbon",
+      "name": "Gemini 4 Carbon",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-11-10"
+    },
+    {
+      "id": "gemini-4-hydrogen",
+      "name": "Gemini 4 Hydrogen",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": 65536
+      },
+      "releasedAt": "2026-11-12"
+    },
+    {
+      "id": "gemini-decision-1",
+      "name": "Gemini Decision 1",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in",
+        "video-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-11"
+    },
+    {
       "id": "gemini-omni-1.2-flash",
       "name": "Gemini Omni 1.2 Flash",
       "license": "proprietary",

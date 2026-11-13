@@ -1,0 +1,15 @@
+{
+  "id": "volcano-ark",
+  "name": "Volcano Ark",
+  "apiUrl": "https://ark.cn-beijing.volces.com/api/v3",
+  "apiDocsUrl": "https://console.volcengine.com/ark/region:cn-beijing/docs/seedream-5-5",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "bytedance",
+      "include": [
+        "doubao-seedream-5-5-261028"
+      ]
+    }
+  ]
+}

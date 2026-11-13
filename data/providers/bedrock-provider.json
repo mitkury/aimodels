@@ -12,6 +12,7 @@
     {
       "creator": "anthropic",
       "include": [
+        "claude-mythos-5-2",
         "claude-fable-5-2",
         "claude-haiku-5-5",
         "claude-sonnet-5-5",
@@ -19,6 +20,7 @@
         "claude-opus-5"
       ],
       "idOverrides": {
+        "claude-mythos-5-2": "anthropic.claude-mythos-5-2",
         "claude-fable-5-2": "anthropic.claude-fable-5-2",
         "claude-opus-5": "anthropic.claude-opus-5",
         "claude-opus-5-5": "anthropic.claude-opus-5-5",

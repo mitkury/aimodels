@@ -31,3 +31,22 @@ API release date and a public weight license remain unverified.
 The [ERNIE 4.5 21B A3B Thinking card](https://huggingface.co/baidu/ERNIE-4.5-21B-A3B-Thinking)
 documents Apache-2.0 weights, 131,072 context tokens, and function calling.
 The first-party checkpoint ID is for self-hosting.
+
+## November 12, 2026 audit
+
+[Baidu's announcement](https://ernie.baidu.com/release/ernie-5-5-flash-preview/)
+and the [Qianfan catalog](https://cloud.baidu.com/doc/qianfan-docs/s/7m95lyy43)
+establish the text-only ERNIE 5.5 Flash Preview and ERNIE Light DT 1.0 API IDs.
+The [international catalog](https://intl.cloud.baidu.com/en/doc/qianfan/s/7m95lyy43-intl-en)
+also lists the Flash preview. Qianfan lists up to 1M output for Flash Preview,
+while the [launch page](https://cloud.baidu.com/product/qianfan_home/model_3.html)
+describes 64K as the default. For Light DT, Qianfan rounds its context and
+output to 1M and 128K. [OpenRouter](https://openrouter.ai/baidu/ernie-light-dt-1.0-intl)
+gives 1,024,000 and 131,072. OpenRouter documents function calling and
+structured output for both text models.
+
+The [ERNIE Wizshot ME API](https://cloud.baidu.com/doc/qianfan-api/s/8mwbylac7)
+documents `ernie-wizshot-me` with text, image, and audio inputs and a single
+1080p video output. Light DT and Wizshot ME are mapped to the China API.
+The [Flash Base checkpoint](https://huggingface.co/baidu/ERNIE-5.5-Flash-Base)
+has its own published license and a 1,048,576-token inference context.

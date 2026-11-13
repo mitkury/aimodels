@@ -83,3 +83,12 @@ Fable 5.2, both stable Gemini Omni Flash models, Muse Ember, LFM3-1.7B,
 DeepSeek Flash 1017, Qwen3.6 35B A3B, and Ling 3.1 Flash, 3.0 Flash VL, and
 3.0 Tiny. Keep provider spellings in the mappings. OpenRouter still lists
 GPT-4o, whose canonical record was removed in the catalog cleanup.
+
+## November 12, 2026 audit
+
+The [model list](https://openrouter.ai/api/v1/models) and
+[image model list](https://openrouter.ai/api/v1/models?output_modalities=image)
+establish routes for Gemini 4 Carbon and Hydrogen, Inkling 2 Small, both
+MiniMax H3 Image variants, Seedream 5.5, both GPT Image 2.6 variants, and
+ERNIE Light DT 1.0 and Flash Preview. The Flash Preview uses a free-tier
+route. Inkling also has a separately listed free route.

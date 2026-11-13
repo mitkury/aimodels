@@ -47,3 +47,9 @@ documents Fable's Bedrock ID. OpenRouter lists Fable only.
 The [deprecation schedule](https://platform.claude.com/docs/en/about-claude/model-deprecations)
 confirms that Opus 4 and Sonnet 4 retired on June 15, 2026. Keep their records
 for historical lookup and remove Anthropic-native availability.
+
+## November 12, 2026 audit
+
+The [Bedrock Mythos 5.2 card](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-mythos-5-2.html)
+documents the base model ID `anthropic.claude-mythos-5-2`. Bedrock exposes it
+through regional and global inference profiles for approved organizations.

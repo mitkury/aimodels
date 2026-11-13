@@ -2,6 +2,27 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen4-max-preview",
+      "name": "Qwen 4 Max Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "fn-out",
+        "json-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 393216
+      },
+      "releasedAt": "2026-11-11"
+    },
+    {
       "id": "Qwen/Qwen3.6-35B-A3B",
       "name": "Qwen3.6 35B A3B",
       "license": "apache-2.0",

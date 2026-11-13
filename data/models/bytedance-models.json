@@ -2,6 +2,24 @@
   "creator": "bytedance",
   "models": [
     {
+      "id": "doubao-seedream-5-5-261028",
+      "name": "Seedream 5.5",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 100,
+        "sizes": [
+          "1K",
+          "1.5K",
+          "2K"
+        ]
+      }
+    },
+    {
       "id": "ByteDance-Seed/Seed-OSS-36B-Instruct",
       "name": "Seed-OSS-36B Instruct",
       "license": "apache-2.0",

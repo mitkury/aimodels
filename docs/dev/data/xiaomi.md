@@ -43,3 +43,8 @@ Their native API availability ended in October.
 [MiMo V2.6 Distill Qwen 9B](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B)
 is a separate MIT checkpoint for local deployment, with image input, thinking,
 and 262,144 context tokens in its [config](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B/blob/main/config.json).
+
+## November 12, 2026 audit
+
+The [Ollama library](https://ollama.com/library/mimo-v2.6) publishes the
+MiMo V2.6 Distill Qwen 9B checkpoint under `mimo-v2.6`.
