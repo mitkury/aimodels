@@ -1,0 +1,15 @@
+{
+  "id": "perplexity",
+  "name": "Perplexity",
+  "apiUrl": "https://api.perplexity.ai/v1",
+  "apiDocsUrl": "https://docs.perplexity.ai/docs/decisions/quickstart",
+  "models": [
+    {
+      "creator": "perplexity",
+      "include": [
+        "pplx-decider-v1.3",
+        "pplx-decider-flash-v1.3"
+      ]
+    }
+  ]
+}

@@ -16,3 +16,9 @@ and [3.0 Tiny](https://huggingface.co/inclusionAI/Ling-3.0-tiny)
 have MIT weights. Keep the native callable selectors. Tiny records 131,072
 tokens from its [native configuration](https://huggingface.co/inclusionAI/Ling-3.0-tiny/blob/main/config.json).
 Its card describes 256K with YaRN, and OpenRouter advertises that longer limit.
+
+## November 17, 2026 audit
+
+[OpenRouter](https://openrouter.ai/inclusionai/ling-3.2-flash%3Afree)
+serves Ling 3.2 Flash as `inclusionai/ling-3.2-flash:free`. Ant's native
+model selector remains `Ling-3.2-flash`.

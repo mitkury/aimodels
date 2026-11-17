@@ -2,6 +2,27 @@
   "creator": "qwen",
   "models": [
     {
+      "id": "qwen4-max",
+      "name": "Qwen 4 Max",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "video-in",
+        "fn-out",
+        "json-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1000000,
+        "maxOutput": 262144
+      },
+      "releasedAt": "2026-11-16"
+    },
+    {
       "id": "qwen4-max-preview",
       "name": "Qwen 4 Max Preview",
       "license": "proprietary",

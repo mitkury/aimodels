@@ -184,5 +184,47 @@
     "websiteUrl": "https://www.together.ai",
     "country": "USA",
     "founded": 2022
+  },
+  "perplexity": {
+    "name": "Perplexity",
+    "websiteUrl": "https://www.perplexity.ai",
+    "country": "USA",
+    "founded": 2022
+  },
+  "recraft": {
+    "name": "Recraft",
+    "websiteUrl": "https://www.recraft.ai",
+    "country": "GBR",
+    "founded": 2022
+  },
+  "heygen": {
+    "name": "HeyGen",
+    "websiteUrl": "https://www.heygen.com",
+    "country": "USA",
+    "founded": 2020
+  },
+  "salesforce": {
+    "name": "Salesforce",
+    "websiteUrl": "https://www.salesforce.com",
+    "country": "USA",
+    "founded": 1999
+  },
+  "ibm": {
+    "name": "IBM",
+    "websiteUrl": "https://www.ibm.com",
+    "country": "USA",
+    "founded": 1911
+  },
+  "kittenml": {
+    "name": "KittenML",
+    "websiteUrl": "https://kittenml.com",
+    "country": "USA",
+    "founded": 2025
+  },
+  "internlm": {
+    "name": "Shanghai Artificial Intelligence Laboratory",
+    "websiteUrl": "https://www.shlab.org.cn",
+    "country": "CHN",
+    "founded": 2020
   }
 }

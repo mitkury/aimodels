@@ -59,3 +59,21 @@ Restrict Kimi and MiniMax mappings to their currently listed records. Retain
 M2.7 until its November 17 retirement, but remove GLM-5V-Turbo, explicitly
 shut down October 30. Provider-specific output limits remain in these source
 notes; the schema cannot encode them as intrinsic model limits.
+
+## November 17, 2026 audit
+
+[Tencent's November 16 announcement](https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/)
+and [TokenHub model list](https://cloud.tencent.com/document/product/1823/130051)
+document `hy4-flash`, a 1M context, image input, thinking, tools, and
+structured output. TokenHub labels the maximum output as 64K. Vercel's
+published output limit is 64,000. The catalog leaves the exact output limit
+unset. The model is also listed by
+[OpenRouter](https://openrouter.ai/tencent/hy4-flash),
+[Vercel AI Gateway](https://vercel.com/ai-gateway/models/hy4-flash),
+and [ZenMux](https://zenmux.ai/tencent/hy4-flash).
+
+[TokenHub's world-model guide](https://cloud.tencent.com/document/product/1823/136578)
+documents `hy-world2-panorama` for text- and image-conditioned panorama
+generation on its image task endpoint. [OpenRouter](https://openrouter.ai/tencent/hy-world-2.1-panorama)
+uses `tencent/hy-world-2.1-panorama`. TokenHub also lists a separate 3D scene
+model whose output is outside the catalog's current capabilities.

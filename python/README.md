@@ -39,13 +39,13 @@ meta_models = models.from_creator("meta")
 large_context_models = models.with_min_context(32768)
 
 # Find specific model
-model = models.id("gemini-4-carbon")
+model = models.id("qwen4-max")
 print(model.context.total)  # Context window size
-print(model.providerIds)  # ['google', 'openrouter']
+print(model.providerIds)
 
 # Resolve canonical IDs at the provider boundary
-print(model.id_for("openrouter"))  # google/gemini-4-carbon
-canonical = models.from_provider_id("openrouter", "google/gemini-4-carbon")
+print(model.id_for("openrouter"))  # qwen/qwen4-max
+canonical = models.from_provider_id("openrouter", "qwen/qwen4-max")
 
 # Get provider information
 provider = models.get_provider("openai")

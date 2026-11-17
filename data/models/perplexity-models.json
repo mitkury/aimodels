@@ -1,0 +1,35 @@
+{
+  "creator": "perplexity",
+  "models": [
+    {
+      "id": "pplx-decider-v1.3",
+      "name": "Perplexity Decider v1.3",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-12"
+    },
+    {
+      "id": "pplx-decider-flash-v1.3",
+      "name": "Perplexity Decider Flash v1.3",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-12"
+    }
+  ]
+}

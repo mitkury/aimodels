@@ -1,0 +1,33 @@
+{
+  "creator": "heygen",
+  "models": [
+    {
+      "id": "heygen-decision-1",
+      "name": "HeyGen Decision 1",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 0
+      }
+    },
+    {
+      "id": "heygen-decision-1-turbo",
+      "name": "HeyGen Decision 1 Turbo",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": 0
+      }
+    }
+  ]
+}

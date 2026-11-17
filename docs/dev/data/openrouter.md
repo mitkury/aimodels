@@ -92,3 +92,16 @@ establish routes for Gemini 4 Carbon and Hydrogen, Inkling 2 Small, both
 MiniMax H3 Image variants, Seedream 5.5, both GPT Image 2.6 variants, and
 ERNIE Light DT 1.0 and Flash Preview. The Flash Preview uses a free-tier
 route. Inkling also has a separately listed free route.
+
+## November 17, 2026 audit
+
+Verified public model pages for Qwen 4 Max, Hy4 Flash, HY-World 2.1
+Panorama, Seedance 2.5 Flash, Recraft V4.1 Flash V2, Ling 3.2 Flash,
+and the Gemini, HeyGen, Perplexity, and Liquid decision models. The
+creator notes link the exact route IDs. The catalog maps Recraft to its
+standard route and uses the listed free routes for Ling and Perplexity.
+
+Hugging Face's [router documentation](https://huggingface.co/docs/inference-providers/routing)
+and [served model list](https://huggingface.co/inference/models) confirm that
+the Hugging Face endpoint accepts `Qwen/Qwen3.8-27B`. OpenRouter now powers
+Hugging Face's routing. The two public endpoints still take different IDs.

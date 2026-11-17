@@ -152,3 +152,8 @@ long decode beyond that standard output limit. OpenRouter lists both IDs.
 text, images, audio, and video. The 262,144-token limit includes all questions
 and their shared input. The Decisions API returns scores in a fixed response
 structure and generates zero output tokens.
+
+## November 17, 2026 audit
+
+[OpenRouter](https://openrouter.ai/google/gemini-decision-1) now offers
+`google/gemini-decision-1` on its Decisions API.

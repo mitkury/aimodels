@@ -14,3 +14,10 @@ model understands text, images, and video. The API documents a 1M context,
 is an MIT text checkpoint with tools, 68.5B total parameters, about 3B active
 parameters, and 256K context through YaRN. It has no verified route on the
 current LongCat API.
+
+## November 17, 2026 audit
+
+The [LongCat Video Avatar 1.6 model card](https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6)
+documents MIT weights for audio-driven video generation and video
+continuation, with optional text and image conditioning. The checkpoint has
+no verified LongCat API selector.

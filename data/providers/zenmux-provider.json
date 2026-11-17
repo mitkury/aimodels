@@ -1,0 +1,17 @@
+{
+  "id": "zenmux",
+  "name": "ZenMux",
+  "apiUrl": "https://zenmux.ai/api/v1",
+  "apiDocsUrl": "https://zenmux.ai/docs/guide/quickstart",
+  "models": [
+    {
+      "creator": "tencent",
+      "include": [
+        "hy4-flash"
+      ],
+      "idOverrides": {
+        "hy4-flash": "tencent/hy4-flash"
+      }
+    }
+  ]
+}

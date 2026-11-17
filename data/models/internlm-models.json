@@ -1,0 +1,22 @@
+{
+  "creator": "internlm",
+  "models": [
+    {
+      "id": "internlm/Sage-S2.1-Flash",
+      "name": "Sage S2.1 Flash",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      }
+    }
+  ]
+}

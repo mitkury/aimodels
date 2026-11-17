@@ -77,6 +77,7 @@
     {
       "creator": "google",
       "include": [
+        "gemini-decision-1",
         "gemini-4-carbon",
         "gemini-4-hydrogen",
         "gemini-omni-1.2-flash",
@@ -153,6 +154,7 @@
     {
       "creator": "qwen",
       "include": [
+        "qwen4-max",
         "qwen3.8-omni-flash",
         "qwen3.8-max-0902",
         "qwen3.8-flash",
@@ -183,6 +185,7 @@
     {
       "creator": "antgroup",
       "include": [
+        "Ling-3.2-flash",
         "Ling-3.1-flash",
         "Ling-3.0-flash-VL",
         "Ling-3.0-tiny"
@@ -190,16 +193,21 @@
       "idOverrides": {
         "Ling-3.1-flash": "inclusionai/ling-3.1-flash",
         "Ling-3.0-flash-VL": "inclusionai/ling-3.0-flash-vl",
-        "Ling-3.0-tiny": "inclusionai/ling-3.0-tiny"
+        "Ling-3.0-tiny": "inclusionai/ling-3.0-tiny",
+        "Ling-3.2-flash": "inclusionai/ling-3.2-flash:free"
       }
     },
     {
       "creator": "liquid",
       "include": [
+        "d1.2-ultra",
+        "d1.2",
         "lfm3-1.7b"
       ],
       "idOverrides": {
-        "lfm3-1.7b": "liquid/lfm-3-1.7b"
+        "lfm3-1.7b": "liquid/lfm-3-1.7b",
+        "d1.2": "liquid/d1.2",
+        "d1.2-ultra": "liquid/d1.2-ultra"
       }
     },
     {
@@ -215,10 +223,15 @@
     {
       "creator": "tencent",
       "include": [
+        "hy-world2-panorama",
+        "hy4-flash",
         "hy4-preview",
         "hy4"
       ],
-      "idPrefix": "tencent/"
+      "idPrefix": "tencent/",
+      "idOverrides": {
+        "hy-world2-panorama": "tencent/hy-world-2.1-panorama"
+      }
     },
     {
       "creator": "thinkingmachines",
@@ -338,10 +351,43 @@
     {
       "creator": "bytedance",
       "include": [
+        "doubao-seedance-2-5-flash-261115",
         "doubao-seedream-5-5-261028"
       ],
       "idOverrides": {
-        "doubao-seedream-5-5-261028": "bytedance-seed/seedream-5-5"
+        "doubao-seedream-5-5-261028": "bytedance-seed/seedream-5-5",
+        "doubao-seedance-2-5-flash-261115": "bytedance/seedance-2.5-flash"
+      }
+    },
+    {
+      "creator": "perplexity",
+      "include": [
+        "pplx-decider-v1.3",
+        "pplx-decider-flash-v1.3"
+      ],
+      "idOverrides": {
+        "pplx-decider-v1.3": "perplexity/pplx-decider-v1.3:free",
+        "pplx-decider-flash-v1.3": "perplexity/pplx-decider-flash-v1.3:free"
+      }
+    },
+    {
+      "creator": "heygen",
+      "include": [
+        "heygen-decision-1",
+        "heygen-decision-1-turbo"
+      ],
+      "idOverrides": {
+        "heygen-decision-1": "heygen/heygen-decision-1",
+        "heygen-decision-1-turbo": "heygen/heygen-decision-1-turbo"
+      }
+    },
+    {
+      "creator": "recraft",
+      "include": [
+        "recraftv4_1_flash_v2"
+      ],
+      "idOverrides": {
+        "recraftv4_1_flash_v2": "recraft/recraft-v4.1-flash-v2"
       }
     }
   ]

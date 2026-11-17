@@ -1,0 +1,14 @@
+{
+  "id": "recraft",
+  "name": "Recraft",
+  "apiUrl": "https://external.api.recraft.ai/v1",
+  "apiDocsUrl": "https://www.recraft.ai/docs",
+  "models": [
+    {
+      "creator": "recraft",
+      "include": [
+        "recraftv4_1_flash_v2"
+      ]
+    }
+  ]
+}

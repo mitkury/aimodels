@@ -1,0 +1,14 @@
+{
+  "id": "hugging-face",
+  "name": "Hugging Face Inference Providers",
+  "apiUrl": "https://router.huggingface.co/v1",
+  "apiDocsUrl": "https://huggingface.co/docs/inference-providers/routing",
+  "models": [
+    {
+      "creator": "qwen",
+      "include": [
+        "Qwen/Qwen3.8-27B"
+      ]
+    }
+  ]
+}

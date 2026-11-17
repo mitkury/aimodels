@@ -1,0 +1,15 @@
+{
+  "id": "liquid-decisions",
+  "name": "Liquid AI Decisions",
+  "apiUrl": "https://api.liquid.ai/decisions/v1",
+  "apiDocsUrl": "https://www.liquid.ai/blog/d1-2",
+  "models": [
+    {
+      "creator": "liquid",
+      "include": [
+        "d1.2",
+        "d1.2-ultra"
+      ]
+    }
+  ]
+}

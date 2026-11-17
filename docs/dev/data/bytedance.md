@@ -18,3 +18,12 @@ Standard generation and editing return one image. The first public API day
 is unverified. [BytePlus ModelArk](https://docs.byteplus.com/en/docs/ModelArk/seedream-5-5)
 uses `dola-seedream-5-5-261028` on its own endpoint. OpenRouter lists
 `bytedance-seed/seedream-5-5`.
+
+## November 17, 2026 audit
+
+[Volcano Ark's release notes](https://console.volcengine.com/ark/region:cn-beijing/docs/model-release-announcement)
+list `doubao-seedance-2-5-flash-261115` for video generation, editing, and
+extension at 480p and 720p. [BytePlus ModelArk](https://docs.byteplus.com/en/docs/ModelArk/seedance-2-5)
+uses `dreamina-seedance-2-5-flash-261115`. [OpenRouter](https://openrouter.ai/bytedance/seedance-2.5-flash)
+uses `bytedance/seedance-2.5-flash` on its video API. The snapshot suffix
+does not establish the first public API date.

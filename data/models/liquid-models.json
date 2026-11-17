@@ -2,6 +2,38 @@
   "creator": "liquid",
   "models": [
     {
+      "id": "d1.2",
+      "name": "d1.2",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-16"
+    },
+    {
+      "id": "d1.2-ultra",
+      "name": "d1.2-ultra",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-16"
+    },
+    {
       "id": "lfm3-1.7b",
       "name": "LFM3-1.7B",
       "license": "lfm1.0",

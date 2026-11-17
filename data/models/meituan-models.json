@@ -2,6 +2,23 @@
   "creator": "meituan",
   "models": [
     {
+      "id": "meituan-longcat/LongCat-Video-Avatar-1.6",
+      "name": "LongCat Video Avatar 1.6",
+      "license": "mit",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "LongCat-2.5",
       "name": "LongCat 2.5",
       "license": "mit",

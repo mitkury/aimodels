@@ -1,0 +1,46 @@
+{
+  "id": "vercel-ai-gateway",
+  "name": "Vercel AI Gateway",
+  "apiUrl": "https://ai-gateway.vercel.sh/v1",
+  "apiDocsUrl": "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions",
+  "models": [
+    {
+      "creator": "thinkingmachines",
+      "include": [
+        "thinkingmachines/Inkling-2-Small"
+      ],
+      "idOverrides": {
+        "thinkingmachines/Inkling-2-Small": "thinkingmachines/inkling-2-small"
+      }
+    },
+    {
+      "creator": "qwen",
+      "include": [
+        "qwen4-max"
+      ],
+      "idOverrides": {
+        "qwen4-max": "alibaba/qwen4-max"
+      }
+    },
+    {
+      "creator": "tencent",
+      "include": [
+        "hy4-flash"
+      ],
+      "idOverrides": {
+        "hy4-flash": "tencent/hy4-flash"
+      }
+    },
+    {
+      "creator": "perplexity",
+      "include": [
+        "pplx-decider-v1.3",
+        "pplx-decider-flash-v1.3"
+      ],
+      "idOverrides": {
+        "pplx-decider-v1.3": "perplexity/pplx-decider-v1.3",
+        "pplx-decider-flash-v1.3": "perplexity/pplx-decider-flash-v1.3"
+      }
+    }
+  ]
+}

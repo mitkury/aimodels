@@ -1,0 +1,20 @@
+{
+  "creator": "salesforce",
+  "models": [
+    {
+      "id": "salesforce-sovereign-intelligence/SOV-Transcribe-1",
+      "name": "SOV-Transcribe-1",
+      "license": "apache-2.0",
+      "capabilities": [
+        "audio-in",
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "audio-in",
+        "total": null,
+        "maxOutput": null
+      }
+    }
+  ]
+}

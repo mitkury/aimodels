@@ -3,5 +3,15 @@
   "name": "Liquid AI",
   "apiUrl": "https://api.liquid.ai/openai/v1",
   "apiDocsUrl": "https://docs.liquid.ai/api/overview",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "liquid",
+      "include": "all",
+      "exclude": [
+        "d1.2",
+        "d1.2-ultra"
+      ]
+    }
+  ]
 }

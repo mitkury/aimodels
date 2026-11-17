@@ -2,6 +2,23 @@
   "creator": "bytedance",
   "models": [
     {
+      "id": "doubao-seedance-2-5-flash-261115",
+      "name": "Seedance 2.5 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "audio-in",
+        "video-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "doubao-seedream-5-5-261028",
       "name": "Seedream 5.5",
       "license": "proprietary",

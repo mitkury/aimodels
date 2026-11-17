@@ -71,3 +71,16 @@ thinking and the final answer. It documents image and video input, tools,
 and JSON Schema output. Access requires the Beijing
 [Token Plan endpoint](https://help.aliyun.com/en/model-studio/base-url) and
 its dedicated key. The preview runs through November 25 China time.
+
+## November 17, 2026 audit
+
+Alibaba's [launch announcement](https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max?_p_lc=1)
+dates the production release to November 16. The
+[Model Studio guide](https://help.aliyun.com/zh/model-studio/qwen4-max)
+documents the Beijing selector `qwen4-max`, text, image, and video input,
+thinking, tool calls, structured output, and a 1,000,000-token context.
+Maximum output is 262,144 tokens in thinking mode and 131,072 without
+thinking. The earlier preview keeps its separate Token Plan route.
+[OpenRouter](https://openrouter.ai/qwen/qwen4-max) and
+[Vercel AI Gateway](https://vercel.com/ai-gateway/models/providers/alibaba)
+list different namespaces for the production model.

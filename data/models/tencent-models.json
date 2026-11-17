@@ -2,6 +2,40 @@
   "creator": "tencent",
   "models": [
     {
+      "id": "hy4-flash",
+      "name": "Tencent Hy4 Flash",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "img-in",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-16"
+    },
+    {
+      "id": "hy-world2-panorama",
+      "name": "Tencent HY-World 2.1 Panorama",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": []
+      }
+    },
+    {
       "id": "hy4",
       "name": "Tencent Hy4",
       "license": "proprietary",

@@ -1,0 +1,17 @@
+{
+  "id": "ollama-cloud",
+  "name": "Ollama Cloud",
+  "apiUrl": "https://ollama.com/api",
+  "apiDocsUrl": "https://docs.ollama.com/cloud",
+  "models": [
+    {
+      "creator": "thinkingmachines",
+      "include": [
+        "thinkingmachines/Inkling-2-Small"
+      ],
+      "idOverrides": {
+        "thinkingmachines/Inkling-2-Small": "inkling-2-small"
+      }
+    }
+  ]
+}

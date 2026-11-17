@@ -11,7 +11,10 @@ metadata. Read the page that matches the model file being changed:
 - [Cohere](./cohere.md)
 - [DeepSeek](./deepseek.md)
 - [Google](./google.md)
+- [HeyGen](./heygen.md)
+- [IBM](./ibm.md)
 - [Kimi](./kimi.md)
+- [KittenML](./kittenml.md)
 - [LG AI Research](./lgai.md)
 - [Liquid AI](./liquid.md)
 - [Meta](./meta.md)
@@ -21,7 +24,11 @@ metadata. Read the page that matches the model file being changed:
 - [NVIDIA](./nvidia.md)
 - [OpenAI](./openai.md)
 - [OpenBMB](./openbmb.md)
+- [Perplexity](./perplexity.md)
 - [Qwen](./qwen.md)
+- [Recraft](./recraft.md)
+- [Salesforce](./salesforce.md)
+- [Shanghai Artificial Intelligence Laboratory](./internlm.md)
 - [StepFun](./stepfun.md)
 - [Thinking Machines Lab](./thinkingmachines.md)
 - [Tencent](./tencent.md)
@@ -140,3 +147,16 @@ focused on recent releases and their routes. Thinking Machines announced
 NVIDIA access for Inkling 2 Small, and the NVIDIA listing checked did not
 establish its callable API ID. Account-specific deployments and historical
 retirements require separate verification.
+
+## November 17, 2026 audit
+
+Reviewed the November 13–17 findings against the November 12 catalog.
+Added the verified hosted selectors and open-weight records listed in the
+creator notes. [Atlas](https://docs.atlas.worldlabs.ai/images-to-posed-images)
+publishes task endpoints without a documented model selector.
+[Praxis-1 SO-101](https://huggingface.co/collections/runwayml/praxis-1)
+outputs robot control actions, which the catalog cannot represent.
+[Edge0 145B and 120B](https://github.com/Edge0-AI/Edge0) have verified local
+selectors, but the project information required for a creator entry
+could not be verified. Precision variants of the same checkpoint are
+documented with the model rather than registered as separate releases.

@@ -1,0 +1,37 @@
+{
+  "creator": "ibm",
+  "models": [
+    {
+      "id": "ibm-granite/granite-4.1-3b-llmon-preview",
+      "name": "Granite 4.1 3B LLMON Preview",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "ibm-granite/granite-4.1-8b-llmon-preview",
+      "name": "Granite 4.1 8B LLMON Preview",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      }
+    }
+  ]
+}

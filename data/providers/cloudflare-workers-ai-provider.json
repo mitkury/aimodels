@@ -1,0 +1,16 @@
+{
+  "id": "cloudflare-workers-ai",
+  "name": "Cloudflare Workers AI",
+  "apiDocsUrl": "https://developers.cloudflare.com/workers-ai/configuration/open-ai-compatibility/",
+  "models": [
+    {
+      "creator": "thinkingmachines",
+      "include": [
+        "thinkingmachines/Inkling-2-Small"
+      ],
+      "idOverrides": {
+        "thinkingmachines/Inkling-2-Small": "@cf/thinkingmachines/inkling-2-small"
+      }
+    }
+  ]
+}

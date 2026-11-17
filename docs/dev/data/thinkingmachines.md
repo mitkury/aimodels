@@ -38,3 +38,13 @@ describes text and image input, text output, and a 1M architectural context.
 base model ID and a separate 256K configuration. [Together](https://docs.together.ai/docs/serverless/models)
 lists the same case-sensitive model ID with 1,048,576 context and tool use.
 [OpenRouter](https://openrouter.ai/api/v1/models) lists its lower-case route.
+
+## November 17, 2026 audit
+
+[Ollama](https://ollama.com/library/inkling-2-small) lists Inkling 2 Small
+as `inkling-2-small` for its hosted API and `inkling-2-small:cloud` for
+local CLI access to the cloud model.
+[Cloudflare Workers AI](https://developers.cloudflare.com/changelog/post/2026-11-12-inkling-2-small-workers-ai/)
+uses `@cf/thinkingmachines/inkling-2-small` and requires an account ID in
+the REST base URL. [Vercel AI Gateway](https://vercel.com/ai-gateway/models/inkling-2-small)
+uses `thinkingmachines/inkling-2-small`.

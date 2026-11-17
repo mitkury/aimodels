@@ -1,0 +1,47 @@
+{
+  "creator": "kittenml",
+  "models": [
+    {
+      "id": "KittenML/kitten-tts-2-mini",
+      "name": "KittenTTS 2 Mini",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "character",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "KittenML/kitten-tts-2-nano",
+      "name": "KittenTTS 2 Nano",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "character",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "KittenML/kitten-tts-2-pico",
+      "name": "KittenTTS 2 Pico",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "character",
+        "total": null,
+        "maxOutput": null
+      }
+    }
+  ]
+}
