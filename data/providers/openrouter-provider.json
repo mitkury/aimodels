@@ -8,6 +8,8 @@
     {
       "creator": "openai",
       "include": [
+        "gpt-6.2-astra",
+        "gpt-6.2-sol",
         "gpt-image-2.6-sunburst",
         "gpt-image-2.6-flare",
         "gpt-6-luna",

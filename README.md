@@ -13,9 +13,9 @@ The catalog is also the source of truth for [aimodels.dev](https://aimodels.dev)
 Canonical model identity is independent from the provider that serves it:
 
 ```text
-canonical model: qwen4-max
-Alibaba API:    qwen4-max
-OpenRouter API:  qwen/qwen4-max
+canonical model: gpt-6.2-sol
+OpenAI API:      gpt-6.2-sol
+OpenRouter API:  openai/gpt-6.2-sol
 ```
 
 Model files describe what a model is. Provider files describe where it is available and translate the canonical ID when an API expects a prefix, dated snapshot, or other provider-specific form.
@@ -23,28 +23,28 @@ Model files describe what a model is. Provider files describe where it is availa
 ```ts
 import { models } from 'aimodels';
 
-const model = models.id('qwen4-max');
-model?.idFor('openrouter'); // qwen/qwen4-max
+const model = models.id('gpt-6.2-sol');
+model?.idFor('openrouter'); // openai/gpt-6.2-sol
 
-models.fromProviderId('openrouter', 'qwen/qwen4-max'); // canonical Model
+models.fromProviderId('openrouter', 'openai/gpt-6.2-sol'); // canonical Model
 ```
 
 ```python
 from aimodels import models
 
-model = models.id("qwen4-max")
-model.id_for("openrouter")  # qwen/qwen4-max
+model = models.id("gpt-6.2-sol")
+model.id_for("openrouter")  # openai/gpt-6.2-sol
 
-models.from_provider_id("openrouter", "qwen/qwen4-max")
+models.from_provider_id("openrouter", "openai/gpt-6.2-sol")
 ```
 
 ```rust
 use aimodels::models;
 
-let model = models().id("qwen4-max").unwrap();
-model.id_for("openrouter"); // Some("qwen/qwen4-max")
+let model = models().id("gpt-6.2-sol").unwrap();
+model.id_for("openrouter"); // Some("openai/gpt-6.2-sol")
 
-models().from_provider_id("openrouter", "qwen/qwen4-max"); // canonical Model
+models().from_provider_id("openrouter", "openai/gpt-6.2-sol"); // canonical Model
 ```
 
 ## Repository structure

@@ -2,6 +2,30 @@
   "creator": "openai",
   "models": [
     {
+      "id": "gpt-live-1.1",
+      "extends": "gpt-live-1",
+      "overrides": {
+        "name": "GPT-Live-1.1"
+      },
+      "releasedAt": "2026-11-19"
+    },
+    {
+      "id": "gpt-6.2-astra",
+      "extends": "gpt-6-astra",
+      "overrides": {
+        "name": "GPT-6.2 Astra"
+      },
+      "releasedAt": "2026-11-17"
+    },
+    {
+      "id": "gpt-6.2-sol",
+      "extends": "gpt-6-astra",
+      "overrides": {
+        "name": "GPT-6.2 Sol"
+      },
+      "releasedAt": "2026-11-17"
+    },
+    {
       "id": "gpt-6-cyber",
       "extends": "gpt-6-astra",
       "overrides": {

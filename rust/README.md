@@ -21,17 +21,17 @@ cargo add aimodels
 use aimodels::{models, Capability};
 
 // Find a model by canonical ID or alias
-let model = models().id("qwen4-max").unwrap();
+let model = models().id("gpt-6.2-sol").unwrap();
 println!("{}", model.name());
 println!("{:?}", model.provider_ids().collect::<Vec<_>>());
 
 // Read context limits
 let context = model.context().unwrap();
-println!("{:?} in, {:?} out", context.total, context.max_output);
+println!("{:?} context, {:?} output", context.total, context.max_output);
 
 // Resolve canonical IDs at the provider boundary
-assert_eq!(model.id_for("openrouter"), Some("qwen/qwen4-max"));
-let canonical = models().from_provider_id("openrouter", "qwen/qwen4-max");
+assert_eq!(model.id_for("openrouter"), Some("openai/gpt-6.2-sol"));
+let canonical = models().from_provider_id("openrouter", "openai/gpt-6.2-sol");
 
 // Filter by capability, creator, provider, and context size; filters chain
 let vision = models().can(&[Capability::Chat, Capability::ImgIn]);

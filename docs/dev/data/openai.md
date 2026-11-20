@@ -107,3 +107,27 @@ This cleanup drops GPT-4o and its aliases from the catalog. OpenAI still
 lists GPT-4o snapshots for shutdown on January 14, 2027, and OpenRouter still
 lists its route. DALL-E 2 and 3 have already shut down.
 See the [OpenAI deprecation schedule](https://developers.openai.com/api/docs/deprecations).
+
+## November 2026 GPT-6.2 and GPT-Live releases
+
+The [API changelog](https://developers.openai.com/api/docs/changelog) dates
+[GPT-6.2 Astra](https://developers.openai.com/api/docs/models/gpt-6.2-astra) and
+[GPT-6.2 Sol](https://developers.openai.com/api/docs/models/gpt-6.2-sol) to
+November 17. Both accept text and images, return text, and support structured
+outputs, reasoning, and function calling. The context window is 1,050,000 tokens
+with a 128,000-token output limit. OpenAI tool calling requires the Responses API.
+The [OpenRouter model list](https://openrouter.ai/api/v1/models) confirms
+`openai/gpt-6.2-astra` and `openai/gpt-6.2-sol`. Its Pro and batch routes use
+the same underlying models.
+
+Amazon Bedrock confirms U.S. cross-Region inference on `bedrock-runtime` as
+`us.openai.gpt-6.2-astra` and `us.openai.gpt-6.2-sol`. The direct IDs without
+the `us.` prefix use `bedrock-mantle`. See the Bedrock model cards for
+[Astra](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-2-astra.html)
+and [Sol](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-2-sol.html).
+
+[GPT-Live-1.1](https://developers.openai.com/api/docs/models/gpt-live-1.1)
+launched November 19 as `gpt-live-1.1` through the Live API. It retains text
+and audio input/output and function calling. Its model card gives no token
+limits. See the [GPT-Live guide](https://developers.openai.com/api/docs/guides/live)
+for the voice session and backend delegation setup.

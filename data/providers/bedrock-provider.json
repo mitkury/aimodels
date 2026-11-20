@@ -10,6 +10,11 @@
       "include": "all"
     },
     {
+      "creator": "openai",
+      "include": ["gpt-6.2-astra", "gpt-6.2-sol"],
+      "idPrefix": "us.openai."
+    },
+    {
       "creator": "anthropic",
       "include": [
         "claude-mythos-5-2",
