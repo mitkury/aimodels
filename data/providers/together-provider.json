@@ -6,6 +6,20 @@
   "pricing": {},
   "models": [
     {
+      "creator": "tencent",
+      "include": ["hy4"],
+      "idOverrides": {
+        "hy4": "tencent/Hy4"
+      }
+    },
+    {
+      "creator": "qwen",
+      "include": ["qwen4-max"],
+      "idOverrides": {
+        "qwen4-max": "Qwen/Qwen4-Max"
+      }
+    },
+    {
       "creator": "thinkingmachines",
       "include": [
         "thinkingmachines/Inkling-2-Small",

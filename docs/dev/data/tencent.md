@@ -77,3 +77,15 @@ documents `hy-world2-panorama` for text- and image-conditioned panorama
 generation on its image task endpoint. [OpenRouter](https://openrouter.ai/tencent/hy-world-2.1-panorama)
 uses `tencent/hy-world-2.1-panorama`. TokenHub also lists a separate 3D scene
 model whose output is outside the catalog's current capabilities.
+
+## November 19–20, 2026 weight releases
+
+Tencent published [Hy4](https://huggingface.co/tencent/Hy4) and
+[Hy4 Flash](https://huggingface.co/tencent/Hy4-flash) weights under the Tencent
+Hy License, Version 1.0 (`tencent-hy-license`). Both cards link FP8 and
+pretrained base checkpoints. The original TokenHub API release dates and IDs
+are unchanged. The download links do not establish a Hugging Face Inference
+Providers route.
+
+[Together AI](https://www.together.ai/blog/tencent-hy4) launched Hy4 on
+November 19 with the case-sensitive serving ID `tencent/Hy4`.

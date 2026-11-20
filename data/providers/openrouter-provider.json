@@ -79,6 +79,7 @@
     {
       "creator": "google",
       "include": [
+        "gemini-4-neon",
         "gemini-decision-1",
         "gemini-4-carbon",
         "gemini-4-hydrogen",

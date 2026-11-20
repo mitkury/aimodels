@@ -4,7 +4,7 @@
     {
       "id": "hy4-flash",
       "name": "Tencent Hy4 Flash",
-      "license": "proprietary",
+      "license": "tencent-hy-license",
       "capabilities": [
         "chat",
         "txt-in",
@@ -38,7 +38,7 @@
     {
       "id": "hy4",
       "name": "Tencent Hy4",
-      "license": "proprietary",
+      "license": "tencent-hy-license",
       "capabilities": [
         "chat",
         "txt-in",

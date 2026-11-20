@@ -2,6 +2,23 @@
   "creator": "google",
   "models": [
     {
+      "id": "genie-4",
+      "name": "Genie 4",
+      "license": "proprietary",
+      "capabilities": ["txt-in", "img-in", "txt-out", "video-out", "audio-out"],
+      "context": {"type": "token", "total": null, "maxOutput": null},
+      "aliases": ["models/genie-4"],
+      "releasedAt": "2026-11-19"
+    },
+    {
+      "id": "gemini-4-neon",
+      "extends": "gemini-4-carbon",
+      "overrides": {
+        "name": "Gemini 4 Neon"
+      },
+      "releasedAt": "2026-11-18"
+    },
+    {
       "id": "gemini-4-carbon",
       "name": "Gemini 4 Carbon",
       "license": "proprietary",

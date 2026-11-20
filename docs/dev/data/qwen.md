@@ -84,3 +84,6 @@ thinking. The earlier preview keeps its separate Token Plan route.
 [OpenRouter](https://openrouter.ai/qwen/qwen4-max) and
 [Vercel AI Gateway](https://vercel.com/ai-gateway/models/providers/alibaba)
 list different namespaces for the production model.
+
+[Together AI](https://www.together.ai/models/qwen4-max) also lists the
+production model on its serverless API as `Qwen/Qwen4-Max`.

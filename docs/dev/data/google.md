@@ -157,3 +157,20 @@ structure and generates zero output tokens.
 
 [OpenRouter](https://openrouter.ai/google/gemini-decision-1) now offers
 `google/gemini-decision-1` on its Decisions API.
+
+## November 18–19, 2026 releases
+
+The [Gemini API changelog](https://aistudio.google.com/docs/changelog) dates
+`gemini-4-neon` to November 18 and `genie-4` to November 19. The
+[Neon model page](https://aistudio.google.com/docs/models/gemini-4-neon)
+specifies a unified 1,048,576-token context and a default synchronous output
+limit of 65,536 tokens. Long decode can extend the output beyond that default.
+The [OpenRouter model list](https://openrouter.ai/api/v1/models) confirms
+`google/gemini-4-neon`.
+
+[Genie 4](https://deepmind.google/models/model-cards/genie-4/) takes text,
+reference images, and interactive controls. The paid Gemini API streams the
+generated world as 720p video at up to 24 frames per second with synchronized
+audio. The changelog also documents text output billing. Use Live Interactions
+(`v1beta`), where the [Google Gemini cookbook](https://github.com/google-gemini/cookbook)
+uses the resource name `models/genie-4`. No exact token ceiling is recorded.
