@@ -1,0 +1,16 @@
+{
+  "id": "baseten",
+  "name": "Baseten",
+  "apiUrl": "https://inference.baseten.co/v1",
+  "apiDocsUrl": "https://www.baseten.co/resources/changelog/bison-1-and-groundhog-1-available-on-baseten/",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "baseten",
+      "include": [
+        "decision-models/baseten-bison-latest",
+        "decision-models/baseten-groundhog-latest"
+      ]
+    }
+  ]
+}

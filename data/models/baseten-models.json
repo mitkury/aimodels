@@ -1,0 +1,35 @@
+{
+  "creator": "baseten",
+  "models": [
+    {
+      "id": "decision-models/baseten-bison-latest",
+      "name": "Bison 1",
+      "license": "mit-and-apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-20"
+    },
+    {
+      "id": "decision-models/baseten-groundhog-latest",
+      "name": "Groundhog 1",
+      "license": "mit-and-apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-20"
+    }
+  ]
+}

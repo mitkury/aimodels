@@ -3,6 +3,15 @@
   "name": "Ollama",
   "models": [
     {
+      "creator": "thinkingmachines",
+      "include": [
+        "thinkingmachines/Inkling-2-Mini"
+      ],
+      "idOverrides": {
+        "thinkingmachines/Inkling-2-Mini": "inkling-2-mini"
+      }
+    },
+    {
       "creator": "openbmb",
       "include": ["openbmb/MiniCPM5-2B"],
       "idOverrides": {

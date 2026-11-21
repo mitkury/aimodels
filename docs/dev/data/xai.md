@@ -69,3 +69,10 @@ also retires the cataloged `grok-code-fast-1`, `grok-4-fast-non-reasoning`, and
 
 The [current API example](https://docs.x.ai/developers/grok-4-7) uses
 `https://api.x.ai/v1`; replace the obsolete provider API and documentation URLs.
+
+## November 21, 2026 audit
+
+The [November 19 release note](https://docs.x.ai/developers/release-notes)
+states that `grok-build-0.1` reached end of life and is no longer served on the
+xAI API. Preserve the historical model record and exclude its native provider
+route.

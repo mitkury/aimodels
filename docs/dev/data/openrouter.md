@@ -105,3 +105,17 @@ Hugging Face's [router documentation](https://huggingface.co/docs/inference-prov
 and [served model list](https://huggingface.co/inference/models) confirm that
 the Hugging Face endpoint accepts `Qwen/Qwen3.8-27B`. OpenRouter now powers
 Hugging Face's routing. The two public endpoints still take different IDs.
+
+## November 21, 2026 audit
+
+The live [all-modality model list](https://openrouter.ai/api/v1/models?output_modalities=all)
+establishes `thinkingmachines/inkling-2-mini`, `radixark/daisyrose-27b`,
+`baseten/bison-1`, and `baseten/groundhog-1`. The Baseten routes use the
+Decisions API rather than chat completions. The default model-list response
+omits decision-output models, so availability checks must request all output
+modalities.
+
+`mistralai/pixtral-large-2502` also appeared recently, but Mistral's current
+first-party model catalog documents only the deprecated `pixtral-large-2411`.
+Do not create a new canonical model from the aggregator route without a direct
+creator source establishing that identity.

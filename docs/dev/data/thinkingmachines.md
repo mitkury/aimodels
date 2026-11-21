@@ -48,3 +48,19 @@ local CLI access to the cloud model.
 uses `@cf/thinkingmachines/inkling-2-small` and requires an account ID in
 the REST base URL. [Vercel AI Gateway](https://vercel.com/ai-gateway/models/inkling-2-small)
 uses `thinkingmachines/inkling-2-small`.
+
+## November 21, 2026 audit
+
+[Inkling 2 Mini](https://thinkingmachines.ai/news/inkling-2-mini/) launched on
+November 20 with Apache-2.0 open weights. Its
+[model card](https://thinkingmachines.ai/model-card/inkling-2-mini/) and
+[Hugging Face repository](https://huggingface.co/thinkingmachines/Inkling-2-Mini)
+establish text/image input, text output, tool-oriented reasoning, a 1,048,576-
+token context, and the `thinkingmachines/Inkling-2-Mini` selector. The release
+says it is available on Tinker for inference and customization.
+
+[OpenRouter](https://openrouter.ai/thinkingmachines/inkling-2-mini) serves
+`thinkingmachines/inkling-2-mini`, while
+[Ollama](https://ollama.com/library/inkling-2-mini) uses `inkling-2-mini` for
+local inference. Ollama does not currently label the Mini listing as a cloud
+model, so it is not added to Ollama Cloud.

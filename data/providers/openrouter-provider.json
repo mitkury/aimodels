@@ -239,12 +239,34 @@
     {
       "creator": "thinkingmachines",
       "include": [
+        "thinkingmachines/Inkling-2-Mini",
         "thinkingmachines/Inkling-2-Small",
         "thinkingmachines/Inkling-Small"
       ],
       "idOverrides": {
+        "thinkingmachines/Inkling-2-Mini": "thinkingmachines/inkling-2-mini",
         "thinkingmachines/Inkling-2-Small": "thinkingmachines/inkling-2-small",
         "thinkingmachines/Inkling-Small": "thinkingmachines/inkling-small"
+      }
+    },
+    {
+      "creator": "baseten",
+      "include": [
+        "decision-models/baseten-bison-latest",
+        "decision-models/baseten-groundhog-latest"
+      ],
+      "idOverrides": {
+        "decision-models/baseten-bison-latest": "baseten/bison-1",
+        "decision-models/baseten-groundhog-latest": "baseten/groundhog-1"
+      }
+    },
+    {
+      "creator": "radixark",
+      "include": [
+        "RadixArk/DaisyRose-27B"
+      ],
+      "idOverrides": {
+        "RadixArk/DaisyRose-27B": "radixark/daisyrose-27b"
       }
     },
     {

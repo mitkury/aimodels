@@ -7,6 +7,7 @@ metadata. Read the page that matches the model file being changed:
 - [Anthropic](./anthropic.md)
 - [Amazon Web Services](./aws.md)
 - [Baidu](./baidu.md)
+- [Baseten](./baseten.md)
 - [ByteDance Seed](./bytedance.md)
 - [Cohere](./cohere.md)
 - [DeepSeek](./deepseek.md)
@@ -26,6 +27,7 @@ metadata. Read the page that matches the model file being changed:
 - [OpenBMB](./openbmb.md)
 - [Perplexity](./perplexity.md)
 - [Qwen](./qwen.md)
+- [RadixArk](./radixark.md)
 - [Recraft](./recraft.md)
 - [Salesforce](./salesforce.md)
 - [Shanghai Artificial Intelligence Laboratory](./internlm.md)
@@ -160,3 +162,18 @@ outputs robot control actions, which the catalog cannot represent.
 selectors, but the project information required for a creator entry
 could not be verified. Precision variants of the same checkpoint are
 documented with the model rather than registered as separate releases.
+
+## November 21, 2026 audit
+
+Compared current creator and provider catalogs with the November 20 catalog.
+Added Inkling 2 Mini, Bison 1, Groundhog 1, and DaisyRose 27B with their
+verified native, open-weight, OpenRouter, and Ollama selectors. The xAI release
+notes also establish that `grok-build-0.1` reached end of life on November 19;
+the historical model remains cataloged, but its native route is excluded.
+
+The review rechecked the current OpenAI, Anthropic, Gemini, xAI, DeepSeek,
+Qwen, Mistral, Kimi, Bedrock, Together, Groq, Ollama, and OpenRouter catalogs.
+OpenRouter's unfiltered endpoint defaults to text-output models, so decision
+availability was verified with `output_modalities=all`. Pixtral Large 2502 was
+not added: OpenRouter lists a new route, but current first-party Mistral sources
+document only the deprecated `pixtral-large-2411`, not a 2502 model identity.
