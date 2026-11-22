@@ -106,6 +106,8 @@
         "gemini-2.5-pro-preview-06-05",
         "gemini-2.5-flash",
         "gemini-2.5-flash-lite",
+        "gemini-2.5-flash-preview-tts",
+        "gemini-2.5-pro-preview-tts",
         "gemini-3.1-flash-lite-preview",
         "gemma-3-4b-it",
         "gemma-3-12b-it",
@@ -114,7 +116,9 @@
       ],
       "idPrefix": "google/",
       "idOverrides": {
-        "gemini-2.5-pro-preview-06-05": "google/gemini-2.5-pro-preview"
+        "gemini-2.5-pro-preview-06-05": "google/gemini-2.5-pro-preview",
+        "gemini-2.5-flash-preview-tts": "google/gemini-2.5-flash-tts",
+        "gemini-2.5-pro-preview-tts": "google/gemini-2.5-pro-tts"
       }
     },
     {
@@ -388,11 +392,15 @@
       "creator": "perplexity",
       "include": [
         "pplx-decider-v1.3",
-        "pplx-decider-flash-v1.3"
+        "pplx-decider-flash-v1.3",
+        "perplexity-ai/pplx-embed-v2-context-9b",
+        "perplexity-ai/pplx-embed-v2-context-0.6b"
       ],
       "idOverrides": {
         "pplx-decider-v1.3": "perplexity/pplx-decider-v1.3:free",
-        "pplx-decider-flash-v1.3": "perplexity/pplx-decider-flash-v1.3:free"
+        "pplx-decider-flash-v1.3": "perplexity/pplx-decider-flash-v1.3:free",
+        "perplexity-ai/pplx-embed-v2-context-9b": "perplexity/pplx-embed-v2-context-9b",
+        "perplexity-ai/pplx-embed-v2-context-0.6b": "perplexity/pplx-embed-v2-context-0.6b"
       }
     },
     {

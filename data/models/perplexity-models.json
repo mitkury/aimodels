@@ -30,6 +30,40 @@
         "maxOutput": 0
       },
       "releasedAt": "2026-11-12"
+    },
+    {
+      "id": "perplexity-ai/pplx-embed-v2-context-9b",
+      "name": "Perplexity Embed V2 Context 9B",
+      "license": "mit",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": null,
+        "dimensions": 2048,
+        "embeddingType": "multimodal",
+        "normalized": false
+      }
+    },
+    {
+      "id": "perplexity-ai/pplx-embed-v2-context-0.6b",
+      "name": "Perplexity Embed V2 Context 0.6B",
+      "license": "mit",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "vec-out"
+      ],
+      "context": {
+        "type": "embedding",
+        "total": null,
+        "dimensions": 1024,
+        "embeddingType": "multimodal",
+        "normalized": false
+      }
     }
   ]
 }

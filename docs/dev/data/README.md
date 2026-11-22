@@ -177,3 +177,19 @@ OpenRouter's unfiltered endpoint defaults to text-output models, so decision
 availability was verified with `output_modalities=all`. Pixtral Large 2502 was
 not added: OpenRouter lists a new route, but current first-party Mistral sources
 document only the deprecated `pixtral-large-2411`, not a 2502 model identity.
+
+## November 22, 2026 audit
+
+Rechecked current creator and serving catalogs with a 48-hour overlap from the
+November 21 audit. Added Gemini 2.5 Flash and Pro TTS preview records with their
+native Gemini selectors and OpenRouter audio-speech routes. Added Perplexity's
+two contextual embedding checkpoints and their OpenRouter embedding routes;
+their open-weight cards do not establish native Perplexity or Hugging Face
+serving availability.
+
+The generic `qwen/qwen3-tts-1.7b` OpenRouter route remains deferred because
+Qwen's first-party [model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base)
+publishes several distinct 1.7B TTS checkpoints and does not identify which one
+the umbrella route serves. No other verified new
+OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen, Mistral, Kimi, Bedrock,
+Together, Groq, Ollama, or OpenRouter catalog changes were found in the overlap.

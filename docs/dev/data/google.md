@@ -174,3 +174,15 @@ generated world as 720p video at up to 24 frames per second with synchronized
 audio. The changelog also documents text output billing. Use Live Interactions
 (`v1beta`), where the [Google Gemini cookbook](https://github.com/google-gemini/cookbook)
 uses the resource name `models/genie-4`. No exact token ceiling is recorded.
+
+## November 22, 2026 audit
+
+[Gemini 2.5 Flash TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts)
+and [Gemini 2.5 Pro TTS Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts)
+use the native selectors `gemini-2.5-flash-preview-tts` and
+`gemini-2.5-pro-preview-tts`. Both accept text and return audio, with an
+8,192-token input limit and a 16,384-token output limit. OpenRouter lists the
+separate serving IDs [`google/gemini-2.5-flash-tts`](https://openrouter.ai/google/gemini-2.5-flash-tts)
+and [`google/gemini-2.5-pro-tts`](https://openrouter.ai/google/gemini-2.5-pro-tts)
+on its audio speech endpoint. Do not infer a creator release date from the
+OpenRouter route-listing date.

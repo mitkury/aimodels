@@ -119,3 +119,18 @@ modalities.
 first-party model catalog documents only the deprecated `pixtral-large-2411`.
 Do not create a new canonical model from the aggregator route without a direct
 creator source establishing that identity.
+
+## November 22, 2026 audit
+
+The live [all-modality model list](https://openrouter.ai/api/v1/models?output_modalities=all)
+adds audio-speech routes `google/gemini-2.5-flash-tts` and
+`google/gemini-2.5-pro-tts`, plus embedding routes
+`perplexity/pplx-embed-v2-context-9b` and
+`perplexity/pplx-embed-v2-context-0.6b`. The corresponding creator model pages
+establish their canonical identities and intrinsic metadata.
+
+The same list includes `qwen/qwen3-tts-1.7b`, but Qwen's first-party
+[model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base) identifies
+separate Base, CustomVoice, and VoiceDesign 1.7B checkpoints and does not
+document a creator model with the aggregator's umbrella ID. Keep that route
+deferred until its served checkpoint is unambiguous.
