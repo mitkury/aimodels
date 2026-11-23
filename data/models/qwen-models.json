@@ -101,6 +101,20 @@
       }
     },
     {
+      "id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "name": "Qwen3 TTS 12Hz 1.7B CustomVoice",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "audio-out",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "qwen3.8-max",
       "name": "Qwen 3.8 Max",
       "license": "proprietary",

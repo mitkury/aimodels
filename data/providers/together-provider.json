@@ -14,9 +14,13 @@
     },
     {
       "creator": "qwen",
-      "include": ["qwen4-max"],
+      "include": [
+        "qwen4-max",
+        "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+      ],
       "idOverrides": {
-        "qwen4-max": "Qwen/Qwen4-Max"
+        "qwen4-max": "Qwen/Qwen4-Max",
+        "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice": "Qwen/Qwen3-TTS-12Hz-1.7B"
       }
     },
     {

@@ -193,3 +193,17 @@ publishes several distinct 1.7B TTS checkpoints and does not identify which one
 the umbrella route serves. No other verified new
 OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen, Mistral, Kimi, Bedrock,
 Together, Groq, Ollama, or OpenRouter catalog changes were found in the overlap.
+
+## November 23, 2026 audit
+
+The November 20 Together AI launch and current model page establish
+`Qwen/Qwen3-TTS-12Hz-1.7B` as a serverless speech selector for Qwen3 TTS.
+Together and OpenRouter both document the same nine preset voices as Qwen's
+open-weight `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` checkpoint. Added that
+canonical checkpoint with Together and OpenRouter route translations, replacing
+the November 22 deferral after the serving identity became verifiable.
+
+Rechecked official OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen, Mistral,
+Kimi, Bedrock, Together, Groq, Ollama, and all-modality OpenRouter catalogs over
+the November 21–23 overlap. No other new callable model, public-weight release,
+or material provider retirement was verified.

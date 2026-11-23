@@ -165,12 +165,14 @@
         "qwen3.8-omni-flash",
         "qwen3.8-max-0902",
         "qwen3.8-flash",
+        "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
         "Qwen/Qwen3.8-27B",
         "Qwen/Qwen3.6-35B-A3B",
         "Qwen/Qwen3.8-2.4T-A95B"
       ],
       "idPrefix": "qwen/",
       "idOverrides": {
+        "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice": "qwen/qwen3-tts-1.7b",
         "Qwen/Qwen3.6-35B-A3B": "qwen/qwen3.6-35b-a3b",
         "Qwen/Qwen3.8-27B": "qwen/qwen3.8-27b",
         "Qwen/Qwen3.8-2.4T-A95B": "qwen/qwen3.8-2.4t-a95b"

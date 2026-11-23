@@ -87,3 +87,23 @@ list different namespaces for the production model.
 
 [Together AI](https://www.together.ai/models/qwen4-max) also lists the
 production model on its serverless API as `Qwen/Qwen4-Max`.
+
+## November 23, 2026 audit
+
+Qwen's official
+[CustomVoice model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice)
+identifies the Apache-2.0 checkpoint
+`Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice`. It accepts text and generates speech
+with nine preset voices, instruction-controlled delivery, streaming, and ten
+supported languages. The card does not establish a fixed output-duration
+limit, so the catalog leaves the audio limit unknown.
+
+[Together AI's November 20 launch](https://www.together.ai/blog/qwen3-tts)
+serves that nine-voice CustomVoice model through its speech API as
+`Qwen/Qwen3-TTS-12Hz-1.7B`. Its dedicated
+[model page](https://www.together.ai/models/qwen3-tts-12hz-1-7b) confirms the
+same selector and serverless availability. OpenRouter documents the same nine
+voices under `qwen/qwen3-tts-1.7b`. These serving IDs are mapped to the exact
+creator checkpoint rather than registered as separate intrinsic models. The
+checkpoint is not a Model Studio selector and remains excluded from Qwen-native
+availability.

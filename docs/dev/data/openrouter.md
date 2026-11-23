@@ -134,3 +134,13 @@ The same list includes `qwen/qwen3-tts-1.7b`, but Qwen's first-party
 separate Base, CustomVoice, and VoiceDesign 1.7B checkpoints and does not
 document a creator model with the aggregator's umbrella ID. Keep that route
 deferred until its served checkpoint is unambiguous.
+
+## November 23, 2026 audit
+
+[OpenRouter's route page](https://openrouter.ai/qwen/qwen3-tts-1.7b/)
+documents nine preset voices. That exact voice set matches Qwen's
+[`Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice`](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice)
+checkpoint, not the separate Base or VoiceDesign variants. Together AI's
+independent serving documentation confirms the same model behavior and exact
+checkpoint family. This resolves the previous ambiguity, so map
+`qwen/qwen3-tts-1.7b` to the CustomVoice checkpoint.
