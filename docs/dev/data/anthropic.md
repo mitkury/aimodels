@@ -53,3 +53,10 @@ for historical lookup and remove Anthropic-native availability.
 The [Bedrock Mythos 5.2 card](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-mythos-5-2.html)
 documents the base model ID `anthropic.claude-mythos-5-2`. Bedrock exposes it
 through regional and global inference profiles for approved organizations.
+
+## November 24, 2026 audit
+
+The [Claude Platform release notes](https://platform.claude.com/docs/en/release-notes/overview)
+announce that `claude-opus-4-5-20251101` and its `claude-opus-4-5` alias will
+retire from the Claude API on January 22, 2027. The routes remain active during
+the deprecation window, so no provider exclusion is applied yet.

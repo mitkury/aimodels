@@ -101,6 +101,41 @@
       }
     },
     {
+      "id": "qwen-audio-3.1-live",
+      "name": "Qwen Audio 3.1 Live",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "audio-in",
+        "audio-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-23"
+    },
+    {
+      "id": "qwen-audio-3.1-captioner",
+      "name": "Qwen Audio 3.1 Captioner",
+      "license": "proprietary",
+      "capabilities": [
+        "audio-in",
+        "video-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "audio-in",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-23"
+    },
+    {
       "id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
       "name": "Qwen3 TTS 12Hz 1.7B CustomVoice",
       "license": "apache-2.0",

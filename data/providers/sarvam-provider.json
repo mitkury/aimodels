@@ -1,0 +1,16 @@
+{
+  "id": "sarvam",
+  "name": "Sarvam AI",
+  "apiUrl": "https://api.sarvam.ai/v1",
+  "apiDocsUrl": "https://docs.sarvam.ai/api/token-factory/chat-completions",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "sarvam",
+      "include": [
+        "sarvam-105b",
+        "sarvam-105b-conversations"
+      ]
+    }
+  ]
+}

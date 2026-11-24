@@ -107,3 +107,21 @@ voices under `qwen/qwen3-tts-1.7b`. These serving IDs are mapped to the exact
 creator checkpoint rather than registered as separate intrinsic models. The
 checkpoint is not a Model Studio selector and remains excluded from Qwen-native
 availability.
+
+## November 24, 2026 audit
+
+Alibaba Cloud's [release log](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)
+dates `qwen-audio-3.1-live` and `qwen-audio-3.1-captioner` to November 23. The
+[Live model page](https://help.aliyun.com/en/model-studio/qwen-audio-3-1-live)
+documents full-duplex text/audio input and output plus function calling in the
+Beijing and Singapore regions. Its 65,536-token limit applies only to system
+instructions and function configuration text, so it is not recorded as the
+model's total context window.
+
+The [audio-tagging guide](https://help.aliyun.com/en/model-studio/audio-tagging)
+and [HTTP API](https://help.aliyun.com/en/model-studio/qwen-audio-asr-captioner-http-api)
+document the Beijing-only Captioner selector. It accepts one audio or video
+file up to five minutes and returns time-aligned speech, sound, background, and
+scene annotations. File duration is documented here rather than converted to
+an unspecified catalog audio-context unit. Both hosted selectors are included
+by the Qwen-native provider rule.

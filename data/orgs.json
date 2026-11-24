@@ -59,6 +59,12 @@
     "country": "CHN",
     "founded": 2023
   },
+  "sarvam": {
+    "name": "Sarvam AI",
+    "websiteUrl": "https://www.sarvam.ai",
+    "country": "IND",
+    "founded": 2023
+  },
   "kimi": {
     "name": "Moonshot AI",
     "websiteUrl": "https://www.moonshot.ai",

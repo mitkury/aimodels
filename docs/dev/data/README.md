@@ -30,6 +30,7 @@ metadata. Read the page that matches the model file being changed:
 - [RadixArk](./radixark.md)
 - [Recraft](./recraft.md)
 - [Salesforce](./salesforce.md)
+- [Sarvam AI](./sarvam.md)
 - [Shanghai Artificial Intelligence Laboratory](./internlm.md)
 - [StepFun](./stepfun.md)
 - [Thinking Machines Lab](./thinkingmachines.md)
@@ -207,3 +208,23 @@ Rechecked official OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen, Mistral,
 Kimi, Bedrock, Together, Groq, Ollama, and all-modality OpenRouter catalogs over
 the November 21–23 overlap. No other new callable model, public-weight release,
 or material provider retirement was verified.
+
+## November 24, 2026 audit
+
+Rechecked the November 22–24 overlap against current creator release notes,
+model cards, hosting catalogs, and AIModels main. Added Qwen Audio 3.1 Live and
+Captioner with their native Model Studio selectors. Added Sarvam AI as a
+creator and provider, its two current API selectors, and the open-weight
+Sarvam-105B-1711 checkpoint. The creator notes record the exact capability and
+availability evidence.
+
+Anthropic announced the future retirement of Claude Opus 4.5 on January 22,
+2027; its currently active native routes remain cataloged. Z.ai's GLM-5.4 was
+not added: the November 23 launch is limited to ZCode and GLM Coding Plan, while
+the official announcement says the general API is coming soon and open weights
+will follow after safety hardening. No route was inferred from the app release.
+
+OpenRouter's all-modality model list had no entries newer than November 21.
+Current OpenAI, Gemini, xAI, DeepSeek, Mistral, Bedrock, Together, Groq, and
+Ollama catalogs did not establish another unrecorded model or route in the
+overlap.

@@ -1,0 +1,58 @@
+{
+  "creator": "sarvam",
+  "models": [
+    {
+      "id": "sarvam-105b",
+      "name": "Sarvam 105B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "sarvam-105b-conversations",
+      "extends": "sarvam-105b",
+      "overrides": {
+        "name": "Sarvam 105B Conversations",
+        "capabilities": [
+          "chat",
+          "txt-in",
+          "txt-out",
+          "fn-out"
+        ],
+        "context": {
+          "type": "token",
+          "total": 32768,
+          "maxOutput": null
+        }
+      }
+    },
+    {
+      "id": "sarvamai/sarvam-105b-1711",
+      "name": "Sarvam 105B 1711",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-22"
+    }
+  ]
+}
