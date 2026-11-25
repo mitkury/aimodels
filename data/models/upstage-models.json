@@ -1,0 +1,50 @@
+{
+  "creator": "upstage",
+  "models": [
+    {
+      "id": "solar-mini-4-5-preview",
+      "name": "Solar Mini 4.5 Preview",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 524288,
+        "maxOutput": 131072
+      },
+      "releasedAt": "2026-11-23"
+    },
+    {
+      "id": "solar-pro-4",
+      "name": "Solar Pro 4",
+      "license": "proprietary",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "json-out",
+        "fn-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 524288,
+        "maxOutput": 131072
+      },
+      "aliases": [
+        "solar-pro4",
+        "solar-pro-4-260806",
+        "solar-pro4-260806",
+        "solar-pro-4-contributor",
+        "solar-pro-4-260806-contributor"
+      ],
+      "releasedAt": "2026-08-20"
+    }
+  ]
+}

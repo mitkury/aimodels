@@ -318,13 +318,28 @@
       }
     },
     {
+      "creator": "upstage",
+      "include": [
+        "solar-mini-4-5-preview",
+        "solar-pro-4"
+      ],
+      "idOverrides": {
+        "solar-mini-4-5-preview": "upstage/solar-mini-4-5",
+        "solar-pro-4": "upstage/solar-pro-4-contributor"
+      }
+    },
+    {
       "creator": "xiaomi",
       "include": [
+        "XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
         "mimo-v2.6-pro-ultraspeed",
         "mimo-v2.6-flash",
         "mimo-v2.6-pro"
       ],
-      "idPrefix": "xiaomi/"
+      "idPrefix": "xiaomi/",
+      "idOverrides": {
+        "XiaomiMiMo/MiMo-V2.6-Flash-MOPD": "xiaomi/mimo-v2.6-flash-mopd"
+      }
     },
     {
       "creator": "stepfun",

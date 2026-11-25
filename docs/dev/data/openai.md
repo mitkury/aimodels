@@ -131,3 +131,16 @@ launched November 19 as `gpt-live-1.1` through the Live API. It retains text
 and audio input/output and function calling. Its model card gives no token
 limits. See the [GPT-Live guide](https://developers.openai.com/api/docs/guides/live)
 for the voice session and backend delegation setup.
+
+## November 24, 2026 Healthcare configurations
+
+The [API changelog](https://developers.openai.com/api/docs/changelog) releases
+`gpt-6.2-astra-healthcare`, `gpt-6.2-sol-healthcare`,
+`gpt-6-astra-healthcare`, and `gpt-6.1-sol-healthcare` on the Responses API.
+They pair the named base model with a clinical-question harness and use a
+dedicated medical index when web search is invoked. The
+[pricing page](https://developers.openai.com/api/docs/pricing#specialized-models)
+independently lists all four selectors. Treat these selectable configurations
+as variants of their corresponding base models; do not infer a new context,
+modality, or tool surface. The same changelog updates the moving `chat-latest`
+snapshot on November 24, which does not create a new catalog model.

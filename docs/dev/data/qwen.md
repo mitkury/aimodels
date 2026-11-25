@@ -125,3 +125,12 @@ file up to five minutes and returns time-aligned speech, sound, background, and
 scene annotations. File duration is documented here rather than converted to
 an unspecified catalog audio-context unit. Both hosted selectors are included
 by the Qwen-native provider rule.
+
+## November 25, 2026 Qwen4 Max Preview retirement
+
+Alibaba's [Token Plan updates](https://www.alibabacloud.com/help/en/model-studio/token-plan-product-updates)
+state that `qwen4-max-preview` retired at 10:00 UTC+8 on November 25. The old
+selector remains callable but now automatically routes to `qwen4-max`, with
+production pricing and usage accounting. Keep the preview's historical model
+record, but map current Token Plan availability to `qwen4-max` rather than
+claiming that the preview model is still served.

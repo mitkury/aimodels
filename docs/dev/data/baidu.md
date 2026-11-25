@@ -50,3 +50,13 @@ documents `ernie-wizshot-me` with text, image, and audio inputs and a single
 1080p video output. Light DT and Wizshot ME are mapped to the China API.
 The [Flash Base checkpoint](https://huggingface.co/baidu/ERNIE-5.5-Flash-Base)
 has its own published license and a 1,048,576-token inference context.
+
+## November 24, 2026 weight release
+
+Baidu's [ERNIE 5.5 Flash Preview model card](https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview)
+publishes the post-trained checkpoint as `baidu/ERNIE-5.5-Flash-Preview` under
+Apache-2.0. It is the same named model as the existing Qianfan selector, so the
+checkpoint ID is recorded as an alias and the model's license is updated rather
+than adding a duplicate intrinsic record. The card reports a 1,048,576-token
+self-hosted context, while Qianfan documents rounded hosted limits; retain the
+existing API limits. Hugging Face shows no active Inference Providers route.

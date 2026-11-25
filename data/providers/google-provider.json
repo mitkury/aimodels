@@ -31,7 +31,8 @@
         "veo-3.1-generate-preview",
         "veo-3.1-fast-generate-preview",
         "veo-3.1-lite-generate-preview",
-        "gemini-omni-flash-preview"
+        "gemini-omni-flash-preview",
+        "gemini-4-neon-cyber-permissive"
       ]
     }
   ]

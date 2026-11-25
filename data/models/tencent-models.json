@@ -2,6 +2,37 @@
   "creator": "tencent",
   "models": [
     {
+      "id": "tencent/Hy-MT3-30B-A3B",
+      "name": "Tencent Hy-MT3 30B A3B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 8192,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-24"
+    },
+    {
+      "id": "tencent/Hy-MT3-7B",
+      "extends": "tencent/Hy-MT3-30B-A3B",
+      "overrides": {
+        "name": "Tencent Hy-MT3 7B"
+      },
+      "releasedAt": "2026-11-24"
+    },
+    {
+      "id": "tencent/Hy-MT3-1.8B",
+      "extends": "tencent/Hy-MT3-30B-A3B",
+      "overrides": {
+        "name": "Tencent Hy-MT3 1.8B"
+      },
+      "releasedAt": "2026-11-24"
+    },
+    {
       "id": "hy4-flash",
       "name": "Tencent Hy4 Flash",
       "license": "tencent-hy-license",

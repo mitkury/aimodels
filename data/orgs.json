@@ -101,6 +101,12 @@
     "country": "CHN",
     "founded": 1998
   },
+  "upstage": {
+    "name": "Upstage",
+    "websiteUrl": "https://www.upstage.ai",
+    "country": "KOR",
+    "founded": 2020
+  },
   "xiaomi": {
     "name": "Xiaomi",
     "websiteUrl": "https://www.mi.com",

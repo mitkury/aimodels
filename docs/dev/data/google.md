@@ -186,3 +186,18 @@ separate serving IDs [`google/gemini-2.5-flash-tts`](https://openrouter.ai/googl
 and [`google/gemini-2.5-pro-tts`](https://openrouter.ai/google/gemini-2.5-pro-tts)
 on its audio speech endpoint. Do not infer a creator release date from the
 OpenRouter route-listing date.
+
+## November 23, 2026 Neon for cyber
+
+The [Agent Platform release notes](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes)
+make `gemini-4-neon-cyber-permissive` generally available on November 23 for
+defensive cybersecurity workloads approved through the Fairwind allowlist.
+The [model page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-neon)
+states that it otherwise shares Neon's modalities, unified 1,048,576-token
+limit, thinking levels, computer use, and supported regions. The
+[developer guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-4-neon)
+documents `aiplatform.googleapis.com` GenerateContent requests.
+
+This restricted selector is not a Gemini Developer API route. Exclude it from
+the `generativelanguage.googleapis.com` provider and map it only to the Gemini
+Enterprise Agent Platform provider.

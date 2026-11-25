@@ -48,3 +48,14 @@ and 262,144 context tokens in its [config](https://huggingface.co/XiaomiMiMo/MiM
 
 The [Ollama library](https://ollama.com/library/mimo-v2.6) publishes the
 MiMo V2.6 Distill Qwen 9B checkpoint under `mimo-v2.6`.
+
+## November 23, 2026 MOPD route
+
+Xiaomi's [MiMo V2.6 Flash MOPD card](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-MOPD)
+publishes the MIT checkpoint `XiaomiMiMo/MiMo-V2.6-Flash-MOPD`. It retains
+Flash's text, image, audio, and video inputs, reasoning, tools, structured
+output, and 1,048,576-token context. The MOPD stage improves long-horizon
+specialization and mitigates repeated tool calls, so it is a separate
+post-trained checkpoint rather than a quantization. The current native MiMo API
+model list does not expose that checkpoint ID. OpenRouter added the exact route
+`xiaomi/mimo-v2.6-flash-mopd` on November 23.

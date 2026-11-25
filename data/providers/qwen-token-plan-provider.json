@@ -2,13 +2,13 @@
   "id": "qwen-token-plan",
   "name": "Qwen Token Plan",
   "apiUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
-  "apiDocsUrl": "https://help.aliyun.com/en/model-studio/qwen4-max-preview",
+  "apiDocsUrl": "https://www.alibabacloud.com/help/en/model-studio/token-plan-product-updates",
   "pricing": {},
   "models": [
     {
       "creator": "qwen",
       "include": [
-        "qwen4-max-preview"
+        "qwen4-max"
       ]
     }
   ]

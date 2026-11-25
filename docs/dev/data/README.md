@@ -35,6 +35,7 @@ metadata. Read the page that matches the model file being changed:
 - [StepFun](./stepfun.md)
 - [Thinking Machines Lab](./thinkingmachines.md)
 - [Tencent](./tencent.md)
+- [Upstage](./upstage.md)
 - [Xiaomi](./xiaomi.md)
 - [xAI](./xai.md)
 - [Z.ai](./zai.md)
@@ -228,3 +229,23 @@ OpenRouter's all-modality model list had no entries newer than November 21.
 Current OpenAI, Gemini, xAI, DeepSeek, Mistral, Bedrock, Together, Groq, and
 Ollama catalogs did not establish another unrecorded model or route in the
 overlap.
+
+## November 25, 2026 audit
+
+Rechecked the November 23–25 overlap from the verified November 24 main commit.
+Added OpenAI's four Healthcare Responses API configurations and Google's
+allowlisted `gemini-4-neon-cyber-permissive` Agent Platform route. Added
+Upstage's `solar-mini-4-5-preview`, the previously missing Solar Pro 4 identity,
+and their current OpenRouter routes. The all-modality OpenRouter list also
+established the new `xiaomi/mimo-v2.6-flash-mopd` route.
+
+Public-weight coverage added Tencent's three Apache-2.0 Hy-MT3 translation
+checkpoints and recorded Baidu's Apache-2.0 ERNIE 5.5 Flash Preview weights on
+the existing API model. Alibaba retired `qwen4-max-preview` on November 25;
+the old selector now redirects to `qwen4-max`, so Token Plan availability is
+mapped to the production model while the historical preview record is kept.
+
+The review also rechecked current Anthropic, xAI, DeepSeek, Mistral, Kimi,
+Bedrock, Together, Groq, Ollama, and Hugging Face release sources. OpenAI's
+`chat-latest` snapshot update is not a new model identity. No additional
+verified callable model or material route change was found in those sources.

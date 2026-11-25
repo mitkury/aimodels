@@ -19,6 +19,14 @@
       "releasedAt": "2026-11-18"
     },
     {
+      "id": "gemini-4-neon-cyber-permissive",
+      "extends": "gemini-4-neon",
+      "overrides": {
+        "name": "Gemini 4 Neon for Cyber"
+      },
+      "releasedAt": "2026-11-23"
+    },
+    {
       "id": "gemini-4-carbon",
       "name": "Gemini 4 Carbon",
       "license": "proprietary",

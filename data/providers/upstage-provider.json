@@ -1,0 +1,13 @@
+{
+  "id": "upstage",
+  "name": "Upstage",
+  "apiUrl": "https://api.upstage.ai/v1",
+  "apiDocsUrl": "https://console.upstage.ai/docs",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "upstage",
+      "include": "all"
+    }
+  ]
+}

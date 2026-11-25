@@ -2,6 +2,38 @@
   "creator": "openai",
   "models": [
     {
+      "id": "gpt-6.2-astra-healthcare",
+      "extends": "gpt-6.2-astra",
+      "overrides": {
+        "name": "GPT-6.2 Astra Healthcare"
+      },
+      "releasedAt": "2026-11-24"
+    },
+    {
+      "id": "gpt-6.2-sol-healthcare",
+      "extends": "gpt-6.2-sol",
+      "overrides": {
+        "name": "GPT-6.2 Sol Healthcare"
+      },
+      "releasedAt": "2026-11-24"
+    },
+    {
+      "id": "gpt-6-astra-healthcare",
+      "extends": "gpt-6-astra",
+      "overrides": {
+        "name": "GPT-6 Astra Healthcare"
+      },
+      "releasedAt": "2026-11-24"
+    },
+    {
+      "id": "gpt-6.1-sol-healthcare",
+      "extends": "gpt-6.1-sol",
+      "overrides": {
+        "name": "GPT-6.1 Sol Healthcare"
+      },
+      "releasedAt": "2026-11-24"
+    },
+    {
       "id": "gpt-live-1.1",
       "extends": "gpt-live-1",
       "overrides": {

@@ -1,0 +1,15 @@
+{
+  "id": "google-enterprise",
+  "name": "Gemini Enterprise Agent Platform",
+  "apiUrl": "https://aiplatform.googleapis.com/v1",
+  "apiDocsUrl": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/overview",
+  "pricing": {},
+  "models": [
+    {
+      "creator": "google",
+      "include": [
+        "gemini-4-neon-cyber-permissive"
+      ]
+    }
+  ]
+}

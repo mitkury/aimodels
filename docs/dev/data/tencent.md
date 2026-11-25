@@ -89,3 +89,15 @@ Providers route.
 
 [Together AI](https://www.together.ai/blog/tencent-hy4) launched Hy4 on
 November 19 with the case-sensitive serving ID `tencent/Hy4`.
+
+## November 24, 2026 Hy-MT3 release
+
+Tencent's [Hy-MT3 model card](https://huggingface.co/tencent/Hy-MT3-30B-A3B)
+dates the Apache-2.0 release of `tencent/Hy-MT3-1.8B`,
+`tencent/Hy-MT3-7B`, and `tencent/Hy-MT3-30B-A3B` to November 24. They are
+text-to-text translation checkpoints covering 102 languages. The card's
+deployment section gives an 8,192-token maximum context and recommends, but
+does not define as a hard ceiling, 4,096 generated tokens. Do not replace that
+documented deployment limit with the larger positional value in `config.json`.
+No first-party hosted API or Hugging Face Inference Providers route was
+verified for these checkpoints.

@@ -4,6 +4,7 @@
     {
       "id": "ernie-5.5-flash-preview",
       "name": "ERNIE 5.5 Flash Preview",
+      "license": "apache-2.0",
       "capabilities": [
         "chat",
         "txt-in",
@@ -17,6 +18,9 @@
         "total": 1000000,
         "maxOutput": 1000000
       },
+      "aliases": [
+        "baidu/ERNIE-5.5-Flash-Preview"
+      ],
       "releasedAt": "2026-11-11"
     },
     {

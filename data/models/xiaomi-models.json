@@ -2,6 +2,13 @@
   "creator": "xiaomi",
   "models": [
     {
+      "id": "XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
+      "extends": "mimo-v2.6-flash",
+      "overrides": {
+        "name": "Xiaomi MiMo-V2.6-Flash-MOPD"
+      }
+    },
+    {
       "id": "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
       "name": "MiMo V2.6 Distill Qwen 9B",
       "license": "mit",
