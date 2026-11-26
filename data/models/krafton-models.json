@@ -1,0 +1,23 @@
+{
+  "creator": "krafton",
+  "models": [
+    {
+      "id": "raon-1-mini",
+      "name": "Raon-1 mini",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "reason",
+        "fn-out",
+        "json-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    }
+  ]
+}

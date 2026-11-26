@@ -2,6 +2,24 @@
   "creator": "nvidia",
   "models": [
     {
+      "id": "nvidia/Nemotron-Labs-Image-30B-A3B",
+      "name": "Nemotron Labs Image 30B A3B",
+      "license": "nvidia-license",
+      "capabilities": [
+        "txt-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": [
+          "1024x1024",
+          "1184x880",
+          "1248x832",
+          "880x1184"
+        ]
+      }
+    },
+    {
       "id": "nvidia/nemotron-3.5-super-vl-120b-a12b",
       "name": "NVIDIA Nemotron 3.5 Super VL",
       "license": "openmdw-1.1",

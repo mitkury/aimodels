@@ -1,0 +1,14 @@
+{
+  "id": "volcengine-voice",
+  "name": "Volcengine Doubao Voice",
+  "apiUrl": "https://voice.cn-beijing.volces.com/api/v3",
+  "apiDocsUrl": "https://docs.volcengine.com/docs/doubao-voice/seed-tts-3-0-intro?lang=zh",
+  "models": [
+    {
+      "creator": "bytedance",
+      "include": [
+        "doubao-seed-tts-3.0"
+      ]
+    }
+  ]
+}

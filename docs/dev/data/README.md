@@ -3,6 +3,8 @@
 These pages record the first-party sources used to maintain creator-owned model
 metadata. Read the page that matches the model file being changed:
 
+- [Alibaba Cloud](./alibaba-cloud.md)
+- [Aleph Alpha](./aleph-alpha.md)
 - [Ant Group](./antgroup.md)
 - [Anthropic](./anthropic.md)
 - [Amazon Web Services](./aws.md)
@@ -14,8 +16,11 @@ metadata. Read the page that matches the model file being changed:
 - [Google](./google.md)
 - [HeyGen](./heygen.md)
 - [IBM](./ibm.md)
+- [ILLUIN Technology](./illuin.md)
+- [JetBrains](./jetbrains.md)
 - [Kimi](./kimi.md)
 - [KittenML](./kittenml.md)
+- [KRAFTON](./krafton.md)
 - [LG AI Research](./lgai.md)
 - [Liquid AI](./liquid.md)
 - [Meta](./meta.md)
@@ -249,3 +254,20 @@ The review also rechecked current Anthropic, xAI, DeepSeek, Mistral, Kimi,
 Bedrock, Together, Groq, Ollama, and Hugging Face release sources. OpenAI's
 `chat-latest` snapshot update is not a new model identity. No additional
 verified callable model or material route change was found in those sources.
+
+## November 26, 2026 audit
+
+Rechecked the overlap from the November 25 audit. Added the verified
+Volcengine Voice and OpenRouter speech routes, Alibaba Cloud's System One
+selector, KRAFTON's hosted Raon model, and Tencent's hosted translation
+selectors. Ollama Cloud's direct Hy4 route was a previously missing mapping.
+Creator notes record the additional public checkpoints and the evidence for
+local or hosted use.
+
+The OpenAI, Claude Platform, Gemini API, xAI, DeepSeek and Mistral release
+notes, Alibaba Model Studio catalogs, and Bedrock, Together, Groq, Ollama
+and OpenRouter catalogs were checked. OpenRouter's all-modality and speech
+model lists confirmed the Seed-TTS 3.0 route. NVIDIA's November 26 Parse
+announcement adds training assets and a speculator to the October model.
+Decision Models' changelog shows the core S1 and REAX selectors predate the
+recent gateway listings.

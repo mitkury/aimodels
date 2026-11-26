@@ -9,6 +9,7 @@
       "creator": "nvidia",
       "include": "all",
       "exclude": [
+        "nvidia/Nemotron-Labs-Image-30B-A3B",
         "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
         "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16"
       ]

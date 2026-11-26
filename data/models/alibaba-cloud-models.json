@@ -1,0 +1,20 @@
+{
+  "creator": "alibaba-cloud",
+  "models": [
+    {
+      "id": "decision-model",
+      "name": "Alibaba Cloud Decision Model",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "img-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": 268288,
+        "maxOutput": 0
+      },
+      "releasedAt": "2026-11-25"
+    }
+  ]
+}

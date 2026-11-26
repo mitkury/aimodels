@@ -1,0 +1,21 @@
+{
+  "creator": "jetbrains",
+  "models": [
+    {
+      "id": "JetBrains/Mellum2.1-12B-A2.5B-Instruct",
+      "name": "Mellum2.1 Instruct",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 131072,
+        "maxOutput": null
+      }
+    }
+  ]
+}

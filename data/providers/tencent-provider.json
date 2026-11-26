@@ -7,7 +7,17 @@
   "models": [
     {
       "creator": "tencent",
-      "include": "all"
+      "include": "all",
+      "exclude": [
+        "tencent/WeMM-Ecom-35B-A3B",
+        "tencent/WeMM-Ecom-9B",
+        "tencent/WeMM-Ecom-4B",
+        "tencent/WeMM-Ecom-2B",
+        "tencent/WeMM-Ecom-0.8B",
+        "tencent/Hy-MT3-30B-A3B",
+        "tencent/Hy-MT3-7B",
+        "tencent/Hy-MT3-1.8B"
+      ]
     },
     {
       "creator": "deepseek",

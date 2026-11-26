@@ -1,0 +1,22 @@
+{
+  "creator": "aleph-alpha",
+  "models": [
+    {
+      "id": "Aleph-Alpha/Kolibri-1.1",
+      "name": "Kolibri 1.1",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "reason",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    }
+  ]
+}

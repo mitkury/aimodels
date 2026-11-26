@@ -22,3 +22,10 @@ Its card describes 256K with YaRN, and OpenRouter advertises that longer limit.
 [OpenRouter](https://openrouter.ai/inclusionai/ling-3.2-flash%3Afree)
 serves Ling 3.2 Flash as `inclusionai/ling-3.2-flash:free`. Ant's native
 model selector remains `Ling-3.2-flash`.
+
+## November 26, 2026 audit
+
+The [Ling 3.2 Air card](https://huggingface.co/inclusionAI/Ling-3.2-air)
+publishes MIT weights and documents text, image and video input, reasoning,
+and function calling in local deployments. The 262,144-token setting is in the
+serving recipe. The native model limit and a hosted selector remain unverified.

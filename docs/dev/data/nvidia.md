@@ -46,3 +46,12 @@ and tool calling; Bolt also accepts images/video. Keep their exact checkpoint
 IDs and exclude them from NVIDIA-native API availability. The Bolt LiLiCorr
 repository is only a speculative-decoding companion, not another standalone
 chat model. Output ceilings and native API launch dates remain unset.
+
+## November 26, 2026 audit
+
+[Nemotron Labs Image 30B A3B](https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B)
+has standalone text-to-image weights in the
+[release snapshot](https://huggingface.co/nvidia/Nemotron-Labs-Image-30B-A3B/commit/1bda628830563104bf6bdf53cf0486190251fe5b).
+NVIDIA limits the weights to non-commercial research and evaluation.
+The catalog lists the card's recommended resolutions. The model accepts
+other resolutions and no NVIDIA NIM serving selector was verified.

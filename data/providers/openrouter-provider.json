@@ -397,10 +397,12 @@
     {
       "creator": "bytedance",
       "include": [
+        "doubao-seed-tts-3.0",
         "doubao-seedance-2-5-flash-261115",
         "doubao-seedream-5-5-261028"
       ],
       "idOverrides": {
+        "doubao-seed-tts-3.0": "bytedance-seed/seed-tts-3-0",
         "doubao-seedream-5-5-261028": "bytedance-seed/seedream-5-5",
         "doubao-seedance-2-5-flash-261115": "bytedance/seedance-2.5-flash"
       }

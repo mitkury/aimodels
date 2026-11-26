@@ -27,3 +27,11 @@ extension at 480p and 720p. [BytePlus ModelArk](https://docs.byteplus.com/en/doc
 uses `dreamina-seedance-2-5-flash-261115`. [OpenRouter](https://openrouter.ai/bytedance/seedance-2.5-flash)
 uses `bytedance/seedance-2.5-flash` on its video API. The snapshot suffix
 does not establish the first public API date.
+
+## November 26, 2026 audit
+
+The [Doubao Voice API reference](https://docs.volcengine.com/docs/doubao-voice/seed-tts-3-0-websocket?lang=zh)
+documents `doubao-seed-tts-3.0` as the streaming text-to-speech selector.
+It belongs to Volcengine's voice API. [OpenRouter](https://openrouter.ai/bytedance-seed/seed-tts-3-0)
+lists `bytedance-seed/seed-tts-3-0` as a speech route dated November 25.
+The native release date and common model-wide limits are unverified.

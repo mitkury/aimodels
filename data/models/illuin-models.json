@@ -1,0 +1,17 @@
+{
+  "creator": "illuin",
+  "models": [
+    {
+      "id": "illuin/IVE-4B",
+      "name": "IVE 4B",
+      "license": "apache-2.0",
+      "capabilities": ["txt-in", "img-in"],
+      "context": {"type": "token", "total": null, "maxOutput": 0}
+    },
+    {
+      "id": "illuin/Ivonnet-0.8B",
+      "extends": "illuin/IVE-4B",
+      "overrides": {"name": "Ivonnet 0.8B"}
+    }
+  ]
+}

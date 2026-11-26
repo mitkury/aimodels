@@ -1,0 +1,14 @@
+{
+  "id": "krafton",
+  "name": "KRAFTON Raon",
+  "apiUrl": "https://raon-api.krafton.ai/v1",
+  "apiDocsUrl": "https://raon-mini.krafton.ai/en/docs/models",
+  "models": [
+    {
+      "creator": "krafton",
+      "include": [
+        "raon-1-mini"
+      ]
+    }
+  ]
+}

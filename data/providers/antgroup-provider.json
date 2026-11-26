@@ -3,5 +3,12 @@
   "name": "Ant Ling",
   "apiUrl": "https://api.ant-ling.com/v1",
   "apiDocsUrl": "https://developer.ant-ling.com/en/docs/api-reference/chat/openai",
-  "pricing": {}
+  "pricing": {},
+  "models": [
+    {
+      "creator": "antgroup",
+      "include": "all",
+      "exclude": ["inclusionAI/Ling-3.2-air"]
+    }
+  ]
 }

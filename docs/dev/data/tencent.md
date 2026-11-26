@@ -101,3 +101,26 @@ does not define as a hard ceiling, 4,096 generated tokens. Do not replace that
 documented deployment limit with the larger positional value in `config.json`.
 No first-party hosted API or Hugging Face Inference Providers route was
 verified for these checkpoints.
+
+## November 26, 2026 audit
+
+[TokenHub release history](https://cloud.tencent.com/document/product/1823/130675)
+dates the hosted translation upgrade to November 25. The
+[model catalog](https://cloud.tencent.com/document/product/1823/130051)
+lists `hy-mt3-pro`, `hy-mt3-plus`, and `hy-mt3-lite` and retains
+their respective `hy-mt2-*` aliases. It advertises 8K context and 4K output.
+The hosted tiers are separate catalog records because the docs do not tie
+each tier to an exact public checkpoint.
+
+The [Tencent WeMM-Ecom repo](https://github.com/Tencent/WeMM-Ecom) and
+[35B-A3B card](https://huggingface.co/tencent/WeMM-Ecom-35B-A3B) link five
+Apache-2.0 checkpoints. Each accepts text, images and video, returns text,
+and supports hybrid thinking and a 262,144-token context. The
+[November 24 public release commit](https://github.com/Tencent/WeMM-Ecom/commit/42f2a0e1d9a0a882897edc82ecc0719637aa3722)
+follows the [November 23 weight upload](https://huggingface.co/tencent/WeMM-Ecom-35B-A3B/commit/8f4f44f36d8e34b56a48e0f6f7f101e9b5737e82).
+TokenHub exposes no WeMM-Ecom checkpoint selectors. Exclude those IDs and the earlier Hy-MT3 checkpoint
+IDs from its default coverage.
+
+[Ollama's cloud model list](https://ollama.com/api/tags) reports the direct
+API selector `hy4`. The [library page](https://ollama.com/library/hy4)
+uses `hy4:cloud` for CLI use.

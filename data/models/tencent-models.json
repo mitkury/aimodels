@@ -2,6 +2,103 @@
   "creator": "tencent",
   "models": [
     {
+      "id": "hy-mt3-pro",
+      "name": "Hy-MT3 Pro",
+      "aliases": [
+        "hy-mt2-pro"
+      ],
+      "capabilities": [
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-25"
+    },
+    {
+      "id": "hy-mt3-plus",
+      "name": "Hy-MT3 Plus",
+      "aliases": [
+        "hy-mt2-plus"
+      ],
+      "capabilities": [
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-25"
+    },
+    {
+      "id": "hy-mt3-lite",
+      "name": "Hy-MT3 Lite",
+      "aliases": [
+        "hy-mt2-lite"
+      ],
+      "capabilities": [
+        "txt-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      },
+      "releasedAt": "2026-11-25"
+    },
+    {
+      "id": "tencent/WeMM-Ecom-35B-A3B",
+      "name": "WeMM-Ecom 35B-A3B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "img-in",
+        "video-in",
+        "txt-out",
+        "reason"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "tencent/WeMM-Ecom-9B",
+      "extends": "tencent/WeMM-Ecom-35B-A3B",
+      "overrides": {
+        "name": "WeMM-Ecom 9B"
+      }
+    },
+    {
+      "id": "tencent/WeMM-Ecom-4B",
+      "extends": "tencent/WeMM-Ecom-35B-A3B",
+      "overrides": {
+        "name": "WeMM-Ecom 4B"
+      }
+    },
+    {
+      "id": "tencent/WeMM-Ecom-2B",
+      "extends": "tencent/WeMM-Ecom-35B-A3B",
+      "overrides": {
+        "name": "WeMM-Ecom 2B"
+      }
+    },
+    {
+      "id": "tencent/WeMM-Ecom-0.8B",
+      "extends": "tencent/WeMM-Ecom-35B-A3B",
+      "overrides": {
+        "name": "WeMM-Ecom 0.8B"
+      }
+    },
+    {
       "id": "tencent/Hy-MT3-30B-A3B",
       "name": "Tencent Hy-MT3 30B A3B",
       "license": "apache-2.0",

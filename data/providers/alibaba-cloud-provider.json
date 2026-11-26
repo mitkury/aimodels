@@ -1,0 +1,13 @@
+{
+  "id": "alibaba-cloud",
+  "name": "Alibaba Cloud Model Studio Decisions",
+  "apiDocsUrl": "https://help.aliyun.com/en/model-studio/decision-model-api",
+  "models": [
+    {
+      "creator": "alibaba-cloud",
+      "include": [
+        "decision-model"
+      ]
+    }
+  ]
+}

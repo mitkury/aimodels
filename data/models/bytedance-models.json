@@ -2,6 +2,20 @@
   "creator": "bytedance",
   "models": [
     {
+      "id": "doubao-seed-tts-3.0",
+      "name": "Seed-TTS 3.0",
+      "license": "proprietary",
+      "capabilities": [
+        "txt-in",
+        "audio-out"
+      ],
+      "context": {
+        "type": "audio-out",
+        "total": null,
+        "maxOutput": null
+      }
+    },
+    {
       "id": "doubao-seedance-2-5-flash-261115",
       "name": "Seedance 2.5 Flash",
       "license": "proprietary",

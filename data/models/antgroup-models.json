@@ -2,6 +2,13 @@
   "creator": "antgroup",
   "models": [
     {
+      "id": "inclusionAI/Ling-3.2-air",
+      "name": "Ling 3.2 Air",
+      "license": "mit",
+      "capabilities": ["chat", "txt-in", "img-in", "video-in", "txt-out", "reason", "fn-out"],
+      "context": {"type": "token", "total": null, "maxOutput": null}
+    },
+    {
       "id": "Ling-3.2-flash",
       "name": "Ling 3.2 Flash",
       "capabilities": [

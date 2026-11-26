@@ -5,6 +5,10 @@
   "apiDocsUrl": "https://docs.ollama.com/cloud",
   "models": [
     {
+      "creator": "tencent",
+      "include": ["hy4"]
+    },
+    {
       "creator": "thinkingmachines",
       "include": [
         "thinkingmachines/Inkling-2-Small"
