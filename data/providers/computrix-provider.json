@@ -1,0 +1,14 @@
+{
+  "id": "computrix",
+  "name": "Computrix",
+  "apiUrl": "https://maas-api.computrix.ai/v1",
+  "apiDocsUrl": "https://github.com/inclusionAI/LingSante-MedGuard#single-api-call",
+  "models": [
+    {
+      "creator": "antgroup",
+      "include": [
+        "lingsante-medguard-4b"
+      ]
+    }
+  ]
+}

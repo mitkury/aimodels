@@ -29,3 +29,37 @@ The [Ling 3.2 Air card](https://huggingface.co/inclusionAI/Ling-3.2-air)
 publishes MIT weights and documents text, image and video input, reasoning,
 and function calling in local deployments. The 262,144-token setting is in the
 serving recipe. The native model limit and a hosted selector remain unverified.
+
+## November 27, 2026 audit
+
+The [Air VL card](https://huggingface.co/inclusionAI/LingSante-3.1-air-VL)
+and [Flash card](https://huggingface.co/inclusionAI/LingSante-3.1-flash)
+publish MIT weights and document reasoning and native tool calling. Air VL's
+[native configuration](https://huggingface.co/inclusionAI/LingSante-3.1-air-VL/blob/main/config.json)
+sets 131,072 tokens. The card documents a 262,144-token serving configuration
+with YaRN. Flash's card documents a 1-million-token window and its
+[shipped configuration](https://huggingface.co/inclusionAI/LingSante-3.1-flash/blob/main/config.json)
+sets 262,144 positions. Air VL's hosted routes
+are [OpenRouter](https://openrouter.ai/inclusionai/lingsante-3.1-air-vl) as
+`inclusionai/lingsante-3.1-air-vl` and
+[DeepInfra](https://deepinfra.com/inclusionAI/LingSante-3.1-air-VL/api) as
+`inclusionAI/LingSante-3.1-air-VL`. Both document structured output. The Flash
+card links a Computrix listing, which did not expose a request selector in
+the sources checked.
+
+The [Ant Digital DTMaaS model catalog](https://maas.antdigital.com/models)
+lists `lingdt-decision-fast-1.0`. [OpenRouter's decision model list](https://openrouter.ai/api/v1/models?output_modalities=decisions)
+lists `antdigital/lingdt-decision-fast-1.0:free`, with 32,768 tokens for that
+route. Native context remains unset because the
+[integration guide](https://maas.antdigital.com/docs/lingdt-decision-api-guide)
+did not expose readable request details during the audit.
+
+[LingSante MedGuard's upstream API examples](https://github.com/inclusionAI/LingSante-MedGuard#single-api-call)
+establish the same `lingsante-medguard-4b` selector on Ant Digital DTMaaS
+and Computrix and document the regional base URLs. The DTMaaS catalog
+lists a 64K context. The upstream repository publishes evaluation assets.
+
+The [Ming Image 0.2 Design card](https://huggingface.co/inclusionAI/Ming-Image-0.2-Design)
+and [November 25 weight upload](https://huggingface.co/inclusionAI/Ming-Image-0.2-Design/commit/675d9c3c3143ebece150b0b04b08f5edf0af80e4)
+establish an MIT-licensed text-to-image model with 1024- and 2048-level
+resolution presets.

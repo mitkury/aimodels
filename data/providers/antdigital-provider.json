@@ -1,0 +1,15 @@
+{
+  "id": "antdigital",
+  "name": "Ant Digital DTMaaS",
+  "apiUrl": "https://maas-api.antdigital.com/v1",
+  "apiDocsUrl": "https://maas.antdigital.com/models",
+  "models": [
+    {
+      "creator": "antgroup",
+      "include": [
+        "lingdt-decision-fast-1.0",
+        "lingsante-medguard-4b"
+      ]
+    }
+  ]
+}

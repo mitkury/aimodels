@@ -1,0 +1,79 @@
+{
+  "creator": "sber",
+  "models": [
+    {
+      "id": "ai-sage/GigaChat4-708B-A41B",
+      "name": "GigaChat 4 708B A41B",
+      "license": "mit",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "txt-out",
+        "reason",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 1048576,
+        "maxOutput": null
+      }
+    },
+    {
+      "id": "ai-sage/GigaChat4-708B-A41B-base",
+      "extends": "ai-sage/GigaChat4-708B-A41B",
+      "overrides": {
+        "name": "GigaChat 4 708B A41B Base",
+        "capabilities": [
+          "txt-in",
+          "txt-out"
+        ]
+      }
+    },
+    {
+      "id": "ai-sage/GigaChat4-37B-A4B",
+      "extends": "ai-sage/GigaChat4-708B-A41B",
+      "overrides": {
+        "name": "GigaChat 4 37B A4B",
+        "license": "noncommercial-license-for-individuals-1.0"
+      }
+    },
+    {
+      "id": "ai-sage/GigaChat4-37B-A4B-base",
+      "extends": "ai-sage/GigaChat4-37B-A4B",
+      "overrides": {
+        "name": "GigaChat 4 37B A4B Base",
+        "capabilities": [
+          "txt-in",
+          "txt-out"
+        ]
+      }
+    },
+    {
+      "id": "kandinskylab/Kandinsky-ImageSR-2.0",
+      "name": "Kandinsky ImageSR 2.0",
+      "license": "mit",
+      "capabilities": [
+        "img-in",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": []
+      }
+    },
+    {
+      "id": "kandinskylab/Kandinsky-6.0-VSR-2.0-distilled2steps-Diffusers",
+      "name": "Kandinsky 6.0 Video SR 2.0",
+      "license": "mit",
+      "capabilities": [
+        "video-in",
+        "video-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": null
+      }
+    }
+  ]
+}

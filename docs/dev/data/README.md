@@ -5,6 +5,7 @@ metadata. Read the page that matches the model file being changed:
 
 - [Alibaba Cloud](./alibaba-cloud.md)
 - [Aleph Alpha](./aleph-alpha.md)
+- [Amini](./amini.md)
 - [Ant Group](./antgroup.md)
 - [Anthropic](./anthropic.md)
 - [Amazon Web Services](./aws.md)
@@ -12,6 +13,7 @@ metadata. Read the page that matches the model file being changed:
 - [Baseten](./baseten.md)
 - [ByteDance Seed](./bytedance.md)
 - [Cohere](./cohere.md)
+- [Decagon](./decagon.md)
 - [DeepSeek](./deepseek.md)
 - [Google](./google.md)
 - [HeyGen](./heygen.md)
@@ -31,11 +33,14 @@ metadata. Read the page that matches the model file being changed:
 - [OpenAI](./openai.md)
 - [OpenBMB](./openbmb.md)
 - [Perplexity](./perplexity.md)
+- [PrismML](./prismml.md)
 - [Qwen](./qwen.md)
 - [RadixArk](./radixark.md)
 - [Recraft](./recraft.md)
 - [Salesforce](./salesforce.md)
 - [Sarvam AI](./sarvam.md)
+- [Sber](./sber.md)
+- [SenseTime](./sensetime.md)
 - [Shanghai Artificial Intelligence Laboratory](./internlm.md)
 - [StepFun](./stepfun.md)
 - [Thinking Machines Lab](./thinkingmachines.md)
@@ -271,3 +276,17 @@ model lists confirmed the Seed-TTS 3.0 route. NVIDIA's November 26 Parse
 announcement adds training assets and a speculator to the October model.
 Decision Models' changelog shows the core S1 and REAX selectors predate the
 recent gateway listings.
+
+## November 27, 2026 audit
+
+Rechecked the overlap from the November 26 audit. Added Sber's public GigaChat
+4 and Kandinsky super-resolution weights. Added inclusionAI's LingSante models
+and verified Air VL, MedGuard and Ant Digital decision routes. Added public
+checkpoints from Amini, Decagon, inclusionAI, PrismML and SenseTime. The
+creator notes record source evidence and coverage gaps.
+
+Rechecked OpenAI, Claude Platform, Gemini API, xAI, DeepSeek, Mistral, Alibaba
+Model Studio, Bedrock, Together, Groq, Ollama, and OpenRouter's modality lists.
+DeepL's [Aure v2 announcement](https://www.deepl.com/en/press-release/aure-v2)
+describes an automatic Voice API upgrade. Its [public API specification](https://github.com/DeepL/openapi/blob/main/openapi/openapi.yaml)
+does not define a separate model selector for that upgrade.

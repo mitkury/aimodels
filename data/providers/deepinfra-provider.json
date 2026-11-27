@@ -1,0 +1,14 @@
+{
+  "id": "deepinfra",
+  "name": "DeepInfra",
+  "apiUrl": "https://api.deepinfra.com/v1/openai",
+  "apiDocsUrl": "https://deepinfra.com/inclusionAI/LingSante-3.1-air-VL/api",
+  "models": [
+    {
+      "creator": "antgroup",
+      "include": [
+        "inclusionAI/LingSante-3.1-air-VL"
+      ]
+    }
+  ]
+}

@@ -2,6 +2,40 @@
   "creator": "antgroup",
   "models": [
     {
+      "id": "lingdt-decision-fast-1.0",
+      "name": "LingDT Decision Fast 1.0",
+      "capabilities": ["txt-in"],
+      "context": {"type": "token", "total": null, "maxOutput": 0}
+    },
+    {
+      "id": "lingsante-medguard-4b",
+      "name": "LingSante MedGuard 4B",
+      "capabilities": ["chat", "txt-in", "txt-out"],
+      "context": {"type": "token", "total": 64000, "maxOutput": null}
+    },
+    {
+      "id": "inclusionAI/Ming-Image-0.2-Design",
+      "name": "Ming Image 0.2 Design",
+      "license": "mit",
+      "capabilities": ["txt-in", "img-out"],
+      "context": {"maxOutput": 1, "sizes": ["1K", "2K"]}
+    },
+    {
+      "id": "inclusionAI/LingSante-3.1-air-VL",
+      "name": "LingSante 3.1 Air VL",
+      "license": "mit",
+      "capabilities": ["chat", "txt-in", "img-in", "txt-out", "reason", "fn-out", "json-out"],
+      "context": {"type": "token", "total": 131072, "maxOutput": null}
+    },
+    {
+      "id": "inclusionAI/LingSante-3.1-flash",
+      "extends": "Ling-3.1-flash",
+      "overrides": {
+        "name": "LingSante 3.1 Flash",
+        "context": {"type": "token", "total": 262144, "maxOutput": null}
+      }
+    },
+    {
       "id": "inclusionAI/Ling-3.2-air",
       "name": "Ling 3.2 Air",
       "license": "mit",

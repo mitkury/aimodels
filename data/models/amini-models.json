@@ -1,0 +1,21 @@
+{
+  "creator": "amini",
+  "models": [
+    {
+      "id": "AminiTech/Soma-1X-lite",
+      "name": "Soma-1X Lite",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "img-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    }
+  ]
+}

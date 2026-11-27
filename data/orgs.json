@@ -1,4 +1,34 @@
 {
+  "amini": {
+    "name": "Amini",
+    "websiteUrl": "https://www.amini.ai",
+    "country": "KEN",
+    "founded": 2022
+  },
+  "decagon": {
+    "name": "Decagon",
+    "websiteUrl": "https://decagon.ai",
+    "country": "USA",
+    "founded": 2023
+  },
+  "prismml": {
+    "name": "PrismML",
+    "websiteUrl": "https://prismml.com",
+    "country": "USA",
+    "founded": 2025
+  },
+  "sensetime": {
+    "name": "SenseTime",
+    "websiteUrl": "https://www.sensetime.com",
+    "country": "CHN",
+    "founded": 2014
+  },
+  "sber": {
+    "name": "Sber",
+    "websiteUrl": "https://www.sberbank.com",
+    "country": "RUS",
+    "founded": 1841
+  },
   "alibaba-cloud": {
     "name": "Alibaba Cloud",
     "websiteUrl": "https://www.alibabacloud.com",

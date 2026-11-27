@@ -1,0 +1,23 @@
+{
+  "creator": "prismml",
+  "models": [
+    {
+      "id": "prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+      "name": "Ternary Bonsai 2.5 27B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "img-in",
+        "txt-out",
+        "reason",
+        "fn-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 262144,
+        "maxOutput": null
+      }
+    }
+  ]
+}

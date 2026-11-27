@@ -194,12 +194,16 @@
     {
       "creator": "antgroup",
       "include": [
+        "lingdt-decision-fast-1.0",
+        "inclusionAI/LingSante-3.1-air-VL",
         "Ling-3.2-flash",
         "Ling-3.1-flash",
         "Ling-3.0-flash-VL",
         "Ling-3.0-tiny"
       ],
       "idOverrides": {
+        "lingdt-decision-fast-1.0": "antdigital/lingdt-decision-fast-1.0:free",
+        "inclusionAI/LingSante-3.1-air-VL": "inclusionai/lingsante-3.1-air-vl",
         "Ling-3.1-flash": "inclusionai/ling-3.1-flash",
         "Ling-3.0-flash-VL": "inclusionai/ling-3.0-flash-vl",
         "Ling-3.0-tiny": "inclusionai/ling-3.0-tiny",

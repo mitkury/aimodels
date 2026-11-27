@@ -1,0 +1,19 @@
+{
+  "creator": "decagon",
+  "models": [
+    {
+      "id": "decagon-ai/Decibel-30B-A3B-v0",
+      "name": "Decibel 30B A3B v0",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "audio-in"
+      ],
+      "context": {
+        "type": "token",
+        "total": null,
+        "maxOutput": 0
+      }
+    }
+  ]
+}

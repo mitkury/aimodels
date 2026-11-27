@@ -1,0 +1,20 @@
+{
+  "creator": "sensetime",
+  "models": [
+    {
+      "id": "sensenova/SenseNova-U1.6-8B-MoT",
+      "name": "SenseNova U1.6 8B MoT",
+      "license": "apache-2.0",
+      "capabilities": [
+        "txt-in",
+        "img-in",
+        "txt-out",
+        "img-out"
+      ],
+      "context": {
+        "maxOutput": 1,
+        "sizes": []
+      }
+    }
+  ]
+}
