@@ -11,6 +11,7 @@ metadata. Read the page that matches the model file being changed:
 - [Amazon Web Services](./aws.md)
 - [Baidu](./baidu.md)
 - [Baseten](./baseten.md)
+- [BharatGen](./bharatgen.md)
 - [ByteDance Seed](./bytedance.md)
 - [Cohere](./cohere.md)
 - [Decagon](./decagon.md)
@@ -290,3 +291,17 @@ Model Studio, Bedrock, Together, Groq, Ollama, and OpenRouter's modality lists.
 DeepL's [Aure v2 announcement](https://www.deepl.com/en/press-release/aure-v2)
 describes an automatic Voice API upgrade. Its [public API specification](https://github.com/DeepL/openapi/blob/main/openapi/openapi.yaml)
 does not define a separate model selector for that upgrade.
+
+## November 28, 2026 audit
+
+Rechecked the overlap from the November 27 audit. Added Liquid's d1.3-ultra,
+DeepSeek Pro 0813 and the verified revision and Flash serving routes, plus
+the Patram 1.5 and RoboRSI-27B weights.
+
+Rechecked the OpenAI, Claude Platform, Gemini API, xAI, DeepSeek, Qwen and
+Mistral changelogs and the Bedrock, Together, Groq, Ollama and OpenRouter
+catalogs. OpenRouter's current model list still includes the Recraft V4.1
+Flash V2 and ERNIE 5.5 Flash Preview routes. AWS's
+[Transcribe Turbo announcement](https://aws.amazon.com/about-aws/whats-new/2026/11/transcribe-turbo-preview/)
+describes a base-model rollout through the existing API with no new selector.
+Tencent's Apexio repository only contained its initial placeholder.

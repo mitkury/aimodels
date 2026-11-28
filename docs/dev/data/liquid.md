@@ -18,3 +18,12 @@ output tokens. The OpenAI-compatible Liquid endpoint remains mapped to
 its text model. OpenRouter lists [d1.2](https://openrouter.ai/liquid/d1.2)
 and [d1.2-ultra](https://openrouter.ai/liquid/d1.2-ultra) on its decisions
 and extractions interfaces and advertises a 65,536-token context there.
+
+## November 28, 2026 audit
+
+Liquid's [November 27 launch](https://x.com/liquidai/status/2126374995399975380)
+announces `d1.3-ultra` in the Liquid Console and describes ranked choices
+and extraction from images and audio. The [native decisions API](https://docs.liquid.ai/api/guides/decisions)
+uses `/decisions/v1/systemone`. The public model table still describes d1.2,
+so the new model's context limit and pricing are unset. Liquid lists
+OpenRouter and Vercel as forthcoming.

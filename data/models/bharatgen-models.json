@@ -1,0 +1,21 @@
+{
+  "creator": "bharatgen",
+  "models": [
+    {
+      "id": "bharatgenai/Patram1.5-7B",
+      "name": "Patram 1.5 7B",
+      "license": "apache-2.0",
+      "capabilities": [
+        "chat",
+        "txt-in",
+        "img-in",
+        "txt-out"
+      ],
+      "context": {
+        "type": "token",
+        "total": 32768,
+        "maxOutput": null
+      }
+    }
+  ]
+}

@@ -79,3 +79,22 @@ native selector. Record the separate [MIT checkpoint](https://huggingface.co/dee
 so OpenRouter and Mistral can resolve their explicitly versioned routes without
 overwriting the older OpenRouter Flash route. The providers document their own
 output ceilings.
+
+## November 28, 2026 audit
+
+[DeepSeek's August 13 update](https://api-docs.deepseek.com/updates/#deepseek-v4-pro-update)
+retains the native `deepseek-v4-pro` selector. The separate
+[MIT checkpoint](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813)
+represents that August revision. Its [configuration](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813/blob/main/config.json)
+sets a 1,048,576-token context. [Model Studio's API reference](https://www.alibabacloud.com/help/en/model-studio/deepseek-api)
+documents the 393,216-token combined thinking and output ceiling for the
+revision and its `deepseek-v4-pro-0813` selector. Model Studio uses
+workspace-specific endpoints. [LLM Gateway](https://llmgateway.io/models/deepseek-v4-pro-0813)
+also lists the revision under that selector as of November 27.
+
+[OpenRouter's model list](https://openrouter.ai/api/v1/models) lists both
+`deepseek/deepseek-v4-pro` and `deepseek/deepseek-v4-pro-0813`. [Together's changelog](https://docs.together.ai/docs/changelog)
+lists `deepseek-ai/DeepSeek-V4-Pro-0813` as the serverless replacement for its
+original Pro route. The [current Together catalog](https://docs.together.ai/docs/serverless/models)
+also lists `deepseek-ai/DeepSeek-V4.1-Flash-1017` and its `-fast` serving
+tier. Together confirms the two use the same weights and different selectors.

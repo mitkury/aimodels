@@ -2,6 +2,13 @@
   "creator": "sensetime",
   "models": [
     {
+      "id": "sensenova/SenseNova-RoboRSI-27B",
+      "name": "SenseNova RoboRSI 27B",
+      "license": "apache-2.0",
+      "capabilities": ["chat", "txt-in", "img-in", "txt-out", "reason", "fn-out"],
+      "context": {"type": "token", "total": 262144, "maxOutput": null}
+    },
+    {
       "id": "sensenova/SenseNova-U1.6-8B-MoT",
       "name": "SenseNova U1.6 8B MoT",
       "license": "apache-2.0",

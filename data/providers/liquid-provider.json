@@ -9,6 +9,7 @@
       "creator": "liquid",
       "include": "all",
       "exclude": [
+        "d1.3-ultra",
         "d1.2",
         "d1.2-ultra"
       ]

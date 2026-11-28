@@ -2,6 +2,22 @@
   "creator": "deepseek",
   "models": [
     {
+      "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "extends": "deepseek-v4-pro",
+      "overrides": {
+        "name": "DeepSeek V4 Pro 0813",
+        "context": {"type": "token", "total": 1048576, "maxOutput": 393216}
+      },
+      "releasedAt": "2026-08-13"
+    },
+    {
+      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017-fast",
+      "extends": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "overrides": {
+        "name": "DeepSeek V4.1 Flash 1017 Fast"
+      }
+    },
+    {
       "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "extends": "deepseek-flash",
       "overrides": {

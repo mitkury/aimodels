@@ -1,0 +1,17 @@
+{
+  "id": "llm-gateway",
+  "name": "LLM Gateway",
+  "apiUrl": "https://api.llmgateway.io/v1",
+  "apiDocsUrl": "https://llmgateway.io/models/deepseek-v4-pro-0813",
+  "models": [
+    {
+      "creator": "deepseek",
+      "include": [
+        "deepseek-ai/DeepSeek-V4-Pro-0813"
+      ],
+      "idOverrides": {
+        "deepseek-ai/DeepSeek-V4-Pro-0813": "deepseek-v4-pro-0813"
+      }
+    }
+  ]
+}

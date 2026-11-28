@@ -1,4 +1,10 @@
 {
+  "bharatgen": {
+    "name": "BharatGen",
+    "websiteUrl": "https://bharatgen.com",
+    "country": "IND",
+    "founded": 2024
+  },
   "amini": {
     "name": "Amini",
     "websiteUrl": "https://www.amini.ai",

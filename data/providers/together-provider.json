@@ -6,6 +6,14 @@
   "pricing": {},
   "models": [
     {
+      "creator": "deepseek",
+      "include": [
+        "deepseek-ai/DeepSeek-V4-Pro-0813",
+        "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "deepseek-ai/DeepSeek-V4.1-Flash-1017-fast"
+      ]
+    },
+    {
       "creator": "tencent",
       "include": ["hy4"],
       "idOverrides": {

@@ -12,3 +12,13 @@ documents text-to-image generation, editing and native self-correction. The
 release announcement lists a separate hosted SenseNova U1.6 Lite API on
 SenseNova Token Plan. The public sources checked did not establish its exact
 request selector.
+
+## November 28, 2026 audit
+
+The [RoboRSI-27B full release](https://huggingface.co/blog/sensenova/roborsi)
+and the [Apache 2.0 checkpoint](https://huggingface.co/sensenova/SenseNova-RoboRSI-27B)
+document image and text inputs and native reasoning and tool-call parsing.
+The [configuration](https://huggingface.co/sensenova/SenseNova-RoboRSI-27B/blob/main/config.json)
+sets 262,144 text positions. The November 27 model-card update links the
+[official GGUF builds](https://huggingface.co/sensenova/SenseNova-RoboRSI-27B-GGUF)
+of the same checkpoint.

@@ -2,6 +2,12 @@
   "creator": "liquid",
   "models": [
     {
+      "id": "d1.3-ultra",
+      "extends": "d1.2-ultra",
+      "overrides": {"name": "d1.3-ultra"},
+      "releasedAt": "2026-11-27"
+    },
+    {
       "id": "d1.2",
       "name": "d1.2",
       "license": "proprietary",
