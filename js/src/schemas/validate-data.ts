@@ -168,20 +168,19 @@ function validateRelationships() {
     }
   }
 
-  const visited = new Set<string>();
-  const visiting = new Set<string>();
+  const visitState = new Map<string, 'visiting' | 'visited'>();
   const visitModel = (modelId: string, path: string[]) => {
-    if (visited.has(modelId)) return;
-    if (visiting.has(modelId)) {
+    const state = visitState.get(modelId);
+    if (state === 'visited') return;
+    if (state === 'visiting') {
       fail(`circular model inheritance: ${[...path, modelId].join(' -> ')}`);
       return;
     }
 
-    visiting.add(modelId);
+    visitState.set(modelId, 'visiting');
     const baseId = modelsById.get(modelId)?.model.extends;
     if (baseId && modelsById.has(baseId)) visitModel(baseId, [...path, modelId]);
-    visiting.delete(modelId);
-    visited.add(modelId);
+    visitState.set(modelId, 'visited');
   };
   for (const modelId of modelsById.keys()) visitModel(modelId, []);
 
